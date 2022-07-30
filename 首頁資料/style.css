@@ -1,0 +1,72 @@
+/*------------------------------------------總設定------------------------------------------------------*/
+*{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+/*body::-webkit-scrollbar { display: none; }/*去除滾軸*/
+::-webkit-scrollbar{ position: fixed;bottom: 0px;width: 10px; }
+a{ text-decoration: none; }/*去除醜醜的底線*/
+h1, h2, h3, h4, p{ text-align: center; }
+/*-------------------------------------------上方-------------------------------------------------------*/
+header { position: fixed; top: 0px; left: 0px; right: 0px; height: 40px; z-index: 5; }
+header h1{ font-family:Impact;margin: 0px;}
+.gapp img{position: fixed;top: 0px;right: 115px;height: 40px;width: 40px; z-index: 6;}
+.gapp section{position: fixed;top: 40px;right: 0px;z-index: 6;text-align: center;
+              width: 270px;height: 360px;visibility: hidden;border:solid 3px;}
+.gapp img:hover{opacity: 0.7;}
+.gapp:hover section{visibility: visible;}
+.gapp a img{position: relative;left: 0.25px;width: 75px;height: 75px;
+    margin: 5px;border-radius: 5px;}
+/*-------------------------------------------主頁內容----------------------------------------------------*/
+main{ position: absolute; top: 100px; left: 0px; right: 0px; z-index: 1; overflow-x: hidden;/*remove bottom scrollbar*/}
+main iframe{z-index: 2; height: 600px; }
+main h3{ position: relative; left: 10%; width: 80%; top: -20px; z-index: 2;
+border-radius: 30px; font-size: 35px; }
+main article{
+    position: relative;top: 0px; width: 80vw; left: 10vw;right: 10vw;margin-top: 100px;
+    border-left: 10px solid; border-right: 10px solid; border-bottom: 20px groove; border-radius: 50px; 
+}
+main audio{position:relative;  left:10%; width: 80%;}
+main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
+main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
+/*-------------------------------------------側邊欄-------------------------------------------------------*/  
+aside{position: fixed;z-index: 2;}
+aside img{position: fixed;right: 0px;bottom:0px;width: 30px;height: 30px;}
+aside section{position: fixed;right: 0px;bottom: 0px;width: 90px; visibility: hidden;} 
+aside:hover section{visibility: visible;}
+/*-------------------------------------------導覽列--------------------------------------------------------*/
+nav{ position: fixed; top: 40px; left: 0px; right: 0px; height: 40px;z-index: 3; }
+nav img { position: relative; width: 90px; height: 90px; margin: 9px; border-radius: 10px ; }
+nav img:hover{opacity: 0.7; }
+.app h2 {position: fixed;top: 40px;height: 40px; margin: 0px; z-index: 5;}
+.app:hover h2{border: solid 5px; border-bottom: 0px;}
+.app section{ position: fixed;top: 80px;left: 0px;right: 0px;text-align: center; visibility:hidden; z-index: 4; }/*隱藏連結內容*/
+.app:hover section{ border: solid 5px; visibility: visible; } /*導覽列被觸碰顯示連結內容*/
+.app:nth-child(1) h2{ left: 00vw; right: 75vw; }/*設定4個導覽列位置*/
+.app:nth-child(2) h2{ left: 25vw; right: 50vw; }
+.app:nth-child(3) h2{ left: 50vw; right: 25vw; }
+.app:nth-child(4) h2{ left: 75vw; right: 00vw; }       
+/*------------------------------------------頁尾-----------------------------------------------------------*/
+footer{position: relative; bottom: 0px;  left: 0px; right: 0px; }
+footer h4{position: relative; top: 10px; left: 60px; text-align: left;}
+footer article{border: 0px;height: 120px;border-radius: 0px;}
+/*------------------------------------------配色-----------------------------------------------------------*/
+/*底色*/
+*,main section a{background-color: #191718;}
+aside,aside li,aside a,aside p{color: #191718;}
+/*頁首頁尾*/
+header h1, header,
+main h3,h3 a,
+.app section,.app, a,.app:hover h2,
+.gapp section,
+footer, footer h4, footer section, footer article,
+footer ul, footer li,footer section a,
+body::-webkit-scrollbar-thumb{background-color: #0a62d0; }
+main article{border-color:#0a62d0 ;}
+/*文字側欄*/
+*{color: #e0e5e9;}
+aside,aside ul,aside li,aside a,aside section,aside p,
+body::-webkit-scrollbar-track{background-color: #e0e5e9;}
+/*導覽列*/
+.app:hover h2,.app:hover section,.gapp section{border-color:#f3d849; }
+nav,.app h2{background-color: #f3d849; }
+/*black #658DC6 #efd9c8 #0f4c81*/
+/*#100c0d #013328 #efd9c8 #cc8b65*/
+/*#191718 #0a62d0 #e0e5e9 #f3d849*/
