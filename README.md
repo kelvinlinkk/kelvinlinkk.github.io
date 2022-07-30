@@ -1,1 +1,3 @@
 # myhome
+
+Where everything started
