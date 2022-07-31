@@ -4,21 +4,22 @@
 ::-webkit-scrollbar{ position: fixed;bottom: 0px;width: 10px; }
 a{ text-decoration: none; }/*去除醜醜的底線*/
 h1, h2, h3, h4, p{ text-align: center; }
+p{font-size: 2vh;}
 /*-------------------------------------------上方-------------------------------------------------------*/
-header { position: fixed; top: 0px; left: 0px; right: 0px; height: 40px; z-index: 5; }
-header h1{ font-family:Impact;margin: 0px;}
-.gapp img{position: fixed;top: 0px;right: 115px;height: 40px;width: 40px; z-index: 6;}
-.gapp section{position: fixed;top: 40px;right: 0px;z-index: 6;text-align: center;
-              width: 270px;height: 360px;visibility: hidden;border:solid 3px;}
+header { position: fixed; top: 0px; left: 0px; right: 0px; height: 10vh; z-index: 5; }
+header h1{ font-family:Impact;margin: 0px;font-size: 7vh;}
+.gapp img{position: fixed;top: 0px;right: 1vw;height: 10vh;width: 10vh; z-index: 6;}
+.gapp section{position: fixed;top: 10vh;right: 0px;z-index: 6;text-align: center;
+              width: 60vw;height: 80vw;visibility: hidden;border:solid 3px;}
 .gapp img:hover{opacity: 0.7;}
 .gapp:hover section{visibility: visible;}
-.gapp a img{position: relative;left: 0.25px;width: 75px;height: 75px;
+.gapp a img{position: relative;left: 0.5vw;width: 18vw;height: 18vw;
     margin: 5px;border-radius: 5px;}
 /*-------------------------------------------主頁內容----------------------------------------------------*/
-main{ position: absolute; top: 100px; left: 0px; right: 0px; z-index: 1; overflow-x: hidden;/*remove bottom scrollbar*/}
+main{ position: absolute; top: 20vh; left: 0px; right: 0px; z-index: 1; overflow-x: hidden;/*remove bottom scrollbar*/}
 main iframe{z-index: 2; height: 600px; }
 main h3{ position: relative; left: 10%; width: 80%; top: -20px; z-index: 2;
-border-radius: 30px; font-size: 35px; }
+border-radius: 30px; font-size: 4vh; }
 main article{
     position: relative;top: 0px; width: 80vw; left: 10vw;right: 10vw;margin-top: 100px;
     border-left: 10px solid; border-right: 10px solid; border-bottom: 20px groove; border-radius: 50px; 
@@ -27,26 +28,27 @@ main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
 /*-------------------------------------------側邊欄-------------------------------------------------------*/  
-aside{position: fixed;z-index: 2;}
-aside img{position: fixed;right: 0px;bottom:0px;width: 30px;height: 30px;}
-aside section{position: fixed;right: 0px;bottom: 0px;width: 90px; visibility: hidden;} 
+aside{position: fixed;z-index: 2;font-size: 3vw;}
+aside img{position: fixed;right: 0px;bottom:0px;width: 5vw;height: 5vw;}
+aside section{position: fixed;right: 0px;bottom: 0px;width: 14vw; visibility: hidden;} 
 aside:hover section{visibility: visible;}
+aside p{font-size: 4vw;}
 /*-------------------------------------------導覽列--------------------------------------------------------*/
-nav{ position: fixed; top: 40px; left: 0px; right: 0px; height: 40px;z-index: 3; }
-nav img { position: relative; width: 90px; height: 90px; margin: 9px; border-radius: 10px ; }
+nav{ position: fixed; top: 10vh; left: 0px; right: 0px; height: 10vh;z-index: 3; }
+nav img { position: relative; width:  11vh; height: 11vh; margin: 1vw; border-radius: 2vh ; }
 nav img:hover{opacity: 0.7; }
-.app h2 {position: fixed;top: 40px;height: 40px; margin: 0px; z-index: 5;}
+.app h2 {position: fixed;top: 10vh;height: 10vh; margin: 0px; z-index: 5;font-size: 6vh;}
 .app:hover h2{border: solid 5px; border-bottom: 0px;}
-.app section{ position: fixed;top: 80px;left: 0px;right: 0px;text-align: center; visibility:hidden; z-index: 4; }/*隱藏連結內容*/
+.app section{ position: fixed;top: 20vh;left: 0px;right: 0px;text-align: center; visibility:hidden; z-index: 4; }/*隱藏連結內容*/
 .app:hover section{ border: solid 5px; visibility: visible; } /*導覽列被觸碰顯示連結內容*/
 .app:nth-child(1) h2{ left: 00vw; right: 75vw; }/*設定4個導覽列位置*/
 .app:nth-child(2) h2{ left: 25vw; right: 50vw; }
 .app:nth-child(3) h2{ left: 50vw; right: 25vw; }
 .app:nth-child(4) h2{ left: 75vw; right: 00vw; }       
 /*------------------------------------------頁尾-----------------------------------------------------------*/
-footer{position: relative; bottom: 0px;  left: 0px; right: 0px; }
-footer h4{position: relative; top: 10px; left: 60px; text-align: left;}
-footer article{border: 0px;height: 120px;border-radius: 0px;}
+footer{position: relative; bottom: 0px;  left: 0px; right: 0px; font-size: 2vh;}
+footer h4{position: relative; top: 1vh; left: 5vw; text-align: left;}
+footer article{border: 0px;height: 20vh;border-radius: 0px;}
 /*------------------------------------------配色-----------------------------------------------------------*/
 /*底色*/
 *,main section a{background-color: #191718;}
