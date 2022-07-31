@@ -28,11 +28,11 @@ main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
 /*-------------------------------------------側邊欄-------------------------------------------------------*/  
-aside{position: fixed;z-index: 2;font-size: 3vw;}
+/*aside{position: fixed;z-index: 2;font-size: 3vw;}
 aside img{position: fixed;right: 0px;bottom:0px;width: 5vw;height: 5vw;}
 aside section{position: fixed;right: 0px;bottom: 0px;width: 14vw; visibility: hidden;} 
 aside:hover section{visibility: visible;}
-aside p{font-size: 4vw;}
+aside p{font-size: 4vw;}*/
 /*-------------------------------------------導覽列--------------------------------------------------------*/
 nav{ position: fixed; top: 10vh; left: 0px; right: 0px; height: 10vh;z-index: 3; }
 nav img { position: relative; width:  11vh; height: 11vh; margin: 1vw; border-radius: 2vh ; }
