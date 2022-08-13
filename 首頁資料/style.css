@@ -10,7 +10,7 @@ header { position: fixed; top: 0px; left: 0px; right: 0px; height: 8vh; z-index:
 header h1{ font-family:Impact;margin: 0px;font-size: 6vh;}
 .gapp img{position: fixed;top: 0px;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
 .gapp section{position: fixed;top: 8vh;right: 0px;z-index: 6;text-align: center;
-              width: 48vh;height: 64vh;visibility: hidden;border:solid 3px;}
+              width: 48vh;height: 65vh;visibility: hidden;border:solid 3px;}
 .gapp img:hover{opacity: 0.7;}
 .gapp:hover section{visibility: visible;}
 .gapp a img{position: relative;left: 0.2vh;width: 14vh;height: 14vh;
