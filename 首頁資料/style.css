@@ -66,8 +66,8 @@ aside,aside li,aside a,aside p{color: #191718;}
 /*頁首頁尾*/
 header h1, header,
 main h3,h3 a,
-.app section,.app, a,.app:hover h2,.app:hover h2 img,
-.gapp section,.page section,
+.app section,.app, a,.app:hover h2,.app:hover h2 img,.app img,
+.gapp section,.page section,.gapp img,
 footer, footer h4, footer section, footer article,
 footer ul, footer li,footer section a,
 body::-webkit-scrollbar-thumb{background-color: #0a62d0; }
