@@ -7,11 +7,9 @@
         "id": "c71971364a45db0b",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "image",
           "state": {
-            "file": "Home.md",
-            "mode": "source",
-            "source": false
+            "file": "首頁資料/icon/classroom.png"
           }
         }
       }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Home.md",
+                "file": "首頁資料/icon/classroom.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Home.md",
+                "file": "首頁資料/icon/classroom.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Home.md"
+                "file": "首頁資料/icon/classroom.png"
               }
             }
           }
@@ -138,8 +136,15 @@
   },
   "active": "c71971364a45db0b",
   "lastOpenFiles": [
-    "README.md",
+    "首頁資料/icon/bbc.png",
+    "首頁資料/icon/科教館.png",
+    "首頁資料/icon/均一.png",
+    "首頁資料/icon/分頁.png",
+    "首頁資料/icon/中學生.png",
+    "science/錦鯉論文.png",
+    "science/錦鯉產業.png",
     "Home.md",
+    "README.md",
     "markdown.md"
   ]
 }
