@@ -10,7 +10,7 @@ if flag:
     while(1):
         os.system("git add .")
         if len(commitMes)==0:
-            commitMes = time.ctime() + "\bauto update"
+            commitMes = time.ctime() + "auto update"
         os.system("git commit -m \"" + commitMes +"\"")
         os.system("git push -u origin main")
         time.sleep(timer)
