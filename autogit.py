@@ -1,4 +1,3 @@
-from email import message
 import os
 import time
 flag = int(input("按1自動、按0立刻"))
