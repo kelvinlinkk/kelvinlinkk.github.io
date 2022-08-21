@@ -4,12 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "c71971364a45db0b",
+        "id": "8f2e803d5c83f646",
         "type": "leaf",
         "state": {
-          "type": "image",
+          "type": "markdown",
           "state": {
-            "file": "首頁資料/icon/classroom.png"
+            "file": "Home.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "首頁資料/icon/classroom.png",
+                "file": "Home.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "首頁資料/icon/classroom.png",
+                "file": "Home.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "首頁資料/icon/classroom.png"
+                "file": "Home.md"
               }
             }
           }
@@ -134,7 +136,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "c71971364a45db0b",
+  "active": "8f2e803d5c83f646",
   "lastOpenFiles": [
     "首頁資料/icon/bbc.png",
     "首頁資料/icon/科教館.png",

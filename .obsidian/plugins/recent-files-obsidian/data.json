@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Home",
+      "path": "Home.md"
+    },
+    {
       "basename": "classroom",
       "path": "首頁資料/icon/classroom.png"
     },
@@ -31,10 +35,6 @@
     {
       "basename": "錦鯉產業",
       "path": "science/錦鯉產業.png"
-    },
-    {
-      "basename": "Home",
-      "path": "Home.md"
     },
     {
       "basename": "README",
