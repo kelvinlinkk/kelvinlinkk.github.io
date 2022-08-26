@@ -1,0 +1,1 @@
+﻿& C:/Users/user/AppData/Local/Programs/Python/Python310/python.exe c:/Users/user/Desktop/坤逸/程式/AllCode/python/autogit.py
