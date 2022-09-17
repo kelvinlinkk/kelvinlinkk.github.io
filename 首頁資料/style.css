@@ -17,7 +17,7 @@ header h1{ font-family:Impact;margin: 0px;font-size: 6vh;}
     margin: 0.7vh;border-radius: 5px;}
 .page img{position: fixed;top: 0px;left: 1vw;height: 8vh;width: 8vh; z-index: 6;}
 .page section{position: fixed;top: 8vh;left: 0px;z-index: 6;text-align: center;
-              width: 48vh;height: 64vh;visibility: hidden;border:solid 3px;}
+              width: 16vh;visibility: hidden;border:solid 3px;}
 .page img:hover{opacity: 0.7;}
 .page:hover section{visibility: visible;}
 .page a img{position: relative;left: 0.2vh;width: 14vh;height: 14vh;
@@ -56,7 +56,7 @@ nav img:hover{opacity: 0.7; }
 .app:nth-child(3) h2{ left: 50vw; right: 25vw; }
 .app:nth-child(4) h2{ left: 75vw; right: 00vw; }       
 /*------------------------------------------頁尾-----------------------------------------------------------*/
-footer{position: relative; bottom: 0px;  left: 0px; right: 0px; font-size: 2vh;}
+footer{position: relative; bottom: 0px; left: 0px; right: 0px; font-size: calc(1vw + 1vh);}
 footer h4{position: relative; top: 1vh; left: 5vw; text-align: left;}
 footer article{border: 0px;height: 20vh;border-radius: 0px;}
 /*------------------------------------------配色-----------------------------------------------------------*/
