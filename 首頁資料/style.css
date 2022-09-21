@@ -70,8 +70,8 @@ main h3,h3 a,
 .gapp section,.page section,.gapp img,
 footer, footer h4, footer section, footer article,
 footer ul, footer li,footer section a,
-body::-webkit-scrollbar-thumb{background-color: #0a62d0; }
-main article{border-color:#0a62d0 ;}
+body::-webkit-scrollbar-thumb{background-color: #4a1d1d; }
+main article{border-color:#4a1d1d ;}
 /*文字側欄*/
 *{color: #e0e5e9;}
 aside,aside ul,aside li,aside a,aside section,aside p,
