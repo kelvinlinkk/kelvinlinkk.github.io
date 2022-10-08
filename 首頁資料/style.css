@@ -36,12 +36,6 @@ main article{
 main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
-/*-------------------------------------------側邊欄-------------------------------------------------------*/  
-/*aside{position: fixed;z-index: 2;font-size: 3vw;}
-aside img{position: fixed;right: 0px;bottom:0px;width: 5vw;height: 5vw;}
-aside section{position: fixed;right: 0px;bottom: 0px;width: 14vw; visibility: hidden;} 
-aside:hover section{visibility: visible;}
-aside p{font-size: 4vw;}*/
 /*-------------------------------------------導覽列--------------------------------------------------------*/
 nav{ position: fixed; top: 8vh; left: 0px; right: 0px; height: 8vh;z-index: 3; }
 nav img { position: relative; width:  calc(5.6vh + 5.6vw); height: calc(5.6vh + 5.6vw); margin:calc(0.75vh + 0.75vw); border-radius: 2vh ; }
@@ -63,7 +57,6 @@ footer article{border: 0px;height: 20vh;border-radius: 0px;}
 /*------------------------------------------配色-----------------------------------------------------------*/
 /*底色*/
 *,main section a{background-color: #191718;}
-aside,aside li,aside a,aside p{color: #191718;}
 /*頁首頁尾*/
 header h1, header,
 main h3,h3 a,
@@ -76,7 +69,6 @@ body::-webkit-scrollbar-thumb{background-color: #4a1d1d; }
 main article{border-color:#4a1d1d ;}
 /*文字側欄*/
 *{color: #e0e5e9;}
-aside,aside ul,aside li,aside a,aside section,aside p,
 body::-webkit-scrollbar-track{background-color: #e0e5e9;}
 /*導覽列*/
 .app:hover h2,.app:hover section,.gapp section,.page section{border-color:#f3d849; }
