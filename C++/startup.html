@@ -37,21 +37,45 @@
                     <a href="http://github.com" title="github"><img src="../首頁資料/icon/github.png"></a>
                     <a href="https://www.oxxostudio.tw/" title="oxxostudio"><img src="../首頁資料/icon/oxxo.png"></a>
                 </section>
-            </div>
         </nav>
 <!-----------------------------------------------main---------------------------------------------------------------------------------------->
         <main> 
-            <br id="starting">
+            <br id="build">
             <article>
-                <a href="https://www.iso.org/standard/79358.html">
-                    <h3><img src="../首頁資料/icon/c++.png" style="height: 45px;"></h3>
-                </a>
+                <h3>環境設置</h3>
                 <section>
-                    <iframe src="https://zh.wikipedia.org/zh-tw/C%2B%2B"></iframe>
-                    <p>我希望再來陸陸續續我可以開始在這裡寫自己學C++的紀錄</p><br>
+                    <p style="text-align: left;">本回我採用<a href="https://code.visualstudio.com/">vscode</a>搭配<a href="https://www.msys2.org/">msys2</a>的組合來編寫C++(聽起來不是很專業啦)。
+                    不過依照vscode的<a href="https://code.visualstudio.com/docs/languages/cpp">官方說明</a>或許比較容易設置完成
+                    ，<del>畢竟微軟的東西有時蠻有個性的😂</del></p><br>
+                    <p style="text-align: left;">首先先新建一個資料夾，用vscode開啟後下載c++的延伸模組。
+                    (按下延伸模組的按鍵，輸入c++，或是從
+                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">這裡</a>下載)</p><br>
+                    <img src="pic/cppPlugin.png"><p>(C/C++)</p>
+                    <p style="text-align: left;">接著就是安裝編譯器的時間啦!首先到,msys2的官網下載<a href="https://github.com/msys2/msys2-installer/releases/download/2022-09-04/msys2-x86_64-20220904.exe">安裝檔</a>，
+                    接著按照<a href="https://www.msys2.org/">msys2官網安裝</a></p><br>
+                    <img src="pic/msys2.png"><p>(msys2安裝中)</p>
+                    <p style="text-align: left;">安裝完後，請執行 pacman -Syu 指令，並且放心地給他Y下去，過程中，他會要求你先關閉程式，只要再重新啟動，再輸入相同的指令就好了。</p><br>
+                    <img src="pic/mingw641.png"><p>(pacman -Syu)</p>
+                    <p style="text-align: left;">接著，開啟MSYS2 MSYS，然後執行 pacman -S --needed base-devel mingw-w64-x86_64-toolchain 指令載入tooltrain</p>
+                    <img src="pic/msys.png"><p>(msys & pacman -S --needed base-devel mingw-w64-x86_64-toolchain)</p>
+                    <p style="text-align: left;">離運行第一段程式不遠了!首先，先開啟我們的vscode，在終端機中輸入 gcc --version 指令、 g++ --version 指令、 gdb --version 指令，如果沒有出現錯誤，那就是要編譯程式的時間了!</p><br>
+                    <img src="pic/version.png"><p>(g++ --version)</p>
+                    <p style="text-align: left;">接著，<a>寫一段c++程式</a>後，按下ctrl + shift + B (執行組建工作)，在選取我們剛佈下的g++編譯器，你會看到資料夾中產生了一個.exe執行檔。
+                    再輸入.\(檔名).exe 即可運行了!</p>
+                    <img src="pic/build.png"><p>(成功了_we_did_it.mp3)</p>
                 </section>
             </article>
 
+            <br id="ide">
+            <article>
+                <h3>IDE</h3>
+                <iframe src="https://zh.wikipedia.org/wiki/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"></iframe>
+                <p>(整合開發環境)</p><br>
+                <p style="text-align: left;">其實如果你/妳會害怕，用IDE最方便啦!以下列舉一小部分IDE</p>
+                <p><a href="https://visualstudio.microsoft.com/zh-hant/downloads/">visual studio</a>:應用程式開發</p>
+                <p><a href="https://sourceforge.net/projects/orwelldevcpp/">Dev-Cpp</a>:再老都會有人用的IDE</p>
+                <p><a href="https://sourceforge.net/projects/codeblocks/">Code::Block</a>:APCS考試適用</p>
+            </article>
 <!-----------------------------------------------footer---------------------------------------------------------------------------------------->
             <footer>
                 <article id="about">

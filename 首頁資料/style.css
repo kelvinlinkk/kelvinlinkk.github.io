@@ -73,6 +73,7 @@ body::-webkit-scrollbar-track{background-color: #e0e5e9;}
 /*導覽列*/
 .app:hover h2,.app:hover section,.gapp section,.page section{border-color:#f3d849; }
 nav,.app h2,.app h2 img{background-color: #f3d849; }
+body article p a{color: #f3d849;}
 /*black #658DC6 #efd9c8 #0f4c81*/
 /*#100c0d #013328 #efd9c8 #cc8b65*/
 /*#191718 #0a62d0 #e0e5e9 #f3d849*/
