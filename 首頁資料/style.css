@@ -36,6 +36,7 @@ main article{
 main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
+.instagram-media{position: relative;left: 5%;width: 90%;}
 /*-------------------------------------------導覽列--------------------------------------------------------*/
 nav{ position: fixed; top: 8vh; left: 0px; right: 0px; height: 8vh;z-index: 3; }
 nav img { position: relative; width:  calc(5.6vh + 5.6vw); height: calc(5.6vh + 5.6vw); margin:calc(0.75vh + 0.75vw); border-radius: 2vh ; }
