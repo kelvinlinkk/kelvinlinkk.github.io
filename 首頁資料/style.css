@@ -30,13 +30,19 @@ main h3{ position: relative; left: 10%; width: 80%; top: -20px; z-index: 2;
 border-radius: 30px; font-size: calc(2vh + 2vw); }
 main p{position: relative; top: 10px;}/*avoid overlapping*/
 main article{
-    position: relative;top: 0px; width: 80vw; left: 10vw;right: 10vw;margin-top: 100px;
+    position: relative;top: 70vw; width: 80vw; left: 10vw;right: 10vw;margin-top: 100px;
     border-left: 10px solid; border-right: 10px solid; border-bottom: 20px groove; border-radius: 50px; 
 }
 main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
 .instagram-media{position: relative;left: 5%;width: 90%;}
+.subpage{position: absolute; height: 60vw;width:30vw;top: 0px;
+    border-radius: 0%;border:solid 10px;}
+.subpage:nth-child(1){left: 1vw;}
+.subpage:nth-child(2){left: 33vw;}
+.subpage:nth-child(3){left: 65vw;}
+.subpage img{width: 30vw;}
 /*-------------------------------------------導覽列--------------------------------------------------------*/
 nav{ position: fixed; top: 8vh; left: 0px; right: 0px; height: 8vh;z-index: 3; }
 nav img { position: relative; width:  calc(5.6vh + 5.6vw); height: calc(5.6vh + 5.6vw); margin:calc(0.75vh + 0.75vw); border-radius: 2vh ; }
@@ -67,7 +73,7 @@ footer, footer h4, footer section, footer article,
 footer ul, footer li,footer section a,
 header ul,header li,
 body::-webkit-scrollbar-thumb{background-color: #4a1d1d; }
-main article{border-color:#4a1d1d ;}
+main article,.subpage{border-color:#4a1d1d ;}
 /*文字側欄*/
 *{color: #e0e5e9;}
 body::-webkit-scrollbar-track{background-color: #e0e5e9;}
