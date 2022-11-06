@@ -6,7 +6,7 @@ article{position: relative;}
 article h1{
     position: relative;top: 0px; text-align: center;border: 3px solid;width: 20%;left: 40%;border-radius: 50px;
 }
-article section img{position: relative;right: -20px; width:  calc(5vh + 5vw); height: calc(5vh + 5vw);margin: calc(1vh + 1vw);}
+article section img{position: relative; width:  calc(5vh + 5vw); height: calc(5vh + 5vw);margin: calc(1vh + 1vw);}
 
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;}
 .welcome img{position: absolute;bottom: 0px; width: 100%;}

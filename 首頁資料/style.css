@@ -1,9 +1,8 @@
 /*------------------------------------------總設定------------------------------------------------------*/
 *{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-/*body::-webkit-scrollbar { display: none; }/*去除滾軸*/
 ::-webkit-scrollbar{ position: fixed;bottom: 0px;width: 10px; }
 a{ text-decoration: none; }/*去除醜醜的底線*/
-h1, h2, h3, h4, p{ text-align: center; }
+h1, h2, h3, p{ text-align: center; }
 p{font-size: calc(1.25vh + 1.25vw);}
 /*-------------------------------------------上方-------------------------------------------------------*/
 header { position: fixed; top: 0px; left: 0px; right: 0px; height: 8vh; z-index: 5; }
@@ -15,18 +14,12 @@ main h3{ position: relative; left: 10%; width: 80%; top: -20px; z-index: 2;
 border-radius: 30px; font-size: calc(2vh + 2vw); }
 main p{position: relative; top: 10px;}/*avoid overlapping*/
 main article{
-    position: relative;top: 80vw; width: 80vw; left: 10vw;right: 10vw;margin-top: 100px;
+    position: relative;top: 0px; width: 80vw; left: 10vw;right: 10vw;margin-top: 100px;
     border-left: 10px solid; border-right: 10px solid; border-bottom: 20px groove; border-radius: 50px; 
 }
 main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
-.subpage{position: absolute; width:30vw;
-    border-radius: 0%;border:solid 10px;}
-.subpage:nth-child(1){left: 1vw;  top: 5vw;  height: 65vw;}
-.subpage:nth-child(2){left: 33vw; top: 0px;  height: 70vw;}
-.subpage:nth-child(3){left: 65vw; top: 10vw; height: 60vw;}
-.subpage img{position: relative;bottom: calc(6.5vw + 6.5vh); height: 60vw; width: 30vw;}
 /*------------------------------------------配色-----------------------------------------------------------*/
 /*底色*/
 *,main section a{background-color: #191718;}
