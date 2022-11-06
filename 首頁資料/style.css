@@ -8,23 +8,8 @@ p{font-size: calc(1.25vh + 1.25vw);}
 /*-------------------------------------------上方-------------------------------------------------------*/
 header { position: fixed; top: 0px; left: 0px; right: 0px; height: 8vh; z-index: 5; }
 header h1{ font-family:Impact;margin: 0px;font-size: 6vh;}
-.gapp img{position: fixed;top: 0px;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-.gapp section{position: fixed;top: 8vh;right: 0px;z-index: 6;text-align: center;
-              width: 48vh;height: 65vh;visibility: hidden;border:solid 3px;}
-.gapp img:hover{opacity: 0.7;}
-.gapp:hover section{visibility: visible;}
-.gapp a img{position: relative;left: 0.2vh;width: 14vh;height: 14vh;
-    margin: 0.7vh;border-radius: 5px;}
-.page img{position: fixed;top: 0px;left: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-.page section{position: fixed;top: 8vh;left: 0px;z-index: 6;text-align: center;
-              width: 16vh;visibility: hidden;border:solid 3px;
-             font-size: 1px;}
-.page img:hover{opacity: 0.7;}
-.page:hover section{visibility: visible;}
-.page a img{position: relative;left: 0.2vh;width: 14vh;height: 14vh;
-    margin: 0.7vh;border-radius: 5px;}
 /*-------------------------------------------主頁內容----------------------------------------------------*/
-main{ position: absolute; top: 20vh; left: 0px; right: 0px; z-index: 1; overflow-x: hidden;/*remove bottom scrollbar*/}
+main{ position: absolute; top: 8vh; left: 0px; right: 0px; z-index: 1; overflow-x: hidden;/*remove bottom scrollbar*/}
 main iframe{z-index: 2; height: 600px; }
 main h3{ position: relative; left: 10%; width: 80%; top: -20px; z-index: 2;
 border-radius: 30px; font-size: calc(2vh + 2vw); }
@@ -36,48 +21,24 @@ main article{
 main audio{position:relative;  left:10%; width: 80%;}
 main section,main section img, main section iframe{ position: relative; width: 90%; left: 5%; }
 main section img, main section iframe{top: 20px; border: 0ch; border-radius: 30px; }
-.instagram-media{position: relative;left: 5%;width: 90%;}
 .subpage{position: absolute; width:30vw;
     border-radius: 0%;border:solid 10px;}
 .subpage:nth-child(1){left: 1vw;  top: 5vw;  height: 65vw;}
 .subpage:nth-child(2){left: 33vw; top: 0px;  height: 70vw;}
 .subpage:nth-child(3){left: 65vw; top: 10vw; height: 60vw;}
 .subpage img{position: relative;bottom: calc(6.5vw + 6.5vh); height: 60vw; width: 30vw;}
-/*-------------------------------------------導覽列--------------------------------------------------------*/
-nav{ position: fixed; top: 8vh; left: 0px; right: 0px; height: 8vh;z-index: 3; }
-nav img { position: relative; width:  calc(5.6vh + 5.6vw); height: calc(5.6vh + 5.6vw); margin:calc(0.75vh + 0.75vw); border-radius: 2vh ; }
-nav img:hover{opacity: 0.7; }
-.app h2 {position: fixed;top: 8vh;height: 8vh; margin: 0px; z-index: 5;font-size: 6vh;}
-.app:hover h2{border: solid 5px; border-bottom: 0px;}
-.app h2 img{margin: 0px; height: 8vh;width: 8vh;}
-.app h2 img:hover{opacity: 1;}
-.app section{ position: fixed;top: 16vh;left: 0px;right: 0px;text-align: center; visibility:hidden; z-index: 4; }/*隱藏連結內容*/
-.app:hover section{ border: solid 5px; visibility: visible; } /*導覽列被觸碰顯示連結內容*/
-.app:nth-child(1) h2{ left: 00vw; right: 75vw; }/*設定4個導覽列位置*/
-.app:nth-child(2) h2{ left: 25vw; right: 50vw; }
-.app:nth-child(3) h2{ left: 50vw; right: 25vw; }
-.app:nth-child(4) h2{ left: 75vw; right: 00vw; }       
-/*------------------------------------------頁尾-----------------------------------------------------------*/
-
 /*------------------------------------------配色-----------------------------------------------------------*/
 /*底色*/
 *,main section a{background-color: #191718;}
 /*頁首頁尾*/
 header h1, header,
 main h3,h3 a,
-.app section,.app, a,.app:hover h2,.app:hover h2 img,.app img,
-.gapp section,.page section,.gapp img,
-footer, footer h4, footer section, footer article,
-footer ul, footer li,footer section a,
 header ul,header li,
 body::-webkit-scrollbar-thumb{background-color: #4a1d1d; }
 main article,.subpage{border-color:#4a1d1d ;}
 /*文字側欄*/
 *{color: #e0e5e9;}
 body::-webkit-scrollbar-track{background-color: #e0e5e9;}
-/*導覽列*/
-.app:hover h2,.app:hover section,.gapp section,.page section{border-color:#f3d849; }
-nav,.app h2,.app h2 img{background-color: #f3d849; }
 body article p a{color: #f3d849;}
 /*black #658DC6 #efd9c8 #0f4c81*/
 /*#100c0d #013328 #efd9c8 #cc8b65*/
