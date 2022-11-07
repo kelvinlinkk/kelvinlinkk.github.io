@@ -4,7 +4,7 @@ a{ text-decoration: none; }
 
 article{position: relative;}
 article h1{
-    position: relative;top: 0px; text-align: center;border: 3px solid;width: 20%;left: 40%;border-radius: 50px;
+    position: relative;top: 0px; text-align: center;border: 3px solid;width: 30%;left: 35%;border-radius: 50px;
 }
 article section img{position: relative; width:  calc(5vh + 5vw); height: calc(5vh + 5vw);margin: calc(1vh + 1vw);}
 
@@ -26,5 +26,5 @@ article section img{position: relative; width:  calc(5vh + 5vw); height: calc(5v
 
 .page section a h1{color: antiquewhite;}
 .page section{background-color:rgba(7,35,91,0.5)}
-body{background-color: #000000; color: antiquewhite;}
+body{background-color: rgba(0, 0, 0, 1); color: antiquewhite;}
 article h3{border-color: antiquewhite;}
