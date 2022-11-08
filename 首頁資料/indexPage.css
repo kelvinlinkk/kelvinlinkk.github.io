@@ -9,16 +9,18 @@ article{position: relative;left: 0px;right: 0px;}
 article h1{
     position: relative;top: 0px; text-align: center;border: 3px solid;width: 30%;left: 0%;border-radius: 50px;
 }
-@keyframes movingin{from{left: 0%;}to{left: 35%;scale: 1.4;}}
-@keyframes movingOut{from{left: 35%;scale: 1.4;}to{left: 0%;}}
-article:hover h1{animation-duration: 0.5s;animation-name: movingin;animation-fill-mode:forwards;}
-article h1{animation-duration: 0.5s;animation-name: movingOut;}
 article section img{position: relative; width:  calc(5vh + 5vw); height: calc(5vh + 5vw);margin: calc(1vh + 1vw);}
-article section img:hover{animation-duration: 0.1s;animation-name: scalesOut;animation-fill-mode:forwards;}
+@keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
+@keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
+article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
+article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;}
 .welcome img{position: absolute;bottom: 0px; width: 100%;}
 .welcome span{position: absolute;bottom: 15px;left: 15px;font-size: calc(2vw + 2vh);font-family:"Microsoft JhengHei";}
+@keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
+@keyframes fadeOut{from{opacity: 1;}to{opacity: 0;visibility: hidden;}}
+.welcome span{animation-duration: 5s;animation-name: fadeIn;animation-fill-mode:forwards;}
 @media screen and (max-height:56vw){
     .welcome{height: 100vh;}
     article{top:100vh;}
@@ -28,10 +30,10 @@ article section img:hover{animation-duration: 0.1s;animation-name: scalesOut;ani
     article{top: 56vw;}
 }
 /*page icon*/
-.page img{position: absolute;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-@keyframes scalesOut{from{scale:1.1;}to{scale:1.4;}}
-.page section{position: absolute;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);visibility: hidden;}
-.page:hover section{visibility: visible;}
+.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
+.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
+.page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
+.page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
 .page section a h1{position: relative; left: 1vw;}
 /*color*/
 .page section a h1{color: wheat;}
