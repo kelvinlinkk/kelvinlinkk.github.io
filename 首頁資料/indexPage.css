@@ -19,19 +19,23 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;}
 .welcome img{position: absolute;bottom: 0px; width: 100%;}
 .welcome form{position: absolute;width: 100%; left: 35%;}
-form input{width: 30%;height: calc(2vh + 2vw);; border: 3px solid;border-radius: calc(1vh + 1vw);
-     outline: none;font-size: calc(1.5vh + 1.5vw);}
+form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: calc(1vh + 1vw);
+     outline: none;font-size: calc(1.4vh + 1.4vw);text-align: center;}
+form input{animation-duration: 0.5s;animation-name: fadeOut2;animation-fill-mode:forwards;}
+form:hover input,form input:focus{animation-duration: 0.5s;animation-name: fadeIn2;animation-fill-mode:forwards;}
 @keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
 @keyframes fadeOut{from{opacity: 1;}to{opacity: 0;visibility: hidden;}}
+@keyframes fadeIn2{from{opacity: 0.1;}to{opacity: 1;}}
+@keyframes fadeOut2{from{opacity: 1;}to{opacity: 0.1;}}
 @media screen and (max-height:56vw){
     .welcome{height: 100vh;}
     article{top:100vh;}
-    .welcome form{top: 40vh;}
+    .welcome form{top: 80vh;}
 }
 @media screen and (min-height:56vw){
     .welcome{height: 56vw;}
     article{top: 56vw;}
-    .welcome form{top: 24vw;}
+    .welcome form{top: 45vw;}
 }
 /*page icon*/
 .page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
@@ -45,5 +49,4 @@ form input{width: 30%;height: calc(2vh + 2vw);; border: 3px solid;border-radius:
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
 article{background:linear-gradient(to bottom,#000000,#222222 30%,#000000 ) ;}
-form input{background-color: #222222;}
-form input{border-color: #222222;}
+form input{background-color: rgba(100, 100, 100, 0.6);}
