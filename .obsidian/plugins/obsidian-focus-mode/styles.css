@@ -1,3 +1,4 @@
+.focus-mode .cm-s-obsidian .cm-line:not(.cm-active),
 .focus-mode .cm-s-obsidian div:not(.CodeMirror-activeline) > .CodeMirror-line {
     opacity: 0.85;
     filter: saturate(0.85);
@@ -6,15 +7,20 @@
 .focus-mode .status-bar,
 .focus-mode .view-actions,
 .focus-mode .view-header-icon,
-.focus-mode .view-header-title,
+.focus-mode .inline-title,
 .focus-mode .workspace-ribbon:not(.mod-left),
 .focus-mode .workspace-split.maximised .workspace-leaf:not(.mod-active),
 .focus-mode
     .workspace-split.maximised
     .workspace-leaf.mod-active
     ~ .workspace-split,
-.focus-mode.plugin-tabs .stayopen .view-header {
+.focus-mode.plugin-tabs .stayopen .view-header,
+.super-focus-mode .workspace-tabs:not(.mod-active) {
     display: none;
+}
+
+.super-focus-mode .workspace-tab-header-container {
+    padding-left: var(--size-4-8);
 }
 
 .focus-mode .view-content {
