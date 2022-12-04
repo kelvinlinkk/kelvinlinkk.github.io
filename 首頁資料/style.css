@@ -6,16 +6,20 @@ a{ text-decoration: none; }
 header{position: absolute;top: 0px; height: calc(5vw + 5vh);left: 0px;right: 0px;}
 header h1{position: relative;top: 15px;}
 /*main*/
-article{position: relative;left: 0px;right: 0px;top: calc(5vw + 5vh);}
+article{position: relative;left: 12.5%;right: 12.5%;top: calc(5vw + 5vh);border: 5px solid;width: 75%;}
 article h1{
-    position: relative;top: 0px; text-align: center;border: 3px solid;width: 75%;left: 12.5%;border-radius: 50px;
+    position: relative;top: 0px; text-align: center;border: 3px solid;width: 100%;left: -0.5%;
+    margin: 0%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', fantasy;
+    font-size: calc(1.5vw + 1.5vh);
 }
+article h2{/*border: 5px solid;*/text-align: inherit;}
 article section img{position: relative; height: 50vh; margin: calc(1vh + 1vw);}
 @keyframes scalesIn{from{scale:1;}to{scale:2;}}
 @keyframes scalesOut{from{scale:2;}to{scale:1;}}
 article section img:hover{animation-duration: 0.5s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article section img{animation-duration: 0.5s;animation-name: scalesOut;animation-fill-mode:forwards;}
-/*welcome pic*/
+/*welcome pic*/ 
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;}
 .welcome img{position: absolute;bottom: 0px; width: 100%;}
 .welcome span{position: absolute;bottom: 15px;left: 15px;font-size: calc(2vw + 2vh);font-family:"Microsoft JhengHei";}
@@ -32,11 +36,13 @@ article section img{animation-duration: 0.5s;animation-name: scalesOut;animation
 .page section a h1{position: relative; left: 1vw;}
 /*color*/
 h1{color: wheat;}
+article h1{color: black;}
 .page section{background-color:rgba(7,35,91,0.3)}
-body{background-color: rgba(0, 0, 0, 1); color: wheat;}
-article h3,article h1{border-color: wheat;}
+body{background-color: rgba(0, 0, 0, 1); color:wheat;}
+article h3,article h1,article{border-color: wheat;}
+article h1{background-color: wheat;}
 article{background:linear-gradient(to bottom,#000000,#222222 30%,#000000 ) ;}
-header{background: radial-gradient(#222222 ,#000000 80%) ;}
+header{background: radial-gradient(#222222 ,#000000 80%);}
 /*black #658DC6 #efd9c8 #0f4c81*/
 /*#100c0d #013328 #efd9c8 #cc8b65*/
 /*#191718 #0a62d0 #e0e5e9 #f3d849*/
