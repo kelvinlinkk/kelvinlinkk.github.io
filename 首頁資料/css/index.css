@@ -1,0 +1,11 @@
+/*setting*/
+::-webkit-scrollbar{display: none;}
+a{ text-decoration: none; }
+*{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
+
+/*main*/
+h1{width: 100%;height: calc(2vw + 2vh); border-bottom: 5px solid;}
+/*color*/
+body{background-color: #20323f; color: #e5eced;}
+h1{border-color: #d79748;}
+/*#20323f #e5eced #d79748 #185f77*/
