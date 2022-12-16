@@ -14,30 +14,23 @@ article h1{
     font-size: calc(1.5vw + 1.5vh);
 }
 article h2{/*border: 5px solid;*/text-align: inherit;}
-article section img{position: relative; height: 50vh; margin: calc(1vh + 1vw);}
-@keyframes scalesIn{from{scale:1;}to{scale:2;}}
-@keyframes scalesOut{from{scale:2;}to{scale:1;}}
-article section img:hover{animation-duration: 0.5s;animation-name: scalesIn;animation-fill-mode:forwards;}
-article section img{animation-duration: 0.5s;animation-name: scalesOut;animation-fill-mode:forwards;}
-/*welcome pic*/ 
-.welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;}
-.welcome img{position: absolute;bottom: 0px; width: 100%;}
-.welcome span{position: absolute;bottom: 15px;left: 15px;font-size: calc(2vw + 2vh);font-family:"Microsoft JhengHei";}
+article section img{position: relative; margin: calc(1vh + 1vw);z-index: 1;}
 @media screen and (max-height:56vw){
-    .welcome{height: 100vh;}
+    article section img{width: 35vw;}
+    @keyframes scalesIn{from{scale:1;}to{scale:2.5;}}
+    @keyframes scalesOut{from{scale:2.5;}to{scale:1;}}
 }
 @media screen and (min-height:56vw){
-    .welcome{height: 56vw;}
+    article section img{width: 90%;}
+    @keyframes scalesIn{from{scale:1;}to{scale:1.48;}}
+    @keyframes scalesOut{from{scale:1.48;}to{scale:1;}}
 }
-/*page icon*/
-.page img{position: absolute;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-.page section{position: absolute;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);visibility: hidden;}
-.page:hover section{visibility: visible;}
-.page section a h1{position: relative; left: 1vw;}
+
+article section img:hover{animation-duration: 0.5s;animation-name: scalesIn;animation-fill-mode:forwards;}
+article section img{animation-duration: 0.5s;animation-name: scalesOut;animation-fill-mode:forwards;}
 /*color*/
 h1{color: wheat;}
 article h1{color: black;}
-.page section{background-color:rgba(7,35,91,0.3)}
 body{background-color: rgba(0, 0, 0, 1); color:wheat;}
 article h3,article h1,article{border-color: wheat;}
 article h1{background-color: wheat;}
