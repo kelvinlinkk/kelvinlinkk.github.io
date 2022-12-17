@@ -3,13 +3,26 @@
 a{ text-decoration: none; }
 *{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
 
+/*header*/
+h1{border-bottom: 5px solid;}
+
 /*main*/
-h1{width: 100%;height: calc(3vw + 3vh); border-bottom: 5px solid;font-size: calc(2vw + 2vh);}
-.me{position: absolute; height: calc(25vw + 25vh);}
-.me img{height: 100%;
-    border:10px groove;border-radius: calc(2vw + 2vh);}
+.intro article h2{margin: 0%;border-bottom:5px solid;}
+.intro article{position: relative;}
+.intro article section{position: relative;width: calc(78vw - 22vh - 30px);}
+.intro article .pic{position: absolute;width: calc(18vw + 18vh);margin:5px;}
+.intro article .pic img{width: 100%;height: 100%;border-radius: calc(1vw + 1vh - 5px);}
+.intro article .pic p{text-align: center;margin: 0%;}
+.intro article:nth-child(4n+1) section{right: calc(0px - 20vw - 20vh - 20px);}
+.intro article:nth-child(4n-1) .pic{right: 20px;}
+.intro article:nth-child(4n+1) .pic{left: 20px;}
+.pic::after{position: absolute;top: -5px;bottom: -5px;left: -5px;right: -5px;border-radius: calc(1vw + 1vh);
+    z-index: -1;content: '';}
+hr{height: calc(1vw + 1vh);margin: 16px;border: 0px;}
+
 /*color*/
 body{background-color: #20323f; color: #e5eced;}
 h1{border-color: #d79748;}
-.me img{border-color: #185f77;}
+article h2{border-color: #e5eced;}
+.pic::after{background: linear-gradient(143deg, #d79748 20%,#185f77 70%);}
 /*#20323f #e5eced #d79748 #185f77*/
