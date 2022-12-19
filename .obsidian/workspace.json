@@ -4,22 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b6b0a14ba948bb66",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "85701106741978c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
+        "id": "a5bf30e1d2f24d09",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "README.md",
+            "mode": "source",
+            "source": false
           }
-        ]
+        }
       }
     ],
     "direction": "vertical"
@@ -145,7 +139,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "c2755d132d1f8fe9",
+  "active": "a5bf30e1d2f24d09",
   "lastOpenFiles": [
     "Home.md",
     "首頁資料/icon/bbc.png",
