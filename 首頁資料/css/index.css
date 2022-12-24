@@ -16,13 +16,14 @@ aside span{position: relative;top: 40px; margin: 5px;width: 50px;right: calc(200
 .intro article img{width: 100%; border-radius: calc(1vw + 1vh - 5px);}
 .pic{position: relative; width: calc(18vw + 18vh);margin:5px;}
 .intro article:nth-child(4n+1) .pic{float: right;}
-.intro article:nth-child(4n-1) h2{right: calc(-20px - 18vw - 18vh);}
+.intro article:nth-child(4n-1) h2{left: calc(20px + 18vw + 18vh);min-width: max-content;}
 .intro article:nth-child(4n-1) i{position: relative; left: calc(-10px - 18vw - 18vh);}
 .intro article:nth-child(4n-1)  .pic{float: left;}
-.intro article p{text-align: center;margin: 0%;}
+.pic p{text-align: center;margin: 0%;}
 .pic::after{position: absolute;top: -5px;bottom: 22px;left: -5px;right: -5px;border-radius: calc(1vw + 1vh);
     z-index: -1;content: '';}
 hr{height: calc(1vw + 1vh);margin: 16px;border: 0px;}
+p{font-weight: normal;}
 
 /*footer*/
 footer{position: relative;top: 66px;height: 100px;}
