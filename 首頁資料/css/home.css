@@ -9,8 +9,11 @@ article{position: relative;left: 0px;right: 0px;}
 article h1{
     position: relative;top: 0px; text-align: center;border: 3px solid;width: 30%;left: 0%;border-radius: 50px;
 }
-article section img{position: relative; width:  calc(5vh + 5vw); height: calc(5vh + 5vw);
-    margin: calc(1vh + 1vw);border-radius: calc(0.5vh + 0.5vw);}
+article section a{position: relative;}
+article section img{ width:  calc(5vh + 5vw); height: calc(5vh + 5vw);
+    margin: calc(1vh + 1vw);margin-bottom: calc(2vh + 2vw); border-radius: calc(0.5vh + 0.5vw);}
+.infos span{position: absolute;min-width: calc(7vh + 7vw); margin-top: calc(7vh + 7vw);
+     text-align: center;font-size: calc(1vw + 1vh);} 
 @keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
 @keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
 article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
