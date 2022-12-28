@@ -9,15 +9,24 @@ article{position: relative;left: 0px;right: 0px;}
 article h1{
     position: relative;top: 0px; text-align: center;border: 3px solid;width: 30%;left: 0%;border-radius: 50px;
 }
-article section a{position: relative;}
-article section img{ width:  calc(5vh + 5vw); height: calc(5vh + 5vw);
+.infos{position: relative;width: calc(7vw + 7vh);
+    display: inline-block;font-size: calc(1vw + 1vh);}
+.infos a{width: calc(7vw + 7vh);}
+.infos img{position: relative; width: calc(5vh + 5vw); height: calc(5vh + 5vw);
     margin: calc(1vh + 1vw);margin-bottom: calc(2vh + 2vw); border-radius: calc(0.5vh + 0.5vw);}
-.infos span{position: absolute;min-width: calc(7vh + 7vw); margin-top: calc(7vh + 7vw);
-     text-align: center;font-size: calc(1vw + 1vh);} 
+.infos span{position: absolute;left: 0px;right: 0px; top: calc(7vw + 7vh);
+     text-align: center;word-wrap: break-word;} 
+    @media screen and (max-width:1000px) {
+         .infos{height: calc(10.5vh + 10.5vw);}
+        }
+    @media screen and (min-width:1000px) {
+         .infos{height: calc(9vh + 9vw);}
+        }
 @keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
 @keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
 article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
+
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;}
 .welcome img{position: absolute;bottom: 0px; width: 100%;}
