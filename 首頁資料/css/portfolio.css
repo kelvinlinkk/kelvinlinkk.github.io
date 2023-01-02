@@ -12,7 +12,7 @@ aside{position: absolute;top: 0px;}
 aside span{position: relative;top: 40px; margin: 5px;width: 50px;right: calc(250px - 100vw);}
 
 /*nav*/
-nav{height: fit-content;white-space: nowrap;}
+nav{height: fit-content;}
 nav h3{display: inline-block; width: 25%;text-align: center;margin: 0%;}
 
 /*main*/
@@ -25,6 +25,7 @@ nav h3{display: inline-block; width: 25%;text-align: center;margin: 0%;}
     z-index: -1;content: '';}
 hr{margin: 14px;border-width:0px 0px 1px 0px;}
 p{font-weight: normal;}
+li{font-weight: normal;}
 
 /*footer*/
 footer{position: relative;top: 0px;height: 100px;}
