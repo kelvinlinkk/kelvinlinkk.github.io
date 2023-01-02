@@ -23,7 +23,7 @@ nav h3{display: inline-block; width: 25%;text-align: center;margin: 0%;}
 .pic p{text-align: center;margin: 0%;}
 .pic::after{position: absolute;top: -5px;bottom: 22px;left: -5px;right: -5px;border-radius: calc(1vw + 1vh);
     z-index: -1;content: '';}
-hr{margin: 14px;border: 0px;}
+hr{margin: 14px;border-width:0px 0px 1px 0px;}
 p{font-weight: normal;}
 
 /*footer*/
@@ -33,7 +33,7 @@ body{background-color: #0d417d;}
 body,a{color: #e3eff6;}
 h1 a{color: #f1ca00;}
 nav a{color: #0d417d;}
-article h2{border-color: #e3eff6;}
+article h2,hr{border-color: #e3eff6;}
 .pic::after{background: linear-gradient(143deg, #f1ca00 20%,#00b9e4 70%);}
 footer{background-color: #00b9e4;}
 nav{background-color: #f1ca00;}
