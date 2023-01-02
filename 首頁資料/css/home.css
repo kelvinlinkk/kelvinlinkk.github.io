@@ -41,12 +41,14 @@ form input:hover,form input:focus{animation-duration: 0.7s;animation-name: fadeI
     .welcome{height: 56vw;}
     article{top: 56vw;}
 }
+
 /*page icon*/
 .page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
 .page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
 .page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
 .page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
 .page section a h1{position: relative; left: 1vw;}
+
 /*color*/
 .page section a h1,form input,a{color: wheat;}
 .page section{background-color:rgba(7,35,91,0.3)}
