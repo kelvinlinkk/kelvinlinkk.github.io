@@ -16,8 +16,8 @@ nav{height: fit-content;}
 nav h3{display: inline-block; width: 25%;text-align: center;margin: 0%;}
 
 /*main*/
-.intro article h2{position: relative; margin: 0%;}
-.intro article{position: relative;min-height:calc(18vw + 18vh) ;}
+main article h2{position: relative; margin: 0%;}
+main article{position: relative;min-height:calc(18vw + 18vh) ;}
 .pic img{height: calc(100% - 50px); border-radius: calc(1vw + 1vh - 5px);}
 .pic{position: relative; height: calc(18vw + 18vh);margin:10px;float: right;}
 .pic p{text-align: center;margin: 0%;}
