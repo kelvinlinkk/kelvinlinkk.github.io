@@ -19,9 +19,10 @@
                 <input type="hidden" name="sitesearch" value=""/><input type="text" name="q"/>
             </form>
             <section>
-                <h1>月考倒數</h1>
+                <h1><a href="#countdown">月考倒數</a></h1>
                 <script>setdate("01/17/2023")</script>
-                <h2>
+                <h2 style="display: none;">距離<span id="end"></span></h2>
+                <h2 id="countdown">
                     剩下<span id="days"></span> days <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span> 
                 </h2> 
             </section>
