@@ -39,4 +39,5 @@ article h2,hr{border-color: #e3eff6;}
 footer{background-color: #00b9e4;}
 nav{background-color: #f1ca00;}
 nav h3:hover{background-color: black;}
-nav h3:hover a{color: #f1ca00;}
+nav h3:hover a,
+.highlight{color: #f1ca00;}
