@@ -19,6 +19,7 @@ nav h3{display: inline-block; width: 25%;text-align: center;margin: 0%;}
 main article h2{position: relative; margin: 0%;}
 main article{position: relative;min-height:calc(18vw + 18vh) ;}
 .pic img{height: calc(100% - 50px); border-radius: calc(1vw + 1vh - 5px);}
+.pic video{height: calc(100% - 50px); border-radius: calc(1vw + 1vh - 5px);}
 .pic{position: relative; height: calc(18vw + 18vh);margin:10px;float: right;}
 .pic p{text-align: center;margin: 0%;}
 .pic::after{position: absolute;top: -5px;bottom: 22px;left: -5px;right: -5px;border-radius: calc(1vw + 1vh);
