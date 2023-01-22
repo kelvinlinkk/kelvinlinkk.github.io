@@ -1,8 +1,13 @@
 /*setting*/
 ::-webkit-scrollbar{display: none;}
+@font-face{
+    font-family: 'Noto Sans TC';
+    src: local("Noto Sans TC"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/思源黑體/TaipeiSansTCBeta-Regular.ttf') format("opentype"),
+}
 a{ text-decoration: none; }
-*{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
+*{font-family: "Noto Sans TC", sans-serif;font-weight: bold;}
 .intro article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:normal;}
+header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 
 /*header*/
 h1{margin-bottom: 0%;}
