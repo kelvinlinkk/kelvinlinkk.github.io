@@ -21,6 +21,8 @@ nav{height: fit-content;}
 nav h3{display: inline-block; width: 25%;text-align: center;margin: 0%;}
 
 /*main*/
+main{margin: 10px;margin-bottom: 120px;}
+body{margin: 0;}
 main article h2{position: relative; margin: 0%;}
 main article{position: relative;min-height:calc(18vw + 18vh) ;}
 .pic img,.pic video,.pic iframe{height: calc(100% - 50px); border-radius: calc(1vw + 1vh - 5px);}
@@ -33,7 +35,8 @@ p{font-weight: normal;}
 li{font-weight: normal;}
 
 /*footer*/
-footer{position: relative;top: 0px;height: 100px;}
+.wrapper{min-height: 100vh;margin-bottom: -100px;}
+footer{ height: 100px;}
 /*color*/
 body{background-color: #0d417d;}
 body,a,.pic a{color: #e3eff6;}
