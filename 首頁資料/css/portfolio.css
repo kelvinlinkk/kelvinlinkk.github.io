@@ -12,15 +12,15 @@ header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 /*RWD*/
 @media screen and (max-width:390px){
     aside{display: none;}
-    nav h3{width: 33%;}
+    nav h3{width: 33vw;}
 }
 @media (max-aspect-ratio:1/1)  {
     aside{display: none;}
-    nav h3{width: 33%;}
+    nav h3{width: 33vw;}
 }
 @media (min-aspect-ratio:1/1) {
     aside{display: initial;}
-    nav h3{width: 25%;}
+    nav h3{width: 25vw;}
 }
 
 /*header*/
@@ -35,30 +35,34 @@ aside img{height: 40px;position: relative;right: calc(40px - 100vw);top: 25px;}
 nav h3{display: inline-block; margin: 0%;text-align: center;}
 
 /*main*/
-main{margin: 10px;margin-bottom: 120px;}
+main{margin: 10px;}
 body{margin: 0;}
 main article h2{position: relative; margin: 0%;}
 main article{position: relative;min-height:calc(18vw + 18vh);}
-.pic img,.pic video,.pic iframe{height: calc(100% - 50px); border-radius: calc(1vw + 1vh - 5px);}
+.pic img,.pic video,.pic iframe{height: calc(100% - 50px); border-radius: calc(1vw + 1vh);}
 .pic{position: relative; height: calc(18vw + 18vh);margin:10px;float: right;width: min-content;}
 .pic p{text-align: center;margin: 0%;width: 100%;height: 26px; overflow: hidden;content: "";text-overflow: ellipsis;}
-.pic::after{position: absolute;top: -5px;bottom: 22px;left: -5px;right: -5px;border-radius: calc(1vw + 1vh);
-    z-index: -1;content: '';}
-hr{margin: 14px;border-width:0px 0px 1px 0px;}
+hr{margin: 14px;border-width:0px 0px 1px 0px;visibility: hidden;}
 p{font-weight: normal;}
 li{font-weight: normal;}
 
 /*footer*/
-.wrapper{min-height: 100vh;margin-bottom: -100px;}
-footer{ height: 100px;text-align: center;}
+main{margin-bottom: 520px;}
+.wrapper{min-height: 100vh;margin-bottom: -500px;}
+footer{ height: 500px;text-align: left;}
+footer h3{text-align: center;}
+footer p{font-weight: bold;}
+footer ul{position: absolute;width: fit-content;}
+footer ul:nth-child(1){left: 0px;}
+footer ul:nth-child(2){left:50%;}
 /*color*/
 body{background-color: #0d417d;}
 body,a,.pic a{color: #e3eff6;}
 h1 a,article a,nav h3:hover a,
 .highlight{color: #f1ca00;}
-nav a,footer{color: #0d417d;}
+nav a,ul a,footer{color: #0d417d;}
 article h2,hr{border-color: #e3eff6;}
-.pic::after{background: linear-gradient(#bfa4cd 0%,#00b9e4 100%);}
-footer{background-color: #bfa4cd;}
+article{background: radial-gradient(closest-side,#106699 0%,#0d417d 100%);}
+footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
 nav{background-color: #f1ca00;}
 nav h3:hover{background-color: black;}
