@@ -48,7 +48,7 @@ li{font-weight: normal;}
 
 /*footer*/
 main{margin-bottom: 520px;}
-.wrapper{min-height: 100vh;margin-bottom: -500px;}
+.wrapper{min-height: (100vh + 500px);margin-bottom: -500px;}
 footer{ height: 500px;text-align: left;}
 footer h3{text-align: center;}
 footer p{font-weight: bold;}
@@ -60,7 +60,7 @@ body{background-color: #0d417d;}
 body,a,.pic a{color: #e3eff6;}
 h1 a,article a,nav h3:hover a,
 .highlight{color: #f1ca00;}
-nav a,ul a,footer{color: #0d417d;}
+nav a,footer a,footer{color: #0d417d;}
 article h2,hr{border-color: #e3eff6;}
 article{background: radial-gradient(closest-side,#106699 0%,#0d417d 100%);}
 footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
