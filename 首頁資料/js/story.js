@@ -12,7 +12,7 @@ var countdown = function(date_string) {
     var h = Math.round(m / 60);
     m = Math.round(m % 60);
  
-    var d = Math.round(h / 24);
+    var d = Math.round((h - 12) / 24);
     h = Math.round(h % 24);
  
     document.getElementById("days").innerHTML = d;
