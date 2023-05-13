@@ -24,7 +24,7 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;height: 100vh;}
 .welcome img{position: fixed;top: 0px; }
-.welcome video{position: fixed;top: 0px; }
+.welcome video{position: fixed;top: 0px; right: 0px;}
 .welcome form{position: absolute;width: 100%; left: 35%;bottom: calc(8vh + 8vw);}
 .welcome section{position: absolute;width: 100%; bottom: 0%;height: calc(8vh + 8vw);font-size: calc(1vh + 1vw);}
 form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: calc(1vh + 1vw);
