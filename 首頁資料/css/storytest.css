@@ -1,0 +1,54 @@
+/*setting*/
+::-webkit-scrollbar{display: none;}
+a{ text-decoration: none; }
+*{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
+body{margin: 0;}
+
+/*main*/
+article{position: relative;width: 100%; display: inline-block;top:100vh;text-align: center;}
+article h1{
+    position: relative; text-align: center;border: 3px solid;
+    min-width: fit-content;max-width: 50%; left: 25%; border-radius: 50px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', fantasy;
+}
+article section h2{text-decoration:underline;}
+article p{position: relative; text-align:center;width: 80%; left: 10%;}
+article section img{max-height: 50vh; max-width: 50vw; }
+@keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
+@keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
+article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
+article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
+
+/*welcome pic*/
+.welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;height: 100vh;}
+.welcome img{position: fixed;top: 0px; }
+.welcome video{position: fixed;top: 0px; right: 0px;}
+.welcome section{position: absolute;width: 100%; bottom: 0%;height: calc(8vh + 8vw);font-size: calc(1vh + 1vw);}
+@keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
+@keyframes fadeOut{from{opacity: 1;}to{opacity: 0;visibility: hidden;}}
+@keyframes fadeOut2{from{opacity: 1;}to{opacity: 0;}}
+@media screen and (max-height:56vw){
+    .welcome img{width: 100%;}
+    .welcome video{width: 100%;}
+}
+@media screen and (min-height:56vw){
+    .welcome img{height: 100%;}
+    .welcome video{height: 100%;}
+}
+
+/*page icon*/
+.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
+.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
+.page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
+.page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
+.page section a h1{position: relative; left: 1vw;}
+
+/*color*/
+article h1{border-color:rgba(255, 255, 255, 0.5)}
+article section h2{color: rgb(210, 187, 144);}
+.page section a h1,a{color: wheat;}
+.page section{background-color:rgba(77, 77, 77, 0.3)}
+body{background-color: rgba(0, 0, 0, 1); color: wheat;}
+article h3{border-color: wheat;}
+article{background-color: rgba(0, 0, 0, 0.8);}
+.welcome section{background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.8));}

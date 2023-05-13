@@ -28,9 +28,10 @@ article section img{position: relative; margin: calc(1vh + 1vw);z-index: 1;}
 article section img:hover{animation-duration: 0.5s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article section img{animation-duration: 0.5s;animation-name: scalesOut;animation-fill-mode:forwards;}
 
+
 /*page icon*/
-.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 1;}
-.page section{position: fixed;top: 9vh;right: 1vw;z-index: 1;width: calc(12% - 1vw);opacity: 0;}
+.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
+.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
 .page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
 .page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
 .page section a h1{position: relative; left: 1vw;}

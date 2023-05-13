@@ -7,14 +7,23 @@
     <meta http-equiv="Content-Security-Policy"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base target="_self"><!--將所有的超連結設為_blank在新分頁開啟-->
-    <link href="首頁資料/css/story.css" rel="stylesheet" type="text/css">
+    <link href="首頁資料/css/storytest.css" rel="stylesheet" type="text/css">
     <script src="首頁資料/js/story.js"></script>
 </head>
 <body>
-<!-----------------------------------------------header---------------------------------------------------------------------------------------->
-        <header><a href="https://www.instagram.com/kelvinlinkk/"><h1>KELVIN</h1></a></header>
 <!-----------------------------------------------main---------------------------------------------------------------------------------------->
         <main>
+        <div class="welcome">
+            <video autoplay muted loop src="首頁資料/play.mp4"></video>
+            <section>
+                <h1><a href="#countdown">畢業</a></h1>
+                <script>setdate("06/01/2025")</script>
+                <h2 style="display: none;">距離<span id="end"></span></h2>
+                <h2 id="countdown">
+                    還有<span id="days"></span> days <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span> 
+                </h2> 
+            </section>
+        </div>
         <div class="page">
             <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/分頁.svg">
             <section>
@@ -22,25 +31,14 @@
                 <a href="index.html" title="autobiography" target="_self"><h1>Bio</h1></a> 
                 <a href="portfolio.html" title="Portfolio" target="_self"><h1>Portfolio</h1></a> 
             </section>
-        </div>    
-            
-        <br id="countdown">
-        <article>
-            <a href="#countdown"><h1>畢業倒數</h1></a>
-            <script>setdate("07/01/2025")</script>
-            <h2>距離<span id="end"></span>(預計)</h2> 
-            <h2 id="countdown"> 
-                剩下<span id="days"></span> days <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span> 
-            </h2> 
-        </article>
+        </div>
 
-        <br id="message">
         <article>
             <a href="#message"><h1>時光走廊</h1></a>
             <section>
                 <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/pic/yolo.jpg">
                 <h2>YOLO : You Only Live Once</h2>
-                <p style="text-align: left;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis place is for my own to help me remember all the memories we had during high school.
+                <p>This place is for my own to help me remember all the memories we had during high school.
                     It's quite amazing to find out that my junior high life is so great. Now I'm in a new class,
                     hope everything will go right, so I can enjoy senior high school and get to the future I want. </p>
                 <br>
@@ -53,7 +51,7 @@
             <section>
                 <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/pic/yolo.jpg">
                 <h2>To Teresa</h2>
-                <p style="text-align: left;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspIf you are seeing this, you must have seen my card. 
+                <p>If you are seeing this, you must have seen my card. 
                     This is just a simple html document, but containing some of my best memories. 
                     Thank you for all the thing you've done for us. 
                     There's no other teacher like you who use her own time to bring us to do these meaningful things.  
