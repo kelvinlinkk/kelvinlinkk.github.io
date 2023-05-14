@@ -1,71 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon.png" type="image/x-icon">
     <title>自傳</title>
-    <meta http-equiv="Content-Security-Policy"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base target="_blank"><!--將所有的超連結設為_blank在新分頁開啟-->
+    <base target="_self"><!--將所有的超連結設為_blank在新分頁開啟-->
     <link href="首頁資料/css/index.css" rel="stylesheet" type="text/css">
-    <script src="首頁資料/js/index.js"></script>
+    <script src="首頁資料/js/story.js"></script>
 </head>
 <body>
-    <header><h1>KELVIN</h1></header>
-    <aside>
-        <span><a href="home.html" target="_self">home</a></span>
-        <span><a href="story.html" target="_self">story</a></span>
-        <span><a href="portfolio.html" target="_self">Portfolio</a></span>
-    </aside>
-    <main>
-        <div class="intro">
-            <article style="min-height: calc(10.125vw + 10.125vh + 16px);">
-                <span class="pic"><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/pic/home.JPG"><p><i>幸福美滿的家</i></p></span>
-                <h2>家庭背景：🏠Sweet Family🏠</h2>
-                <br/>
+<!-----------------------------------------------main---------------------------------------------------------------------------------------->
+        <main>
+        <div class="welcome">
+            <video autoplay muted loop src="首頁資料/play.mp4"></video>
+            <section>
+                <h1><a href="#countdown">KELVIN</a></h1>
+                <script>setdate("01/11/2025")</script>
+                <h2 style="display: none;">距離<span id="end"></span></h2>
+                <h2 id="countdown">
+                   Kun-Yi Lin, from yths 高一忠
+                </h2> 
+            </section>
+        </div>
+        <div class="page">
+            <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/分頁.svg">
+            <section>
+                <a href="home.html" title="story" target="_self"><h1>Home</h1></a> 
+                <a href="story.html" title="autobiography" target="_self"><h1>Bio</h1></a> 
+                <a href="portfolio.html" title="Portfolio" target="_self"><h1>Portfolio</h1></a> 
+            </section>
+        </div>
+
+        <article>
+            <a href="#message"><h1>家庭背景</h1></a>
+            <section>
+                <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/pic/home.JPG">
+                <h2>🏠Sweet Family🏠</h2>
                 <p>
-                    我出生在一個幸福美滿的小康小家庭，一個給我情感或物質所需的家。
-                    我的父親在台塑企業工作，身為輪班職員，他生活時間常與我們錯開，但對他來說，養活一家四口是自己的責任。
-                    在我沒事時，他會與我閒談國學常識或鑽研數學問題。因為父親，我學到學習從來不是一件苦事，而是在汲取知識的同時，在「發現」的過程獲得樂趣。
-                    母親在我生命中扮演了最重要的角色。如果沒有母親，我的人生會走向一條完全相反的路。
-                    在我出生時，腸病毒與SARS才剛剛震撼了全台灣，母親為此特地辭去了工作全心照顧我。
-                    她令我了解到，原來生命的意義不只是成就自己，而在於成全更多的人。
+                    我出生在一個幸福美滿的小康小家庭，一個給我情感或物質所需的家。<br>
+                    我的父親在台塑企業工作，身為輪班職員，他生活時間常與我們錯開，但對他來說，養活一家四口是自己的責任。<br>
+                    在我沒事時，他會與我閒談國學常識或鑽研數學問題。因為父親，我學到學習從來不是一件苦事，而是在汲取知識的同時，在「發現」的過程獲得樂趣。<br>
+                    母親在我生命中扮演了最重要的角色。如果沒有母親，我的人生會走向一條完全相反的路。<br>
+                    在我出生時，腸病毒與SARS才剛剛震撼了全台灣，母親為此特地辭去了工作全心照顧我。<br>
+                    她令我了解到，原來生命的意義不只是成就自己，而在於成全更多的人。<br>
                     我有個與我相差一歲的妹妹，是我兒時的玩伴，也是一起學習、相互依靠的良友。
                 </p>
-            </article>
-            <hr/>
+                <br>
+            </section>
+        </article>
 
-            <article style="min-height: calc(24vw + 24vh + 16px);"><!--min-height: calc(10.2vw + 10.2vh + 16px);-->
-                <span class="pic"><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/me.jpg"><p><i>努力朝夢想前進!</i></p></span>
-                <h2><i>個人特質：乘著夢想飛行的我<span style="color: #d79748;">✈</span></i></h2>
-                <br/>
+        <br id="letter">
+        <article>
+            <a href="#letter"><h1>個人特質</h1></a>
+            <section>
+                <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/me.jpg">
+                <h2>乘著夢想飛行的我</h2>
                 <p>
-                    我喜歡邏輯分析、深思熟慮、有系統地解決問題、會去觀察別人做事的方法，如研究機械構造、執迷於數學問題。
-                    我也喜歡尋找生活中的美，如夕陽的豔麗溫柔。
-                    因此，我熱愛電腦資訊，因為在四方的螢幕框架中，我能夠藉由一行行程式碼組織出無限廣闊的世界。
-                    無關於道德的是非對錯時，我有時會猶豫不決，不喜歡頻繁的人際活動。我會盡力讓自己找到笑容。
-                    我覺得夢想是極其重要的。對我而言，活著的意義是讓每一天都在為未來的某個時刻做準備。
+                    我喜歡邏輯分析、深思熟慮、有系統地解決問題、會去觀察別人做事的方法，如研究機械構造、執迷於數學問題。<br>
+                    我也喜歡尋找生活中的美，如夕陽的豔麗溫柔。<br>
+                    因此，我熱愛電腦資訊，因為在四方的螢幕框架中，我能夠藉由一行行程式碼組織出無限廣闊的世界。<br>
+                    無關於道德的是非對錯時，我有時會猶豫不決，不喜歡頻繁的人際活動。我會盡力讓自己找到笑容。<br>
+                    我覺得夢想是極其重要的。對我而言，活著的意義是讓每一天都在為未來的某個時刻做準備。<br>
                     因此面對困難時，因為夢想的使命感，我會努力去嘗試能所有幫助我圓夢的事情。
                 </p>
-            </article>
-            <hr/>
+                <br>
+            </section>
+        </article>
 
-            <article style="min-height: calc(10.125vw + 10.125vh + 16px);">
-                <span class="pic"><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/pic/talk.jpg"><p><i>表達能力的培養</i></p></span>
-                <h2>求學歷程：Just do it！</h2>
-                <br/>
+        <br id="libao">
+        <article>
+            <a href="#libao"><h1>求學歷程</h1></a>
+            <section>
+                <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/pic/talk.jpg">
+                <h2>Just do it！</h2>
                 <p>
-                    國小的時候，我本來是一個害羞不愛說話的人。
-                    但是經由參與大量的英語說故事比賽、國語演說以及讀者劇場比賽，培養了我在眾人面前說話的能力。
-                    國中的時候，為了會考拚命的那段日子，則讓我了解到了時間管理的重要性，尤其那年我們在疫情的衝擊下必須要線上上課，如果自制力不足，很容易就浪費了國中生涯。
-                    高中的時候，我開始製作科展與小論文，有些東西一開始看起來很難，但在深入研究後，
+                    國小的時候，我本來是一個害羞不愛說話的人。<br>
+                    但是經由參與大量的英語說故事比賽、國語演說以及讀者劇場比賽，培養了我在眾人面前說話的能力。<br>
+                    國中的時候，為了會考拚命的那段日子，則讓我了解到了時間管理的重要性，尤其那年我們在疫情的衝擊下必須要線上上課，如果自制力不足，很容易就浪費了國中生涯。<br>
+                    高中的時候，我開始製作科展與小論文，有些東西一開始看起來很難，但在深入研究後，<br>
                     我才了解到「不會的事，做了就會了；不做的事，永遠都不會」的道理。
-                </p>
-            </article>
-        </div>
-    </main>
-    <footer id="footer">
-        &nbsp
-    </footer>
-</body>
+                </p><br>
+            </section>
+        </article>
+
+        <br id="social">
+        <article>
+            <h1>社群&聯絡</h1>
+            <section> 
+                <div class="infos"><a href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><span>YouTube</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/YouTube.svg"> </a></div>
+                <div class="infos"><a href="https://www.instagram.com/kelvinlinkk/"><span>instagram</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/ig.jpg"> </a></div>
+                <div class="infos"><a href="https://www.facebook.com/profile.php?id=100069651581286"><span>Facebook</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/facebook.svg"> </a></div>
+                <div class="infos"><a href="https://twitter.com/kelvinlinkk"><span>twitter</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/twitter.svg"> </a></div>
+                <div class="infos"><a href="https://www.twitch.tv/kelvinlinkk"><span>twitch</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/twitch.svg"> </a></div>
+            </section>
+        </article>
+        </main>
+</body>   
 </html>
