@@ -27,3 +27,7 @@ var setdate = function(date_string){
         setInterval(countdown, 1000, date_string);
     }
 }
+
+function pose(ele){
+    window.scrollBy({top:ele.getBoundingClientRect().top, behavior:"smooth"})
+};
