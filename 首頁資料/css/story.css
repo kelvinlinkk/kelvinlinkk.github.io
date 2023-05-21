@@ -5,7 +5,7 @@ a{ text-decoration: none; }
 body{margin: 0;}
 
 /*main*/
-article{position: relative;width: 100%; display: inline-block;top:100vh;text-align: center;}
+article{position: relative;width: 100%; display: inline-block;top:100vh;text-align: center;min-height: 100vh;}
 article h1{
     position: relative; text-align: center;border: 3px solid;
     min-width: fit-content;max-width: 50%; left: 25%; border-radius: 50px;
@@ -16,8 +16,8 @@ article p{position: relative; text-align:center;width: 80%; left: 10%;}
 article section img{max-height: 50vh; max-width: 50vw; }
 @keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
 @keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
-article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
-article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
+/*article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
+article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}*/
 
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;height: 100vh;}

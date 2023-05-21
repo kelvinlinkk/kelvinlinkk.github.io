@@ -53,7 +53,7 @@ form input:hover,form input:focus{animation-duration: 0.7s;animation-name: fadeI
 
 /*color*/
 .page section a h1,form input,a{color: wheat;}
-.page section{background-color:rgba(7,35,91,0.3)}
+.page section{background-color:rgba(77,77,77,0.3)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
 article{background-color: rgba(0, 0, 0, 0.3);}
