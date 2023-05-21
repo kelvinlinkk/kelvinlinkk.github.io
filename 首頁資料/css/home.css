@@ -9,6 +9,7 @@ article{position: relative;width: 100%; display: inline-block;top:100vh;}
 article h1{
     position: relative; text-align: center;border: 3px solid;width: 30%;left: 0%;border-radius: 50px;
 }
+article section{min-height: 100px;width: 100vw;}
 .infos{position: relative;width: calc(7vw + 7vh);margin-bottom: calc(1.5vh + 1.5vw);
     display: inline-block;font-size: calc(1vw + 1vh);}
 .infos a{width: calc(7vw + 7vh);}

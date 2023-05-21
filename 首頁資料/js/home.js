@@ -28,6 +28,17 @@ var setdate = function(date_string){
     }
 };
 
+function start(){
+        var menu = document.getElementsById('123');
+        menu.style.opacity = "1"
+}
+
+/*function track(e){
+        var tar = document.getElementById("mousebar");
+        tar.style.left = (e.pageX + 10) + 'px'
+        tar.style.top = (e.pageY + 10) + 'px'
+}*/
+
 var toolInfo = [["https://www.ilovepdf.com/zh-tw","ilovepdf","https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/ilovepdf.png"],
         ["https://www.overleaf.com/","overleaf","https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/overleaf.svg"],
         ["https://ezcv.tw/","EZ學習歷程","https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/ez.png"],
@@ -155,6 +166,8 @@ var socialInfo =[["https://www.youtube.com/","YouTube","https://github.com/kelvi
         ["https://www.twitch.tv/","twitch","https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/twitch.svg"],
         ["https://discord.com/app","discord","https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/discord.svg"]];
 
-function drawLogo(arrName){for(let i =0; i<arrName.length;i++){
-    document.write('<div class="infos"><a href="' + arrName[i][0] +'"><span>'+ arrName[i][1] + '</span><img src="'+ arrName[i][2] +'"></a></div>')
-}};
+function drawLogo(arrName){
+        for(let i =0; i<arrName.length;i++){
+                document.write('<div class="infos"><a href="' + arrName[i][0] +'"><span>'+ arrName[i][1] + '</span><img src="'+ arrName[i][2] +'"></a></div>')
+        }
+};
