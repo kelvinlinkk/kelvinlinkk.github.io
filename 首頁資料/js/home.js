@@ -150,7 +150,7 @@ var collegeInfo = [["https://collego.edu.tw/","collego","collego.svg"],
         ["https://university.1111.com.tw/index.asp","1111大學網","1111大學網.jpg"],
         ["https://www.104.com.tw/jb/career/","104求職網","104.svg"]];
 
-var aiInfo = [["chat.openai.com","chatGPT","chatgpt.jpg"],
+var aiInfo = [["https://chat.openai.com","chatGPT","chatgpt.jpg"],
         ["https://creator.nightcafe.studio/","nightcafe","nightcafe.jpg"],
         ["https://hotpot.ai/","hotpot","hotpot.jpg"],
         ["https://leonardo.ai/","Leonardo","leonardo.png"],
