@@ -71,7 +71,8 @@ var learnInfo = [["https://www.shs.edu.tw/","中學生網站","中學生.png"],
         ["https://ndltd.ncl.edu.tw/","博碩網","博碩網.jpg"],
         ["https://twsf.ntsec.gov.tw/","科教館","科教館.png"],
         ["https://twpat3.tipo.gov.tw/","專利檢索","IPO.png"],
-        ["http://www.ieyiun.org/","IEYI","ieyi.png"]];
+        ["http://www.ieyiun.org/","IEYI","ieyi.png"],
+        ["https://www.mxeduc.org.tw/scienceaward/","旺宏科學獎","旺宏.jfif"]];
 
 var codeInfo = [["https://www.w3schools.com/","w3schools","w3logo.png"],
         ["https://www.codecademy.com/","codecademy","codecademy.svg"],
