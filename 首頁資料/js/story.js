@@ -31,3 +31,13 @@ var setdate = function(date_string){
 function pose(ele){
     window.scrollBy({top:ele.getBoundingClientRect().top, behavior:"smooth"})
 };
+
+function set(t){
+    var main = document.getElementById("main");
+    if(t == 0){
+        main.style.left = "50px"
+    }
+    if(t == 1){
+        main.style.left = "150px";
+    }
+}

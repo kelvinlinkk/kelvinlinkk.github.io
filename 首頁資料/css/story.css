@@ -5,6 +5,7 @@ a{ text-decoration: none; }
 body{margin: 0;}
 
 /*main*/
+main{position: absolute;left: 50px;}
 article{position: relative;width: 100%; display: inline-block;top:100vh;text-align: center;min-height: 100vh;}
 article h1{
     position: relative; text-align: center;border: 3px solid;
@@ -37,17 +38,15 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 }
 
 /*page icon*/
-.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
-.page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
-.page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
-.page section a h1{position: relative; left: 1vw;}
+.page section:nth-child(1){position: fixed;top: 0px;left: 0px; z-index: 6;width: 50px;height: 100vh;overflow: hidden;}
+.page:hover section:nth-child(2){position: fixed;top: 0px;left: 50px; z-index: 5;width: 100px;height: 100vh;overflow: hidden;}
+.page section:nth-child(1) img{position: auto;top: 0px; left: 0px;z-index: 10; width: 50px;}
 
 /*color*/
 article h1{border-color:rgba(255, 255, 255, 0.5)}
 article section h2{color: rgb(210, 187, 144);}
 .page section a h1,a{color: wheat;}
-.page section{background-color:rgba(77, 77, 77, 0.3)}
+.page section{background-color:black;}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
 article{background-color: rgba(0, 0, 0, 0.8);}
