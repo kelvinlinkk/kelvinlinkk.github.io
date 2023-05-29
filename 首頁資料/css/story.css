@@ -25,12 +25,12 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 .welcome img{position: fixed;top: 0px; }
 .welcome video{position: fixed;top: 0px; right: 0px;}
 .welcome section{position: absolute;width: 100%; bottom: 0%;height: calc(8vh + 8vw);font-size: calc(1vh + 1vw);}
-@media screen and (max-height:50vw){
+@media screen and (max-height:56vw){
     .welcome img{width: 100%;}
     .welcome video{width: 100%;}
     main{left: 50px;}
 }
-@media screen and (min-height:50vw){
+@media screen and (min-height:56vw){
     .welcome img{height: 100%;}
     .welcome video{height: 100%;}
     aside{visibility: hidden;}
