@@ -65,8 +65,7 @@ var toolInfo = [["https://www.ilovepdf.com/zh-tw","ilovepdf","ilovepdf.png"],
         ["https://app.haikei.app/","Haikei","haikei.png"],
         ["http://dig.ccmixter.org/","dig.ccMixter","digccMixter.png"],
         ["https://eword.ntpc.edu.tw/","生字簿","字.png"],
-        ["https://vectorwiki.com","vectorwiki","vectorwiki.png"],
-        ["https://www.overleaf.com/","overleaf","overleaf.svg"]];
+        ["https://vectorwiki.com","vectorwiki","vectorwiki.png"]];
 
 var learnInfo = [["https://www.shs.edu.tw/","中學生網站","中學生.png"],
         ["https://ndltd.ncl.edu.tw/","博碩網","博碩網.jpg"],
