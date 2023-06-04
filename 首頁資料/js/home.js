@@ -159,7 +159,8 @@ var aiInfo = [["https://chat.openai.com","chatGPT","chatgpt.jpg"],
         ["https://www.naturalreaders.com/","Natural Readers","nr.svg"],
         ["http://127.0.0.1:7860/","Stable Diffusion","sd.svg"],
         ["https://designer.microsoft.com","msdesigner","msdesigner.jpg"],
-        ["https://tome.app/","tome","tome.jpg"]];
+        ["https://tome.app/","tome","tome.jpg"],
+        ["https://scribblediffusion.com/","scribblediffusion","scribblediffusion.jpg"]];
 
 var raceInfo = [["https://www.formula1.com/","f1","f1.svg"],
         ["https://www.motogp.com/","motogp","motogp.png"],
