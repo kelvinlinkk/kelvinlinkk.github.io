@@ -65,7 +65,8 @@ var toolInfo = [["https://www.ilovepdf.com/zh-tw","ilovepdf","ilovepdf.png"],
         ["https://app.haikei.app/","Haikei","haikei.png"],
         ["http://dig.ccmixter.org/","dig.ccMixter","digccMixter.png"],
         ["https://eword.ntpc.edu.tw/","生字簿","字.png"],
-        ["https://vectorwiki.com","vectorwiki","vectorwiki.png"]];
+        ["https://vectorwiki.com","vectorwiki","vectorwiki.png"],
+        ["https://www.overleaf.com/","overleaf","overleaf.svg"]];
 
 var learnInfo = [["https://www.shs.edu.tw/","中學生網站","中學生.png"],
         ["https://ndltd.ncl.edu.tw/","博碩網","博碩網.jpg"],
@@ -85,7 +86,8 @@ var codeInfo = [["https://www.w3schools.com/","w3schools","w3logo.png"],
         ["https://www.freecodecamp.org/","freecodecamp","freecodecamp.svg"],
         ["https://leetcode.com/","leetcode","leetcode.png"],
         ["http://github.com","github","github.png"],
-        ["https://www.oxxostudio.tw/","oxxostudio","oxxo.png"]];
+        ["https://www.oxxostudio.tw/","oxxostudio","oxxo.png"],
+        ["https://stackoverflow.com/","stack overflow","stackoverflow.jpg"]];
 
 var studyInfo = [["https://tw.voicetube.com/","voicetube","voicetube.svg"],
         ["https://www.bbc.co.uk/learningenglish/","BBCEng","bbc.png"],
