@@ -53,6 +53,7 @@ main article{position: relative;min-height:calc(18vw + 18vh);min-height: 100vh;}
 hr{margin: 14px;border-width:0px 0px 1px 0px;visibility: hidden;}
 p{font-weight: normal;}
 li{font-weight: normal;}
+dd{font-weight: normal;}
 
 /*footer*/
 main{margin-bottom: 520px;}
