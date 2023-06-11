@@ -11,15 +11,15 @@
     <link rel="preload" as="video" href="首頁資料/play.mp4">
     <script src="首頁資料/js/home.js"></script>
 </head>
-<body>
+<body onclick="start()">
     <main>
         <div class="welcome">
             <video autoplay loop muted src="首頁資料/home.mp4"></video>
             <form action="https://www.google.com/search" method="get">
-                <input type="hidden" name="" value=""><input type="text" name="q"/>
+                <input type="hidden" name="" value=""><input type="text" name="q" id="search">
             </form>
-            <section>
-                <h1><a href="#countdown">月考倒數</a></h1>
+            <section >
+                <h1 id="time"><a href="#countdown">月考倒數</a></h1>
                 <script>setdate("06/27/2023")</script>
                 <h2 style="display: none;">距離<span id="end"></span></h2>
                 <h2 id="countdown">
@@ -27,7 +27,7 @@
                 </h2> 
             </section>
         </div>
-        <div class="page">
+        <div class="page" id="page">
             <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/分頁.svg">
             <section>
                 <a href="story.html" title="story" target="_self"><h1>story</h1></a>  

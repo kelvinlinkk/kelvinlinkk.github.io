@@ -27,10 +27,32 @@ var setdate = function(date_string){
         setInterval(countdown, 1000, date_string);
     }
 };
-
+var flag = false;
 function start(){
-        var menu = document.getElementsById('123');
-        menu.style.opacity = "1"
+        var search = document.getElementById("search");
+        var page = document.getElementById("page");
+        var time = document.getElementById("time");
+        var countdown = document.getElementById("countdown");
+        if(flag){flag = !flag;
+                for (let i = 0;i<100;i++) {
+                        setTimeout(function(){
+                        search.style.opacity = String(i/100);
+                        page.style.opacity = String(i/100);
+                        time.style.opacity = String(i/100);
+                        countdown.style.opacity = String(i/100);},10*i)
+                }
+        }     
+        else{flag = !flag;
+                for (let i = 100;i>0;i--) {
+                        setTimeout(function(){
+                        search.style.opacity = String(i/100);
+                        page.style.opacity = String(i/100);
+                        time.style.opacity = String(i/100);
+                        countdown.style.opacity = String(i/100);},10*(100-i))
+                }
+        }
+                
+        
 }
 
 /*function track(e){
