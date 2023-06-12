@@ -1,4 +1,6 @@
 //Thanks to https://gist.github.com/AndyG1128/893207
+var flag = false;
+var mouse = "";
 var countdown = function(date_string) {
     var now = new Date();
     var end = new Date(date_string);
@@ -27,17 +29,14 @@ var setdate = function(date_string){
         setInterval(countdown, 1000, date_string);
     }
 };
-var flag = false;
-function start(){
+function display(){
         var search = document.getElementById("search");
-        var page = document.getElementById("page");
         var time = document.getElementById("time");
         var countdown = document.getElementById("countdown");
         if(flag){flag = !flag;
                 for (let i = 0;i<100;i++) {
                         setTimeout(function(){
                         search.style.opacity = String(i/100);
-                        page.style.opacity = String(i/100);
                         time.style.opacity = String(i/100);
                         countdown.style.opacity = String(i/100);},10*i)
                 }
@@ -46,7 +45,6 @@ function start(){
                 for (let i = 100;i>0;i--) {
                         setTimeout(function(){
                         search.style.opacity = String(i/100);
-                        page.style.opacity = String(i/100);
                         time.style.opacity = String(i/100);
                         countdown.style.opacity = String(i/100);},10*(100-i))
                 }
@@ -54,13 +52,12 @@ function start(){
                 
         
 }
-
-/*function track(e){
+function inMouse(name){ mouse = name;console.log(mouse);}
+function track(e){
         var tar = document.getElementById("mousebar");
         tar.style.left = (e.pageX + 10) + 'px'
         tar.style.top = (e.pageY + 10) + 'px'
-}*/
-
+}
 var toolInfo = [["https://www.ilovepdf.com/zh-tw","ilovepdf","ilovepdf.png"],
         ["https://www.overleaf.com/","overleaf","overleaf.svg"],
         ["https://ezcv.tw/","EZ學習歷程","ez.png"],
@@ -201,6 +198,6 @@ var socialInfo =[["https://www.youtube.com/","YouTube","YouTube.svg"],
 
 function drawLogo(arrName){
         for(let i =0; i<arrName.length;i++){
-                document.write('<div class="infos"><a href="' + arrName[i][0] +'"><span>'+ arrName[i][1] + '</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/'+ arrName[i][2] +'"></a></div>')
+                document.write('<div class="infos"><a href="' + arrName[i][0] +'"><span>'+ arrName[i][1] + '</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/'+ arrName[i][2] +'" onmouseenter="inMouse(\''+ arrName[i][1] +'\')"></a></div>')
         }
 };
