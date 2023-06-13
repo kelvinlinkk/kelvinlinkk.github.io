@@ -151,7 +151,7 @@ function drawLogo(){
         }
         
 };
-var countdown = function(date_string) {
+var count = function(date_string) {
     var now = new Date();
     var end = new Date(date_string);
  
@@ -175,8 +175,8 @@ var countdown = function(date_string) {
 };
 var setdate = function(date_string){
     window.onload = function(){
-        countdown(date_string);
-        setInterval(countdown, 1000, date_string);
+        count(date_string);
+        setInterval(count, 1000, date_string);
     }
 };
 
@@ -204,9 +204,13 @@ function display(){
         
 }
 function inMouse(name){ mouse = name;console.log(mouse);}
-function outMouse(){return mouse;}
-/*function track(e){
+function writeMouse(){document.getElementById("mousebar").innerHTML = mouse}
+function outMouse(){window.onload = function(){
+        setInterval(writeMouse, 1);
+    }}
+function track(e){
         var tar = document.getElementById("mousebar");
-        tar.style.left = (e.pageX + 10) + 'px'
-        tar.style.top = (e.pageY + 10) + 'px'
-}*/
+        tar.style.opacity = "1";
+        tar.style.left = (e.pageX + 10) + 'px';
+        tar.style.top = (e.pageY + 10) + 'px';
+}

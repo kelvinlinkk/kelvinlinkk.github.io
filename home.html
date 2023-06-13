@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onselectstart="return false">
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon.png" type="image/x-icon">
@@ -33,7 +33,15 @@
                 <a href="portfolio.html" title="Portfolio" target="_self"><h1>Portfolio</h1></a>     
             </section>
         </div>
-        <div style="position: fixed;top: 0px;left: 0px;width: 50%;height: 25%;z-index: 100;background-color: black;"><script>document.write(outMouse())</script></div>
+        <script>outMouse()</script>
+        <script>
+            window.onmousedown = function(){addEventListener('mousemove', track, false)}
+            window.onmouseup = function(){removeEventListener('mousemove', track, false);
+                var tar = document.getElementById("mousebar");
+                tar.style.opacity = "0";
+            }
+        </script>
+        <div style="position: absolute;top: 0px;left: 0px;z-index: 100;background-color: black;opacity: 0;" id="mousebar"></div>
         <script>drawLogo()</script>
     </main>
 </body>
