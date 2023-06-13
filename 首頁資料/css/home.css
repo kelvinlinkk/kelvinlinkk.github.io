@@ -42,15 +42,15 @@ form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: 
 }
 
 /*page icon*/
-.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
-.page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
-.page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
-.page section a h1{position: relative; left: 1vw;}
+#page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
+#page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
+#page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
+#page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
+#page section a h1{position: relative; left: 1vw;}
 
 /*color*/
-.page section a h1,form input,a{color: wheat;}
-.page section{background-color:rgba(77,77,77,0.3)}
+#page section a h1,form input,a{color: wheat;}
+#page section{background-color:rgba(77,77,77,0.3)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
 article{background-color: rgba(0, 0, 0, 0.3);}

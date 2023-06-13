@@ -18,16 +18,14 @@
             <form action="https://www.google.com/search" method="get">
                 <input type="hidden" name="" value=""><input type="text" name="q" id="search">
             </form>
-            <section >
+            <section>
                 <h1 id="time"><a href="#countdown">月考倒數</a></h1>
                 <script>setdate("06/27/2023")</script>
                 <h2 style="display: none;">距離<span id="end"></span></h2>
-                <h2 id="countdown">
-                    剩下<span id="days"></span> days <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span> 
-                </h2> 
+                <h2 id="countdown">剩下<span id="days"></span> days <span id="hours"></span>:<span id="minutes"></span>:<span id="seconds"></span> </h2> 
             </section>
         </div>
-        <div class="page" id="page">
+        <div id="page">
             <img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/分頁.svg" ondblclick="display()">
             <section>
                 <a href="story.html" title="story" target="_self"><h1>story</h1></a>  
@@ -35,61 +33,8 @@
                 <a href="portfolio.html" title="Portfolio" target="_self"><h1>Portfolio</h1></a>     
             </section>
         </div>
-        <article>
-            <h1>工具</h1>
-            <section><script>drawLogo(toolInfo)</script></section>
-        </article><br id="tool">
-        
-        <article>
-            <h1>科學報告</h1>
-            <section><script>drawLogo(learnInfo)</script></section>
-        </article><br id="science">
-
-        <article>
-            <h1>程式</h1>
-            <section><script>drawLogo(codeInfo)</script></section>
-        </article><br id="code">
-        
-        <article>
-            <h1>學習</h1>
-            <section><script>drawLogo(studyInfo)</script></section>
-        </article><br id="study">
-        
-        <article>
-            <h1>高中</h1>
-            <section><script>drawLogo(schoolInfo)</script></section>
-        </article><br id="seniorhigh">
-
-        <article>
-            <h1>Google</h1>
-            <section><script>drawLogo(googleInfo)</script></section>
-        </article><br id="google">
-
-        <article>
-            <h1>Microsoft</h1>
-            <section><script>drawLogo(msInfo)</script></section>
-        </article><br id="microsoft">
-        
-        <article>
-            <h1>大學升學</h1>
-            <section><script>drawLogo(collegeInfo)</script></section>
-        </article><br id="college">
-
-        <article>
-            <h1>AI</h1>
-            <section><script>drawLogo(aiInfo)</script>
-            </section>
-        </article><br id="AI">
-
-        <article>
-            <h1>運動賽事</h1>
-            <section><script>drawLogo(raceInfo)</script></section>
-        </article><br id="motorsport">
-
-        <article>
-            <h1>社交</h1>
-            <section><script>drawLogo(socialInfo)</script></section>
-        </article><br id="social">
+        <div style="position: fixed;top: 0px;left: 0px;width: 50%;height: 25%;z-index: 100;background-color: black;"><script>document.write(outMouse())</script></div>
+        <script>drawLogo()</script>
     </main>
 </body>
 </html>
