@@ -200,8 +200,6 @@ function display(){
                         countdown.style.opacity = String(i/100);},10*(100-i))
                 }
         }
-                
-        
 }
 function inMouse(name){ mouse = name;console.log(mouse);}
 function writeMouse(){document.getElementById("mousebar").innerHTML = mouse; }
