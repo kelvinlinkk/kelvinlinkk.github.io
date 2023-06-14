@@ -151,7 +151,7 @@ function drawLogo(){
         }
         
 };
-var count = function(date_string) {
+var countd = function(date_string) {
     var now = new Date();
     var end = new Date(date_string);
  
@@ -175,8 +175,8 @@ var count = function(date_string) {
 };
 var setdate = function(date_string){
     window.onload = function(){
-        count(date_string);
-        setInterval(count, 1000, date_string);
+        countd(date_string);
+        setInterval(countd, 1000, date_string);
     }
 };
 
@@ -204,10 +204,10 @@ function display(){
         
 }
 function inMouse(name){ mouse = name;console.log(mouse);}
-function writeMouse(){document.getElementById("mousebar").innerHTML = mouse}
-function outMouse(){window.onload = function(){
+function writeMouse(){document.getElementById("mousebar").innerHTML = mouse; }
+function outMouse(){
         setInterval(writeMouse, 1);
-    }}
+    }
 function track(e){
         var tar = document.getElementById("mousebar");
         tar.style.opacity = "1";
