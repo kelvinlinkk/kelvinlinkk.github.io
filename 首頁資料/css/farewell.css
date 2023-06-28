@@ -1,0 +1,50 @@
+/*setting*/
+::-webkit-scrollbar{display: none;}
+a{ text-decoration: none; }
+*{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;}
+body{margin: 0;}
+@font-face{
+    font-family: 'Fasthand-Regular';
+    src: local("Fasthand-Regular"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/Fasthand-Regular.ttf') format("opentype"),
+}
+
+/*main*/
+main{margin-left: 8%;margin-right: 8%;}
+article{position: relative;width: 100%; display: inline-block;}
+article h1{position: relative;left: -4%;}
+article section img{max-height: 50vh; max-width: 50vw; }
+article section{text-align: center;}
+article section p{text-align:center;font-family:"Fasthand-Regular";font-style: italic;font-size: large;}
+article img,article video,article iframe{position: relative; height: 160px;width: 80%;left: 10%; border-radius: calc(1vw + 1vh);}
+@keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
+@keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
+
+/*welcome pic*/
+.welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;height: 100vh;}
+.welcome img{position: fixed;top: 0px; }
+.welcome video{position: fixed;top: 0px; right: 0px;opacity: 0.2;}
+.welcome section{position: absolute;width: 100%; bottom: 0%;height: calc(8vh + 8vw);font-size: calc(1vh + 1vw);}
+@keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
+@keyframes fadeOut{from{opacity: 1;}to{opacity: 0;visibility: hidden;}}
+@keyframes fadeOut2{from{opacity: 1;}to{opacity: 0;}}
+@media screen and (max-height:56vw){
+    .welcome img{width: 100%;}
+    .welcome video{width: 100%;}
+}
+@media screen and (min-height:56vw){
+    .welcome img{height: 100%;}
+    .welcome video{height: 100%;}
+}
+
+/*page icon*/
+.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
+.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
+.page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
+.page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
+.page section a h1{position: relative; left: 1vw;}
+
+/*color*/
+.page section a h1,a{color: wheat;}
+.page section{background-color:rgba(77, 77, 77, 0.3)}
+body{background-color: rgba(0, 0, 0, 1); color: rgb(217, 208, 192);}
+main{background-color: rgba(0, 0, 0);}
