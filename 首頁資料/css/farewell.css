@@ -1,12 +1,16 @@
 /*setting*/
-::-webkit-scrollbar{display: none;}
-a{ text-decoration: none;}
-*{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;}
-body{margin: 0;}
 @font-face{
     font-family: 'ChenYuluoyan';
     src: local("ChenYuluoyan"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/ChenYuluoyan-Thin-Monospaced.ttf'),
 }
+@font-face{
+    font-family: 'NotoSansTC';
+    src: local("NotoSansTC"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/思源黑體/NotoSansTC-Light.otf'),
+}
+::-webkit-scrollbar{display: none;}
+a{ text-decoration: none;}
+*{font-family: "NotoSansTC", Tahoma, Geneva, Verdana, sans-serif;}
+body{margin: 0;}
 
 /*main*/
 main{margin-left: 8%;margin-right: 8%;}
