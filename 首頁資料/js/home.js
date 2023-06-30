@@ -32,7 +32,7 @@ function display(){
                         countdown.style.opacity = String(i/100);},10*(100-i))
                 }
         }
-}
+}/*
 function inMouse(j,i){ mouse = [j,i];console.log(mouse);}
 function writeMouse(){document.getElementById("mousebar").innerHTML = info[mouse[0]][mouse[1]][3]; }
 function outMouse(){
@@ -51,7 +51,7 @@ function track(e){
         }     
         tar.style.left = (e.pageX + 10) + 'px';
         tar.style.top = (e.pageY + 10) + 'px';
-}
+}*/
 function Fade(){
         for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();document.getElementById("mousebar").style.opacity = String(i/100);},i*2)}
 }
