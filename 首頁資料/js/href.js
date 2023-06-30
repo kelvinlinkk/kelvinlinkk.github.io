@@ -62,7 +62,7 @@ var info = [
         ["https://www.etymonline.com/","etymonline ","etymonline.jpg"," "],
         ["https://www.junyiacademy.org/","均一","均一.svg"," "],
         ["http://www.baysidepremier.com/","SAT","sat.png"," "],
-        ["https://dict.revised.moe.edu.tw/","教育部辭典","dict.svg"," "],
+        ["https://dict.revised.moe.edu.tw/","教育部辭典","dict.png"," "],
         ["https://dictionary.cambridge.org/","劍橋辭典","cambridge.png"," "],
         ["https://www.twreporter.org/","報導者","thereporter.svg"," "],
         ["https://www.peopo.org/","PEOPO","peopo.jpg"," "],
