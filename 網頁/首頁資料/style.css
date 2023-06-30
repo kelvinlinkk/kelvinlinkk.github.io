@@ -1,0 +1,64 @@
+/*------------------------------------------總設定------------------------------------------------------*/
+*{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+/*body::-webkit-scrollbar { display: none; }/*去除滾軸*/
+::-webkit-scrollbar{ position: fixed;bottom: 0px;width: 10px; }
+a{ text-decoration: none; }/*去除醜醜的底線*/
+h1, h2, h3, h4, p{ text-align: center; }
+p{font-size: calc(1.25vh + 1.25vw);}
+/*-------------------------------------------上方-------------------------------------------------------*/
+header { position: fixed; top: 0px; left: 0px; right: 0px; height: 8vh; z-index: 5; }
+header h1{ font-family:Impact;margin: 0px;font-size: 6vh;}
+.gapp img{position: fixed;top: 0px;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
+.gapp section{position: fixed;top: 8vh;right: 0px;z-index: 6;text-align: center;
+              width: 48vh;height: 65vh;visibility: hidden;border:solid 3px;}
+.gapp img:hover{opacity: 0.7;}
+.gapp:hover section{visibility: visible;}
+.gapp a img{position: relative;left: 0.2vh;width: 14vh;height: 14vh;
+    margin: 0.7vh;border-radius: 5px;}
+/*-------------------------------------------主頁內容----------------------------------------------------*/
+main{ position: absolute; top: 16vh; left: 0px; right: 0px; z-index: 1; overflow-x: hidden;/*remove bottom scrollbar*/}
+main iframe{position:relative; z-index: 2; height: 160vh;}
+main h3{ position: relative; left: 10%; width: 80%; top: 0px; z-index: 2;
+border-radius: 30px; font-size: calc(2vh + 2vw); }
+main p{position: relative; top: 10px;}/*avoid overlapping*/
+main article{
+    position: relative;top: 0px; width: 94vw; left: 2vw;margin-top: 0px;
+    border-left: 10px solid; border-right: 10px solid; border-bottom: 20px groove; border-radius: 50px; 
+}
+main audio{position:relative;  left:10%; width: 80%;}
+main section,main section img, main section iframe{ position: relative; width: 95%; left: 2.5%; }
+main section img, main section iframe{top: 0px; border: 0ch; border-radius: 30px; }
+/*-------------------------------------------導覽列--------------------------------------------------------*/
+nav{ position: fixed; top: 8vh; left: 0px; right: 0px; height: 8vh;z-index: 3; }
+nav img { position: relative; width:  calc(5.6vh + 5.6vw); height: calc(5.6vh + 5.6vw); margin:calc(0.75vh + 0.75vw); border-radius: 2vh ; }
+nav img:hover{opacity: 0.7; }
+.app h2 {position: fixed;top: 8vh;height: 8vh; margin: 0px; z-index: 5;font-size: 6vh;}
+.app:hover h2{border: solid 5px; border-bottom: 0px;}
+.app h2 img{margin: 0px; height: 8vh;width: 8vh;}
+.app h2 img:hover{opacity: 1;}
+.app section{ position: fixed;top: 16vh;left: 0px;right: 0px;text-align: center; visibility:hidden; z-index: 4; }/*隱藏連結內容*/
+.app:hover section{ border: solid 5px; visibility: visible; } /*導覽列被觸碰顯示連結內容*/
+.app:nth-child(1) h2{ left: 00vw; right: 66vw; }/*設定4個導覽列位置*/
+.app:nth-child(2) h2{ left: 33vw; right: 33vw; }
+.app:nth-child(3) h2{ left: 66vw; right: 0vw; }       
+/*------------------------------------------配色-----------------------------------------------------------*/
+/*底色*/
+*,main section a{background-color: #111133;}
+/*頁首頁尾*/
+header h1, header,
+main h3,h3 a,
+.app section,.app, a,.app:hover h2,.app:hover h2 img,.app img,
+.gapp section,.gapp img,
+header ul,header li{background-color: #8131b2; }
+main article{border-color:#8131b2 ;}
+/*文字側欄*/
+*{color: #e0e5e9;}
+body::-webkit-scrollbar-track{background-color: #e0e5e9;}
+/*導覽列*/
+.app:hover h2,.app:hover section,.gapp section{border-color:#32439a; }
+nav,.app h2,.app h2 img,
+body::-webkit-scrollbar-thumb{background-color: #32439a; }
+/*black #658DC6 #efd9c8 #0f4c81*/
+/*#100c0d #013328 #efd9c8 #cc8b65*/
+/*#191718 #0a62d0 #e0e5e9 #f3d849*/
+/*#4a1d1d #0a62d0 #e0e5e9 #f3d849*/
