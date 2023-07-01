@@ -1,19 +1,36 @@
-addEventListener('scroll', track, false);
-flag = false;
-window.onload = track
-function track(){
-    var tar = document.getElementById("tt");
+addEventListener('scroll', function(){track(0)}, false);
+addEventListener('scroll', function(){track(1)}, false);
+addEventListener('scroll', function(){track(2)}, false);
+flag = [false,false,false]
+flag2 = [false,false,false]
+window.onload = function(){track(0)};
+function track(n){
+    var tar = document.getElementsByTagName("article")[n];
     var h1 = tar.getElementsByTagName('h1')[0];
     var lyrics = tar.getElementsByTagName('p')[0];
-    toppos = tar.getBoundingClientRect().top
-    console.log(flag + ' ' + toppos);
-    if(toppos > 0 || toppos < screen.height * (-1) + 50){
-        lyrics.style.color = "#d9d0c0"
-        flag = false;
-    }else if(toppos <= 0 && flag == false){
-        fade(lyrics);
+    var mypic = tar.getElementsByTagName('img')[0];
+    tarTop = lyrics.getBoundingClientRect().top;
+    contentTop = h1.getBoundingClientRect().top;
+    tarBot = tar.getBoundingClientRect().bottom;
+    console.log(flag2 + ' ' + tarBot + ' ' + contentTop + ' ' + screen.height);
+    //LYRICS
+    if(tarTop > screen.height || tarBot < 0){
+        lyrics.style.opacity = "0";
+        flag[n] = false;
+    }else if(flag[n] == false){
+        fade(lyrics,3);
+        flag[n] = true;
+    }
+    //H1
+    if(tarBot < 0 || contentTop > screen.height -200){
+        mypic.style.opacity = '0';
+        h1.style.left = '-10%';
+        flag2[n] = false;
+    }
+    else if(tarBot >= 0 && flag2[n] == false){
         move(h1);
-        flag = true;
+        fade(mypic,2);
+        flag2[n] = true;
     }     
 }
 
@@ -21,15 +38,24 @@ function move(tar){
     for (let i = 0;i<1000;i++){
         setTimeout(
             function(){
-                clearTimeout();tar.style.left = String((i-2000)/200) + '%';
-            },i)
+                clearTimeout(tar);tar.style.left = String((i-2000)/200) + '%';
+            },i*1.5)
     }
 }
-function fade(tar){
+function fade(tar, speed){
     for (let i = 0;i<1000;i++){
         setTimeout(
             function(){
                 clearTimeout();tar.style.opacity = i/1000;
-            },i*2)
+            },i*speed)
     }
 }
+
+/*function bounce(tar, speed){
+    for (let i = 0;i<1000;i++){
+        setTimeout(
+            function(){
+                clearTimeout();tar.style.transform = 'scale(' + (-0.000262*i*i+0.362*i)/100 + ',' + (-0.000262*i*i+0.362*i)/100 + ')' ;
+            },i*speed)
+    }
+}*/
