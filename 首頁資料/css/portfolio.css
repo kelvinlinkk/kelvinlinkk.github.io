@@ -44,7 +44,7 @@ body{margin: 0;}
 @media screen and (min-height:56vw){
     .welcome video{height: 100%;}
 }
-main article h2{position: relative; margin: 0%;}
+main article h2{position: relative; margin: 0%;left: -5%;}
 main article{position: relative;min-height:calc(18vw + 18vh);min-height: 100vh;}
 .pic img,.pic video,.pic iframe{max-height: 80vh;max-width: 40vw; border-radius: calc(1vw + 1vh);}
 .pic iframe,.pic blockquote{height: 80vh;width: 40vw;}

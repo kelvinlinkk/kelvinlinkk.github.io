@@ -1,9 +1,13 @@
-addEventListener('scroll', function(){track(0)}, false);
-addEventListener('scroll', function(){track(1)}, false);
-addEventListener('scroll', function(){track(2)}, false);
-flag = [false,false,false]
-flag2 = [false,false,false]
-window.onload = function(){track(0)};
+const flag = []
+const flag2 = []
+window.onload = function(){
+    for(let i = 0; i < document.getElementsByTagName("article").length; i++){
+        addEventListener('scroll', function(){track(i)}, false);
+        flag.push(false);
+        flag2.push(false);
+    }
+    track(0);
+}
 function track(n){
     var tar = document.getElementsByTagName("article")[n];
     var h1 = tar.getElementsByTagName('h1')[0];
