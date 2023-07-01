@@ -13,6 +13,7 @@ function track(n){
     var h1 = tar.getElementsByTagName('h1')[0];
     var lyrics = tar.getElementsByTagName('p')[0];
     var mypic = tar.getElementsByTagName('img')[0];
+    var mytext = tar.getElementsByTagName('p')[1];
     tarTop = lyrics.getBoundingClientRect().top;
     contentTop = h1.getBoundingClientRect().top;
     tarBot = tar.getBoundingClientRect().bottom;
@@ -29,11 +30,13 @@ function track(n){
     if(tarBot < 0 || contentTop > screen.height -200){
         mypic.style.opacity = '0';
         h1.style.left = '-10%';
+        mytext.style.transform = 'scale(0.9,0.9)';
         flag2[n] = false;
     }
     else if(tarBot >= 0 && flag2[n] == false){
         move(h1);
         fade(mypic,2);
+        bounce(mytext,1.1);
         flag2[n] = true;
     }     
 }
@@ -51,6 +54,14 @@ function fade(tar, speed){
         setTimeout(
             function(){
                 clearTimeout();tar.style.opacity = i/1000;
+            },i*speed)
+    }
+}
+function bounce(tar, speed){
+    for (let i = 0;i<1000;i++){
+        setTimeout(
+            function(){
+                clearTimeout();tar.style.transform = 'scale(' + (9000+i)/10000 + ',' + (9000 + i)/10000 + ')' ;
             },i*speed)
     }
 }
