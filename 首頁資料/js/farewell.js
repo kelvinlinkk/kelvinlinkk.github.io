@@ -50,12 +50,3 @@ function fade(tar, speed){
             },i*speed)
     }
 }
-
-/*function bounce(tar, speed){
-    for (let i = 0;i<1000;i++){
-        setTimeout(
-            function(){
-                clearTimeout();tar.style.transform = 'scale(' + (-0.000262*i*i+0.362*i)/100 + ',' + (-0.000262*i*i+0.362*i)/100 + ')' ;
-            },i*speed)
-    }
-}*/
