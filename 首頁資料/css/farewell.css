@@ -5,12 +5,12 @@
 }
 @font-face{
     font-family: 'NotoSansTC';
-    src: url('../font/NotoSansTC-Black.ttf'),
-        url('../font/NotoSansTC-Thin.ttf'),
-        url('../font/NotoSansTC-Bold.ttf'),
-        url('../font/NotoSansTC-Light.ttf'),
-        url('../font/NotoSansTC-Medium.ttf'),
-        url('../font/NotoSansTC-Regular.ttf'),;
+    src: url(../font/NotoSansTC-Black.ttf),
+        url(../font/NotoSansTC-Thin.ttf),
+        url(../font/NotoSansTC-Bold.ttf),
+        url(../font/NotoSansTC-Light.ttf),
+        url(../font/NotoSansTC-Medium.ttf),
+        url(../font/NotoSansTC-Regular.ttf),;
 }
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
