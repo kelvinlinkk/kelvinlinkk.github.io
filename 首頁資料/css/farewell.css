@@ -1,11 +1,16 @@
 /*setting*/
 @font-face{
     font-family: 'ChenYuluoyan';
-    src: local("ChenYuluoyan"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/ChenYuluoyan-Thin-Monospaced.ttf'),format('truetype');
+    src: local("ChenYuluoyan"),url(../font/ChenYuluoyan-Thin.ttf);
 }
 @font-face{
     font-family: 'NotoSansTC';
-    src: local("NotoSansTC"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/思源黑體/NotoSansTC-Light.otf'),format('truetype');
+    src: url('../font/NotoSansTC-Black.ttf'),
+        url('../font/NotoSansTC-Thin.ttf'),
+        url('../font/NotoSansTC-Bold.ttf'),
+        url('../font/NotoSansTC-Light.ttf'),
+        url('../font/NotoSansTC-Medium.ttf'),
+        url('../font/NotoSansTC-Regular.ttf'),;
 }
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
