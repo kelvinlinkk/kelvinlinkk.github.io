@@ -22,18 +22,14 @@ article h1{position: relative;left: -4%;}
 article section{position: relative;height: 100vh; text-align: center;}
 article section p{text-align:center;font-family:'ChenYuluoyan';font-size: calc(1.75vh + 1.75vw);
     position: relative;top: 50%;  left: 50%;transform: translate(-50%, -50%);opacity: 0;}
-p a{font-family:"ChenYuluoyan";font-style: italic;}
-@keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
-@keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
+section a{font-family:"ChenYuluoyan";font-style: italic;font-size: inherit;}
+a{font-family:"ChenYuluoyan";font-style: italic;font-size: 130%;}
 
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;height: 100vh;}
 .welcome img{position: fixed;top: 0px; }
-.welcome video{position: fixed;top: 0px; right: 0px;opacity: 0.2;}
+.welcome video{position: fixed;top: 0px; right: 0px;opacity: 0.3;}
 .welcome section{position: absolute;width: 100%; bottom: 0%;height: calc(8vh + 8vw);font-size: calc(1vh + 1vw);}
-@keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
-@keyframes fadeOut{from{opacity: 1;}to{opacity: 0;visibility: hidden;}}
-@keyframes fadeOut2{from{opacity: 1;}to{opacity: 0;}}
 @media screen and (max-height:56vw){
     .welcome img{width: 100%;}
     .welcome video{width: 100%;}
@@ -43,15 +39,9 @@ p a{font-family:"ChenYuluoyan";font-style: italic;}
     .welcome video{height: 100%;}
 }
 
-/*page icon*/
-.page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-.page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
-.page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
-.page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
-.page section a h1{position: relative; left: 1vw;}
 
 /*color*/
-a{color: #d9d0c0;}
-.page section{background-color:rgba(77, 77, 77, 0.3)}
+section a{color: #d9d0c0;}
+a{color: rgb(255, 231, 144);}
 body{background-color: rgba(0, 0, 0, 1); color: rgb(217, 208, 192);}
 main{background-color: rgba(0, 0, 0);}
