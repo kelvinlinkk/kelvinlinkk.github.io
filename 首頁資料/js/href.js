@@ -49,7 +49,7 @@ var info = [
 ["https://www.freecodecamp.org/","freecodecamp","freecodecamp.svg"," "],
 ["https://leetcode.com/","leetcode","leetcode.png"," "],
 ["http://github.com","github","github.png"," "],
-["https://www.oxxostudio.tw/","oxxostudio","oxxo.png"," "],,
+["https://www.oxxostudio.tw/","oxxostudio","oxxo.png"," "],
 ["https://www.youtube.com/@TheCodingTrain","the coding train","thecodingtrain.jpg"," "],
 ["https://stackoverflow.com/","stack overflow","stackoverflow.jpg"," "]],
 /*學習*/
