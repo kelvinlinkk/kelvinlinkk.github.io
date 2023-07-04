@@ -35,7 +35,7 @@ var info = [
 ["https://twsf.ntsec.gov.tw/","科教館","科教館.png"," "],
 ["https://twpat3.tipo.gov.tw/","專利檢索","IPO.png"," "],
 ["http://www.ieyiun.org/","IEYI","ieyi.png"," "],
-["https://innoserve.tca.org.tw/index.aspx","InnoServe","InnoServe.gif"," "],
+["https://innoserve.tca.org.tw/index.aspx","InnoServe","innoserve.gif"," "],
 ["https://www.mxeduc.org.tw/scienceaward/","旺宏科學獎","旺宏.jfif"," "]],
 /*程式*/
 [["https://www.w3schools.com/","w3schools","w3logo.png"," "],
