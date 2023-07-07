@@ -1,0 +1,213 @@
+function Rows_Submit( page ) {
+	//var url = $(location).attr('href');
+    $( "#searchForm").append('<input type="hidden" name="page" value="'+page+'">');
+    $( "#searchForm" ).submit();
+};
+
+function alert_msgs(type, msg) {
+	switch(type) {
+		case 1:
+			var target = $('#system-messages');
+			break;
+		case 2:
+			var target = $('#system-warnings');
+			break;		
+	}
+	target.find('.alert-msgs').text(msg);
+	target.show();
+	target.is(':focus'); 
+	
+	return true;
+}
+
+$(document).ready(function () { 	
+	
+	$(".fancybox-trigger").on("click", function(){
+		var rel = $(this).data("rel");
+		$("."+rel).fancybox({
+			prevEffect		: 'none',
+			nextEffect		: 'none',
+			closeBtn		: false,
+			helpers		: {
+				title	: { type : 'inside' },
+				buttons	: {}
+			}
+		})
+		.attr('rel', rel) 
+		.trigger("click");
+	});
+	
+	$('.iframe-btn').fancybox({	
+		'width'		: '100%',
+		'height'	: '100%',
+		'type'		: 'iframe',
+		'autoSize' : false,
+		'live' 		: true,
+	});	
+	
+	$(".iframe-image").fancybox({
+		'live' 		: true,
+	});
+	
+	//photo slider
+	$(".fancybox-button").fancybox({
+		prevEffect		: 'none',
+		nextEffect		: 'none',
+		closeBtn		: false,
+		helpers		: {
+			title	: { type : 'inside' },
+			buttons	: {}
+		}
+	});
+	
+	$('.date').datetimepicker({
+    	//yearOffset:222,
+		allowBlank: true,
+		scrollInput: false,
+    	lang:'ch',
+    	timepicker:false,
+    	format:'Y-m-d',
+    });
+	
+	$('.datetime').datetimepicker({
+    	//yearOffset:222,
+		allowBlank: true,
+		scrollInput: false,
+    	lang:'ch',
+    	timepicker:true,
+    	format:'Y-m-d H:i:00',
+		step: '5',
+    });
+	
+	$('.datetoday').datetimepicker({
+      	//yearOffset:222,
+		allowBlank: true,
+		scrollInput: false,
+      	lang:'ch',
+      	timepicker:false,
+      	format:'Y-m-d',
+      	formatDate:'Y-m-d',
+        maxDate:'today'//tommorow is maximum date calendar
+    });
+	
+	$('.time').datetimepicker({
+		allowBlank: true,
+		datepicker:false,
+		format:'H:i:00',
+		//value:'12:00',
+		step: '30',
+	});
+	
+	$('.printThis').click(function(){
+		var id = $(this).data('id');
+		$('#'+id).printThis();
+	}); 
+		
+	//add inquiry
+	$('.addInquiry').click(function(){
+		var id = $(this).attr('data-id'); 
+		var selector = $(this).attr('data-selector');
+		if (selector) {
+			var qtySelector = $('#'+selector);
+			var qty = qtySelector.length ? qtySelector.val() : 1; 
+		} else {
+			var qty = 1;
+		}
+		var forward = $(this).attr('data-forward'); 
+		var url = $wwwroot+'/inquiry/add';
+		var urlDst = $wwwroot+'/inquiry'; 
+		var data = {};
+		var dataSend = {};
+		var appendHtml = "";
+		var count = 0;
+		data[id] = {'id' : id, 'qty' : qty};
+		dataSend = {'mode' : 'add', 'item' : data};		
+		jQuery.ajax({
+			type: 'POST',
+			url: url,
+			data: dataSend,
+			dataType: "json",
+			success: function(result){ 
+				if(result['data']) {
+					//output html
+				}	
+				alert(result['messages']);
+				if (forward == 1) $(location).attr('href',urlDst);
+			}
+		});		
+	});	
+	
+	//add shopping
+	$('.addShopping').click(function(){
+		var id = $(this).attr('data-id'); 
+		var selector = $(this).attr('data-selector');
+		if (selector) {
+			var qtySelector = $('#'+selector);
+			var qty = qtySelector.length ? qtySelector.val() : 1; 
+		} else {
+			var qty = 1;
+		}
+		var forward = $(this).attr('data-forward'); 
+		var url = $wwwroot+'/shopping/add';
+		var urlDst = $wwwroot+'/shopping'; 
+		var data = {};
+		var dataSend = {};
+		var appendHtml = "";
+		var count = 0;
+		data[id] = {'id' : id, 'qty' : qty};
+		dataSend = {'mode' : 'add', 'item' : data};	
+		jQuery.ajax({
+			type: 'POST',
+			url: url,
+			data: dataSend,
+			dataType: "json",
+			success: function(result){ 
+				if(result['data']) {
+					//output html
+				}	
+				alert(result['messages']);
+				if (forward == 1) $(location).attr('href',urlDst);
+			}
+		});
+	});	
+	
+	$('#side-menu .list-group-item').click(function(){	
+      	$(this).next('.nav-second-level').toggle('slow');
+		$('.list-group-item').not(this).next('.nav-second-level').hide('slow');
+		return false;
+    });
+	
+	$('#captchaImg').click(function(){	
+		var url = $(location).attr('href'); 
+		$.post(url,
+		{
+			mode: 'refresh',
+		},
+		function(data, status){ 
+			if (data) {  
+				var path = $wwwhome+'/captcha/'+data;
+				$('#captchaImg').attr('src', path);
+				$('#captchaId').val(data);						
+			}  
+		},"json"); 
+		
+	});
+	
+	$("#fileuploader").uploadFile({ 
+		url: $urlCurrent+'/mode/upload/fname/fileAdd',
+		maxFileSize: $uploadSize,  
+		fileName: "fileAdd",
+		showDone:false,
+		showDelete:true,
+	});
+	
+	//member edit
+	$("#passwordChange").click(function () {
+        $("#passwordArea").slideToggle("fast");
+        $(this).toggleClass("active");
+        return false;
+    });    
+	
+	$("#passwordArea").hide();
+		
+});
