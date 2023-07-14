@@ -1,0 +1,26 @@
+@font-face{
+    font-family: 'NotoSansTC';
+    src: url(../首頁資料/font/NotoSansTC-Black.ttf),
+        url(../首頁資料/font/NotoSansTC-Thin.ttf),
+        url(../首頁資料/font/NotoSansTC-Bold.ttf),
+        url(../首頁資料/font/NotoSansTC-Light.ttf),
+        url(../首頁資料/font/NotoSansTC-Medium.ttf),
+        url(../首頁資料/font/NotoSansTC-Regular.ttf),;
+}
+*{margin: 0px;font-family:"NotoSansTC"}
+body{background-color: black;}
+div{position: relative;background-color: brown;width: 70%;left: 15%;min-height: 100vh;}
+div p{position: relative;width: 60%;height: 40vh;top: 20px;background-color: aqua;left: 20%;border-radius: 10px;}
+div p::after{
+    content: '|';
+    animation: blink 0.5s infinite
+}
+@keyframes blink{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+div button{position: relative;top: 30px; margin-bottom: 50px; width: 50%;height: 10vh;left: 25%;border-radius: 5vh;}
