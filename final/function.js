@@ -4,21 +4,57 @@ story = ["一隻飢餓的狐狸看見葡萄架上掛著一串串晶瑩剔透的�
         ,"正當狐狸要把葡萄吃掉的時候，葡萄突然被腳步迅速兔子搶走了，這時火冒三丈的狐狸應該怎麼做呢？"
         ,"喊出咒語"
         ,"經過一番波折，狐狸終於能安心的吃下那串奇妙的葡萄了一口接著一口，狐狸能趕受到，有一股莫名的力量正在湧入他的身體，他的肌肉變得更加結實，身軀龐大，它活成了動物們所畏懼的形象，大家看到它都落荒而逃， 連他的白狐女朋友都離它遠去，這時候有個老奶奶要過馬路，請問他要做出什麼行為呢？"
-        ,"今晚狐狸要為他的女友舉辦一場生日派對，請問它要準備什麼樣的禮物才能討白狐小姐的歡心呢？"]
+        ,"今晚狐狸要為他的女友舉辦一場生日派對，請問它要準備什麼樣的禮物才能討白狐小姐的歡心呢？"
+        ,"故事結束~~"]
+
 var index  = 0
 var lock = false
 function getUserOpt(num){
     // console.log(level,num)
     userOpt = num
-    setText(level,num) 
+    setText(level,num)
 }
 
+function fadeIn(){
+    var bt1 = document.getElementById('bt1');
+    var bt2 = document.getElementById('bt2');
+    var bt3 = document.getElementById('bt3');
+    if(bt1.style.opacity != 0){
+        return
+    }
+    for(let i = 0;i<=100;i++){
+        setTimeout(()=>bt1.style.opacity = i/100,i*10)
+        setTimeout(()=>bt2.style.opacity = i/100,i*10)
+        setTimeout(()=>bt3.style.opacity = i/100,i*10)
+    }
+}
+function fadeOut(){
+    var bt1 = document.getElementById('bt1');
+    var bt2 = document.getElementById('bt2');
+    var bt3 = document.getElementById('bt3');
+    for(let i = 0;i<=100;i++){
+        setTimeout(()=>bt1.style.opacity = (100-i)/100,i*10)
+        setTimeout(()=>bt2.style.opacity = (100-i)/100,i*10)
+        setTimeout(()=>bt3.style.opacity = (100-i)/100,i*10)
+    }
+}
+
+function cover(){
+    var cover = document.getElementById('cover')
+    if(cover.opacity==0){
+        Break
+    }
+    for(let i = 0;i<=100;i++){
+        setTimeout(()=>cover.style.opacity = (100-i)/100,i*10)
+    }
+}
 
 function nowLevel(wait){
     var mytext = document.getElementById('text');
     var bt1 = document.getElementById('bt1');
     var bt2 = document.getElementById('bt2');
     var bt3 = document.getElementById('bt3');
+    var h1 = document.getElementById('h1')
     mywords = ""
 
     index = 0
@@ -32,11 +68,16 @@ function nowLevel(wait){
             lock = false
         }
     }
-    setTimeout(()=>{mytext.innerHTML = "";writing(index,wait)},wait)
+    setTimeout(()=>{mytext.innerHTML = "";writing(index,wait);},wait)
+    if(level==5){
+        return
+    }
+    setTimeout(()=>{
+    fadeIn()
     if(level==0){
         bt1.innerHTML = "納西妲的元素戰技"
         bt2.innerHTML = "樹枝"
-        bt3.innerHTML = "長相奇特的魔杖**(v)**"
+        bt3.innerHTML = "長相奇特的魔杖"
     }else if(level==1){
         bt1.innerHTML = "拿魔杖戳牠"
         bt2.innerHTML = "拿魔杖丟牠"
@@ -45,18 +86,16 @@ function nowLevel(wait){
         bt1.innerHTML = "原神啟動（口嗨別選）"
         bt2.innerHTML = "avada kedavra(讓人事物被摧毀)"
         bt3.innerHTML = "領域展開（用沙士幫兔子洗頭）"
-        
     }else if(level==3){
         bt1.innerHTML = "扶老奶奶過馬路"
         bt2.innerHTML = "跟她索取錢財"
         bt3.innerHTML = "故意在車開過來的時候把她推倒"
-        
     }else if(level==4){
         bt1.innerHTML = "她想要很久的香奈兒包包"
         bt2.innerHTML = "狐狸的手寫信"
         bt3.innerHTML = "啥都不給"
-        
-    }
+    }},wait)
+    h1.innerHTML = 'Chapter ' + (level+1)
 }
 
 function setText(lev, opt){
@@ -75,7 +114,7 @@ function setText(lev, opt){
 
         if(opt == 0){mytext.innerHTML = "由於魔杖太脆弱，一戳就斷"}
         else if(opt == 1){mytext.innerHTML = "由於丟不準，兔子逃走了"}
-        else{flag = 1}
+        else{mytext.innerHTML ="將魔杖指向兔子"; flag = 1}
 
     }else if(lev==2){
 
@@ -95,8 +134,10 @@ function setText(lev, opt){
         else if(opt == 1){mytext.innerHTML = "白狐看完後感動的落淚，它們堅信彼此能長長久久的維持感情。";flag = 1}
         else{mytext.innerHTML = "被女友嘎了ᕦ(ò_óˇ)ᕤ"}
 
-    }
+    } 
+
     if(flag==1){
+        fadeOut() 
         level++
         nowLevel(3000)
     }else{

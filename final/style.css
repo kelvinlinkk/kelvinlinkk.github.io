@@ -1,4 +1,8 @@
 @font-face{
+    font-family: 'ChenYuluoyan';
+    src: local("ChenYuluoyan"),url(../首頁資料/font/ChenYuluoyan-Thin.ttf);
+}
+@font-face{
     font-family: 'NotoSansTC';
     src: url(../首頁資料/font/NotoSansTC-Black.ttf),
         url(../首頁資料/font/NotoSansTC-Thin.ttf),
@@ -9,12 +13,17 @@
 }
 *{margin: 0px;font-family:"NotoSansTC"}
 body{background-color: black;}
-div{position: relative;background-color: brown;width: 70%;left: 15%;min-height: 100vh;}
-div p{position: relative;width: 60%;height: 40vh;top: 20px;background-color: aqua;left: 20%;border-radius: 10px;}
+h1{text-align: center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+div{position: relative;background-color:blanchedalmond;width: 70%;left: 15%;min-height: 100vh;}
+div p{position: relative;width: 60%;height: 40vh;top: 4vh;background-color:rgb(194, 232, 233);left: 20%;border-radius: 10px;}
 div p::after{
     content: '|';
     animation: blink 0.5s infinite
 }
+div span{position: fixed;top: 0px;right: 0px;width: 100vw;height: 100vh;background-color: black;z-index: 1;color: aliceblue;text-align: center;}
+span h2,span h6{position: relative;top: 50%;  left: 50%;transform: translate(-50%, -50%);font-family: 'ChenYuluoyan';}
+span h2{font-size: 50px;}
+span h6{font-size: 25px;}
 @keyframes blink{
     from{
         opacity: 0;
@@ -23,4 +32,5 @@ div p::after{
         opacity: 1;
     }
 }
-div button{position: relative;top: 30px; margin-bottom: 50px; width: 50%;height: 10vh;left: 25%;border-radius: 5vh;}
+div button{position: relative;top: 7vh; margin-bottom: 5px; width: 50%;height: 10vh;left: 25%;border-radius: 5px; border: 0px;background-color:blueviolet;color: aliceblue;}
+div button:hover{border: 5px solid #223344;}

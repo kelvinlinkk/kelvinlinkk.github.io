@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TextGame</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <script src="function.js"></script>
 </head>
 <body>
     <div>
+        <span id="cover" onclick="cover();setTimeout(()=>{fadeIn();nowLevel()},2000)"><h2>The Text Game</h2><h6>click to start</h6></span>
+        <h1 id="h1"></h1>
         <p id="text" class="text"></p>
         <button id="bt1" class="bt1" onclick="getUserOpt(0)"></button>
         <button id="bt2" class="bt2" onclick="getUserOpt(1)"></button>
         <button id="bt3" class="bt3" onclick="getUserOpt(2)"></button>
     </div>
-    <script>nowLevel()</script>
 </body>
 </html>
