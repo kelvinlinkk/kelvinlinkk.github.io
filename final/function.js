@@ -41,11 +41,14 @@ function fadeOut(){
 
 function cover(){
     var cover = document.getElementById('cover')
-    if(cover.opacity==0){
-        Break
+    if(cover.style.opacity!=0){
+        return
     }
     for(let i = 0;i<=100;i++){
         setTimeout(()=>cover.style.opacity = (100-i)/100,i*10)
+        if(i==100){
+            cover.style.visibility="hidden"
+        }
     }
 }
 

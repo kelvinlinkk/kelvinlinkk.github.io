@@ -32,5 +32,5 @@ span h6{font-size: 25px;}
         opacity: 1;
     }
 }
-div button{position: relative;top: 7vh; margin-bottom: 5px; width: 50%;height: 10vh;left: 25%;border-radius: 5px; border: 0px;background-color:blueviolet;color: aliceblue;}
+div button{position: relative;top: 7vh; margin-bottom: 5px; width: 50%;height: 10vh;left: 25%;border-radius: 5px; border: 0px;background-color:blueviolet;color: aliceblue;opacity: 0;}
 div button:hover{border: 5px solid #223344;}
