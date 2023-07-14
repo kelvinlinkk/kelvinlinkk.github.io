@@ -45,10 +45,8 @@ function cover(){
         return
     }
     for(let i = 0;i<=100;i++){
-        setTimeout(()=>cover.style.opacity = (100-i)/100,i*10)
-        if(i==100){
-            cover.style.visibility="hidden"
-        }
+        setTimeout(()=>{cover.style.opacity = (100-i)/100;if(i==100){cover.style.visibility="hidden"}},i*10)
+        
     }
 }
 
@@ -111,7 +109,7 @@ function setText(lev, opt){
 
         if(opt == 0){mytext.innerHTML = "要玩原神回家玩，這裡不是୧( ಠ Д ಠ )୨"}
         else if(opt == 1){mytext.innerHTML = "樹枝過短鈎不到"}
-        else{mytext.innerHTML = "牠拿到魔杖之後發現牠可以隨心意改變形狀，於是牠成功獲得一串葡萄";flag = 1}
+        else{mytext.innerHTML = "牠拿到魔杖之後發現牠可以隨心意改變形狀，於是牠成功獲得一串葡萄";window.alert("獲得道具：葡萄ｘ１");flag = 1}
 
     }else if(lev==1){
 
