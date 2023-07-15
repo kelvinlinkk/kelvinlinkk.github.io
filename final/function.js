@@ -82,26 +82,32 @@ function nowLevel(wait){
             bt1.innerHTML = "納西妲的元素戰技"
             bt2.innerHTML = "樹枝"
             bt3.innerHTML = "長相奇特的魔杖"
+            break;
         case 1:
             bt1.innerHTML = "拿魔杖戳牠"
             bt2.innerHTML = "拿魔杖丟牠"
             bt3.innerHTML = "拿魔杖使出技能"
+            break;
         case 2:
             bt1.innerHTML = "原神啟動（口嗨別選）"
             bt2.innerHTML = "avada kedavra(讓人事物被摧毀)"
             bt3.innerHTML = "領域展開（用沙士幫兔子洗頭）"
+            break;
         case 3:
             bt1.innerHTML = "扶老奶奶過馬路"
             bt2.innerHTML = "跟牠索取錢財"
             bt3.innerHTML = "故意在車開過來的時候把牠推倒"
+            break;
         case 4:
             bt1.innerHTML = "牠想要很久的香奈兒包包"
             bt2.innerHTML = "狐狸的手寫信"
             bt3.innerHTML = "啥都不給"
+            break;
         case 5:
             bt1.innerHTML = "要"
             bt2.innerHTML = "不要"
             bt3.innerHTML = "選我啊笨蛋"
+            break;
     }},wait)
     h1.innerHTML = 'Chapter ' + (level+1)
 }
