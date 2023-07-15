@@ -142,9 +142,9 @@ function setText(lev, opt){
 
         case 3:
 
-            if(opt == 0){mytext.innerHTML = "善良的作為被全動物界讚揚，狐狸也重新獲得了大家的喜愛"}
+            if(opt == 0){mytext.innerHTML = "善良的作為被全動物界讚揚，狐狸也重新獲得了大家的喜愛";flag = 1}
             else if(opt == 1){mytext.innerHTML = "君子愛財取之有道"}
-            else{mytext.innerHTML = "你覺得合理嗎：）？";flag = 1}
+            else{mytext.innerHTML = "你覺得合理嗎：）？"}
             break
 
         case 4:
