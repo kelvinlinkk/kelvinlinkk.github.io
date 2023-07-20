@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 url = "https://www.formula1.com/en/drivers.html"
 soup = BeautifulSoup(requests.get(url).text,'html.parser')
 datas = []
-count = 0
+count = 1
 for point,firstname,lastname,team in zip(soup.find_all(class_='f1-wide--s'),
                                     soup.find_all(class_="d-block f1--xxs f1-color--carbonBlack"),
                                     soup.find_all(class_="d-block f1-bold--s f1-color--carbonBlack"),
