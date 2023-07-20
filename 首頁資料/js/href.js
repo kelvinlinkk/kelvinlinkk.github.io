@@ -1,5 +1,5 @@
 
-var infoname = ["工具","報告","程式","學習","高中","Google","Microsoft","升學","AI","運動","社交"]
+var infoname = ["工具","學校","程式","學習","Google","Microsoft","升學","AI","娛樂"]
 var info = [
 /*工具*/
 [["https://www.ilovepdf.com/zh-tw","ilovepdf","ilovepdf.png","iLovePDF is an online service to work with PDF files completely free and easy to use. Merge PDF, split PDF, compress PDF, office to PDF, PDF to JPG and more!"," "],
@@ -29,14 +29,19 @@ var info = [
 ["http://dig.ccmixter.org/","dig.ccMixter","digccMixter.png"," "],
 ["https://eword.ntpc.edu.tw/","生字簿","字.png"," "],
 ["https://vectorwiki.com","vectorwiki","vectorwiki.png"," "]],
-/*科學 */
+/*學校*/
 [["https://www.shs.edu.tw/","中學生網站","中學生.png"," "],
 ["https://ndltd.ncl.edu.tw/","博碩網","博碩網.jpg"," "],
 ["https://twsf.ntsec.gov.tw/","科教館","科教館.png"," "],
 ["https://twpat3.tipo.gov.tw/","專利檢索","IPO.png"," "],
 ["http://www.ieyiun.org/","IEYI","ieyi.png"," "],
 ["https://innoserve.tca.org.tw/index.aspx","InnoServe","innoserve.gif"," "],
-["https://www.mxeduc.org.tw/scienceaward/","旺宏科學獎","旺宏.jfif"," "]],
+["https://www.mxeduc.org.tw/scienceaward/","旺宏科學獎","旺宏.jfif"," "],
+["http://www.ytjh.ylc.edu.tw/","揚子高中","yths.png"," "],
+["https://www.ewant.org/","ewant","ewant.jpg"," "],
+["https://epf.mlife.org.tw/Portal.do","學習歷程上傳","學習歷程.png"," "],
+["http://ocw.aca.ntu.edu.tw/ntu-ocw/","台大開放式課程","台大.svg"," "],
+["https://students.tw/","高中生資訊網","student.jpg"," "]],
 /*程式*/
 [["https://www.w3schools.com/","w3schools","w3logo.png"," "],
 ["https://www.codecademy.com/","codecademy","codecademy.svg"," "],
@@ -76,12 +81,6 @@ var info = [
 ["https://lawplayer.com/","lawplayer","lawplayer.jpg"," "],
 ["https://highscope.ch.ntu.edu.tw/","科學online","online.jpg"," "],
 ["https://pansci.asia/","泛科學","pansci.jpg"," "]],
-/*學校*/
-[["http://www.ytjh.ylc.edu.tw/","揚子高中","yths.png"," "],
-["https://www.ewant.org/","ewant","ewant.jpg"," "],
-["https://epf.mlife.org.tw/Portal.do","學習歷程上傳","學習歷程.png"," "],
-["http://ocw.aca.ntu.edu.tw/ntu-ocw/","台大開放式課程","台大.svg"," "],
-["https://students.tw/","高中生資訊網","student.jpg"," "]],
 /*google*/
 [["https://www.google.com/","search","googlesearch.png"," "],
 ["https://mail.google.com/","gmail","gmail.png"," "],
@@ -127,13 +126,7 @@ var info = [
 ["https://tome.app/","tome","tome.jpg"," "],
 ["https://gamma.app/","gamma","gamma.jpg"," "],
 ["https://scribblediffusion.com/","scribblediffusion","scribblediffusion.jpg"," "]],
-/*賽車 */
-[["https://www.formula1.com/","f1","f1.svg"," "],
-["https://www.motogp.com/","motogp","motogp.png"," "],
-["https://www.motorsport.com/","motorsport","motorsport.jpg"," "],
-["https://www.autosport.com/","autosport","autosport.jpg"," "],
-["https://www.sportsv.net/racing","運動視界","運動視界.jpg"," "]],
-/*社交*/
+/*娛樂*/
 [["https://www.youtube.com/","YouTube","YouTube.svg"," "],
 ["https://www.messenger.com/","messenger","messenger.svg"," "],
 ["https://www.instagram.com/","instagram","ig.jpg"," "],
@@ -141,5 +134,10 @@ var info = [
 ["https://twitter.com/","twitter","twitter.svg"," "],
 ["https://www.twitch.tv/","twitch","twitch.svg"," "],
 ["https://discord.com/app","discord","discord.svg"," "],
-["https://www.tiktok.com/","tiktok","tiktok.jpg"]]
+["https://www.tiktok.com/","tiktok","tiktok.jpg"],
+["https://www.formula1.com/","f1","f1.svg"," "],
+["https://www.motogp.com/","motogp","motogp.png"," "],
+["https://www.motorsport.com/","motorsport","motorsport.jpg"," "],
+["https://www.autosport.com/","autosport","autosport.jpg"," "],
+["https://www.sportsv.net/racing","運動視界","運動視界.jpg"," "]]
 ]

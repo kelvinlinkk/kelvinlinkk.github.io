@@ -6,8 +6,8 @@ body{margin: 0;}
 
 /*main*/
 .cover{position: fixed;top: 0px;bottom: 0px;left: 0px;right: 0px;z-index: 10;}
-main{position: fixed;top: 50vh;bottom: 0px;left: 0px;right: 0px;opacity: 0;}
-article{position: relative;top: 0px; display: inline-block;width: 33%;}
+main{position: fixed;top: 40vh;bottom: 0px;left: 0px;right: 0px;opacity: 0;}
+article{position: relative;top: 0px; display: inline-block;width: 33%;height: 20vh;}
 article h1{
     position: relative; text-align: center;width: 100%; left: 0%;
 }
