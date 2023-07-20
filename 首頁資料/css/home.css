@@ -1,16 +1,22 @@
 /*setting*/
+@font-face{
+    font-family: 'ChenYuluoyan';
+    src: local("ChenYuluoyan"),url(../font/ChenYuluoyan-Thin.ttf);
+}
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none; }
 *{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
 body{margin: 0;}
 
 /*main*/
-.cover{position: fixed;top: 0px;bottom: 0px;left: 0px;right: 0px;z-index: 10;}
+.cover{position: fixed;top: 0px;bottom: 0px;left: 0px;right: 0px;z-index: 10;
+        font-family: 'ChenYuluoyan';}
 main{position: fixed;top: 40vh;bottom: 0px;left: 0px;right: 0px;opacity: 0;}
 article{position: relative;top: 0px; display: inline-block;width: 33%;height: 20vh;}
 article h1{
     position: relative; text-align: center;width: 100%; left: 0%;
 }
+article h1 img{height: 16px;}
 article section{position: fixed;top: 10vh;left: 10vw; border-radius: 10px;
      min-height: 100px;width: 80vw;height: 80vh;overflow: scroll;display: none;z-index: 2;}
 .infos{position: relative;width: calc(7vw + 7vh);margin-bottom: calc(1.5vh + 1.5vw);
