@@ -5,11 +5,14 @@ a{ text-decoration: none; }
 body{margin: 0;}
 
 /*main*/
-article{position: relative;width: 100%; display: inline-block;top:100vh;}
+.cover{position: fixed;top: 0px;bottom: 0px;left: 0px;right: 0px;z-index: 10;}
+main{position: fixed;top: 50vh;bottom: 0px;left: 0px;right: 0px;opacity: 0;}
+article{position: relative;top: 0px; display: inline-block;width: 33%;}
 article h1{
-    position: relative; text-align: center;border: 3px solid;width: 30%;left: 0%;border-radius: 50px;
+    position: relative; text-align: center;width: 100%; left: 0%;
 }
-article section{min-height: 100px;width: 100vw;}
+article section{position: fixed;top: 10vh;left: 10vw; border-radius: 10px;
+     min-height: 100px;width: 80vw;height: 80vh;overflow: scroll;display: none;z-index: 2;}
 .infos{position: relative;width: calc(7vw + 7vh);margin-bottom: calc(1.5vh + 1.5vw);
     display: inline-block;font-size: calc(1vw + 1vh);}
 .infos a{width: calc(7vw + 7vh);}
@@ -25,10 +28,10 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px; overflow: hidden;height: 100vh;}
 .welcome img{position: fixed;top: 0px; }
-.welcome video{position: fixed;top: 0px; right: 0px;}
-.welcome form{position: absolute;width: 100%; left: 35%;bottom: calc(8vh + 8vw);}
-.welcome section{position: absolute;width: 100%; bottom: 0%;height: calc(8vh + 8vw);font-size: calc(1vh + 1vw);}
-form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: calc(1vh + 1vw);
+.welcome video{position: fixed;top: 0px; right: 0px;opacity: 1;}
+.welcome form{position: absolute;width: 100%; left: 35%;top: 25vh;}
+.cover section{position: absolute;width: 100%; bottom: 0%;}
+form input{opacity: 0; width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: calc(1vh + 1vw);
      outline: none;font-size: calc(1.4vh + 1.4vw);text-align: center;}
 @keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
 @keyframes fadeOut{from{opacity: 1;}to{opacity: 0;visibility: hidden;}}
@@ -42,6 +45,7 @@ form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: 
 }
 
 /*page icon*/
+#page{opacity: 0;}
 #page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
 #page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
 #page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
@@ -53,6 +57,7 @@ form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: 
 #page section{background-color:rgba(77,77,77,0.3)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
-article{background-color: rgba(0, 0, 0, 0.3);}
-.welcome section{background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.3));}
-form input{background-color: rgba(100, 100, 100, 0.6);}
+article section{background-color: rgba(0, 0, 0, 0.8);}
+main{background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,1));}
+form input{background-color: rgba(100, 100, 100);}
+.cover{background-color: rgba(0,0,0,0);}
