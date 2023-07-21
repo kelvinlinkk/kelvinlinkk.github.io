@@ -1,6 +1,4 @@
 var flag = false;
-var mouse = "";
-var prevmouse = " ";
 //info is from href.js
 function drawLogo(){
         for (let j = 0; j < info.length; j++) {
@@ -16,7 +14,8 @@ function display(){
         var search = document.getElementById("search");
         var time = document.getElementById("time");
         var countdown = document.getElementById("countdown");
-        if(flag){flag = !flag;
+        if(flag){
+                flag = !flag;
                 for (let i = 0;i<100;i++) {
                         setTimeout(function(){
                         search.style.opacity = String(i/100);
@@ -24,7 +23,8 @@ function display(){
                         countdown.style.opacity = String(i/100);},10*i)
                 }
         }     
-        else{flag = !flag;
+        else{
+                flag = !flag;
                 for (let i = 100;i>0;i--) {
                         setTimeout(function(){
                         search.style.opacity = String(i/100);
