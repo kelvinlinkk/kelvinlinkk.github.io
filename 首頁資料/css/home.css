@@ -58,7 +58,7 @@ footer ul:nth-child(2){left:50%;}
 
 /*color*/
 #page section a h1,form input,a{color: wheat;}
-#page section{background-color:rgba(77,77,77,0.3)}
+#page section{background-color:rgba(77,77,77,0.7)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
 article{background-color: rgba(0, 0, 0, 0.3);}
