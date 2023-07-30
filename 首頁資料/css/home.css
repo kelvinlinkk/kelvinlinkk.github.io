@@ -43,13 +43,18 @@ form input{width: 30%;height: calc(2vh + 2vw); border: 0px solid;border-radius: 
 
 /*page icon*/
 #page img{position: fixed;top: 1vh;right: 1vw;height: 8vh;width: 8vh; z-index: 6;}
-#page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;width: calc(10vh + 10vw);opacity: 0;}
+#page section{position: fixed;top: 9vh;right: 1vw;z-index: 6;min-width: calc(10vh + 10vw);opacity: 0;}
 #page:hover section{animation-duration: 0.5s;animation-name: fadeIn;animation-fill-mode:forwards;}
 #page section{animation-duration: 0.5s;animation-name: fadeOut;animation-fill-mode:forwards;}
-#page section a h1{position: relative; left: 1vw;}
+#page section a h1{position: relative; margin-left: 1vw;margin-right: 1vw;}
 
 /*footer*/
-footer{position: relative;top: 100vh; height: 250px;background-color: aqua;}
+footer{position: relative;top: calc(100vh - 20px);height: 500px; background-color: aqua;}
+footer h3{text-align: center;}
+footer p{font-weight: bold;}
+footer ul{position: absolute;width: fit-content;}
+footer ul:nth-child(1){left: 0px;}
+footer ul:nth-child(2){left:50%;}
 
 /*color*/
 #page section a h1,form input,a{color: wheat;}
@@ -59,3 +64,5 @@ article h3{border-color: wheat;}
 article{background-color: rgba(0, 0, 0, 0.3);}
 .welcome section{background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,0.3));}
 form input{background-color: rgba(100, 100, 100, 0.6);}
+footer a,footer{color: #0d417d;}
+footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
