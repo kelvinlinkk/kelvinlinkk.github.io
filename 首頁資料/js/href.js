@@ -23,6 +23,7 @@ var info = [
 ["https://www.fontspace.com/","fontspace","fontspace.jpg"],
 ["https://free.com.tw/","free sources","free.jpg"],
 ["https://pixelfika.com","Pixelfika","pixelfika.png"],
+["https://pinterest.com","pinterest","pinterest.png"],
 ["https://photock.org","photock","photock.png"],
 ["https://undraw.co/illustrations","undraw","undraw.png"],
 ["https://app.haikei.app/","Haikei","haikei.png"],
@@ -119,7 +120,7 @@ var info = [
 ["https://www.104.com.tw/jb/career/","104求職網","104.svg"]],
 /*AI*/ 
 [["https://chat.openai.com","chatGPT","chatgpt.jpg"],
-["https://claude.ai/","claude","claude.jpg"],
+["https://claude.ai/","claude","claude.svg"],
 ["https://bard.google.com/","bard","bard.jpg"],
 ["https://creator.nightcafe.studio/","nightcafe","nightcafe.jpg"],
 ["https://hotpot.ai/","hotpot","hotpot.jpg"],
@@ -133,7 +134,7 @@ var info = [
 /*娛樂*/
 [["https://www.youtube.com/","YouTube","YouTube.svg"],
 ["https://www.messenger.com/","messenger","messenger.svg"],
-["https://www.instagram.com/","instagram","ig.jpg"],
+["https://www.instagram.com/","instagram","instagram.svg"],
 ["https://www.facebook.com/","Facebook","facebook.svg"],
 ["https://twitter.com/","twitter","twitter.svg"],
 ["https://www.twitch.tv/","twitch","twitch.svg"],
