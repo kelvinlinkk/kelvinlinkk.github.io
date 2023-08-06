@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg3049"
+   width="900"
+   height="900"
+   viewBox="0 0 900 900"
+   sodipodi:docname="collego.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3053" />
+  <sodipodi:namedview
+     id="namedview3051"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="0.45555556"
+     inkscape:cx="432.43902"
+     inkscape:cy="751.82927"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3055">
+    <sodipodi:guide
+       position="-26.341463,469.7561"
+       orientation="0,-1"
+       id="guide4864"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="124.02439,395.12195"
+       orientation="1,0"
+       id="guide4866"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g3055">
+    <rect
+       style="fill:#e0e5e9;fill-opacity:1;stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill"
+       id="rect7578"
+       width="1172.1951"
+       height="1143.6586"
+       x="-35.121952"
+       y="-32.92683" />
+    <path
+       id="path4319"
+       style="fill:#232323;stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill;fill-opacity:1"
+       d="M 474.14648 71.341797 L 368.78125 338.04883 L 580.60938 530.12109 L 839.63477 398.41406 L 474.14648 71.341797 z M 486.21875 127.31641 L 784.75586 389.63477 L 582.80469 489.51172 L 410.48828 330.36523 L 486.21875 127.31641 z " />
+    <circle
+       style="fill:#242424;fill-opacity:1;stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill"
+       id="path4920"
+       cx="300.73172"
+       cy="608.04877"
+       r="209.63414" />
+    <path
+       id="path4922"
+       style="fill:#fec04f;fill-opacity:1;stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill"
+       d="M 301.83008 429.14648 A 178.90244 178.90244 0 0 0 122.92773 608.04883 A 178.90244 178.90244 0 0 0 171.16406 729.80664 L 163.53711 720 L 414.44531 469.0918 A 178.90244 178.90244 0 0 0 301.83008 429.14648 z M 436.7793 490.66016 L 184.68164 742.75781 A 178.90244 178.90244 0 0 0 301.83008 786.95117 A 178.90244 178.90244 0 0 0 480.73242 608.04883 A 178.90244 178.90244 0 0 0 436.7793 490.66016 z " />
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1099"
+   width="220"
+   height="220"
+   viewBox="0 0 220 220"
+   sodipodi:docname="thereporter.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1103" />
+  <sodipodi:namedview
+     id="namedview1101"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.8113636"
+     inkscape:cx="-20.4266"
+     inkscape:cy="47.754078"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1105" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1105">
+    <path
+       style="fill:#db0011;fill-opacity:1;stroke-width:15.5097;stroke-linejoin:round;paint-order:markers stroke fill"
+       d="M 43.475533,36.712673 V 184.25345 L 128.9982,144.89037 V 77.774887 Z"
+       id="path1580" />
+    <path
+       style="fill:#b7000d;fill-opacity:1;stroke-width:15.5097;stroke-linejoin:round;paint-order:markers stroke fill"
+       d="M 180.82156,63.734277 128.7693,77.681636 v 67.208734 l 51.64762,13.83894 z"
+       id="path1582"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>

@@ -4,7 +4,7 @@ function drawLogo(){
         for (let j = 0; j < info.length; j++) {
                 document.write('<article><h1>'+ infoname[j] +'</h1><section>');
                 for(let i =0; i<info[j].length;i++){
-                        document.write('<div class="infos"><a href="' + info[j][i][0] +'"><span>'+ info[j][i][1] + '</span><img src="https://github.com/kelvinlinkk/web-source/raw/main/網頁資料/icon/'+ info[j][i][2] +'"></a></div>')}   
+                        document.write('<div class="infos"><a href="' + info[j][i][0] +'"><span>'+ info[j][i][1] + '</span><img src="首頁資料/icon/'+ info[j][i][2] +'"></a></div>')}   
                 document.write('</section></article>');
         }
 };

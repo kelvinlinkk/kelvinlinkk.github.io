@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg8249"
+   width="225"
+   height="225"
+   viewBox="0 0 225 225"
+   sodipodi:docname="unsplash.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8253" />
+  <sodipodi:namedview
+     id="namedview8251"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.8222222"
+     inkscape:cx="49.390244"
+     inkscape:cy="95.762195"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8255" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g8255">
+    <path
+       style="fill:#000000"
+       d="M 54,136 V 103 H 72 90 V 119.5 136 H 112.5 135 V 119.5 103 h 18 18 v 33 33 H 112.5 54 Z M 91,67 V 51 H 112.5 134 V 67 83 H 112.5 91 Z"
+       id="path8739" />
+  </g>
+</svg>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg4787"
+   width="300"
+   height="300"
+   viewBox="0 0 300 300"
+   sodipodi:docname="discord.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4791" />
+  <sodipodi:namedview
+     id="namedview4789"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.8655171"
+     inkscape:cx="133.61731"
+     inkscape:cy="145.5174"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4793" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g4793">
+    <rect
+       style="fill:#e0e5e9;fill-opacity:1;stroke:none"
+       id="rect11293"
+       width="373.55936"
+       height="363.21143"
+       x="-43.461197"
+       y="-27.421946" />
+    <path
+       style="fill:#3f4ded;stroke:none"
+       d="M 0,0 V 300 H 300 V 0 H 0 m 200,228 23.9079,-11.00245 -3.44239,-4.89752 c -47.55308,19.75116 -82.80971,21.1534 -136.474432,-0.92631 L 78,218 l 20.578699,11.225 -15.6181,22.109 C 69.322712,249.45909 24.17385,228.13557 18.0278,216.985 14.351066,176.17236 33.863085,106.64348 55.785499,67.2137 L 118.91463,46.962019 125.004,61.811 c 15.70962,-3.580616 38.67756,-3.53066 52.891,-0.1436 L 184.80626,47.658712 242.621,65.6489 c 24.94547,43.55978 43.66897,111.12099 38.776,152.2611 -17.17854,14.02769 -48.10524,28.66933 -66.304,33.302 L 200,228 m -99,-93.481 c -29.3632,6.368 -21.547,58.541 9,51.962 29.903,-6.439 22.482,-58.791 -9,-51.962 m 88,0.01 c -29.129,6.732 -20.469,58.773 10,51.79 30.083,-6.894 21.53,-59.076 -10,-51.79 z"
+       id="path7028"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccc" />
+  </g>
+</svg>
