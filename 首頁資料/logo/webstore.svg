@@ -4,11 +4,11 @@
 <svg
    version="1.1"
    id="svg2480"
-   width="300"
-   height="300"
-   viewBox="0 0 300 300"
+   width="203.10144"
+   height="184.24504"
+   viewBox="0 0 203.10144 184.24504"
    sodipodi:docname="webstore.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -27,8 +27,8 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="2.8284271"
-     inkscape:cx="123.56691"
-     inkscape:cy="188.97429"
+     inkscape:cx="75.130096"
+     inkscape:cy="128.16311"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -38,7 +38,8 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
-     id="g2486">
+     id="g2486"
+     transform="translate(-47.964607,-60.776092)">
     <path
        id="path6447"
        style="fill:#c3c3c3;fill-opacity:1"

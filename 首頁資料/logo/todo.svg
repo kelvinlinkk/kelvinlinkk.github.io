@@ -4,11 +4,11 @@
 <svg
    version="1.1"
    id="svg4627"
-   width="512"
-   height="512"
-   viewBox="0 0 512 512"
+   width="326.29919"
+   height="258.25665"
+   viewBox="0 0 326.29919 258.25665"
    sodipodi:docname="todo.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -49,8 +49,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.1324757"
-     inkscape:cx="233.11758"
-     inkscape:cy="322.74423"
+     inkscape:cx="140.84187"
+     inkscape:cy="195.58919"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -60,14 +60,15 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
-     id="g4633">
+     id="g4633"
+     transform="translate(-92.278533,-126.87725)">
     <path
        style="fill:#185abd;fill-opacity:1;stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill"
        d="m 94.647376,248.4611 49.007684,-49.00767 c 9.2235,-9.2235 13.60993,-7.14106 20.75099,0 L 276.32899,311.37636 210.1024,377.60295 96.192666,263.69322 c -4.530564,-4.53056 -5.238213,-11.5392 -1.54529,-15.23212 z"
        id="path5897"
        sodipodi:nodetypes="ccccccc" />
     <path
-       style="fill:url(#linearGradient6656);stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill;fill-opacity:1"
+       style="fill:url(#linearGradient6656);fill-opacity:1;stroke-width:7.559;stroke-linejoin:round;paint-order:markers stroke fill"
        d="m 163.80042,313.91402 c -5.49375,5.49375 -4.99847,11.77893 0,16.7774 l 50.33221,50.33221 c 6.39123,6.39123 12.73149,4.48742 17.21891,0 l 183.6684,-183.6684 c 5.92714,-5.92714 3.89537,-14.28691 -2.02927,-20.21155 l -46.31614,-44.91126 c -6.80749,-7.05855 -14.21612,-7.22143 -21.85477,0 z"
        id="path6625"
        sodipodi:nodetypes="ccccccccc" />
