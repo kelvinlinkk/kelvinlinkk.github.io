@@ -135,7 +135,7 @@ var info = [
 [["https://www.youtube.com/","YouTube","YouTube.svg"],
 ["https://linktree/kvl_19","linktree","linktree.png"],
 ["https://www.messenger.com/","messenger","messenger.svg"],
-["https://www.instagram.com/","instagram","instagram.svg"],
+["https://www.instagram.com/","instagram","Instagram.svg"],
 ["https://www.facebook.com/","Facebook","facebook.svg"],
 ["https://twitter.com/","twitter","twitter.svg"],
 ["https://www.twitch.tv/","twitch","twitch.svg"],
