@@ -45,10 +45,10 @@ body{margin: 0;}
     .welcome video{height: 100%;}
 }
 main article h2{position: relative; margin: 0%;left: -5%;}
-main article{position: relative;min-height:calc(18vw + 18vh);min-height: 100vh;}
+main article{position: relative;min-height: 100vh;}
 .pic img,.pic video,.pic iframe{max-height: 80vh;max-width: 40vw; border-radius: calc(1vw + 1vh);}
 .pic iframe,.pic blockquote{height: 80vh;width: 40vw;}
-.pic{position: relative; height: fit-content;margin:10px;float: right;width: min-content;}
+.pic{position: relative; margin:10px;float: right;}
 .pic p{text-align: center;margin: 0%;width: 100%;height: 26px; overflow: hidden;content: "";text-overflow: ellipsis;}
 hr{margin: 14px;border-width:0px 0px 1px 0px;visibility: hidden;}
 p{font-weight: normal;}
