@@ -4,11 +4,11 @@
 <svg
    version="1.1"
    id="svg1099"
-   width="220"
-   height="220"
-   viewBox="0 0 220 220"
+   width="137.34602"
+   height="147.54077"
+   viewBox="0 0 137.34602 147.54077"
    sodipodi:docname="thereporter.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +26,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.8113636"
-     inkscape:cx="-20.4266"
-     inkscape:cy="47.754078"
+     inkscape:cx="-63.764117"
+     inkscape:cy="11.317441"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -37,7 +37,8 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
-     id="g1105">
+     id="g1105"
+     transform="translate(-43.475533,-36.712673)">
     <path
        style="fill:#db0011;fill-opacity:1;stroke-width:15.5097;stroke-linejoin:round;paint-order:markers stroke fill"
        d="M 43.475533,36.712673 V 184.25345 L 128.9982,144.89037 V 77.774887 Z"

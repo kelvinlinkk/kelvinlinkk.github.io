@@ -6,7 +6,7 @@ window.onload = function(){
         flag.push(false);
         flag2.push(false);
     }
-    track(0);
+    track(0); //執行第一次(滑鼠尚未滾動)
 }
 function track(n){
     var tar = document.getElementsByTagName("article")[n];

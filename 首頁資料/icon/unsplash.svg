@@ -8,7 +8,7 @@
    height="225"
    viewBox="0 0 225 225"
    sodipodi:docname="unsplash.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +26,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.8222222"
-     inkscape:cx="49.390244"
-     inkscape:cy="95.762195"
+     inkscape:cx="49.664635"
+     inkscape:cy="95.213416"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -38,6 +38,13 @@
      inkscape:groupmode="layer"
      inkscape:label="Image"
      id="g8255">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.378;stroke-linejoin:round;paint-order:markers stroke fill"
+       id="rect1"
+       width="415.42685"
+       height="339.14633"
+       x="-109.7561"
+       y="-48.841465" />
     <path
        style="fill:#000000"
        d="M 54,136 V 103 H 72 90 V 119.5 136 H 112.5 135 V 119.5 103 h 18 18 v 33 33 H 112.5 54 Z M 91,67 V 51 H 112.5 134 V 67 83 H 112.5 91 Z"

@@ -4,11 +4,11 @@
 <svg
    version="1.1"
    id="svg2"
-   width="125"
-   height="125"
-   viewBox="0 0 125 125"
+   width="111.45816"
+   height="76.456673"
+   viewBox="0 0 111.45816 76.456673"
    sodipodi:docname="bento.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +26,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="6.56"
-     inkscape:cx="62.118902"
-     inkscape:cy="58.612805"
+     inkscape:cx="50.228659"
+     inkscape:cy="21.722561"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -37,7 +37,8 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="Image"
-     id="g8">
+     id="g8"
+     transform="translate(-6.5741105,-24.5)">
     <path
        style="fill:#ff6140;fill-opacity:1;stroke-width:0.152439"
        d="m 63.039003,88.593349 0.039,-12.363321 22.332317,-10.256449 c 12.282777,-5.641048 24.01296,-11.023838 26.06708,-11.961757 2.05411,-0.937918 4.36928,-1.999272 5.14481,-2.358564 L 118.03227,51 v 12.534084 12.534085 l -17.26372,7.806402 C 91.273508,88.168094 78.891246,93.768006 73.252417,96.318823 L 63,100.95667 Z"
