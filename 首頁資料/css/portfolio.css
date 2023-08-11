@@ -1,11 +1,24 @@
 /*setting*/
 ::-webkit-scrollbar{display: none;}
 @font-face{
+    font-family: 'ChenYuluoyan';
+    src: local("ChenYuluoyan"),url(../font/ChenYuluoyan-Thin.ttf);
+}
+@font-face{
+    font-family: 'NotoSansTC';
+    src: url(../font/NotoSansTC-Black.ttf),
+        url(../font/NotoSansTC-Thin.ttf),
+        url(../font/NotoSansTC-Bold.ttf),
+        url(../font/NotoSansTC-Light.ttf),
+        url(../font/NotoSansTC-Medium.ttf),
+        url(../font/NotoSansTC-Regular.ttf),;
+}
+@font-face{
     font-family: 'Noto Sans TC';
     src: local("Noto Sans TC"),url('https://github.com/kelvinlinkk/portfolio/raw/main/font/思源黑體/TaipeiSansTCBeta-Regular.ttf') format("opentype"),
 }
 a{ text-decoration: none; }
-*{font-family: "Noto Sans TC", sans-serif;font-weight: bold;}
+body{font-family: "NotoSansTC", sans-serif;font-weight: bold;}
 .intro article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:normal;}
 header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 
@@ -58,9 +71,9 @@ dd{font-weight: normal;}
 /*footer*/
 main{margin-bottom: 520px;}
 .wrapper{min-height: (100vh + 500px);margin-bottom: -500px;}
-footer{ height: 500px;text-align: left;}
+footer{ height: 500px;text-align: left;font-family: "Chenyuluoyan";font-size: 25px;}
 footer h3{text-align: center;}
-footer p{font-weight: bold;}
+footer p,footer li{font-weight: bold;}
 footer ul{position: absolute;width: fit-content;}
 footer ul:nth-child(1){left: 0px;}
 footer ul:nth-child(2){left:50%;}
