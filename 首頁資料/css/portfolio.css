@@ -2,7 +2,7 @@
 ::-webkit-scrollbar{display: none;}
 @font-face{
     font-family: 'Noto Sans TC';
-    src: local("Noto Sans TC"),url('https://github.com/kelvinlinkk/web-source/raw/main/font/思源黑體/TaipeiSansTCBeta-Regular.ttf') format("opentype"),
+    src: local("Noto Sans TC"),url('https://github.com/kelvinlinkk/portfolio/raw/main/font/思源黑體/TaipeiSansTCBeta-Regular.ttf') format("opentype"),
 }
 a{ text-decoration: none; }
 *{font-family: "Noto Sans TC", sans-serif;font-weight: bold;}
