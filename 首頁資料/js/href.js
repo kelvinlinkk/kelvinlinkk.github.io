@@ -133,7 +133,7 @@ var info = [
 ["https://scribblediffusion.com/","scribblediffusion","scribblediffusion.jpg"]],
 /*娛樂*/
 [["https://www.youtube.com/","YouTube","YouTube.svg"],
-["https://linktree/kvl_19","linktree","linktree.png"],
+["https://linktr.ee/kvl_19","linktree","linktree.png"],
 ["https://www.messenger.com/","messenger","messenger.svg"],
 ["https://www.instagram.com/","instagram","Instagram.svg"],
 ["https://www.facebook.com/","Facebook","facebook.svg"],
