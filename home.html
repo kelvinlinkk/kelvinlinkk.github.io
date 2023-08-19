@@ -14,14 +14,15 @@
     <script src="首頁資料/js/countdown.js"></script>
 </head>
 <body>
-    <main>
         <div class="welcome">
             <video autoplay loop muted src="首頁資料/home.mp4"></video>
-            <section>
+            <h1 id="kk">K E L V I N</h1>
+            <section id="schedule" style="opacity: 0;">
                 <script>setdate("08/30/2023")</script>
                 <h2 id="countdown">離開學還有 <span id="days"></span> 天~</h2>
             </section>
         </div>
+    <main id="main" style="opacity: 0;">
         <div id="page">
             <img src="首頁資料/logo/分頁.svg" ondblclick="display()">
             <section>
@@ -54,5 +55,6 @@
             </ul>
         </footer>
     </main>
+    
 </body>
 </html>

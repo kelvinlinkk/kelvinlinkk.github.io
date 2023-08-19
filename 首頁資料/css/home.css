@@ -35,7 +35,10 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px;bottom: 0px;}
-.welcome video{position: fixed; right: 0px;}
+.welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
+.welcome h1{position: relative; left: 20%;top: calc(50% - 2.5vw); transform: translate(0%,-50%);width: 60%; 
+    text-align: justify;text-align-last:justify;font-family:"Noto Sans TC";font-size: 5vw;}
+.welcome video{position: fixed;}
 .welcome section{position: absolute;left: 0px;right: 0px; bottom: 0%;}
 .welcome h2{ position: relative;left: 15px;overflow: hidden;
      font-family: 'chenyuluoyan';font-size: xx-large; font-weight: initial;}

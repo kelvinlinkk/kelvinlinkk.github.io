@@ -1,4 +1,5 @@
 var flag = false;
+addEventListener('scroll',Fade,false)
 //info is from href.js
 function drawLogo(){
         for (let j = 0; j < info.length; j++) {
@@ -7,9 +8,7 @@ function drawLogo(){
                         document.write('<div class="infos"><a href="' + info[j][i][0] +'"><span>'+ info[j][i][1] + '</span><img src="首頁資料/logo/'+ info[j][i][2] +'"></a></div>')}   
                 document.write('</section></article>');
         }
-};
-
-
+};  
 function display(){ 
         var search = document.getElementById("search");
         var time = document.getElementById("time");
@@ -34,5 +33,8 @@ function display(){
         }
 }
 function Fade(){
-        for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();document.getElementById("mousebar").style.opacity = String(i/100);},i*2)}
-}
+        if(document.getElementById("main").style.opacity == "0"){
+        //for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();document.getElementById("kk").style.opacity = String((100-i)/100);},i*5)}
+        for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();document.getElementById("schedule").style.opacity = String(i/100);},i*5)}
+        for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();document.getElementById("main").style.opacity = String(i/100);},i*5)}
+}}
