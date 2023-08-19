@@ -1,10 +1,13 @@
-.welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;text-align: justify;}
-.welcome h1{left: 0%;right: 0%;}
+@font-face{
+    font-family: "Noto Sans TC";
+    src: url(../font/NotoSansTC-Black.ttf),
+        url(../font/NotoSansTC-Thin.ttf),
+        url(../font/NotoSansTC-Bold.ttf),
+        url(../font/NotoSansTC-Light.ttf),
+        url(../font/NotoSansTC-Medium.ttf),
+        url(../font/NotoSansTC-Regular.ttf),;
+}
 
-
-
-
-
-
-
-.welcome{background-color: initial;}
+.welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
+.welcome h1{position: relative; left: 20%;top: calc(50% - 2.5vw); transform: translate(0%,-50%);width: 60%; 
+    text-align: justify;text-align-last:justify;font-family:"Noto Sans TC";font-size: 5vw;}
