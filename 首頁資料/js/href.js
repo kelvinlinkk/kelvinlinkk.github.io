@@ -131,7 +131,7 @@ var info = [
 ["https://tome.app/","tome","tome.jpg"],
 ["https://gamma.app/","gamma","gamma.jpg"],
 ["https://scribblediffusion.com/","scribblediffusion","scribblediffusion.jpg"]],
-/*娛樂*/
+/*娛樂*//*休息一下
 [["https://www.youtube.com/","YouTube","YouTube.svg"],
 ["https://linktr.ee/kvl_19","linktree","linktree.png"],
 ["https://www.messenger.com/","messenger","messenger.svg"],
@@ -145,5 +145,5 @@ var info = [
 ["https://www.motogp.com/","motogp","motogp.png"],
 ["https://www.motorsport.com/","motorsport","motorsport.jpg"],
 ["https://www.autosport.com/","autosport","autosport.jpg"],
-["https://www.sportsv.net/racing","運動視界","運動視界.jpg"]]
+["https://www.sportsv.net/racing","運動視界","運動視界.jpg"]]*/
 ]
