@@ -14,7 +14,7 @@
 }
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
-*{font-family: "NotoSansTC", Tahoma, Geneva, Verdana, sans-serif;}
+*{font-family: "NotoSansTC", Tahoma, Geneva, Verdana, sans-serif;text-align: justify;}
 body{margin: 0;}
 
 /*main*/

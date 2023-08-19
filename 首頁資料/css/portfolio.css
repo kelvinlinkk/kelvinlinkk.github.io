@@ -18,7 +18,7 @@
     src: local("Noto Sans TC"),url('https://github.com/kelvinlinkk/portfolio/raw/main/font/思源黑體/TaipeiSansTCBeta-Regular.ttf') format("opentype"),
 }
 a{ text-decoration: none; }
-body{font-family: "NotoSansTC", sans-serif;font-weight: bold;}
+body{font-family: "NotoSansTC", sans-serif;font-weight: bold;text-align: justify;}
 .intro article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:normal;}
 header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 
