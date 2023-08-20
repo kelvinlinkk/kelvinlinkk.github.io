@@ -36,7 +36,7 @@ article section{display: none;position: relative;left: 0px;right: 0px;text-align
 article iframe,article video{position: relative;bottom: 0px; width: 40vw;min-height: 30vw;border: 0px;}
 article img{position: relative;bottom: 0px; width: 40vw;border: 0px;left: 30vw;}
 article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
-article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
+article section img{left: 0px; animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
 article h1:hover{animation-duration: 0.2s;animation-name: scalesIn2;animation-fill-mode:forwards;}
 article h1{animation-duration: 0.2s;animation-name: scalesOut2;animation-fill-mode:forwards;}
 article p{position: relative; width: 50vw;left: 25vw;font-weight: lighter;font-style: italic;}
@@ -69,7 +69,7 @@ footer ul:nth-child(2){left:50%;}
 
 /*color*/
 a{color: wheat;}
-p{color:honeydew;}
+article p{color:honeydew;}
 article h1{background-color: rgba(255, 255, 255, 0.1)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
