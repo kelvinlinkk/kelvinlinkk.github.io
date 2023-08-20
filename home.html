@@ -15,24 +15,84 @@
 </head>
 <body>
         <div class="welcome">
-            <video autoplay loop muted src="首頁資料/home.mp4"></video>
+            <video autoplay loop muted src="首頁資料/home.mp4" id="myvid"></video>
             <h1 id="kk">K E L V I N</h1>
             <section id="schedule" style="opacity: 0;">
                 <script>setdate("08/30/2023")</script>
-                <h2 id="countdown">離開學還有 <span id="days"></span> 天~</h2>
+                <h2 id="countdown" onmousedown="document.getElementById('countdown').style.opacity='1'"
+                onmouseup="document.getElementById('countdown').style.opacity='0'""
+                >離開學還有 <span id="days"></span> 天~</h2>
             </section>
         </div>
     <main id="main" style="opacity: 0;">
-        <div id="page">
-            <img src="首頁資料/logo/分頁.svg" ondblclick="display()">
-            <section>
-                <a href="farewell.html" title="story" target="_self"><h1>farewell</h1></a>  
-                <a href="bio.html" title="autobiography" target="_self"><h1>Bio</h1></a> 
-                <a href="portfolio.html" title="Portfolio" target="_self"><h1>Portfolio</h1></a>   
-                <a href="f1.html" title="f1" target="_self"><h1>f1</h1></a>      
+        
+        <article>
+            <a><h1>自我介紹 - a dreamer, a executor</h1></a>
+            <img src="首頁資料/me.jpg">
+            <section style="display: block !important;">
+                <a href="bio.html" title="autobiography" target="_self">點我前往自介</a>
+                <p>
+                    「認可某人、喜歡某人、討厭某人；跟誰在一起很開心、跟誰在一起很鬱悶；跟誰牽手、跟誰擁抱、跟誰擦身而過，那就是活著。只有一個人的話，就不知道自己是否存在。我的心是因為大家在才存在，我的身體是因為大家觸碰才存在。這樣構成的我，現在活著，還在這裡活著，所以人活著是有意義的。」──住野夜《我想吃掉你的胰臟》
+                </p>
             </section>
-        </div>
-        <script>drawLogo()</script>
+        </article>
+        <h4>我(們)的作品</h4>
+        <article>
+            <h1 onclick="displaySec(3)">Portfolio - 我的學習歷程專區</h1>
+            <section>
+                <iframe src="portfolio.html"></iframe><br><a href="portfolio.html" title="Portfolio" target="_self">點我前往</a>
+            </section>
+        </article>
+        <article>
+            <h1 onclick="displaySec(0)">111學年度英語話劇暨歌舞比賽~高一忠</h1>
+            <section>
+                <video src="https://github.com/kelvinlinkk/portfolio/raw/main/競賽/話劇.mp4" controls></video><br>
+                <a href="https://youtu.be/_PYGp8LrtiQ" title="theater" target="_self">點我前往</a>    
+            </section>
+        </article>
+        <article>
+            <h1 onclick="displaySec(0)">國文影片 - 校園秘密景點🎬</h1>
+            <section>
+                <iframe src="https://www.youtube.com/embed/k4Hzc1VEqbk"></iframe><br>
+            </section>
+        </article>
+        <h4>去去其他地方吧</h4>
+        <article>
+            <h1 onclick="displaySec(1)">farewell - 給老師的一封信</h1>
+            <section>
+                <iframe src="farewell.html"></iframe><br>
+                <a href="farewell.html" title="story" target="_self" >點我前往</a>
+            </section>
+        </article>
+        <article>
+            <h1 onclick="displaySec(4)">f1 - f1成績(自行爬取)</h1>
+            <section>
+                <iframe src="f1.html"></iframe><br>
+                <a href="f1.html" title="f1" target="_self">點我前往</a>
+            </section>
+        </article>
+
+        <article>
+            <h1 onclick="displaySec(5)">contact - 社群&聯絡</h1>
+            <section> 
+                <div class="infos"><a href="https://linktr.ee/kvl_19""><span>Linktree</span><img src="首頁資料/logo/linktree.png"> </a></div>
+                <div class="infos"><a href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><span>YouTube</span><img src="首頁資料/logo/YouTube.svg"> </a></div>
+                <div class="infos"><a href="https://www.instagram.com/kvl._.19/"><span>instagram</span><img src="首頁資料/logo/instagram.svg"> </a></div>
+                <div class="infos"><a href="https://www.facebook.com/profile.php?id=100069651581286"><span>Facebook</span><img src="首頁資料/logo/facebook.svg"> </a></div>
+                <div class="infos"><a href="https://twitter.com/kelvinlinkk"><span>twitter</span><img src="首頁資料/logo/twitter.svg"> </a></div>
+                <div class="infos"><a href="https://www.twitch.tv/kelvinlinkk"><span>twitch</span><img src="首頁資料/logo/twitch.svg"> </a></div>
+            </section>
+        </article>
+        <h4>喜歡的歌</h4>
+        <article>
+            <h1 onclick="displaySec(0)">スピカ (Remaster for 星の消えた夜に 2022)</h1>
+            <section>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4sB7tMWI70Ce8UHl8NnaYY?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </section>
+        </article>
+        <h4>常用網站整理</h4>
+        <script>drawLogo(6)</script>
+        
         <footer id="footer">
             <h3>Kelvin Lin 的首頁 | 技術支援：<a href="https://pages.github.com/">github pages</a></h3>
             <ul>

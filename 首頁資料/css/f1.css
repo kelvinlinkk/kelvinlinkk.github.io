@@ -1,3 +1,4 @@
+::-webkit-scrollbar{display: none;}
 body{background-color: black;color: aliceblue;text-align: center;font-size: large;text-overflow: ellipsis;}
 h1{font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
 table{width: 100%;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
