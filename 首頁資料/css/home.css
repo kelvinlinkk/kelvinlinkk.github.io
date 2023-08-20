@@ -10,17 +10,17 @@
         url(../font/NotoSansTC-Bold.ttf),
         url(../font/NotoSansTC-Light.ttf),
         url(../font/NotoSansTC-Medium.ttf),
-        url(../font/NotoSansTC-Regular.ttf),;
+        url(../font/NotoSansTC-Regular.ttf);
 }
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
-body{font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
-body{margin: 0;}
+body{margin: 0px;font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
 
 /*main*/
 article{position: relative;width: 100%; display: inline-block;top:100vh;}
 article h1{
-    position: relative; text-align: center;border: 3px solid;width: 30%;left: 0%;border-radius: 50px;
+    position: relative; text-align: center;width: 80vw;left: 10%;margin-top: 20px;margin-bottom: 20px; height: 60px;
+    line-height: 60px;border-radius: 10px;
 }
 .infos{position: relative;width: calc(7vw + 7vh);margin-bottom: calc(1.5vh + 1.5vw);
     display: inline-block;font-size: calc(1vw + 1vh);}
@@ -30,6 +30,7 @@ article h1{
      text-align: center;text-overflow:ellipsis;overflow: hidden;white-space: nowrap;} 
 @keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
 @keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
+article section{display: none;position: relative;left: 0px;right: 0px;text-align: center;}
 article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article section img{animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
 
@@ -38,7 +39,7 @@ article section img{animation-duration: 0.2s;animation-name: scalesOut;animation
 .welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
 .welcome h1{position: relative; left: 20%;top: calc(50% - 2.5vw); transform: translate(0%,-50%);width: 60%; 
     text-align: justify;text-align-last:justify;font-family:"Noto Sans TC";font-size: 5vw;}
-.welcome video{position: fixed;}
+.welcome video{position: fixed;right: 0px;filter: blur(3px);}
 .welcome section{position: absolute;left: 0px;right: 0px; bottom: 0%;}
 .welcome h2{ position: relative;left: 15px;overflow: hidden;
      font-family: 'chenyuluoyan';font-size: xx-large; font-weight: initial;}
@@ -69,6 +70,7 @@ footer ul:nth-child(2){left:50%;}
 /*color*/
 #page section a h1,a{color: wheat;}
 #page section{background-color:rgba(77,77,77,0.7)}
+article h1{background-color: rgba(255, 255, 255, 0.1)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
 article{background-color: rgba(0, 0, 0, 0.3);}
