@@ -20,12 +20,12 @@ main{position: relative; top: 100vh;}
 article{position: relative;width: 100%; display: inline-block;}
 article h1{
     position: relative; text-align: center;width: 80%;max-width: 700px;margin: auto; margin-top: 20px; margin-bottom: 20px; min-height: 60px;
-    line-height: 60px;border-radius: 10px;word-wrap: break-word;
+    line-height: 60px;border-radius: 10px;word-wrap: break-word;font-size: small;
 }
-.infos{position: relative;width: calc(7vw + 7vh);margin-bottom: calc(1.5vh + 1.5vw);
-    display: inline-block;font-size: calc(1vw + 1vh);}
-.infos img{position: relative; width: calc(5vh + 5vw); height: calc(5vh + 5vw);
-    margin: calc(1vh + 1vw);margin-bottom: calc(2vh + 2vw); border-radius: calc(0.5vh + 0.5vw);}
+.infos{position: relative;width: 120px;margin-bottom: 20px;
+    display: inline-block;font-size: 20px;}
+.infos img{position: relative; width:80px; height:80px;
+    margin: 20px;margin-bottom: 30px; border-radius: 10px;}
 .infos span{position: absolute; left: 0px;right: 0px; bottom: 0px;margin-left: 5px;margin-right: 5px;
      text-align: center;text-overflow:ellipsis;overflow: hidden;white-space: nowrap;} 
 @keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
@@ -33,7 +33,7 @@ article h1{
 @keyframes scalesIn2{from{scale:1.1;}to{scale:1.2;}}
 @keyframes scalesOut2{from{scale:1.2;}to{scale:1.1;}}
 article section{display: none;position: relative;left: 0px;right: 0px;text-align: center;}
-article iframe,article video{position: relative;bottom: 0px; width: 40vw;min-height: 30vw;border: 0px;}
+article iframe,article video{position: relative;bottom: 0px;width: 700px;height: 400px; max-height: 60vw; max-width: 80vw;border: 0px;}
 article img{position: relative;bottom: 0px; width: 40vw;border: 0px;left: 30vw;}
 article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article section img{left: 0px; animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
@@ -45,8 +45,8 @@ main h4{position: relative;margin: 0;height:80px;line-height: 80px;text-align: c
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px;bottom: 0px;}
 .welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
-.welcome h1{position: relative; left: 20%;top: calc(50% - 2.5vw); transform: translate(0%,-50%);width: 60%; 
-    text-align: justify;text-align-last:justify;font-family:"Noto Sans TC thin";font-size: 5vw;font-weight:bolder;font-stretch: extra-condensed;}
+.welcome h1{position: relative; left: 20%;top: 50%; transform: translate(0%,-5vw);width: 60%; 
+    text-align: justify;text-align-last:justify;font-family:"Noto Sans TC thin";font-size: 5vw; font-weight:bolder;font-stretch: extra-condensed;}
 .welcome video{position: fixed;right: 0px;}
 .welcome section{position: absolute;left: 0px;right: 0px; bottom: 0%;}
 .welcome h2{ position: relative;left: 15px;overflow: hidden;opacity:0;
