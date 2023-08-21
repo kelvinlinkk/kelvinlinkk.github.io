@@ -21,7 +21,8 @@ body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sa
 main{position: relative; top: 100vh;opacity: 0;}
 article{position: relative;width: 100%; display: inline-block;}
 article h1{
-    position: relative; text-align: center;width: 80%;max-width: 700px;margin: auto; margin-top: 20px; margin-bottom: 20px; min-height: 60px;
+    position: relative; text-align: center;width: 80%;max-width: 700px;
+    margin: auto; margin-top: 20px; margin-bottom: 20px; min-height: 60px;
     line-height: 60px;border-radius: 10px;word-wrap: break-word;font-size: small;
 }
 .infos{position: relative;width: 120px;margin-bottom: 20px;
@@ -44,7 +45,9 @@ article h1{animation-duration: 0.2s;animation-name: scalesOut2;animation-fill-mo
 article p{position: relative; width: 50vw;left: 25vw;font-weight: lighter;font-style: italic;}
 main h4{position: relative;margin: 0;height:80px;line-height: 80px;
     text-align: center;font-size: 28px; font-weight: lighter; font-family: 'Chenyuluoyan';}
-
+@media (max-width:700px){
+    article h1{font-size: 3vw;}
+    }
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px;bottom: 0px;}
 .welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
