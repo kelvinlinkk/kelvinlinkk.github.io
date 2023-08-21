@@ -3,9 +3,9 @@ function Bluring(obj,speed,depth,frames,f){
         if (f){for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px)";},i*speed)}}
         else{for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px)";},i*speed)}} 
 }
-function Fading(obj,speed,f){
-        if (f){for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/100);},i*speed)}}
-        else{for (let i = 0;i<100;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((100-i)/100);},i*speed)}} 
+function Fading(obj,speed,frames,f){
+        if (f){for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
+        else{for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
 }
 //info is from href.js
 function drawLogo(){
@@ -19,16 +19,18 @@ function drawLogo(){
 function starting() {
         main=document.getElementById('main')
         myvid=document.getElementById('myvid')
-        if (document.getElementsByTagName("body")[0].getBoundingClientRect().top == "0") {
-                if(document.getElementById("main").style.opacity > 0.01)
-                {Fading(main, 5, 0);Bluring(myvid, 20, 5, 30, 0)}
+        if (document.getElementsByTagName("body")[0].getBoundingClientRect().top >= 0-screen.height/5) {
+                if(document.getElementById("main").style.opacity == 0.99)
+                {Fading(main, 5,100, 0);Bluring(myvid, 20, 5, 30, 0)}
         }
         else if(document.getElementById("main").style.opacity <= 0.01) {
-                Fading(main, 5, 1);Bluring(myvid, 20, 5, 30, 1)
+                Fading(main, 5,100, 1);Bluring(myvid, 20, 5, 30, 1)
         }
 }
 function display() {
+        var welcome = document.getElementsByClassName('welcome')[0].getElementsByTagName('h1')[0]
         var articles = document.getElementsByTagName('article')
+        setTimeout(function(){Fading(welcome,12,60,1)},1500)
         for(i = 0;i<articles.length;i++){
                 articles[i].getElementsByTagName('h1')[0].addEventListener('click',function()
         {
@@ -36,9 +38,9 @@ function display() {
                 let myflag = (mysection.style.display != 'block')
                 if (myflag == 1) {
                         setTimeout(function () { mysection.style.setProperty('display', 'block', 'important'); }, 1)
-                        Fading(mysection, 5, myflag);}
+                        Fading(mysection, 5,100, myflag);}
                 else if (mysection.style.opacity == '0.99') {
                         setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 800)
-                        Fading(mysection, 5, myflag);}
+                        Fading(mysection, 5,100, myflag);}
         },false)}            
 }
