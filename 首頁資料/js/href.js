@@ -1,5 +1,5 @@
 
-var infoname = ["實用小工具","學校及報告","程式設計","知識充電站","Google","Microsoft","高中升學輔導專區","AI","娛樂"]
+var infoname = ["實用小工具","學校及報告","程式設計","知識充電站","Google and Microsoft","高中升學輔導專區","AI","娛樂"]
 var info = [
 /*工具*/
 [["https://www.ilovepdf.com/zh-tw","ilovepdf","ilovepdf.png"],
@@ -87,7 +87,7 @@ var info = [
 ["https://lawplayer.com/","lawplayer","lawplayer.jpg"],
 ["https://highscope.ch.ntu.edu.tw/","科學online","online.jpg"],
 ["https://pansci.asia/","泛科學","pansci.jpg"]],
-/*google*/
+/*google and microsoft*/
 [["https://www.google.com/","search","googlesearch.png"],
 ["https://mail.google.com/","gmail","gmail.png"],
 ["https://translate.google.com/","translate","translate.png"],
@@ -100,9 +100,8 @@ var info = [
 ["https://meet.google.com/","meet","meet.png"], 
 ["https://docs.google.com/drawings/","drawings","drawing.png"], 
 ["https://www.kaggle.com/","kaggle","kaggle.svg"],
-["https://podcasts.google.com/","podcast","podcast.png"]],
-/*microsoft*/ 
-[["https://to-do.live.com/tasks/","to-do","todo.svg"],
+["https://podcasts.google.com/","podcast","podcast.png"],
+["https://to-do.live.com/tasks/","to-do","todo.svg"],
 ["https://www.bing.com/","bing","bing.jpg"],
 ["https://o365oid-my.sharepoint.com/","onedrive","onedrive.png"], 
 ["https://outlook.office365.com/","outlook","outlook.png"], 
@@ -134,7 +133,7 @@ var info = [
 ["https://tome.app/","tome","tome.jpg"],
 ["https://gamma.app/","gamma","gamma.jpg"],
 ["https://scribblediffusion.com/","scribblediffusion","scribblediffusion.jpg"]],
-/*娛樂*//*休息一下
+/*娛樂*/
 [["https://www.youtube.com/","YouTube","YouTube.svg"],
 ["https://linktr.ee/kvl_19","linktree","linktree.png"],
 ["https://www.messenger.com/","messenger","messenger.svg"],
@@ -148,5 +147,5 @@ var info = [
 ["https://www.motogp.com/","motogp","motogp.png"],
 ["https://www.motorsport.com/","motorsport","motorsport.jpg"],
 ["https://www.autosport.com/","autosport","autosport.jpg"],
-["https://www.sportsv.net/racing","運動視界","運動視界.jpg"]]*/
+["https://www.sportsv.net/racing","運動視界","運動視界.jpg"]]
 ]
