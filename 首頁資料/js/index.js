@@ -28,9 +28,7 @@ function starting() {
         }
 }
 function display() {
-        var welcome = document.getElementsByClassName('welcome')[0].getElementsByTagName('h1')[0]
         var articles = document.getElementsByTagName('article')
-        setTimeout(function(){Fading(welcome,12,60,1)},1500)
         for(i = 0;i<articles.length;i++){
                 articles[i].getElementsByTagName('h1')[0].addEventListener('click',function()
         {

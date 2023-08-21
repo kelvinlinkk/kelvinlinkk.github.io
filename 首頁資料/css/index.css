@@ -51,7 +51,7 @@ main h4{position: relative;margin: 0;height:80px;line-height: 80px;
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px;bottom: 0px;}
 .welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
-.welcome h1{position: relative; left: 20%;top: 50%; transform: translate(0%,-5vw);width: 60%; opacity: 0;
+.welcome h1{position: relative; left: 20%;top: 50%; transform: translate(0%,-5vw);width: 60%; 
     text-align: justify;text-align-last:justify;font-family:"Noto Sans TC thin";font-size: 5vw; font-weight:bolder;font-stretch: extra-condensed;}
 .welcome video{position: fixed;right: 0px;}
 @keyframes fadeIn{from{opacity: 0;}to{opacity: 1;}}
