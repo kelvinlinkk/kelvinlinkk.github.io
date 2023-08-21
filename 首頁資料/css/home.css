@@ -42,7 +42,8 @@ article section img{left: 0px; animation-duration: 0.2s;animation-name: scalesOu
 article h1:hover{animation-duration: 0.2s;animation-name: scalesIn2;animation-fill-mode:forwards;}
 article h1{animation-duration: 0.2s;animation-name: scalesOut2;animation-fill-mode:forwards;}
 article p{position: relative; width: 50vw;left: 25vw;font-weight: lighter;font-style: italic;}
-main h4{position: relative;margin: 0;height:80px;line-height: 80px;text-align: center;font-size: large;}
+main h4{position: relative;margin: 0;height:80px;line-height: 80px;
+    text-align: center;font-size: 28px; font-weight: lighter; font-family: 'Chenyuluoyan';}
 
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px;bottom: 0px;}
