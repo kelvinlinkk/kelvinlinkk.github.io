@@ -1,15 +1,17 @@
 /*setting*/
-@font-face{
+@font-face {
     font-family: 'ChenYuluoyan';
-    src: local("ChenYuluoyan"),url(../font/ChenYuluoyan-Thin.ttf);
+    src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin.ttf);
 }
-@font-face{
+
+@font-face {
     font-family: 'Tormentor';
-    src: local("Tormentor"),url(../font/Tormentor/Tormentor-Regular.ttf);
+    src: local("Tormentor"), url(../font/Tormentor/Tormentor-Regular.ttf);
 }
-@font-face{
+
+@font-face {
     font-family: 'Noto Sans TC thin';
-    src: local("Noto Sans TC thin"),url(../font/思源黑體/NotoSansTC-Thin.otf);
+    src: local("Noto Sans TC thin"), url(../font/思源黑體/NotoSansTC-Thin.otf);
 }
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
