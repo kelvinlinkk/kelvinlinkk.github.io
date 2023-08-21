@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" onselectstart="return false">
+
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="首頁資料/logo.png" type="image/x-icon">
     <title>myhome</title>
-    <meta http-equiv="Content-Security-Policy"><meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="實用網站整理">
     <base target="_blank">
     <link href="首頁資料/css/home.css" rel="stylesheet" type="text/css">
     <link rel="preload" href="/首頁資料/font/思源黑體/NotoSansTC-Thin.otf" as="font" type="font/otf" crossorigin>
 </head>
+
 <body>
-        <script src="首頁資料/js/home.js"></script>
-        <script src="首頁資料/js/href.js"></script>
-        <script src="首頁資料/js/countdown.js"></script>
-        <div class="welcome">
-            <video autoplay loop muted src="首頁資料/home.mp4" id="myvid"></video>
-            <h1 id="kk">K E L V I N</h1>
-            <section id="schedule" style="opacity: 0;">
-                <script>setdate("08/30/2023")</script>
-                <h2 id="countdown" onmousedown="document.getElementById('countdown').style.opacity='1'"
-                onmouseup="document.getElementById('countdown').style.opacity='0'">離開學還有 <span id="days"></span> 天~</h2>
-            </section>
-        </div>
-    <main id="main" style="opacity: 0;">
-        
+    <script src="首頁資料/js/home.js"></script>
+    <script src="首頁資料/js/href.js"></script>
+    <script src="首頁資料/js/countdown.js"></script>
+    <div class="welcome">
+        <video autoplay loop muted src="首頁資料/home.mp4" id="myvid"></video>
+        <h1 id="kk">K E L V I N</h1>
+    </div>
+    <main id="main">
+        <script>setdate("08/30/2023")</script>
+        <h4 id="countdown">離開學還有 <span id="days"></span> 天~</h4>
         <article>
-            <a><h1>自我介紹 - a dreamer, a executor</h1></a>
+            <a>
+                <h1>自我介紹 - a dreamer, a executor</h1>
+            </a>
             <img src="首頁資料/me.jpg">
             <section style="display: block !important;">
                 <a href="bio.html" title="autobiography" target="_self">點我前往自介</a>
@@ -40,26 +40,27 @@
         <article>
             <h1>Portfolio - 我的學習歷程專區</h1>
             <section>
-                <iframe src="portfolio.html"></iframe><br><a href="portfolio.html" title="Portfolio" target="_self">點我前往</a>
+                <iframe src="portfolio.html"></iframe><br><a href="portfolio.html" title="Portfolio"
+                    target="_self">點我前往</a>
             </section>
         </article>
         <article>
             <h1>111學年度英語話劇暨歌舞比賽~高一忠</h1>
             <section>
                 <video src="https://github.com/kelvinlinkk/portfolio/raw/main/競賽/話劇.mp4" controls></video><br>
-                <a href="https://youtu.be/_PYGp8LrtiQ" title="theater" target="_self">點我前往</a>    
+                <a href="https://youtu.be/_PYGp8LrtiQ" title="theater" target="_self">點我前往</a>
             </section>
         </article>
         <article>
             <h1>國文影片 - 校園秘密景點🎬</h1>
             <section>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLpI-mBeJCEezXl0MOq1c3-jB7ghA7cjZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLpI-mBeJCEezXl0MOq1c3-jB7ghA7cjZR"></iframe><br>
             </section>
         </article>
         <article>
             <h1>國小英語學藝競賽(不只喔)</h1>
             <section>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLpI-mBeJCEey_rrDJNzdfwVjtPlNdtdYk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLpI-mBeJCEey_rrDJNzdfwVjtPlNdtdYk"></iframe><br>
             </section>
         </article>
         <h4>去去其他地方吧</h4>
@@ -67,50 +68,57 @@
             <h1>farewell - 給老師的一封信</h1>
             <section>
                 <iframe src="farewell.html"></iframe><br>
-                <a href="farewell.html" title="story" target="_self" >點我前往</a>
-            </section>
-        </article>
-        <article>
-            <h1>f1 - f1成績(自行爬取)</h1>
-            <section>
-                <iframe src="f1.html"></iframe><br>
-                <a href="f1.html" title="f1" target="_self">點我前往</a>
+                <a href="farewell.html" title="story" target="_self">點我前往</a>
             </section>
         </article>
 
         <article>
             <h1>contact - 社群&聯絡</h1>
-            <section> 
-                <div class="infos"><a href="https://linktr.ee/kvl_19""><span>Linktree</span><img src="首頁資料/logo/linktree.png"> </a></div>
-                <div class="infos"><a href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><span>YouTube</span><img src="首頁資料/logo/YouTube.svg"> </a></div>
-                <div class="infos"><a href="https://www.instagram.com/kvl._.19/"><span>instagram</span><img src="首頁資料/logo/Instagram.svg"> </a></div>
-                <div class="infos"><a href="https://www.facebook.com/profile.php?id=100069651581286"><span>Facebook</span><img src="首頁資料/logo/facebook.svg"> </a></div>
-                <div class="infos"><a href="https://twitter.com/kelvinlinkk"><span>twitter</span><img src="首頁資料/logo/twitter.svg"> </a></div>
-                <div class="infos"><a href="https://www.twitch.tv/kelvinlinkk"><span>twitch</span><img src="首頁資料/logo/twitch.svg"> </a></div>
+            <section>
+                <div class="infos"><a href="https://linktr.ee/kvl_19"><span>Linktree</span><img src="
+                        首頁資料/logo/linktree.png"> </a></div>
+                <div class="infos"><a
+                        href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><span>YouTube</span><img
+                            src="首頁資料/logo/YouTube.svg"> </a></div>
+                <div class="infos"><a href="https://www.instagram.com/kvl._.19/"><span>instagram</span><img
+                            src="首頁資料/logo/Instagram.svg"> </a></div>
+                <div class="infos"><a
+                        href="https://www.facebook.com/profile.php?id=100069651581286"><span>Facebook</span><img
+                            src="首頁資料/logo/facebook.svg"> </a></div>
+                <div class="infos"><a href="https://twitter.com/kelvinlinkk"><span>twitter</span><img
+                            src="首頁資料/logo/twitter.svg"> </a></div>
+                <div class="infos"><a href="https://www.twitch.tv/kelvinlinkk"><span>twitch</span><img
+                            src="首頁資料/logo/twitch.svg"> </a></div>
             </section>
         </article>
         <h4>喜歡的東西</h4>
         <article>
             <h1>スピカ (Remaster for 星の消えた夜に 2022)</h1>
             <section>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4sB7tMWI70Ce8UHl8NnaYY?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe src="https://open.spotify.com/embed/track/4sB7tMWI70Ce8UHl8NnaYY?utm_source=generator"></iframe>
+            </section>
+        </article>
+        <article>
+            <h1>スピカ (Remaster for 星の消えた夜に 2022)</h1>
+            <section>
+                <iframe src="https://open.spotify.com/playlist/6bxHcl1gya7rxcQVJLi9VV"></iframe>
             </section>
         </article>
         <article>
             <h1>君の膵臓をたべたい</h1>
             <section>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/DA_LZFaksSw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/DA_LZFaksSw"></iframe>
             </section>
         </article>
         <article>
             <h1>「進撃の巨人」The Final Season</h1>
             <section>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/q3Rk7lPxFU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/q3Rk7lPxFU0"></iframe>
             </section>
         </article>
         <h4>常用網站整理</h4>
-        <script>drawLogo();display()</script>
-        
+        <script>drawLogo(); display()</script>
+
         <footer id="footer">
             <h3>Kelvin Lin 的首頁 | 技術支援：<a href="https://pages.github.com/">github pages</a></h3>
             <ul>
@@ -134,4 +142,5 @@
         </footer>
     </main>
 </body>
+
 </html>

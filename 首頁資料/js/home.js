@@ -17,15 +17,14 @@ function drawLogo(){
         }
 };
 function starting() {
-        schedule=document.getElementById('schedule')
         main=document.getElementById('main')
         myvid=document.getElementById('myvid')
         if (document.getElementsByTagName("body")[0].getBoundingClientRect().top == "0") {
                 if(document.getElementById("main").style.opacity > 0.01)
-                {Fading(schedule, 5, 0);Fading(main, 5, 0);Bluring(myvid, 20, 5, 30, 0)}
+                {Fading(main, 5, 0);Bluring(myvid, 20, 5, 30, 0)}
         }
         else if(document.getElementById("main").style.opacity <= 0.01) {
-                Fading(schedule, 5, 1);Fading(main, 5, 1);Bluring(myvid, 20, 5, 30, 1)
+                Fading(main, 5, 1);Bluring(myvid, 20, 5, 30, 1)
         }
 }
 function display() {
