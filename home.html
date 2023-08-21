@@ -9,19 +9,19 @@
     <meta name="description" content="實用網站整理">
     <base target="_blank">
     <link href="首頁資料/css/home.css" rel="stylesheet" type="text/css">
-    <script src="首頁資料/js/home.js"></script>
-    <script src="首頁資料/js/href.js"></script>
-    <script src="首頁資料/js/countdown.js"></script>
+    <link rel="preload" href="/首頁資料/font/思源黑體/NotoSansTC-Thin.otf" as="font" type="font/otf" crossorigin>
 </head>
 <body>
+        <script src="首頁資料/js/home.js"></script>
+        <script src="首頁資料/js/href.js"></script>
+        <script src="首頁資料/js/countdown.js"></script>
         <div class="welcome">
             <video autoplay loop muted src="首頁資料/home.mp4" id="myvid"></video>
             <h1 id="kk">K E L V I N</h1>
             <section id="schedule" style="opacity: 0;">
                 <script>setdate("08/30/2023")</script>
                 <h2 id="countdown" onmousedown="document.getElementById('countdown').style.opacity='1'"
-                onmouseup="document.getElementById('countdown').style.opacity='0'""
-                >離開學還有 <span id="days"></span> 天~</h2>
+                onmouseup="document.getElementById('countdown').style.opacity='0'">離開學還有 <span id="days"></span> 天~</h2>
             </section>
         </div>
     <main id="main" style="opacity: 0;">
@@ -133,6 +133,5 @@
             </ul>
         </footer>
     </main>
-    
 </body>
 </html>

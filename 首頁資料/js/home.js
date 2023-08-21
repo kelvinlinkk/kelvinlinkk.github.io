@@ -1,5 +1,4 @@
-var flag = false;
-addEventListener('mouseover',starting,false)
+addEventListener('scroll',starting,false)
 function Bluring(obj,speed,depth,frames,f){
         if (f){for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px)";},i*speed)}}
         else{for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px)";},i*speed)}} 
@@ -21,12 +20,12 @@ function starting() {
         schedule=document.getElementById('schedule')
         main=document.getElementById('main')
         myvid=document.getElementById('myvid')
-        if (document.getElementsByTagName("body")[0].getBoundingClientRect().top == "0" ) {
-                Fading(schedule, 5, 0);Fading(main, 5, 0);Bluring(myvid, 80, 5, 20, 0)
+        if (document.getElementsByTagName("body")[0].getBoundingClientRect().top == "0") {
+                if(document.getElementById("main").style.opacity > 0.01)
+                {Fading(schedule, 5, 0);Fading(main, 5, 0);Bluring(myvid, 20, 5, 30, 0)}
         }
-        
-        else if (document.getElementById("main").style.opacity <= 0.99) {
-                Fading(schedule, 5, 1);Fading(main, 5, 1);Bluring(myvid, 80, 5, 20, 1)
+        else if(document.getElementById("main").style.opacity <= 0.01) {
+                Fading(schedule, 5, 1);Fading(main, 5, 1);Bluring(myvid, 20, 5, 30, 1)
         }
 }
 function display() {
