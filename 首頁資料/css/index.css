@@ -15,14 +15,15 @@
 }
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
-body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;font-weight:bold;}
+body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:bold;text-align: justify;}
 
 /*main*/
 main{position: relative; top: 100vh;opacity: 0;}
-article{position: relative;width: 100%; display: inline-block;}
+article{position: relative;width: 100%; display: inline-block;margin-top: 10px; margin-bottom: 10px;}
 article h1{
     position: relative; text-align: center;width: 80%;max-width: 700px;
-    margin: auto; margin-top: 20px; margin-bottom: 20px; min-height: 60px;
+    margin: auto;  min-height: 60px;margin-top: 10px; margin-bottom: 10px;
     line-height: 60px;border-radius: 10px;word-wrap: break-word;font-size: small;
 }
 .infos{position: relative;width: 120px;margin-bottom: 20px;
@@ -35,7 +36,7 @@ article h1{
 @keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
 @keyframes scalesIn2{from{scale:1.1;}to{scale:1.2;}}
 @keyframes scalesOut2{from{scale:1.2;}to{scale:1.1;}}
-article section{display: none;position: relative;left: 0px;right: 0px;text-align: center;}
+article section{display: none;position: relative;left: 10px;right: 10px;max-width: 700px;margin: auto; text-align: center;}
 article iframe,article video{position: relative;top: 0px; width: 700px;height: 352px; max-height: 60vw; max-width: 80vw;
     border: 0px;margin: auto;}
 article img{position: relative;bottom: 0px; width: 40vw;border: 0px;left: 30vw;}
@@ -44,7 +45,7 @@ article section img{left: 0px; animation-duration: 0.2s;animation-name: scalesOu
 article h1:hover{animation-duration: 0.2s;animation-name: scalesIn2;animation-fill-mode:forwards;}
 article h1{animation-duration: 0.2s;animation-name: scalesOut2;animation-fill-mode:forwards;}
 @media (max-width:700px){article h1{font-size: 3vw;}}
-article p{position: relative; width: 50vw;left: 25vw;font-weight: lighter;font-style: italic;}
+article p{position: relative; width: 100%;left: 0%;font-weight: lighter;font-style: italic;}
 main h4{position: relative;margin: 0;height:80px;line-height: 80px;
     text-align: center;font-size: 28px; font-weight: lighter; font-family: 'Chenyuluoyan';}
 
@@ -63,16 +64,19 @@ main h4{position: relative;margin: 0;height:80px;line-height: 80px;
     .welcome video{height: 100%;}
 }
 /*footer*/
-footer{position: relative;margin-top: 50px; height: 500px; font-family: 'chenyuluoyan';font-size: 25px;}
-footer h3{text-align: center;}
+footer{position: relative;margin-top: 50px; font-family: 'chenyuluoyan';font-size: 25px;}
+footer h3{text-align: center;margin: 0;}
 footer p{font-weight: bold;}
-footer ul{position: absolute;width: fit-content;}
-footer ul:nth-child(1){left: 0px;}
-footer ul:nth-child(2){left:50%;}
+footer ul{position: relative; min-width: fit-content;width: 10vw; display: inline-table;text-align: left;}
+.footer-ul{text-align: center;}
+.footer-social{position: relative;bottom: 0px;}
+.footer-social p{display:contents;}
+.footer-social img{height: 5vh;bottom: 10px; margin: 10px;text-align: left;
+     animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
+.footer-social img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
 
 /*color*/
 a{color: wheat;}
-article p{color:honeydew;}
 article h1{background-color: rgba(255, 255, 255, 0.1)}
 body{background-color: rgba(0, 0, 0, 1); color: wheat;}
 article h3{border-color: wheat;}
