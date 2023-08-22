@@ -1,4 +1,4 @@
-
+//這個檔案應該可以寫成json
 var infoname = ["實用小工具","學校及報告","程式設計","知識充電站","Google and Microsoft","高中升學輔導專區","AI","娛樂"]
 var info = [
 /*工具*/

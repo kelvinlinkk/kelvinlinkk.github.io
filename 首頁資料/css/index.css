@@ -36,18 +36,18 @@ article h1{
 @keyframes scalesIn2{from{scale:1.1;}to{scale:1.2;}}
 @keyframes scalesOut2{from{scale:1.2;}to{scale:1.1;}}
 article section{display: none;position: relative;left: 0px;right: 0px;text-align: center;}
-article iframe,article video{position: relative;bottom: 0px;width: 700px;height: 400px; max-height: 60vw; max-width: 80vw;border: 0px;}
+article iframe,article video{position: relative;top: 0px; width: 700px;height: 352px; max-height: 60vw; max-width: 80vw;
+    border: 0px;margin: auto;}
 article img{position: relative;bottom: 0px; width: 40vw;border: 0px;left: 30vw;}
 article section img:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article section img{left: 0px; animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
 article h1:hover{animation-duration: 0.2s;animation-name: scalesIn2;animation-fill-mode:forwards;}
 article h1{animation-duration: 0.2s;animation-name: scalesOut2;animation-fill-mode:forwards;}
+@media (max-width:700px){article h1{font-size: 3vw;}}
 article p{position: relative; width: 50vw;left: 25vw;font-weight: lighter;font-style: italic;}
 main h4{position: relative;margin: 0;height:80px;line-height: 80px;
     text-align: center;font-size: 28px; font-weight: lighter; font-family: 'Chenyuluoyan';}
-@media (max-width:700px){
-    article h1{font-size: 3vw;}
-    }
+
 /*welcome pic*/
 .welcome{position: absolute;left: 0px;right: 0px; top: 0px;bottom: 0px;}
 .welcome{position: absolute;left: 0px;right: 0px;top: 0px;bottom: 0px;}
