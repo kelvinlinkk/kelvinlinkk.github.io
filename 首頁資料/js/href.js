@@ -66,7 +66,7 @@ var info = [
     ["https://www.tiktok.com/", "tiktok", "tiktok.jpg"],
     ["https://www.formula1.com/", "f1", "f1.svg"],
     ["https://www.motogp.com/", "motogp", "motogp.png"],
-    ["https://www.motorsport.com/", "motorsport", "motorsport.jpg"],
+    ["https://www.motorsport.com/", "motorsport", "motorsport.png"],
     ["https://www.autosport.com/", "autosport", "autosport.jpg"],
     ["https://www.sportsv.net/racing", "運動視界", "運動視界.jpg"]],
     /*程式*/
