@@ -73,11 +73,11 @@ main h4{position: relative;margin: 0;height:80px;line-height: 80px;
 /*footer*/
 footer{position: relative;margin-top: 50px; font-family: 'chenyuluoyan';font-size: 25px;}
 footer h3{text-align: center;margin: 0;}
-footer p{position: relative; font-weight: bold;left: -1em;}
+.footer-ul p{position: relative; font-weight: bold;left: -1em;font-style: oblique;}
 footer ul{position: relative; min-width: fit-content; display: inline-table;}
 footer li{position: relative;left: -1em;}
 .footer-ul{position: relative;margin-left: 10px;margin-right: 10px; text-align: center;}
-.footer-social{position: relative;bottom: 0px;}
+.footer-social{position: relative;bottom: 0px;margin-top: 20px;}
 .footer-social p{position: relative; float: right;margin-right: 10px;margin-bottom: 10px;overflow: hidden;}
 .footer-social img{height: 5vh;bottom: 10px; margin: 10px;text-align: left;
      animation-duration: 0.2s;animation-name: scalesOut;animation-fill-mode:forwards;}
