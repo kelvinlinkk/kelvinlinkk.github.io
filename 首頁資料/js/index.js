@@ -41,9 +41,9 @@ function display() {
                 let myflag = (mysection.style.display != 'block')
                 if (myflag == 1) {
                         setTimeout(function () { mysection.style.setProperty('display', 'block', 'important'); }, 1)
-                        Fading(mysection, 5,100, myflag);}
+                        Fading(mysection, 5,80, myflag);}
                 else if (mysection.style.opacity == '0.99') {
-                        setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 800)
-                        Fading(mysection, 5,100, myflag);}
+                        setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 500)
+                        Fading(mysection, 5,80, myflag);}
         },false)}            
 }
