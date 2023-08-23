@@ -34,7 +34,7 @@ article h1{
 article section{display: none;position: relative;left: 0px;right: 0px;max-width: 1000px;margin: auto; text-align: center;}
 article iframe,article video{position: relative;top: 0px; width: 700px;height: 352px; max-height: 60vw; max-width: 80vw;
     border: 0px;margin: auto;}
-article img{position: relative;bottom: 0px; width: 40%;border: 0px;left: 30%;}
+article img{position: relative;bottom: 0px; width: 40%;border: 0px;left: 0%;}
 .infos:hover{animation-duration: 0.2s;animation-name: scalesIn;animation-fill-mode:forwards;}
 article h1:hover{animation-duration: 0.2s;animation-name: scalesIn2;animation-fill-mode:forwards;}
 article h1{animation-duration: 0.2s;animation-name: scalesOut2;animation-fill-mode:forwards;}
