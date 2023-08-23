@@ -2,12 +2,12 @@
 var infoname = [
     "實用小工具 🔧",
     "學校及報告📏",
+    "娛樂🎮",
     "程式設計💻",
     "知識充電站👀",
-    "Google and Microsoft",
     "高中升學輔導專區💼",
-    "AI💥",
-    "娛樂🎮"]
+    "Google and Microsoft",
+    "AI💥"]
 var info = [
     /*工具*/
     [["https://www.ilovepdf.com/zh-tw", "ilovepdf", "ilovepdf.png"],
