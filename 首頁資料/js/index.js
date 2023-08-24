@@ -1,12 +1,12 @@
 blurflag = 2
 addEventListener('scroll',starting,false)
 function Bluring(obj,speed,depth,frames,f){
-        if (f){for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px)";},i*speed)}}
-        else{for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px)";},i*speed)}} 
+        if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px)";},i*speed)}}
+        else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px)";},i*speed)}} 
 }
 function Fading(obj,speed,frames,f){
-        if (f){for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
-        else{for (let i = 0;i<frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
+        if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
+        else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
 }
 //info is from href.js
 function drawLogo(){
@@ -22,14 +22,14 @@ function starting() {
         if (document.getElementsByTagName("body")[0].getBoundingClientRect().top < 0-screen.height/5) {
                 if(blurflag==2){
                         blurflag=1;
-                        setTimeout(function(){blurflag=0;},200)
-                        Bluring(myvid, 20, 5, 30, 1);
+                        setTimeout(function(){blurflag=0;},300)
+                        Bluring(myvid, 60, 5, 10, 1);
                 }
         }
         else if(blurflag==0){
                 blurflag=1;
-                setTimeout(function(){blurflag=2;},200)
-                Bluring(myvid, 20, 5, 30, 0);
+                setTimeout(function(){blurflag=2;},300)
+                Bluring(myvid, 60, 5, 10, 0);
         } 
 }
 function display() {
@@ -41,9 +41,9 @@ function display() {
                 let myflag = (mysection.style.display != 'block')
                 if (myflag == 1) {
                         setTimeout(function () { mysection.style.setProperty('display', 'block', 'important'); }, 1)
-                        Fading(mysection, 5,80, myflag);}
-                else if (mysection.style.opacity == '0.99') {
-                        setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 500)
-                        Fading(mysection, 5,80, myflag);}
+                        Fading(mysection, 5,100, myflag);}
+                else if (mysection.style.opacity == '1') {
+                        setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 800)
+                        Fading(mysection, 5,100, myflag);}
         },false)}            
 }
