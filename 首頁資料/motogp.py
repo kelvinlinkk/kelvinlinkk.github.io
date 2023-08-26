@@ -19,7 +19,6 @@ with open('motogp.html','w',encoding='utf-8') as f:
 <head>
   <title>車手排行</title>
   <link href="首頁資料/css/motogp.css" rel="stylesheet" type="text/css">
-  <script src="首頁資料/js/f1.js"></script>
 <head>
 <body>
 <h1>STANDINGS</h1>

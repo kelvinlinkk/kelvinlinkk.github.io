@@ -1,7 +1,32 @@
-::-webkit-scrollbar{display: none;}
-body{background-color: black;color: aliceblue;text-align: center;font-size: large;text-overflow: ellipsis;}
-h1{font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
-table{width: 100%;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-th:nth-child(1){width:30%;}
-th:nth-child(2){width:40%;}
-th:nth-child(3){width:30%;}
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    font-size: large;
+    text-overflow: ellipsis;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+table {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+th:nth-child(1) {
+    width: 30%;
+}
+
+th:nth-child(2) {
+    width: 40%;
+}
+
+th:nth-child(3) {
+    width: 30%;
+}
