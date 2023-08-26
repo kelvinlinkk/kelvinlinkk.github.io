@@ -1,18 +1,10 @@
 /*setting*/
 @font-face {
     font-family: 'ChenYuluoyan';
-    src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin.ttf);
+    src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin-Monospaced.ttf);
 }
 
-@font-face {
-    font-family: 'Tormentor';
-    src: local("Tormentor"), url(../font/Tormentor/Tormentor-Regular.ttf);
-}
-
-@font-face {
-    font-family: 'Noto Sans TC thin';
-    src: local("Noto Sans TC thin"), url(../font/思源黑體/NotoSansTC-Thin.otf);
-}
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
 body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;
@@ -27,7 +19,8 @@ body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sa
 header{position: fixed;left: 0px;right: 0px;top: 0px;height: 100px;z-index: 1;display: none;}
 
 /*aside*/
-aside{display: none;}
+aside{position: fixed;inset: 0px 0px 0px 0px;width: 80px;z-index: 1;opacity: 0;}
+aside:hover{opacity: 1;}
 
 /*nav*/
 nav{display: none;}
@@ -58,7 +51,8 @@ article h1:hover{animation: 0.2s scalesIn2  forwards;}
 @media (max-width:700px) {
     article h1 {font-size: 3vw;}
     .infos {width: 90px;font-size: 11px;}
-    .infos img {width: 50px;margin-bottom: 21px;border-radius: 5px;}}
+    .infos img {width: 50px;margin-bottom: 21px;border-radius: 5px;}
+    aside{display: none;}}
 
 @media (min-width:700px) {
     .infos {width: 120px;font-size: 14px;}
@@ -101,3 +95,4 @@ header{background: linear-gradient(to bottom,rgb(96, 96, 96) 0%,rgba(96, 96, 96,
 main{background:linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0.4) 5%,rgba(0, 0, 0, 0.7) 95%) ;}
 footer a,footer{color: #0d417d;}
 footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
+aside{background-color: midnightblue;}

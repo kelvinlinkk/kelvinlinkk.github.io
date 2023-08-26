@@ -1,18 +1,10 @@
 /*setting*/
 @font-face {
     font-family: 'ChenYuluoyan';
-    src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin.ttf);
+    src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin-Monospaced.ttf);
 }
 
-@font-face {
-    font-family: 'NotoSansTC';
-    src: url(../font/NotoSansTC-Black.ttf),
-        url(../font/NotoSansTC-Thin.ttf),
-        url(../font/NotoSansTC-Bold.ttf),
-        url(../font/NotoSansTC-Light.ttf),
-        url(../font/NotoSansTC-Medium.ttf),
-        url(../font/NotoSansTC-Regular.ttf), ;
-}
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 ::-webkit-scrollbar {
     display: none;
@@ -23,7 +15,7 @@ a {
 }
 
 * {
-    font-family: "NotoSansTC", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-serif;
     text-align: justify;
 }
 

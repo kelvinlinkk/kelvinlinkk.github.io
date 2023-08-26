@@ -33,7 +33,7 @@ function starting() {
         } 
 }
 function display() {
-        var articles = document.getElementsByTagName('article')
+        var articles = document.getElementsByTagName('article');
         for(i = 0;i<articles.length;i++){
                 articles[i].getElementsByTagName('h1')[0].addEventListener('click',function()
         {
