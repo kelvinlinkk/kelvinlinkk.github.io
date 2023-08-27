@@ -1,8 +1,8 @@
 blurflag = 2
 addEventListener('scroll',starting,false)
 function Bluring(obj,speed,depth,frames,f){
-        if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px)";},i*speed)}}
-        else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px)";},i*speed)}} 
+        if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px) ";},i*speed)}}
+        else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px) ";},i*speed)}} 
 }
 function Fading(obj,speed,frames,f){
         if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
