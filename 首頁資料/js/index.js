@@ -1,5 +1,5 @@
 addEventListener('scroll',starting,false)
-shufflingId = setInterval(shuffling,5000)
+shufflingId = setInterval(shuffling,10000)
 myshuffle = 2
 shuffling()
 function Fading(obj,speed,frames,f){
