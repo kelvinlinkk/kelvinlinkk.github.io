@@ -1,9 +1,9 @@
-blurflag = 2
+
 addEventListener('scroll',starting,false)
-function Bluring(obj,speed,depth,frames,f){
-        if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String(i*depth/frames) + "px) ";},i*speed)}}
-        else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.filter = "blur(" + String((frames-i)*depth/frames) + "px) ";},i*speed)}} 
-}
+addEventListener('click',shuffling,false)
+shufflingId = setInterval(shuffling,5000)
+myshuffle = 2
+shuffling()
 function Fading(obj,speed,frames,f){
         if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
         else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
@@ -18,20 +18,13 @@ function drawLogo(){
         }
 };
 function starting() {
-        myvid=document.getElementById('myvid')
+        myvid[2]=document.getElementsByClassName('welcome')
+        for(i=0;i<3;i++){
         if (document.getElementsByTagName("body")[0].getBoundingClientRect().top < 0-screen.height/5) {
-                if(blurflag==2){
-                        blurflag=1;
-                        setTimeout(function(){blurflag=0;},300)
-                        Bluring(myvid, 60, 5, 10, 1);
-                }
-        }
-        else if(blurflag==0){
-                blurflag=1;
-                setTimeout(function(){blurflag=2;},300)
-                Bluring(myvid, 60, 5, 10, 0);
-        } 
+                myvid[i].style.filter="blur(5px)";clearInterval(shufflingId)}
+        else{myvid[i].style.filter="blur(0px)";} }
 }
+
 function display() {
         var articles = document.getElementsByTagName('article');
         for(i = 0;i<articles.length;i++){
@@ -46,4 +39,21 @@ function display() {
                         setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 800)
                         Fading(mysection, 5,100, myflag);}
         },false)}            
+}
+
+function shuffling() {
+        myshuffle +=1
+        myshuffle = myshuffle%4
+        myvid = document.getElementsByTagName('video')
+        h1 = document.getElementsByTagName('h1')
+        for(i=0;i<4;i++){
+            if(i!=myshuffle){
+                myvid[i].style.visibility = "hidden";
+                h1[i].style.display = "none";
+            }else{
+                myvid[i].style.visibility = "visible";
+                h1[i].style.display = "block";
+            }    
+        }
+                    
 }
