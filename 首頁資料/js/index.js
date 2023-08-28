@@ -1,6 +1,4 @@
-
 addEventListener('scroll',starting,false)
-addEventListener('click',shuffling,false)
 shufflingId = setInterval(shuffling,5000)
 myshuffle = 2
 shuffling()
