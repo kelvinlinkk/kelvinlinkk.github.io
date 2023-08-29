@@ -1,6 +1,4 @@
-shufflingId = setInterval(shuffling,10000)
-myshuffle = 3
-shuffling()
+myshuffle = 4
 function Fading(obj,speed,frames,f){
         if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
         else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
@@ -40,9 +38,12 @@ function shuffling() {
                 myvid[i].style.display = "none";h1[i].style.display = "none";
             }else{
                 myvid[i].style.display = "block";
-                Fading(myvid[i], 5,100, 1);
+                Fading(myvid[i], 5,50, 1);
                 h1[i].style.display = "block";
             }    
         }
-                    
+        if(myshuffle==0){
+                for (let i = 0;i<=100;i++) {setTimeout(function(){window.scrollTo(0,screen.height*i/200);},i*3);
+                myshuffle=-1}}
+                            
 }
