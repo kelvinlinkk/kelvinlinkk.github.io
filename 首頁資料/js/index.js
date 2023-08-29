@@ -30,6 +30,9 @@ function display() {
 }
 
 function shuffling() {
+        if(myshuffle==-1){
+                return
+        }
         myshuffle = (myshuffle+1)%4
         myvid = document.getElementsByTagName('video')
         h1 = document.getElementsByTagName('h1')
