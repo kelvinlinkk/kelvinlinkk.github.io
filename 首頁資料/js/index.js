@@ -1,4 +1,5 @@
 myshuffle = 4
+themelist=["#3c3834","#040606","#11140e","#3f2a28"]
 function Fading(obj,speed,frames,f){
         if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
         else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
@@ -30,11 +31,10 @@ function display() {
 }
 
 function shuffling() {
-        if(myshuffle==-1){
-                return
-        }
         myshuffle = (myshuffle+1)%4
         myvid = document.getElementsByTagName('video')
+        body = document.getElementsByTagName('body')[0]
+        mask = document.getElementsByClassName('mask')[0]
         h1 = document.getElementsByTagName('h1')
         for(i=0;i<4;i++){
             if(i!=myshuffle){
@@ -45,8 +45,7 @@ function shuffling() {
                 h1[i].style.display = "block";
             }    
         }
-        if(myshuffle==0){
-                for (let i = 0;i<=100;i++) {setTimeout(function(){window.scrollTo(0,screen.height*i/200);},i*3);
-                myshuffle=-1}}
-                            
+        if(body.getBoundingClientRect().top==0){
+                body.style.backgroundColor = themelist[myshuffle]
+                mask.style.background = "linear-gradient(#00000000 77%," + themelist[myshuffle] + "b4 90%," + themelist[myshuffle] + " 100%)"}                   
 }
