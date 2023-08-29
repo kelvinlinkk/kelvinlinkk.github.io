@@ -7,7 +7,7 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 a{ text-decoration: none; }
 body{font-family: "Noto Sans TC", sans-serif;font-weight: bold;text-align: justify;}
-.intro article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:normal;}
+article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:normal;}
 header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 
 /*RWD*/
@@ -45,7 +45,7 @@ body{margin: 0;}
 @media screen and (min-height:56vw){
     .welcome video{height: 100%;}
 }
-main article h2{position: relative; margin: 0%;left: -5%;}
+main article h2{position: relative; margin: 0%;}
 main article{position: relative;min-height: 100vh;}
 .pic img,.pic video,.pic iframe{max-height: 80vh;max-width: 40vw; border-radius: calc(1vw + 1vh);}
 .pic iframe,.pic blockquote{height: 80vh;width: 40vw;}
@@ -57,14 +57,16 @@ li{font-weight: normal;}
 dd{font-weight: normal;}
 
 /*footer*/
-main{margin-bottom: 520px;}
-.wrapper{min-height: (100vh + 500px);margin-bottom: -500px;}
-footer{ height: 500px;text-align: left;font-family: "Chenyuluoyan";font-size: 25px;}
-footer h3{text-align: center;}
-footer p,footer li{font-weight: bold;}
-footer ul{position: absolute;width: fit-content;}
-footer ul:nth-child(1){left: 0px;}
-footer ul:nth-child(2){left:50%;}
+footer{ font:25px 'Chenyuluoyan';text-align: center;position: relative;top: 1.5em;}
+footer h3{margin: 0;}
+.footer-ul p{position: relative; font-weight: bold;left: -1em;font-style: oblique;}
+footer ul{min-width: fit-content; display: inline-table;}
+footer li{position: relative;left: -1em;font-weight: bold;}
+.footer-ul{margin:0px 10px;}
+.footer-social{margin: 20px 10px;text-align: left;}
+.footer-social p{position: relative; float: right;bottom: 20px; overflow: hidden;}
+.footer-social img{height: 5vh;margin: 0px 5px;}
+
 /*color*/
 body{background-color: #313131;}
 body,a,.pic a{color: #e3eff6;}
