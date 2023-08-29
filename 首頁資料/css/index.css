@@ -16,7 +16,7 @@ body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sa
 @keyframes scalesOut2{from{scale:1.2;}to{scale:1.1;}}
 
 /*header*/
-header{position: fixed;left: 0px;right: 0px;top: 0px;height: 100px;z-index: 1;display: none;}
+header{position: fixed;left: 0px;right: 0px;top: 0px;height: 50px;z-index: 3;visibility: hidden;}
 
 /*aside*/
 
@@ -24,7 +24,7 @@ header{position: fixed;left: 0px;right: 0px;top: 0px;height: 100px;z-index: 1;di
 nav{display: none;}
 
 /*main*/
-main{position: relative; top: 100vh;}
+main{position: relative; top: 100vh;z-index: 2;}
 article{position: relative;width: 80%;left: 10%; margin: 20px 0px;}
 article h1{
     position: relative; width: 80%;max-width: 700px;
@@ -37,7 +37,7 @@ article section{display: none;position: relative;left: 0px;right: 0px;max-width:
 article iframe,article video,article img{position: relative;top: 0px; width: 700px;height: auto; max-height: 60%; max-width: 80%;
     border: 0px;margin: auto;border-radius: 20px;object-fit: cover; }
 article iframe,article video{height:352px}
-main h4{font: 28px 'Chenyuluoyan';}
+main h4{font: 28px 'Chenyuluoyan';margin-top: 0px;}
 .infos{margin: 5px 7px 20px;display: inline-block;}
 .infos img{position: relative;bottom: 0px; width: 40%;height: 40%; border: 0px;left: 0%;}
 .infos span{position: absolute; inset: auto 0px 10px 0px;
@@ -68,8 +68,9 @@ article h1:hover{animation: 0.2s scalesIn2  forwards;}
     text-align: center;
     font:5vw "Noto Sans TC Regular"; font-weight:bolder;display: none;
     }
-.welcome h1:last-child{display: block;text-align-last:justify;}
-.welcome video{position: fixed;left: 0px;height: 100%;width: 100%;object-fit: cover;}
+#kk{display: block;text-align-last:justify;}
+.welcome video{position: absolute;left: 0px;height: 150%;width: 100%;object-fit: cover;display: none;}
+.mask{position: absolute;inset: 0px;bottom: -50%; background: linear-gradient(#00000000 67%,rgba(12, 34, 56, 0.5) 75%,rgb(12,34,56));z-index: 1;}
 
 /*footer*/
 footer{margin-top: 50px; font:25px 'Chenyuluoyan';}
@@ -90,10 +91,10 @@ footer li{position: relative;left: -1em;font-weight: bold;}
 a{color: wheat;}
 article section{background-color: rgba(0, 0, 0, 0.25)}
 article h1{background-color: rgba(255, 255, 255, 0.1)}
-body{background-color: rgba(0, 0, 0, 1); color: wheat;}
+body{background-color:rgb(12,34,56); color: wheat;}
 article h3{border-color: wheat;}
-header{background: linear-gradient(to bottom,rgb(96, 96, 96) 0%,rgba(96, 96, 96, 0.5) 50%,rgba(96, 96, 96, 0) 100%);}
-main{background:linear-gradient(to bottom,rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0.4) 5%,rgba(0, 0, 0, 0.7) 20%) ;}
+header{background-color:dimgray;}
+main{background-color: #00000000;}
 footer a,footer{color: #0d417d;}
 footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
-aside{background-color: #000000;}
+aside,.welcome{background-color: #000000;}

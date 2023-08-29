@@ -1,6 +1,5 @@
-addEventListener('scroll',starting,false)
 shufflingId = setInterval(shuffling,10000)
-myshuffle = 2
+myshuffle = 3
 shuffling()
 function Fading(obj,speed,frames,f){
         if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
@@ -15,13 +14,6 @@ function drawLogo(){
                 document.write('</section></article>');
         }
 };
-function starting() {
-        myvid[2]=document.getElementsByClassName('welcome')
-        for(i=0;i<3;i++){
-        if (document.getElementsByTagName("body")[0].getBoundingClientRect().top < 0-screen.height/5) {
-                myvid[i].style.filter="blur(5px)";clearInterval(shufflingId)}
-        else{myvid[i].style.filter="blur(0px)";} }
-}
 
 function display() {
         var articles = document.getElementsByTagName('article');
@@ -40,16 +32,15 @@ function display() {
 }
 
 function shuffling() {
-        myshuffle +=1
-        myshuffle = myshuffle%4
+        myshuffle = (myshuffle+1)%4
         myvid = document.getElementsByTagName('video')
         h1 = document.getElementsByTagName('h1')
         for(i=0;i<4;i++){
             if(i!=myshuffle){
-                myvid[i].style.visibility = "hidden";
-                h1[i].style.display = "none";
+                myvid[i].style.display = "none";h1[i].style.display = "none";
             }else{
-                myvid[i].style.visibility = "visible";
+                myvid[i].style.display = "block";
+                Fading(myvid[i], 5,100, 1);
                 h1[i].style.display = "block";
             }    
         }
