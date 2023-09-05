@@ -54,7 +54,8 @@ var info = [
     ["http://ocw.aca.ntu.edu.tw/ntu-ocw/", "台大開放式課程", "台大.svg"],
     ["https://students.tw/", "高中生資訊網", "student.jpg"]],
     /*娛樂*/
-    [["https://www.youtube.com/", "YouTube", "YouTube.svg"],
+    [
+    //["https://www.youtube.com/", "YouTube", "YouTube.svg"],
     ["https://open.spotify.com/", "spotify", "spotify.svg"],
     //["https://linktr.ee/kvl_19","linktree","linktree.png"],
     ["https://www.messenger.com/", "messenger", "messenger.svg"]/*,
