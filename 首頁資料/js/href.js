@@ -42,7 +42,7 @@ var info = [
     /*學校*/
     [["https://www.shs.edu.tw/", "中學生網站", "中學生.png"],
     ["https://ndltd.ncl.edu.tw/", "博碩網", "博碩網.jpg"],
-    ["https://epf.mlife.org.tw/", "學習歷程上傳", "學習歷程.png"],
+    ["https://epf-mlife.k12ea.gov.tw/", "學習歷程上傳", "學習歷程.png"],
     ["http://www.ytjh.ylc.edu.tw/", "揚子高中", "yths.png"],
     ["https://twsf.ntsec.gov.tw/", "科教館", "科教館.png"],
     ["https://twpat3.tipo.gov.tw/", "專利檢索", "IPO.png"],
