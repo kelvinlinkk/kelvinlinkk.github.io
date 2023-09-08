@@ -10,7 +10,7 @@ for point,ridername in zip(soup.find_all(class_='ms-table_cell ms-table_field--t
                                 ):
     datas.append([count,
                   point.getText(),
-                  ridername.getText().strip().split('\n')[1]])
+                  ridername.getText().strip().split('\n')[0]])
     count+=1
 with open('motogp.html','w',encoding='utf-8') as f:
     f.write("""
