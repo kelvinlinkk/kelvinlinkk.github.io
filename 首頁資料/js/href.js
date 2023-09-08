@@ -56,9 +56,9 @@ var info = [
     /*娛樂*/
     [
     //["https://www.youtube.com/", "YouTube", "YouTube.svg"],
-    ["https://open.spotify.com/", "spotify", "spotify.svg"],
-    //["https://linktr.ee/kvl_19","linktree","linktree.png"],
-    ["https://www.messenger.com/", "messenger", "messenger.svg"]/*,
+    ["https://open.spotify.com/", "spotify", "spotify.svg"],/*
+    //["https://linktr.ee/kvl_19","linktree","linktree.png"], 
+    ["https://www.messenger.com/", "messenger", "messenger.svg"],
     ["https://www.instagram.com/", "instagram", "Instagram.svg"],
     ["https://www.facebook.com/", "Facebook", "facebook.svg"],
     ["https://twitter.com/", "twitter", "twitter.svg"],
