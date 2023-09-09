@@ -27,30 +27,30 @@ nav{display: none;}
 main{position: relative; top: 100vh;z-index: 2;}
 article{position: relative;width: 80%;left: 10%; margin: 20px 0px;}
 canvas{position: fixed;inset: 0px 0px 0px 0px;height: 100%; width: 100%;}
-article h1{
+article h3{
     position: relative; width: 80%;max-width: 700px;
-    margin: 10px auto;  min-height: 60px;
-    display: flex;align-items: center;justify-content: center; /*flex*/
+    margin: 10px auto;
+    padding: 24px;
     border-radius: 10px;font-size: small;
 }
-article section{display: none;position: relative;left: 0px;right: 0px;max-width: 1000px;
-    margin: 30px auto 50px; padding: 15px;border-radius: 1vw;width: fit-content;}
+article section{display: none;position: relative; left: 0px;right: 0px;max-width: 1000px;
+    margin: 0px auto 50px; padding: 15px;border-radius: 1vw;width: fit-content;}
 article iframe,article video,article img{position: relative;top: 0px; width: 700px;height: auto; max-height: 60%; max-width: 80%;
     border: 0px;margin: auto;border-radius: 20px;object-fit: cover; }
 article iframe,article video{height:352px}
-main h4{font: 28px 'Chenyuluoyan';margin-top: 0px;}
+main h2{font: 28px 'Chenyuluoyan';width: fit-content;margin: auto;}
 .infos{margin: 5px 7px 20px;display: inline-block;}
 .infos img{position: relative;bottom: 0px; width: 40%;height: 40%; border: 0px;left: 0%;}
 .infos span{position: absolute; inset: auto 0px 10px 0px;
      text-overflow:ellipsis;overflow: hidden;white-space: nowrap;}
 
-article h1      {animation: 0.2s scalesOut2 forwards;}
-article h1:hover{animation: 0.2s scalesIn2  forwards;}
+article h3      {animation: 0.2s scalesOut2 forwards;}
+article h3:hover{animation: 0.2s scalesIn2  forwards;}
 .infos,.footer-social img            {animation: 0.2s scalesOut  forwards;}
 .infos:hover,.footer-social img:hover{animation: 0.2s scalesIn   forwards;}
 
 @media (max-width:700px) {
-    article h1 {font-size: 3vw;}
+    article h3 {font-size: 3vw;}
     .infos {width: 90px;font-size: 11px;}
     .infos img {width: 50px;margin-bottom: 25px;border-radius: 5px;}
     article iframe,article video{border-radius: 10px;}
@@ -69,8 +69,8 @@ article h1:hover{animation: 0.2s scalesIn2  forwards;}
     font:5vw "Noto Sans TC Regular"; font-weight:bolder;display: none;
     }
 #kk{display: block;text-align-last:justify;}
-.welcome video{position: absolute;left: 0px;top: -30%; height: 160%;width: 100%;object-fit: cover;}
-.mask{position: absolute;inset: 0px;bottom: -31%;z-index: 1;}
+.welcome video{position: fixed;left: 0px;top: 0%; height: 100%;width: 100%;object-fit: cover;}
+.mask{position: fixed;inset: 0px;bottom: 0%;z-index: 1;}
 
 /*footer*/
 footer{margin-top: 50px; font:25px 'Chenyuluoyan';}
@@ -88,15 +88,14 @@ footer li{position: relative;left: -1em;font-weight: bold;}
     .footer-social p{margin-right: 2px;left: -3px;}}
 
 /*color*/
-a,.welcome h1{color: wheat;}
-article section{background-color: rgba(0, 0, 0, 0.25)}
-article h1{background-color: rgba(255, 255, 255, 0.1)}
-body{background-color:#3f2a28; color:antiquewhite;}
-article h3{border-color: antiquewhite;}
+.welcome h1{color: rgb(245, 212, 179);}
+article section{background-color: rgba(0, 0, 0, 0.4)}
+article h3{background-color: rgba(0, 0, 0, 0.4);}
+a{color: unset;}
+body{color:antiquewhite;}
 header{background-color:dimgray;}
 main{background-color: #00000000;}
 footer a,footer{color: #0d417d;}
 footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
 aside,.welcome{background-color: #000000;}
-.mask{ background: linear-gradient(#00000000 77%,#3f2a28b4 90%,#3f2a28 100%);}
 .content{background: radial-gradient(farthest-corner,#ffffff30,#00000000 70%);} 

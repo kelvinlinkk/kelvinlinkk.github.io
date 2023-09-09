@@ -1,4 +1,3 @@
-myshuffle = 4
 function Fading(obj,speed,frames,f){
         if (f){for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
         else{for (let i = 0;i<=frames;i++) {setTimeout(function(){clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
@@ -6,7 +5,7 @@ function Fading(obj,speed,frames,f){
 //info is from href.js
 function drawLogo(){
         for (let j = 0; j < info.length; j++) {
-                document.write('<article><h1>'+ infoname[j] +'</h1><section>');
+                document.write('<article><h3>'+ infoname[j] +'</h3><section>');
                 for(let i =0; i<info[j].length;i++){
                         document.write('<div class="infos"><a href="' + info[j][i][0] +'"><span>'+ info[j][i][1] + '</span><img src="首頁資料/logo/'+ info[j][i][2] +'"></a></div>')}   
                 document.write('</section></article>');
@@ -16,7 +15,7 @@ function drawLogo(){
 function display() {
         var articles = document.getElementsByTagName('article');
         for(i = 0;i<articles.length;i++){
-                articles[i].getElementsByTagName('h1')[0].addEventListener('click',function()
+                articles[i].getElementsByTagName('h3')[0].addEventListener('click',function()
         {
                 let mysection = this.parentNode.getElementsByTagName('section')[0]
                 let myflag = (mysection.style.display != 'block')
@@ -27,15 +26,4 @@ function display() {
                         setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 800)
                         Fading(mysection, 5,100, myflag);}
         },false)}            
-}
-
-function shuffling() {
-        myshuffle = (myshuffle+1)%4
-        body = document.getElementsByTagName('body')[0]
-        mask = document.getElementsByClassName('mask')[0]
-        h1 = document.getElementsByTagName('h1')
-        for(i=0;i<4;i++){
-            if(i!=myshuffle){h1[i].style.display = "none";}
-            else{h1[i].style.display = "block";}    
-        }                   
 }
