@@ -25,5 +25,6 @@ function display() {
                 else if (mysection.style.opacity == '1') {
                         setTimeout(function () { mysection.style.setProperty('display', 'none', 'important'); }, 800)
                         Fading(mysection, 5,100, myflag);}
-        },false)}            
+        },false)}    
+        document.getElementsByTagName("video")[0].autoplay = "true"        
 }
