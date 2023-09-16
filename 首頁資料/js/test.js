@@ -20,4 +20,4 @@ function move(num,x,y){
     ballx[num-1] += x;
     bally[num-1] += y;
 }
-setInterval(()=>{rotate(4,-0.05)},0)
+setInterval(()=>{rotate(4,-0.05);move(4,4,0)},0)
