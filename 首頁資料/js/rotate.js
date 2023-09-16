@@ -1,6 +1,7 @@
 ballx=[30,60,90,120]
 bally=[0,0,0,0]
 ballr=[20,20,20,20]
+degree=0
 function setPos(obj,x,y,r){
     obj.style.width=String(r) + 'px'
     obj.style.height=String(r) + 'px'
@@ -20,4 +21,5 @@ function move(num,x,y){
     ballx[num-1] += x;
     bally[num-1] += y;
 }
-setInterval(()=>{rotate(4,-0.05);move(4,4,0)},0)
+setInterval(()=>{rotate(4,degree);},0)
+document.getElementById('degree').addEventListener('change',(e)=>{degree=e.target.value},false)
