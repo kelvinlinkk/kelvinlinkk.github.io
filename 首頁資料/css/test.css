@@ -1,0 +1,8 @@
+body{background-color: black;margin: 0;color: aliceblue;font: 1em sans-serif;}
+.x-axis{position: absolute;inset:50vh 0px 50vh 0px;margin: 0px;}
+.y-axis{position: absolute;inset:0px 50vw 0px 50vw;margin: 0px;}
+.x-label{position: absolute;right: 10px;top: 50vh;}
+.y-label{position: absolute;top: 10px;right: 51vw;}
+.ball{
+    position: absolute;height: 50px;width: 50px;background-color: aquamarine;border-radius: 50%;
+}
