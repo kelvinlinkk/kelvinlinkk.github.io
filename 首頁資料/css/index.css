@@ -4,7 +4,7 @@
     src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin-Monospaced.ttf);
 }
 
-@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
 body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;
