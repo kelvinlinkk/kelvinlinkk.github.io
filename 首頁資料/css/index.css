@@ -98,7 +98,7 @@ footer li{position: relative;left: -1em;font-weight: bold;}
 article section{background-color: rgba(0, 0, 0, 0.4)}
 article h3{background-color: rgba(0, 0, 0, 0.4);}
 a{color: unset;}
-header ul{border-color: rgb(245, 212, 179);}
+header,header ul{border-color: rgb(178, 155, 130);}
 body{color:antiquewhite;background-color: #000000;}
 header,header ul{background-color:#7e574f}
 main{background-color: #00000000;}
