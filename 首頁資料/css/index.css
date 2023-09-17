@@ -7,8 +7,8 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 ::-webkit-scrollbar{display: none;}
 a{ text-decoration: none;}
-body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight:bold;text-align: justify;text-align: center;scroll-behavior: smooth;}
+body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;text-align: center;scroll-behavior: smooth;}
 
 @keyframes scalesIn{from{scale:1.1;}to{scale:1.4;}}
 @keyframes scalesOut{from{scale:1.4;}to{scale:1.1;}}
@@ -16,28 +16,27 @@ body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sa
 @keyframes scalesOut2{from{scale:1.2;}to{scale:1.1;}}
 
 /*header*/
-header{position: fixed;left: 0px;right: 0px;top: 0px;height: 50px;z-index: 3;
-    font-family: 'Chenyuluoyan';font-weight: lighter;font-size: 20px;text-align: left;
+header{position: fixed;inset: 0px; height: 50px;z-index: 3;
+    font:20px 'Chenyuluoyan';font-weight: lighter;text-align: left;
     border-bottom:2px solid ;visibility:  hidden;}
 .countdown{position: absolute;top: 0px;right: 0px; padding-right: 10px;overflow: hidden;text-wrap:nowrap;line-height: 50px;}
-header h2{ margin: 0px 30px 0px 10px; line-height: 50px;display: inline-block;font-size: xx-large;}
-header ul{position: absolute; top: 30px; text-align: left;overflow: hidden;display: none;border: 2px solid;}
+header h2{ margin: 0px 0px 0px 10px; line-height: 50px;display: inline-block;font-size: xx-large;padding-right: 15px; border-right: 2px solid;}
+header ul{position: absolute; top: 30px; overflow: hidden;display: none;border: 2px solid;}
 header li{position: relative;list-style:square;left: -1em;margin: 10px;min-width: 100px;}
-.header-select{ display: inline-block;margin: 0px 15px;overflow: hidden;}
+.header-select{ display: inline-block;padding: 0px 15px;overflow: hidden;}
 .header-select:hover,header li:hover{background-color: #a47268;}
 @media (max-width:550px){
     .header-select{display: none;}
     nav{display: none;}
 }
+
 /*aside*/
 
 /*nav*/
-nav{display: none;}
 
 /*main*/
 main{position: relative; top: 0px;z-index: 2;}
 article{position: relative;width: 80%;left: 10%; margin: 20px 0px;}
-canvas{position: fixed;inset: 0px 0px 0px 0px;height: 100%; width: 100%;}
 article h3{
     position: relative; width: 80%;max-width: 700px;
     margin: 10px auto;
@@ -78,7 +77,7 @@ article h3:hover            {animation: 0.2s scalesIn2  forwards;}
 .welcome{position: relative;inset: 0px;height:100vh; content: none;}
 .welcome h1{position: relative; inset: 50% 20%; transform: translate(0%,-5vw);width: 60%; 
     text-align: center;
-    font:5vw "Noto Sans TC Regular"; font-weight:bolder;display: none;
+    font-size:5vw; font-weight:bolder;display: none;
     }
 #kk{display: block;text-align-last:justify;}
 .welcome video{position: fixed;left: 0px;top: 0%; height: 100%;width: 100%;object-fit: cover;}
@@ -87,23 +86,22 @@ article h3:hover            {animation: 0.2s scalesIn2  forwards;}
 .welcome img:hover{opacity: 1;}
 
 /*footer*/
-footer{margin-top: 50px; font:25px 'Chenyuluoyan';}
+footer{font:25px 'Chenyuluoyan';}
 footer h3{margin: 0;}
 .footer-ul span{position: relative; font-weight: bold;left: -1em;font-style: oblique;}
 footer ul{min-width: fit-content; display: inline-table;}
 footer li{position: relative;left: -1em;font-weight: bold;}
-.footer-social img{height: 5vh;}
+.footer-social img{height: 5vh;margin: 0px 5px;}
 
 /*color*/
 .welcome h1{color: rgb(245, 212, 179);}
 article section{background-color: rgba(0, 0, 0, 0.4)}
 article h3{background-color: rgba(0, 0, 0, 0.4);}
 a{color: unset;}
-header,header ul{border-color: rgb(178, 155, 130);}
+header,header ul{border-color: rgb(178, 155, 130);background-color:#7e574f;}
 body{color:antiquewhite;background-color: #000000;}
-header,header ul{background-color:#7e574f}
 main{background-color: #00000000;}
 footer a,footer{color: #0d417d;}
 footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
-aside,.welcome{background-color: #000000;}
+.welcome{background-color: #000000;}
 .content{background: radial-gradient(farthest-corner,#7e574f,#00000000 70%);} 

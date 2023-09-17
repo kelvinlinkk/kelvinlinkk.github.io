@@ -121,7 +121,6 @@ var info = [
     ["https://drive.google.com/", "drive", "drive.png"],
     ["https://keep.google.com/", "keep", "keep.png"],
     ["https://classroom.google.com/", "classroom", "classroom.png"],
-    ["https://www.youtube.com/", "YouTube", "YouTube.svg"],
     ["https://chrome.google.com/webstore/", "web store", "webstore.svg"],
     ["https://photos.google.com/", "photo", "photo.svg"],
     ["https://www.google.com/maps/", "map", "map.png"],
