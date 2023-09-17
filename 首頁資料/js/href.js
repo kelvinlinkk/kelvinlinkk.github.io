@@ -25,19 +25,6 @@ var info = [
     ["https://undraw.co/illustrations", "undraw", "undraw.png"],
     ["https://xmind.app/", "xmind", "xmind.svg"],
     ["https://www.overleaf.com/", "overleaf", "overleaf.svg"],
-        //["https://ezcv.tw/","EZ學習歷程","ez.png"],
-        //["https://www.magicpattern.design/tools/blob-generator","blob","magicpattern.jpg"],
-        //["https://www.openpeeps.com/","open peeps","openpeeps.png"],
-        //["https://slidesgo.com/","slidesgo","slidesgo.svg"],
-        //["https://www.slidor.fr/en/selfone","selfone","slidor.png"],
-        //["https://whimsical.com","whimsical","whimsical.svg"],
-        //["https://elements.envato.com/","envato","envato.svg"], 
-        //["https://illustimage.com","illustimage","illustimage.png"],
-        //["https://pixelfika.com","Pixelfika","pixelfika.png"],
-        //["https://photock.org","photock","photock.png"],
-        //["https://app.haikei.app/","Haikei","haikei.png"],
-        //["http://dig.ccmixter.org/","dig.ccMixter","digccMixter.png"],
-        //["https://eword.ntpc.edu.tw/","生字簿","字.png"],
     ],
     /*學校*/
     [["https://www.shs.edu.tw/", "中學生網站", "中學生.png"],
@@ -57,7 +44,7 @@ var info = [
     [
     //["https://www.youtube.com/", "YouTube", "YouTube.svg"],
     ["https://open.spotify.com/", "spotify", "spotify.svg"],/*
-    //["https://linktr.ee/kvl_19","linktree","linktree.png"], 
+    ["https://linktr.ee","linktree","linktree.png"], 
     ["https://www.messenger.com/", "messenger", "messenger.svg"],
     ["https://www.instagram.com/", "instagram", "Instagram.svg"],
     ["https://www.facebook.com/", "Facebook", "facebook.svg"],
@@ -115,7 +102,6 @@ var info = [
     ["https://highscope.ch.ntu.edu.tw/", "科學online", "online.jpg"],
     ["https://www.geogebra.org/", "geogebra", "geogebra.png"],
     ["https://pansci.asia/", "泛科學", "pansci.jpg"]
-        //["http://www.baysidepremier.com/","SAT","sat.png"],
     ],
     /*升學*/
     [["https://collego.edu.tw/", "collego", "collego.svg"],
@@ -147,9 +133,6 @@ var info = [
     ["https://www.bing.com/", "bing", "bing.jpg"],
     ["https://o365oid-my.sharepoint.com/", "onedrive", "onedrive.png"],
     ["https://outlook.office365.com/", "outlook", "outlook.png"],
-    ["https://www.office.com/launch/word", "word", "word.png"],
-    ["https://www.office.com/launch/excel", "excel", "excel.png"],
-    ["https://www.office.com/launch/powerpoint", "powerpoint", "powerpoint.png"],
     ["https://www.office.com/", "office", "office.png"]],
     /*AI*/
     [["https://www.newaitools.io/", "newaitools", "ai.png"],
@@ -160,7 +143,6 @@ var info = [
     ["https://hotpot.ai/", "hotpot", "hotpot.jpg"],
     ["https://app.leonardo.ai/", "Leonardo", "leonardo.png"],
     ["https://www.naturalreaders.com/", "Natural Readers", "nr.svg"],
-    //["http://127.0.0.1:7860/","Stable Diffusion","sd.svg"],
     ["https://designer.microsoft.com", "msdesigner", "msdesigner.jpg"],
     ["https://tome.app/", "tome", "tome.jpg"],
     ["https://gamma.app/", "gamma", "gamma.jpg"],
