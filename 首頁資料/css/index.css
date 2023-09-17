@@ -24,9 +24,10 @@ header h2{ margin: 0px 30px 0px 10px; line-height: 50px;display: inline-block;fo
 header ul{position: absolute; top: 30px; text-align: left;overflow: hidden;display: none;border: 2px solid;}
 header li{position: relative;list-style:square;left: -1em;margin: 10px;min-width: 100px;}
 .header-select{ display: inline-block;margin: 0px 15px;overflow: hidden;}
-.header-select:hover{background-color: #a47268;}
+.header-select:hover,header li:hover{background-color: #a47268;}
 @media (max-width:550px){
     .header-select{display: none;}
+    nav{display: none;}
 }
 /*aside*/
 
