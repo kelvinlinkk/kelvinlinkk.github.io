@@ -16,8 +16,18 @@ body{margin: 0px; font-family: "Microsoft JhengHei", Tahoma, Geneva, Verdana, sa
 @keyframes scalesOut2{from{scale:1.2;}to{scale:1.1;}}
 
 /*header*/
-header{position: sticky;left: 0px;right: 0px;top: 0px;height: 50px;z-index: 3;}
-
+header{position: fixed;left: 0px;right: 0px;top: 0px;height: 50px;z-index: 3;
+    font-family: 'Chenyuluoyan';font-weight: lighter;font-size: 20px;text-align: left;
+    border-bottom:2px solid ;visibility:  hidden;}
+.countdown{position: absolute;top: 0px;right: 0px; padding-right: 10px;overflow: hidden;text-wrap:nowrap;line-height: 50px;}
+header h2{ margin: 0px 30px 0px 10px; line-height: 50px;display: inline-block;font-size: xx-large;}
+header ul{position: absolute; top: 30px; text-align: left;overflow: hidden;display: none;border: 2px solid;}
+header li{position: relative;list-style:square;left: -1em;margin: 10px;min-width: 100px;}
+.header-select{ display: inline-block;margin: 0px 15px;overflow: hidden;}
+.header-select:hover{background-color: #a47268;}
+@media (max-width:550px){
+    .header-select{display: none;}
+}
 /*aside*/
 
 /*nav*/
@@ -38,7 +48,7 @@ article section{display: none;position: relative; left: 0px;right: 0px;max-width
 article iframe,article video,article img{position: relative;top: 0px; width: 700px;height: auto; max-height: 60%; max-width: 80%;
     border: 0px;margin: auto;border-radius: 20px;object-fit: cover; }
 article iframe,article video{height:352px}
-main h2,header h2{font: 28px 'Chenyuluoyan';width: fit-content;margin: auto;}
+main h2{font: 28px 'Chenyuluoyan';width: fit-content;margin: auto;}
 .infos{margin: 5px 7px 20px;display: inline-block;}
 .infos img{position: relative;bottom: 0px; width: 40%;height: 40%; border: 0px;left: 0%;}
 .infos span{position: absolute; inset: auto 0px 10px 0px;
@@ -88,8 +98,9 @@ footer li{position: relative;left: -1em;font-weight: bold;}
 article section{background-color: rgba(0, 0, 0, 0.4)}
 article h3{background-color: rgba(0, 0, 0, 0.4);}
 a{color: unset;}
+header ul{border-color: rgb(245, 212, 179);}
 body{color:antiquewhite;background-color: #000000;}
-header{background-color:#7e574f90}
+header,header ul{background-color:#7e574f}
 main{background-color: #00000000;}
 footer a,footer{color: #0d417d;}
 footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
