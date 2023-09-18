@@ -38,15 +38,17 @@ function displayArticle() {
 
 function displayHeader() {
         var myselect = document.getElementsByClassName('header-select');
+        window.onclick=()=>{
+                for(j = 0;j<myselect.length;j++){
+                        myselect[j].getElementsByClassName('header-list')[0].style.setProperty('display', 'none');
+                }
+        }
         for(i = 0;i<myselect.length;i++){
                 myselect[i].addEventListener('click',function()
         {
                 let mylist = this.getElementsByClassName('header-list')[0]
                 let myflag = (mylist.style.display != 'block')
                 if (myflag == 1) {
-                        for(j = 0;j<myselect.length;j++){
-                                myselect[j].getElementsByClassName('header-list')[0].style.setProperty('display', 'none');
-                        }
                         setTimeout(()=>{ mylist.style.setProperty('display', 'block', 'important'); }, 1)
                         Fading(mylist, 5,100, myflag);}
                 else if (mylist.style.opacity == '1') {
@@ -54,3 +56,4 @@ function displayHeader() {
                         Fading(mylist, 5,100, myflag);}
         },false)}      
 }
+
