@@ -1,4 +1,3 @@
-//這個檔案應該可以寫成json
 var infoname = [
     "實用小工具 🔧",
     "學校及報告📏",
@@ -42,8 +41,8 @@ var info = [
     ["https://students.tw/", "高中生資訊網", "student.jpg"]],
     /*娛樂*/
     [
-    //["https://www.youtube.com/", "YouTube", "YouTube.svg"],
-    ["https://open.spotify.com/", "spotify", "spotify.svg"],/*
+    ["https://www.youtube.com/", "YouTube", "YouTube.svg"],
+    ["https://open.spotify.com/", "spotify", "spotify.svg"],
     ["https://linktr.ee","linktree","linktree.png"], 
     ["https://www.messenger.com/", "messenger", "messenger.svg"],
     ["https://www.instagram.com/", "instagram", "Instagram.svg"],
@@ -57,7 +56,7 @@ var info = [
     ["https://www.motogp.com/", "motogp", "motogp.png"],
     ["https://www.motorsport.com/", "motorsport", "motorsport.jpg"],
     ["https://www.autosport.com/", "autosport", "autosport.png"],
-    ["https://www.sportsv.net/racing", "運動視界", "運動視界.jpg"]*/],
+    ["https://www.sportsv.net/racing", "運動視界", "運動視界.jpg"]],
     /*程式*/
     [["https://www.w3schools.com/", "w3schools", "w3logo.png"],
     ["https://github.com", "github", "github.png"],
