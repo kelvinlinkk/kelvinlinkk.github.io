@@ -145,12 +145,10 @@ var info = [
     ["https://chat.openai.com", "chatGPT", "chatgpt.jpg"],
     ["https://claude.ai/", "claude", "claude.svg"],
     ["https://bard.google.com/", "bard", "bard.jpg"],
-    ["https://creator.nightcafe.studio/", "nightcafe", "nightcafe.jpg"],
-    ["https://hotpot.ai/", "hotpot", "hotpot.jpg"],
     ["https://app.leonardo.ai/", "Leonardo", "leonardo.png"],
     ["https://www.naturalreaders.com/", "Natural Readers", "nr.svg"],
     ["https://designer.microsoft.com", "msdesigner", "msdesigner.jpg"],
-    ["https://tome.app/", "tome", "tome.jpg"],
+    ["https://tome.app/", "tome", "tome.png"],
     ["https://gamma.app/", "gamma", "gamma.jpg"],
     ["https://scribblediffusion.com/", "scribblediffusion", "scribblediffusion.jpg"]]
 ]
