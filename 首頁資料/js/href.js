@@ -45,7 +45,6 @@ var info = [
     ["https://students.tw/", "高中生資訊網", "student.jpg"]],
     /*娛樂*/
     [
-    ["https://www.youtube.com/", "YouTube", "YouTube.svg"],
     ["https://open.spotify.com/", "spotify", "spotify.svg"],
     ["https://linktr.ee","linktree","linktree.png"], 
     ["https://www.messenger.com/", "messenger", "messenger.svg"],
@@ -122,6 +121,8 @@ var info = [
     ["https://www.104.com.tw/jb/career/", "104求職網", "104.svg"]],
     /*google and microsoft*/
     [["https://www.google.com/", "search", "googlesearch.png"],
+    ["https://www.youtube.com/", "YouTube", "YouTube.svg"],
+    ["https://music.youtube.com/", "YouTube Music", "youtubemusic.png"],
     ["https://mail.google.com/", "gmail", "gmail.png"],
     ["https://pagespeed.web.dev/", "pagespeed insights", "pagespeed.png"],
     ["https://translate.google.com/", "translate", "translate.png"],
