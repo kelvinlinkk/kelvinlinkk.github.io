@@ -32,7 +32,7 @@ var info = [
     [["https://www.shs.edu.tw/", "中學生網站", "中學生.png"],
     ["https://ndltd.ncl.edu.tw/", "博碩網", "博碩網.jpg"],
     ["https://epf-mlife.k12ea.gov.tw/", "學習歷程上傳", "學習歷程.png"],
-    ["http://www.ytjh.ylc.edu.tw/", "揚子高中", "yths.png"],
+    ["http://210.70.188.193/skyweb/index.htm", "揚子高中", "yths.png"],
     ["https://twsf.ntsec.gov.tw/", "科教館", "科教館.png"],
     ["https://www.ntsec.edu.tw/science/list.aspx", "網路科教館", "科教館.png"],
     ["https://twpat3.tipo.gov.tw/", "專利檢索", "IPO.png"],
@@ -46,7 +46,6 @@ var info = [
     /*娛樂*/
     [
     ["https://open.spotify.com/", "spotify", "spotify.svg"],
-    ["https://linktr.ee","linktree","linktree.png"], 
     ["https://www.messenger.com/", "messenger", "messenger.svg"],
     ["https://www.instagram.com/", "instagram", "Instagram.svg"],
     ["https://www.facebook.com/", "Facebook", "facebook.svg"],
@@ -55,9 +54,6 @@ var info = [
     ["https://www.dcard.tw/", "dcard", "dcard.png"],
     ["https://ani.gamer.com.tw/", "巴哈姆特動畫瘋", "anime.jpg"],
     ["https://www.twitch.tv/", "twitch", "twitch.svg"],
-    ["https://www.tiktok.com/", "tiktok", "tiktok.jpg"],
-    ["https://www.formula1.com/", "f1", "f1.svg"],
-    ["https://www.motogp.com/", "motogp", "motogp.png"],
     ["https://www.motorsport.com/", "motorsport", "motorsport.jpg"],
     ["https://www.autosport.com/", "autosport", "autosport.png"],
     ["https://www.sportsv.net/racing", "運動視界", "運動視界.jpg"]],
@@ -79,7 +75,8 @@ var info = [
     ["https://bento.io/", "banto.io", "bento.svg"],
     ["https://www.freecodecamp.org/", "freecodecamp", "freecodecamp.svg"],
     ["https://leetcode.com/", "leetcode", "leetcode.png"],
-    ["https://www.youtube.com/@TheCodingTrain", "the coding train", "thecodingtrain.jpg"]],
+    ["https://www.youtube.com/@TheCodingTrain", "the coding train", "thecodingtrain.jpg"],
+    ["https://ai2.appinventor.mit.edu/", "app inventor", "appinventor.png"]],
     /*學習*/
     [["https://tw.voicetube.com/", "voicetube", "voicetube.svg"],
     ["https://www.bbc.co.uk/learningenglish/", "BBCEng", "bbc.png"],
@@ -138,8 +135,6 @@ var info = [
     ["https://podcasts.google.com/", "podcast", "podcast.png"],
     ["https://to-do.live.com/tasks/", "to-do", "todo.svg"],
     ["https://www.bing.com/", "bing", "bing.jpg"],
-    ["https://o365oid-my.sharepoint.com/", "onedrive", "onedrive.png"],
-    ["https://outlook.office365.com/", "outlook", "outlook.png"],
     ["https://www.office.com/", "office", "office.png"]],
     /*AI*/
     [["https://www.newaitools.io/", "newaitools", "ai.png"],
