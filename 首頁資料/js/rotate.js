@@ -1,7 +1,7 @@
 /*setup*/
-ballx=[30,60,90,120]
-bally=[0,0,0,0]
-ballr=[20,20,20,20]
+ballx=[30,60,90,120,60]
+bally=[0,0,0,0,0]
+ballr=[20,20,20,20,20] 
 function setPos(obj,x,y,r){
     obj.style.width=String(r) + 'px'
     obj.style.height=String(r) + 'px'
@@ -11,6 +11,7 @@ function setPos(obj,x,y,r){
 for(let i=1;i<=4;i++){
     setInterval(()=>{setPos(document.getElementById('ball'+String(i)), ballx[i-1],bally[i-1],ballr[i-1])},0)
 }
+setInterval(()=>{setPos(document.getElementById('ball5'), ballx[4],0,ballr[4])},0)
 document.getElementById('angle').defaultValue=30
 
 /*action*/
@@ -27,6 +28,12 @@ function move(num,x,y){
 }
 function toPolar(x,y){
     return [(x**2+y**2)**0.5,Math.atan2(y,x)]
+}
+
+function zmove(num,x,y){
+    ballx[num-1] += x;
+    bally[num-1] += y;
+    ballr[num-1] = 10000/(bally[num-1]+200)
 }
 
 /*ball1*/
@@ -64,3 +71,16 @@ setInterval(()=>{move(3,1,speed/100);speed+=acceleration*0.01},10)
 angle=30
 setInterval(()=>{rotate(4,angle/200);},5)
 document.getElementById('angle').addEventListener('change',(e)=>{angle=e.target.value},false)
+
+/*ball5*/
+zvelx=0
+zvely=4
+function thinkname2(){
+    [mydis,myang]=toPolar(ballx[4],bally[4])
+    accer = -600/mydis/mydis
+    accerx=accer*Math.cos(myang)
+    accery=accer*Math.sin(myang)
+    zvelx+=accerx;zvely+=accery
+    zmove(5,zvelx,zvely)
+}
+setInterval(thinkname2,1)
