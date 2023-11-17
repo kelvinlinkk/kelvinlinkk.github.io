@@ -1,0 +1,43 @@
+/*pool*/
+.pool-area{position: fixed;}
+.pool-band{position: fixed; background-color: #111111;}
+.pool{
+    position: relative;display: inline-block; background-color: blueviolet;height: 12vh;margin-bottom: 20px;width: 150px;
+}
+/*description*/
+.activity-area{
+    position: fixed;top: 10vh;left: 300px; aspect-ratio: 1.8; right: 150px; background-color: aqua;
+}
+.activity-title{
+    position: fixed;top: 9vh;left: 290px; height:30px; background-color: blueviolet;
+    border-radius: 15px 0px 30px 15px;padding: 0px 15px;
+}
+/*setting*/
+.setting-area{
+    position: fixed;top: 87vh;left: 200px; bottom: 7vh; width: auto ; 
+}
+.setting{
+     display: inline-block;margin-right: 50px; height: 100%;border-radius: 3vh; width: 150px; background-color: brown;
+     text-align: center;line-height: 6vh;
+}
+/*gacha*/
+.gacha-area{
+    position: fixed;top: 85.5vh;right: 50px; bottom: 7vh; width: auto ; 
+}
+.gacha{
+     display: inline-block;margin-left: 50px; height: 100%;border-radius: 3.75vh; width: 200px; background-color: brown;
+     text-align: center;line-height: 7.5vh;
+}
+@media (max-width:1260px) {
+    .activity-area{background-color: yellow;left: 150px;top: 100px;}
+    .pool-band{height: 50px;width: 100vw;left: 0vw;top: 2vh;}
+    .pool-area{top: 0vh;left: 0px; width: 100vw;height: auto;}
+}
+
+@media (min-width:1260px) {
+    .activity-area{background-color: aqua;left: 300px;}
+    .pool-band{height: 100vh;width: 50px;top: 0vh;left: 100px;}
+    .pool-area{top: 15vh;left: 50px; height: 80vh;width: 150px;}
+}
+/*color*/
+body{background-color: black;color: white;}
