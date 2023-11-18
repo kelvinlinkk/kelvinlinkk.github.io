@@ -18,6 +18,7 @@ function fade(tar, speed) {
 
 window.onload=function(){
     setTimeout(()=>{fade(genshin,1)},1000)
+    setTimeout(()=>{genshin.style.display="none"},2000)
 }
 
 for(let i = 0; i < pools.length;i++){
