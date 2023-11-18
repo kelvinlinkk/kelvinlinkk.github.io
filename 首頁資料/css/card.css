@@ -1,12 +1,14 @@
+img,video{height: 100%;width: 100%;object-fit: cover;}
+
 /*pool*/
 .pool-area{position: fixed;}
 .pool-band{position: fixed; background-color: #111111;}
 .pool{
-    position: relative;display: none; background-color: blueviolet;height: 12vh;margin-bottom: 20px;width: 150px;
+    position: relative;display: none; margin-bottom: 20px;width: 12vw;aspect-ratio: 2;padding: 0;
 }
 /*description*/
 .activity-area{
-    position: fixed;top: 10vh;left: 300px; aspect-ratio: 1.8; right: 150px; background-color: aqua;
+    position: fixed;top: 10vh; aspect-ratio: 1.8; right: 50px; max-height: 80vh;
 }
 .activity-title{
     position: fixed;top: 9vh; height:30px; background-color: blueviolet;
@@ -33,17 +35,17 @@
 }
 
 @media (max-width:700px) {
-    .activity-area{background-color: yellow;left: 150px;top: 100px;}
-    .activity-title{left: 135px;top: 100px;}
-    .pool-band{height: 4vh;width: 100vw;left: 0vw;top: 6vh;}
+    .activity-area{left: 50px;top: 80px;}
+    .activity-title{left: 40px;top: 70px;}
+    .pool-band{height: 20px;width: 100vw;left: 0vw;top: 3vw ;}
     .pool-area{top: 2vh;left: 0px; width: 100vw;height: auto;}
-    .pool:nth-child(2){display:inline-block;left: calc(50vw - 75px);}
+    .pool:nth-child(2){display:inline-block;left: 44vw;}
 }
 
 @media (min-width:700px) {
-    .activity-area{background-color: aqua;left: 300px;}
-    .activity-title{left: 285px;}
-    .pool-band{height: 100vh;width: 50px;top: 0vh;left: 100px;}
+    .activity-area{left: 20vw;}
+    .activity-title{left: calc(20vw - 10px);}
+    .pool-band{height: 100vh;width: 50px;top: 0vh;left: calc(6vw + 25px);}
     .pool{display: block;}
     .pool-area{top: 15vh;left: 50px; height: 80vh;width: 150px;}
 }
