@@ -1,5 +1,5 @@
 img,video{height: 100%;width: 100%;object-fit: cover;}
-
+#genshin{position: fixed;z-index: 100;}
 /*pool*/
 .pool-area{position: fixed;}
 .pool-band{position: fixed; background-color: #111111;}
