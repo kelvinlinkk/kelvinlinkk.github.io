@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.autosport.com/motogp/standings/2023/"
+url = "https://www.autosport.com/motogp/standings/"
 soup = BeautifulSoup(requests.get(url).text,'html.parser')
 datas = []
 count = 1
