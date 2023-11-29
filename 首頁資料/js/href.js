@@ -137,8 +137,7 @@ var info = [
     ["https://www.bing.com/", "bing", "bing.jpg"],
     ["https://www.office.com/", "office", "office.png"]],
     /*AI*/
-    [["https://www.newaitools.io/", "newaitools", "ai.png"],
-    ["https://chat.openai.com", "chatGPT", "chatgpt.jpg"],
+    [["https://chat.openai.com", "chatGPT", "chatgpt.jpg"],
     ["https://claude.ai/", "claude", "claude.svg"],
     ["https://bard.google.com/", "bard", "bard.jpg"],
     ["https://app.leonardo.ai/", "Leonardo", "leonardo.png"],
