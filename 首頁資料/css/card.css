@@ -35,6 +35,7 @@ button, input{border: 0;}
 .add-source{
     position: absolute; right: 2vh;top: 2vh;height: 5vh;aspect-ratio: 1;border-radius: 2.5vh;
 }
+.stone-icon{position: fixed;width: 5vh;height: 5vh; top: calc(5px + 1vh);right: calc(150px - 5vh);}
 
 @media (max-width:700px) {
     .activity-area{left: 50px;top: 80px;}
@@ -53,7 +54,11 @@ button, input{border: 0;}
 }
 
 /*transition*/
-.trans-ani{position: fixed;display:none;width: 100vw;height: 100vh;object-fit: cover;}
+.trans-ani{position: fixed;display:none;inset: 0px;object-fit: cover;}
+
+/*result*/
+.result{position: fixed;inset: 0px;background-color: #111111;display: none;}
+.card{position: relative;display: inline-block; top: 20vh;height: 60vh;left: 10vw;width: 8vw;background-color: 00000000;}
 
 /*color*/
 body{background-color: black;color: white;}
