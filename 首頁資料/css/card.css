@@ -1,5 +1,7 @@
 img,video{height: 100%;width: 100%;object-fit: cover;}
 #genshin{position: fixed;z-index: 100;}
+button, input{border: 0;}
+
 /*pool*/
 .pool-area{position: fixed;}
 .pool-band{position: fixed; background-color: #111111;}
@@ -49,5 +51,9 @@ img,video{height: 100%;width: 100%;object-fit: cover;}
     .pool{display: block;}
     .pool-area{top: 15vh;left: 50px; height: 80vh;width: 150px;}
 }
+
+/*transition*/
+.trans-ani{position: fixed;display:none;width: 100vw;height: 100vh;object-fit: cover;}
+
 /*color*/
 body{background-color: black;color: white;}
