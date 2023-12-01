@@ -7,12 +7,15 @@ const pool = document.getElementsByClassName("activity-title")[0]
 var mygacha = [document.getElementById("gacha-1"),document.getElementById("gacha-10")]
 const transition = document.getElementById("transition")
 const result = document.getElementById("result-area")
+const onecard = document.getElementById("one-card")
 var cards = document.getElementsByClassName("card")
 
 var poolnames=["卡池一","卡池二","卡池三","卡池四",]
 pool.innerHTML = poolnames[0]
+var showlock = false
 
-function fade(tar, speed) {
+/*有空合併一下*/
+function fadeout(tar, speed) {
     for (let i = 0; i < 1000; i++) {
         setTimeout(
             function () {
@@ -20,32 +23,62 @@ function fade(tar, speed) {
             }, i * speed)
     }
 }
+function fadein(tar, speed) {
+    for (let i = 0; i < 1000; i++) {
+        setTimeout(
+            function () {
+                clearTimeout(); tar.style.opacity = i / 1000;
+            }, i * speed)
+    }
+}
 
-function drop(tar, speed,from,to){
+function slide(tar, speed,from,to){
     for (let i = 0; i < 500; i++) {
         setTimeout(
             function () {
-                clearTimeout(); tar.style.top = String(from + (i / 500)*(to-from))+"vh";
+                clearTimeout(); tar.style.left = String(from + ((Math.log10(i/50))*(to-from)) + "vw");
             }, i * speed)
     }
 }
 
 function gacha(num){
+    stone.value=parseInt(stone.value) - 160*num
     let vid = transition.getElementsByTagName("video")[0]
-    vid.style.display="initial"
+    transition.style.display="initial"
     vid.play()
     vid.currentTime = parseInt(vid.currentTime) + 8
-    vid.addEventListener("ended",()=>{
-        vid.style.display="none";result.style.display="initial";
-        for(let i = 0;i<cards.length;i++){
-            setTimeout(()=>{drop(cards[i],2,0,20)},i*100);
-        }
-        setTimeout(()=>{result.style.display="none"},10000)})
-    stone.value=parseInt(stone.value) - 160*num
+    showlock=false
+    if(num==10){vid.onended=vid.onclick=show_ten_cards}
+    else{vid.onended=vid.onclick=show_card}
+}
+function show_ten_cards(){
+    if(showlock){return}
+    showlock = true
+    transition.style.display="none";result.style.display="initial";
+    for(let i = 0;i<cards.length;i++){
+        setTimeout(()=>{slide(cards[i],1,20,10);cards[i].style.opacity="1"},i*100);
+    }
+    result.addEventListener("click",()=>{
+        for(let c=0;c<cards.length;c++){
+            cards[c].style.opacity="0"
+        };
+        result.style.display="none";
+    })
+}
+function show_card(){
+    if(showlock){return}
+    showlock = true
+    transition.style.display="none";result.style.display="initial";
+    fadein(onecard,2);
+    setTimeout(()=>{onecard.style.opacity="1"},10)
+    result.addEventListener("click",()=>{
+        onecard.style.opacity="0";
+        result.style.display="none";
+    })
 }
 
 window.onload=function(){
-    //setTimeout(()=>{fade(genshin,1)},1000)
+    //setTimeout(()=>{fadeout(genshin,1)},1000)
     //setTimeout(()=>{genshin.style.display="none"},2000)
     myadd.addEventListener("click",function(){console.log(stone.value=parseInt(stone.value)+1)})
     mygacha[0].addEventListener("click",function(){gacha(1)})
@@ -53,5 +86,8 @@ window.onload=function(){
 }
 
 for(let i = 0; i < pools.length;i++){
-    pools[i].addEventListener('click',()=>{pool.innerHTML = poolnames[i];poolinfo.src = "首頁資料/卡池資訊/" + (i+1) + ".mp4";})
+    pools[i].addEventListener('click',()=>{
+        pool.innerHTML = poolnames[i];
+        poolinfo.src = "首頁資料/卡池資訊/" + (i+1) + ".mp4";
+    })
 }

@@ -54,11 +54,14 @@ button, input{border: 0;}
 }
 
 /*transition*/
-.trans-ani{position: fixed;display:none;inset: 0px;object-fit: cover;}
+#transition{display:none;}
+.trans-ani{position: fixed;inset: 0px;object-fit: cover;}
 
 /*result*/
 .result{position: fixed;inset: 0px;background-color: #111111;display: none;}
-.card{position: relative;display: inline-block; top: 0vh;height: 60vh;left: 10vw;width: 8vw;background-color: 00000000;}
+.card{position: relative;display: inline-block; top: 20vh;height: 60vh;left: 10vw;width: 8vw;
+    opacity: 0;background-color: 00000000;}
+#one-card{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;}
 
 /*color*/
 body{background-color: black;color: white;}
