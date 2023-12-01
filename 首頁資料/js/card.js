@@ -18,17 +18,13 @@ var showlock = false
 function fadeout(tar, speed) {
     for (let i = 0; i < 1000; i++) {
         setTimeout(
-            function () {
-                clearTimeout(); tar.style.opacity = (1000-i) / 1000;
-            }, i * speed)
+            function () {tar.style.opacity = (1000-i) / 1000;}, i * speed)
     }
 }
 function fadein(tar, speed) {
     for (let i = 0; i < 1000; i++) {
         setTimeout(
-            function () {
-                clearTimeout(); tar.style.opacity = i / 1000;
-            }, i * speed)
+            function () {if(showlock==false){throw(1)};tar.style.opacity = i / 1000;}, i * speed)
     }
 }
 
@@ -53,7 +49,8 @@ function gacha(num){
 }
 function show_ten_cards(){
     if(showlock){return}
-    showlock = true
+    showlock = true;
+    onecard.style.opacity="0";
     transition.style.display="none";result.style.display="initial";
     for(let i = 0;i<cards.length;i++){
         setTimeout(()=>{slide(cards[i],1,20,10);cards[i].style.opacity="1"},i*100);
@@ -68,6 +65,9 @@ function show_ten_cards(){
 function show_card(){
     if(showlock){return}
     showlock = true
+    for(let c=0;c<cards.length;c++){
+        cards[c].style.opacity="0"
+    };
     transition.style.display="none";result.style.display="initial";
     fadein(onecard,2);
     setTimeout(()=>{onecard.style.opacity="1"},10)
