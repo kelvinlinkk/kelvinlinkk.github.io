@@ -58,7 +58,7 @@ button, input{border: 0;}
 
 /*result*/
 .result{position: fixed;inset: 0px;background-color: #111111;display: none;}
-.card{position: relative;display: inline-block; top: 20vh;height: 60vh;left: 10vw;width: 8vw;background-color: 00000000;}
+.card{position: relative;display: inline-block; top: 0vh;height: 60vh;left: 10vw;width: 8vw;background-color: 00000000;}
 
 /*color*/
 body{background-color: black;color: white;}
