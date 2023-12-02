@@ -7,6 +7,7 @@ function setWeight(five,four){
     return [w1,w2]
 }
 function pick(){
+    console.log(FiveStarCounter, FourStarCounter,UPrate)
     FiveStarCounter+=1
     FourStarCounter+=1
     let [FiveStarWeight, FourStarWeight ]= setWeight(FiveStarCounter,FourStarCounter)
@@ -14,9 +15,9 @@ function pick(){
     r = Math.random()
     if(r<FiveStarWeight){
         FiveStarCounter=0
-        if(Math.random()>UPrate){UPrate=1;return 5}
-        UPrate=0.5
-        return 6
+        if(Math.random()<=UPrate){UPrate=0.5;return 6}
+        UPrate=1
+        return 5
     }else if(r-FiveStarWeight<FourStarWeight){
         FourStarCounter=0
         return 4

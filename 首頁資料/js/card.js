@@ -63,14 +63,14 @@ function show_ten_cards(){
         },i*100);
     }
     setTimeout(()=>{
-        window.alert((bestcard[0]==6?"五星UP":bestcard[0]==5?"五星":"四星") + " 第" + bestcard[1] + "抽")
+        window.alert((bestcard[0]==6?"五星UP":bestcard[0]==5?"五星":"四星") + " 第" + bestcard[1] + "抽\n(抽到五星之後此計數器不會重置，但概率計算會重置)")
         attempts+=10
         result.addEventListener("click",()=>{
             for(let c=0;c<cards.length;c++){
                 cards[c].style.opacity="0"
             };
             result.style.display="none";
-        })
+        },{once:true})
     },2000)
     
 }
@@ -91,7 +91,7 @@ function show_card(){
         result.getElementsByTagName("h1")[0].style.opacity="0"
         result.style.display="none";
         attempts+=1
-    })},1000)
+    },{once:true})},1000)
 }
 
 window.onload=function(){
