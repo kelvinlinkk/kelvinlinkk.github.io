@@ -8,29 +8,31 @@
     <link rel="stylesheet" href="首頁資料/css/card.css">
 </head>
 <body>
+    <video style="position: fixed;object-fit: cover;inset: 0;"muted autoplay loop src="首頁資料/卡池資訊/background.mp4"></video>
     <span class="pool-area">
         <div class="pool-band"></div>
-        <button class="pool"><img src="首頁資料/logo.png"></button>
-        <button class="pool"><img src="首頁資料/pic/camPlay.jpg"></button>
-        <button class="pool"><img src="首頁資料/pic/js.png"></button>
-        <button class="pool"><img src="首頁資料/pic/choice.png"></button>
+        <button class="pool"><img src="首頁資料/卡池資訊/activity.png"></button>
     </span>
-    <span class="activity-area">
-        <div class="activity-title">123456798</div>
-        <video src="首頁資料/living.mp4" muted autoplay id="poolinfo"></video>
-    </span>
+    <div class="activity-area">
+        <span class="activity-title">角色活動祈願</span>
+        <button><img src="首頁資料/卡池資訊/activity.png" id="poolinfo" style="position: absolute;"></button>
+        <h1><span style="color: #478fca;">翩舞</span><span style="color: #494949;">歈蓮</span></h1>
+        <h2><span style="color: #494949;">抽取機率提升!</span></h2>
+        <h3>🔹每十次祈願必出四星或以上物品。</h3>
+        <p><span style="color: #494949;">活動限定五星角色僅在UP期間，在對應的<br>祈願中獲得。具體內容查看【詳情】</span></p>
+        <article class="counttime"><span style="color: #494949;">剩餘時間<br>16天20時55分</span></article>
+    </div>
     <span class="gacha-area">
-        <div class="gacha" id="gacha-1">x1</div>
-        <div class="gacha" id="gacha-10">x10</div>
+        <div class="gacha" id="gacha-1"><img src="/首頁資料/卡池資訊/button1.png"></div>
+        <div class="gacha" id="gacha-10"><img src="/首頁資料/卡池資訊/button10.png"></div>
     </span>
     <span class="stone">
-        
         <input type="text" class="source" value="15000" id="stone-num">
         <button class="add-source" id="plus">+</button>
-        <img class="stone-icon" src="首頁資料/logo.png">
+        <img class="stone-icon" src="首頁資料/卡池資訊/stone.png">
     </span>
     <span id="transition">
-        <video class="trans-ani" src="首頁資料/home.mp4" muted autoplay></video>
+        <video class="trans-ani" src="首頁資料/卡池資訊/transition.mp4" muted autoplay></video>
         <button id="skip">Skip>></button>
     </span>
     <span class="result" id="result-area">
@@ -38,7 +40,7 @@
         <h1>123</h1>
         <script>
             for(let i = 0;i<10;i++){
-                document.write("<img class='card' src='首頁資料/test.png'></img>")
+                document.write("<img class='card'></img>")
             }
         </script>
         
