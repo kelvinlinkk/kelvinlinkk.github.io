@@ -7,6 +7,7 @@ var infoname = [
     "高中升學輔導專區💼",
     "Google and Microsoft",
     "AI💥"]
+
 var info = [
     /*工具*/
     [["https://www.ilovepdf.com/zh-tw", "ilovepdf", "ilovepdf.png"],

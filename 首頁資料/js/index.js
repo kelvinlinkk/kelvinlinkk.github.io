@@ -7,9 +7,9 @@ function getHeader(){
 window.addEventListener('scroll',getHeader,false)
 
 function Fading(obj,speed,frames,f){
-        if (f){for (let i = 0;i<=frames;i++) {setTimeout(()=>{clearTimeout();obj.style.opacity = String(i/frames);},i*speed)}}
-        else{for (let i = 0;i<=frames;i++) {setTimeout(()=>{clearTimeout();obj.style.opacity = String((frames-i)/frames);},i*speed)}} 
+        for (let i = 0;i<=frames;i++) {setTimeout(()=>{obj.style.opacity = String((f?i:(frames-i))/frames);},i*speed)}
 }
+
 //info is from href.js
 function drawLogo(){
         for (let j = 0; j < info.length; j++) {
