@@ -37,8 +37,10 @@ function gacha(num){
     }
     if(pickCards.includes(5) || pickCards.includes(6)){
         vid.src="首頁資料/卡池資訊/transition5.mp4"
-    }else{
+    }else if(pickCards.includes(4)){
         vid.src="首頁資料/卡池資訊/transition4.mp4"
+    }else{
+        vid.src="首頁資料/卡池資訊/transition3.mp4"
     }
     transition.style.display="initial"
     vid.play()
