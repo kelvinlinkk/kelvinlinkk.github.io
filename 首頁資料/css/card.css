@@ -61,7 +61,8 @@ button, input{border: 0;}
 .result{position: fixed;inset: 0px;background-color: #111111;display: none;}
 .card{position: relative;display: inline-block; top: 20vh;height: 60vh;left: 10vw;width: 8vw;
     opacity: 0;background-color: 00000000;}
-#one-card{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;}
+#one-card{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;z-index: 0;}
+.result h1{z-index: 5;}
 
 /*color*/
 body{background-color: black;color: white;}

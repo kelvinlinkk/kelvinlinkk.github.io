@@ -66,6 +66,7 @@ function show_card(){
     };
     transition.style.display="none";result.style.display="initial";
     fade(onecard,1,1);
+    myCard = pick()
     setTimeout(()=>{onecard.style.opacity="1"},1)
     setTimeout(()=>{result.addEventListener("click",()=>{
         onecard.style.opacity="0";
