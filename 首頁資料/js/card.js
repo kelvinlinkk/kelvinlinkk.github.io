@@ -1,3 +1,4 @@
+/*有空合併一下*/
 const myadd = document.getElementById("plus")
 const stone = document.getElementById("stone-num")
 const pools = document.getElementsByClassName("pool")
@@ -14,17 +15,10 @@ var poolnames=["卡池一","卡池二","卡池三","卡池四",]
 pool.innerHTML = poolnames[0]
 var showlock = false
 
-/*有空合併一下*/
-function fadeout(tar, speed) {
+function fade(tar, speed, dir) {
     for (let i = 0; i < 1000; i++) {
         setTimeout(
-            function () {tar.style.opacity = (1000-i) / 1000;}, i * speed)
-    }
-}
-function fadein(tar, speed) {
-    for (let i = 0; i < 1000; i++) {
-        setTimeout(
-            function () {tar.style.opacity = i / 1000;}, i * speed)
+            function () {tar.style.opacity = (dir?i:1000-i) / 1000;}, i * speed)
     }
 }
 
@@ -39,6 +33,11 @@ function slide(tar, speed,from,to){
 
 function gacha(num){
     stone.value=parseInt(stone.value) - 160*num
+    if(stone.value<0){
+        window.alert("no stone")
+        stone.value=parseInt(stone.value) + 160*num
+        return
+    }
     let vid = transition.getElementsByTagName("video")[0]
     transition.style.display="initial"
     vid.play()
@@ -55,12 +54,14 @@ function show_ten_cards(){
     for(let i = 0;i<cards.length;i++){
         setTimeout(()=>{slide(cards[i],1,20,10);cards[i].style.opacity="1"},i*100);
     }
-    result.addEventListener("click",()=>{
-        for(let c=0;c<cards.length;c++){
-            cards[c].style.opacity="0"
-        };
-        result.style.display="none";
-    })
+    setTimeout(()=>{
+        result.addEventListener("click",()=>{
+            for(let c=0;c<cards.length;c++){
+                cards[c].style.opacity="0"
+            };
+            result.style.display="none";
+        })
+    },1500)
 }
 function show_card(){
     if(showlock){return}
@@ -69,16 +70,16 @@ function show_card(){
         cards[c].style.opacity="0"
     };
     transition.style.display="none";result.style.display="initial";
-    fadein(onecard,2);
-    setTimeout(()=>{onecard.style.opacity="1"},10)
-    result.addEventListener("click",()=>{
+    fade(onecard,1,1);
+    setTimeout(()=>{onecard.style.opacity="1"},1)
+    setTimeout(()=>{result.addEventListener("click",()=>{
         onecard.style.opacity="0";
         result.style.display="none";
-    })
+    })},1000)
 }
 
 window.onload=function(){
-    //setTimeout(()=>{fadeout(genshin,1)},1000)
+    //setTimeout(()=>{fade(genshin,1,0)},1000)
     //setTimeout(()=>{genshin.style.display="none"},2000)
     myadd.addEventListener("click",function(){console.log(stone.value=parseInt(stone.value)+1)})
     mygacha[0].addEventListener("click",function(){gacha(1)})
