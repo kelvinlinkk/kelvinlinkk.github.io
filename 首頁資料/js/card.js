@@ -26,20 +26,33 @@ function slide(tar, speed,from,to){
 }
 
 function gacha(num){
+    var pickCards = []
     if(stone.value<160*num){
         window.alert("no stone")
         return}
     stone.value=parseInt(stone.value) - 160*num
     let vid = transition.getElementsByTagName("video")[0]
+    for(let i = 0;i<num;i++){
+        pickCards.push(pick())
+    }
+    if(pickCards.includes(5) || pickCards.includes(6)){
+        vid.src="首頁資料/卡池資訊/transition5.mp4"
+    }else{
+        vid.src="首頁資料/卡池資訊/transition4.mp4"
+    }
     transition.style.display="initial"
     vid.play()
     vid.currentTime = 0.1
     showlock=false
-    if(num==10){vid.onended=show_ten_cards;skip.onclick=show_ten_cards}
-    else{vid.onended=show_card;skip.onclick=show_card}
+    if(num==10){
+        vid.addEventListener("ended",()=>{show_ten_cards(pickCards)},{once:true});
+        skip.addEventListener("click",()=>{show_ten_cards(pickCards)},{once:true});}
+    else{
+        vid.addEventListener("ended",()=>{show_card(pickCards)},{once:true});
+        skip.addEventListener("click",()=>{show_card(pickCards)},{once:true});}
 }
 
-function show_ten_cards(){
+function show_ten_cards(myCard){
     let bestcard = [0,0]
     if(showlock){return}
     showlock = true;
@@ -49,16 +62,15 @@ function show_ten_cards(){
         setTimeout(()=>{
             slide(cards[i],1,20,10);
             cards[i].style.opacity="1";
-            myCard = pick()
-            if(bestcard[0]<myCard){
+            if(bestcard[0]<myCard[i]){
                 bestcard = [myCard,attempts+i+1]
             }
-            if(myCard==6){
+            if(myCard[i]==6){
                 cards[i].src="首頁資料/卡池資訊/5up.png"
-            }else if(myCard==5){
+            }else if(myCard[i]==5){
                 cards[i].src="首頁資料/卡池資訊/5norm.png"
             }
-            else if(myCard==4){
+            else if(myCard[i]==4){
                 cards[i].src="首頁資料/卡池資訊/4" + parseInt(Math.random()*2) + ".png"
             }
             else{
@@ -78,7 +90,7 @@ function show_ten_cards(){
     },2000)
     
 }
-function show_card(){
+function show_card(myCard){
     if(showlock){return}
     showlock = true
     for(let c=0;c<cards.length;c++){
@@ -87,8 +99,7 @@ function show_card(){
     result.getElementsByTagName("h1")[0].style.opacity="1"
     transition.style.display="none";result.style.display="initial";
     fade(onecard,1,1);
-    myCard = pick()
-    result.getElementsByTagName("h1")[0].innerHTML=myCard+"星"
+    result.getElementsByTagName("h1")[0].innerHTML=myCard[0]+"星"
     setTimeout(()=>{onecard.style.opacity="1"},1)
     setTimeout(()=>{result.addEventListener("click",()=>{
         onecard.style.opacity="0";
