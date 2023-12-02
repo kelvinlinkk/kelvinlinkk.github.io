@@ -63,7 +63,6 @@ function show_ten_cards(myCard){
     for(let i = 0;i<cards.length;i++){
         setTimeout(()=>{
             slide(cards[i],1,20,10);
-            cards[i].style.opacity="1";
             if(bestcard[0]<myCard[i]){
                 bestcard = [myCard,attempts+i+1]
             }
@@ -78,6 +77,7 @@ function show_ten_cards(myCard){
             else{
                 cards[i].src="首頁資料/卡池資訊/3.png"
             }
+            cards[i].style.opacity="1";
         },i*100);
     }
     setTimeout(()=>{
