@@ -24,7 +24,7 @@ function fadeout(tar, speed) {
 function fadein(tar, speed) {
     for (let i = 0; i < 1000; i++) {
         setTimeout(
-            function () {if(showlock==false){throw(1)};tar.style.opacity = i / 1000;}, i * speed)
+            function () {tar.style.opacity = i / 1000;}, i * speed)
     }
 }
 
