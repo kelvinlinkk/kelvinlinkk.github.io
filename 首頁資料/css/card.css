@@ -56,13 +56,14 @@ button, input{border: 0;}
 /*transition*/
 #transition{display:none;}
 .trans-ani{position: fixed;inset: 0px;object-fit: cover;}
+#skip{position: fixed;bottom: 0;right: 0;margin: 50px;height: 50px;width: 150px;opacity: 0.5;}
 
 /*result*/
 .result{position: fixed;inset: 0px;background-color: #111111;display: none;}
 .card{position: relative;display: inline-block; top: 20vh;height: 60vh;left: 10vw;width: 8vw;
-    opacity: 0;background-color: 00000000;}
+    opacity: 0;background-color: 00000000;object-fit:fill;}
 #one-card{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;z-index: 0;}
-.result h1{z-index: 5;}
+.result h1{position: absolute;width: 100vw; text-align: center;line-height: 100vh; z-index: 5;opacity: 0;}
 
 /*color*/
 body{background-color: black;color: white;}

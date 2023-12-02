@@ -16,7 +16,7 @@ function pick(){
         FiveStarCounter=0
         if(Math.random()>UPrate){UPrate=1;return 5}
         UPrate=0.5
-        return 0
+        return 6
     }else if(r-FiveStarWeight<FourStarWeight){
         FourStarCounter=0
         return 4

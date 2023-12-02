@@ -8,11 +8,13 @@ var mygacha = [document.getElementById("gacha-1"),document.getElementById("gacha
 const transition = document.getElementById("transition")
 const result = document.getElementById("result-area")
 const onecard = document.getElementById("one-card")
+const skip = document.getElementById("skip")
 var cards = document.getElementsByClassName("card")
 
 var poolnames=["卡池一","卡池二","卡池三","卡池四",]
 pool.innerHTML = poolnames[0]
 var showlock = false
+attempts = 0
 
 function fade(tar, speed, dir) {
     for (let i = 0; i < 1000; i++) {
@@ -29,34 +31,48 @@ function slide(tar, speed,from,to){
 }
 
 function gacha(num){
-    if(stone.value<0){
-        window.alert("no stone");
+    if(stone.value<160*num){
+        window.alert("no stone")
         return}
     stone.value=parseInt(stone.value) - 160*num
     let vid = transition.getElementsByTagName("video")[0]
     transition.style.display="initial"
     vid.play()
-    vid.currentTime = parseInt(vid.currentTime) + 8
+    vid.currentTime = 8
     showlock=false
-    if(num==10){vid.onended=show_ten_cards;vid.onclick=show_ten_cards}
-    else{vid.onended=show_card;vid.onclick=show_card}
+    if(num==10){vid.onended=show_ten_cards;skip.onclick=show_ten_cards}
+    else{vid.onended=show_card;skip.onclick=show_card}
 }
+
 function show_ten_cards(){
+    let bestcard = [0,0]
     if(showlock){return}
     showlock = true;
     onecard.style.opacity="0";
     transition.style.display="none";result.style.display="initial";
     for(let i = 0;i<cards.length;i++){
-        setTimeout(()=>{slide(cards[i],1,20,10);cards[i].style.opacity="1"},i*100);
+        setTimeout(()=>{
+            slide(cards[i],1,20,10);
+            cards[i].style.opacity="1";
+            myCard = pick()
+            if(bestcard[0]<myCard){
+                bestcard = [myCard,attempts+i+1]
+            }
+            
+            cards[i].style.filter = "hue-rotate(" + (myCard*50) + "deg)"
+        },i*100);
     }
     setTimeout(()=>{
+        window.alert((bestcard[0]==6?"五星UP":bestcard[0]==5?"五星":"四星") + " 第" + bestcard[1] + "抽")
+        attempts+=10
         result.addEventListener("click",()=>{
             for(let c=0;c<cards.length;c++){
                 cards[c].style.opacity="0"
             };
             result.style.display="none";
         })
-    },1500)
+    },2000)
+    
 }
 function show_card(){
     if(showlock){return}
@@ -64,18 +80,22 @@ function show_card(){
     for(let c=0;c<cards.length;c++){
         cards[c].style.opacity="0"
     };
+    result.getElementsByTagName("h1")[0].style.opacity="1"
     transition.style.display="none";result.style.display="initial";
     fade(onecard,1,1);
     myCard = pick()
+    result.getElementsByTagName("h1")[0].innerHTML=myCard+"星"
     setTimeout(()=>{onecard.style.opacity="1"},1)
     setTimeout(()=>{result.addEventListener("click",()=>{
         onecard.style.opacity="0";
+        result.getElementsByTagName("h1")[0].style.opacity="0"
         result.style.display="none";
+        attempts+=1
     })},1000)
 }
 
 window.onload=function(){
-    myadd.addEventListener("click",function(){console.log(stone.value=parseInt(stone.value)+1)})
+    myadd.addEventListener("click",function(){stone.value=parseInt(stone.value)+1})
     mygacha[0].addEventListener("click",function(){gacha(1)})
     mygacha[1].addEventListener("click",function(){gacha(10)})
 }
