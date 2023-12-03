@@ -77,7 +77,7 @@ button, input{border: 0;}
 .result{position: fixed;inset: 0px;background-color: #111111;display: none;}
 .card{position: relative;display: inline-block; top: 10vh;height: 80vh;left: 10vw;width: 8vw;
     opacity: 0;background-color: 00000000;object-fit:fill;z-index: 5;}
-#one-card{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;z-index: 0;}
+#one-card-video{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;z-index: 0;}
 .result h1{position: absolute;width: 100vw; text-align: center;line-height: 100vh; z-index: 5;opacity: 0;}
 .gacha img                  {animation: 0.5s scalesOut forwards;}
 .gacha img:hover         {animation: 0.2s scalesIn forwards;}

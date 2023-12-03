@@ -4,7 +4,8 @@ const stone = document.getElementById("stone-num")
 var mygacha = [document.getElementById("gacha-1"),document.getElementById("gacha-10")]
 const transition = document.getElementById("transition")
 const result = document.getElementById("result-area")
-const onecard = document.getElementById("one-card")
+const onecardVid = document.getElementById("one-card-video")
+const onecardAud = document.getElementById("one-card-audio")
 const skip = document.getElementById("skip")
 var cards = document.getElementsByClassName("card")
 
@@ -42,10 +43,13 @@ function gacha(num){
     }else{
         vid.src="首頁資料/卡池資訊/transition3.mp4"
     }
+    onecardAud.currentTime="0"
     transition.style.display="initial"
-    onecard.style.display="none";
-    vid.play()
+    onecardVid.style.display="none";
+    vid.play();
+    onecardAud.play()
     vid.currentTime = 0.1
+    onecardAud.currentTime="0"
     showlock=false
     if(num==10){
         vid.addEventListener("ended",()=>{show_ten_cards(pickCards)},{once:true});
@@ -59,7 +63,9 @@ function show_ten_cards(myCard){
     let bestcard = [0,0]
     if(showlock){return}
     showlock = true;
-    transition.style.display="none";result.style.display="initial";
+    onecardAud.pause()
+    transition.style.display="none";
+    result.style.display="initial";
     for(let i = 0;i<cards.length;i++){
         cards[i].src=""
         setTimeout(()=>{
@@ -100,18 +106,20 @@ function show_ten_cards(myCard){
 function show_card(myCard){
     if(showlock){return}
     showlock = true
+    onecardAud.pause()
     for(let c=0;c<cards.length;c++){
         cards[c].style.opacity="0"
     };
     result.getElementsByTagName("h1")[0].style.opacity="1"
-    transition.style.display="none";result.style.display="initial";
+    transition.style.display="none";
+    result.style.display="initial";
     result.getElementsByTagName("h1")[0].innerHTML=(myCard[0]==6?"5UP":myCard[0]==2?"4UP":myCard[0])+"星"
     setTimeout(()=>{
-        if(myCard[0]==6){onecard.style.display="initial";result.getElementsByTagName("h1")[0].style.opacity="0"}
-        onecard.style.opacity="1";onecard.currentTime="0"
+        if(myCard[0]==6){onecardVid.style.display="initial";result.getElementsByTagName("h1")[0].style.opacity="0"}
+        onecardVid.style.opacity="1";onecardVid.currentTime="0"
     },1)
     setTimeout(()=>{result.addEventListener("click",()=>{
-        onecard.style.opacity="0";
+        onecardVid.style.opacity="0";
         result.getElementsByTagName("h1")[0].style.opacity="0"
         result.style.display="none";
         attempts+=1
