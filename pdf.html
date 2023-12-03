@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="首頁資料/css/statistics.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <hr class="x-axis">
+    <hr class="y-axis">
+    <p class="x-label">x axis</p>
+    <p class="y-label">y axis</p>
+    <script src="首頁資料/js/gacha.js"></script>
+    <script>
+        function pmf(num) {
+                p = Math.pow(0.994,Math.min(73, num))
+                if (num < 74) {
+                    p = p / 0.994 * 0.006
+                }
+                else {
+                    for (let i = 0; i < num - 73 - 1; i++) {
+                        p *= 1 - (0.006 + 0.06 * (i + 1))
+                    }
+                    p *= 0.006 + 0.06 * (num - 73)
+                }
+                return p
+            }
+        var bardata = []
+        var predata = []
+        for(let i=0 ;i<90;i++){
+            document.write("<div class='bar' style='left:" + (5+i) + "vw'></div>")
+            bardata.push(0)
+            predata.push((i==0?0:predata[i-1])+pmf(i+1))
+        }
+        for(let i=0 ;i<90;i++){
+            document.write("<div class='prebar' style='left:" + (5+i) + "vw'></div>")
+            document.getElementsByClassName("prebar")[i].style.height=predata[i]/Math.max(...predata)*90+'vh'
+        }
+        var bars = document.getElementsByClassName("bar")
+        for(let j=0 ;j<100000;j++){
+            setTimeout(()=>{reset()
+            var count = 0
+            for(let i=0 ;i<90;i++){
+                let result = pick()
+                if(result>4){
+                    for(let k = 0;k<=90-count;k++){
+                        bardata[89-k]+=1;
+                    }
+                    bars[count].style.height=bardata[count]/Math.max(...bardata)*90+'vh'
+                }
+                count+=1
+            }},1)
+        }
+    </script>
+    <script>
+        setTimeout(()=>{   
+            var d1=0
+            for(let i=0 ;i<90;i++){
+                d1+=Math.pow(bardata[i]/Math.max(...bardata)-predata[i]/Math.max(...predata),2)
+            }
+            window.alert("離差平方和:" + d1/90)
+            },100000)
+    </script>
+</body>
+</html>

@@ -61,6 +61,7 @@ function show_ten_cards(myCard){
     onecard.style.opacity="0";
     transition.style.display="none";result.style.display="initial";
     for(let i = 0;i<cards.length;i++){
+        cards[i].src=""
         setTimeout(()=>{
             slide(cards[i],1,20,10);
             if(bestcard[0]<myCard[i]){

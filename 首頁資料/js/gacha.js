@@ -25,6 +25,11 @@ function pick(){
         return 3
     }
 }
+function reset(){
+    FiveStarCounter = 0
+    FourStarCounter = 0
+    UPrate = 0.5
+}
 
 
 
