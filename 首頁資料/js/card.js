@@ -69,11 +69,15 @@ function show_ten_cards(myCard){
             }
             if(myCard[i]==6){
                 cards[i].src="首頁資料/卡池資訊/5up.png"
-            }else if(myCard[i]==5){
-                cards[i].src="首頁資料/卡池資訊/5norm.png"
+            }
+            else if(myCard[i]==2){
+                cards[i].src="首頁資料/卡池資訊/4up" + parseInt(Math.random()*3) + ".png"
+            }
+            else if(myCard[i]==5){
+                cards[i].src="首頁資料/卡池資訊/5norm" + parseInt(Math.random()*3) + ".png"
             }
             else if(myCard[i]==4){
-                cards[i].src="首頁資料/卡池資訊/4" + parseInt(Math.random()*2) + ".png"
+                cards[i].src="首頁資料/卡池資訊/4norm" + parseInt(Math.random()*1) + ".png"
             }
             else{
                 cards[i].src="首頁資料/卡池資訊/3.png"
@@ -103,7 +107,7 @@ function show_card(myCard){
     transition.style.display="none";result.style.display="initial";
     fade(onecard,1,1);
     result.getElementsByTagName("h1")[0].innerHTML=myCard[0]+"星"
-    setTimeout(()=>{onecard.style.opacity="1"},1)
+    setTimeout(()=>{onecard.style.opacity="1";onecard.currentTime="0"},1)
     setTimeout(()=>{result.addEventListener("click",()=>{
         onecard.style.opacity="0";
         result.getElementsByTagName("h1")[0].style.opacity="0"
