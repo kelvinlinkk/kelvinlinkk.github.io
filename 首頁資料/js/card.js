@@ -69,8 +69,8 @@ function show_ten_cards(myCard){
 
             if(myCard[i]==6){cards[i].src="首頁資料/卡池資訊/5up.png"}
             if(myCard[i]==2){cards[i].src="首頁資料/卡池資訊/4up" + parseInt(Math.random()*3) + ".png"}
-            if(myCard[i]==5){cards[i].src="首頁資料/卡池資訊/5norm" + parseInt(Math.random()*5) + ".png"}
-            if(myCard[i]==4){cards[i].src="首頁資料/卡池資訊/4norm" + parseInt(Math.random()*4) + ".png"}
+            if(myCard[i]==5){cards[i].src="首頁資料/卡池資訊/5norm" + parseInt(Math.random()*6) + ".png"}
+            if(myCard[i]==4){cards[i].src="首頁資料/卡池資訊/4norm" + parseInt(Math.random()*5) + ".png"}
             if(myCard[i]==3){cards[i].src="首頁資料/卡池資訊/3.png"}
             cards[i].style.opacity="1";
         },i*100);
