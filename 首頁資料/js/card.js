@@ -11,7 +11,7 @@ const skip = document.getElementById("skip")
 var cards = document.getElementsByClassName("card")
 
 var showlock = false
-attempts = 0
+var attempts = 0
 
 function fade(tar, speed, dir) {
     for (let i = 0; i < 1000; i++) {
