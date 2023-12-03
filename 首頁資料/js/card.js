@@ -27,29 +27,23 @@ function slide(tar, speed,from,to){
 }
 
 function gacha(num){
+    if(stone.value<160*num){window.alert("no stone");return}
+
     var pickCards = []
-    if(stone.value<160*num){
-        window.alert("no stone")
-        return}
     stone.value=parseInt(stone.value) - 160*num
     let vid = transition.getElementsByTagName("video")[0]
-    for(let i = 0;i<num;i++){
-        pickCards.push(pick())
-    }
-    if(pickCards.includes(5) || pickCards.includes(6)){
-        vid.src="首頁資料/卡池資訊/transition5.mp4"
-    }else if(pickCards.includes(4)){
-        vid.src="首頁資料/卡池資訊/transition4.mp4"
-    }else{
-        vid.src="首頁資料/卡池資訊/transition3.mp4"
-    }
+    for(let i = 0;i<num;i++){pickCards.push(pick())}
+
+    if(pickCards.includes(5) || pickCards.includes(6)){vid.src="首頁資料/卡池資訊/transition5.mp4"}
+    if(pickCards.includes(4) || pickCards.includes(2)){vid.src="首頁資料/卡池資訊/transition4.mp4"}
+    if(pickCards.includes(3)){vid.src="首頁資料/卡池資訊/transition3.mp4"}
+
     onecardAud.currentTime="0"
     transition.style.display="initial"
     onecardVid.style.display="none";
-    vid.play();
-    onecardAud.play()
-    vid.currentTime = 0.1
-    onecardAud.currentTime="0"
+    vid.currentTime = 0.1;vid.play();
+    onecardAud.currentTime="0";onecardAud.play()
+
     showlock=false
     if(num==10){
         vid.addEventListener("ended",()=>{show_ten_cards(pickCards)},{once:true});
