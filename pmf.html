@@ -35,20 +35,22 @@
         }
         for(let i=0 ;i<90;i++){
             document.write("<div class='prebar' style='left:" + (5+i) + "vw'></div>")
-            document.getElementsByClassName("prebar")[i].style.height=predata[i]/Math.max(...predata)*90+'vh'
+            document.getElementsByClassName("prebar")[i].style.height=predata[i]*800+'vh'
         }
         var bars = document.getElementsByClassName("bar")
-        for(let j=0 ;j<100000;j++){
-            setTimeout(()=>{reset()
-            var count = 0
-            for(let i=0 ;i<90;i++){
-                let result = pick()
-                if(result>4){
-                    bardata[count]+=1;
-                    bars[count].style.height=bardata[count]/Math.max(...bardata)*90+'vh'
-                }
-                count+=1
-            }},1)
+        for(let j=0 ;j<10000;j++){
+            setTimeout(()=>{
+                reset()
+                var count = 0
+                for(let i=0 ;i<90;i++){
+                    let result = pick()
+                    if(result>4){
+                        bardata[count]+=1;
+                        bars[count].style.height=bardata[count]*0.08+'vh'
+                        break
+                    }
+                    count+=1
+            }},j)
         }
     </script>
     <script>
@@ -58,7 +60,7 @@
                 d1+=Math.pow(bardata[i]/Math.max(...bardata)-predata[i]/Math.max(...predata),2)
             }
             window.alert("離差平方和:" + d1/90)
-            },100000)
+            },10000)
     </script>
 </body>
 </html>
