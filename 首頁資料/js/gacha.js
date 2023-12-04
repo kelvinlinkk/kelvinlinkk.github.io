@@ -3,7 +3,7 @@ var FourStarCounter = 0
 var fiveUPrate = 0.5
 var fourUPrate = 0.5
 function setWeight(five,four){
-    w1 = Math.min(1,0.006 + (five>73?0.06*(five-73):0)) 
+    w1 = Math.min(1,0.009 + (five>73?0.058*(five-73):0)) 
     w2 = Math.min(1,0.051 + (four>8?0.51*(four-8):0)) 
     return [w1,w2]
 }

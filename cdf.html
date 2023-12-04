@@ -13,21 +13,31 @@
     <p class="y-label">y axis</p>
     <script src="首頁資料/js/gacha.js"></script>
     <script>
+        const basicRate = 0.009
+        function SumData(arr){
+            var sum=0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            };
+            return sum;
+        }
         function pmf(num) {
-                p = Math.pow(0.994,Math.min(73, num))
+                p = Math.pow((1 - basicRate),Math.min(73, num))
                 if (num < 74) {
-                    p = p / 0.994 * 0.006
+                    p = p / (1 - basicRate) * basicRate
                 }
                 else {
                     for (let i = 0; i < num - 73 - 1; i++) {
-                        p *= 1 - (0.006 + 0.06 * (i + 1))
+                        p *= 1 - (basicRate + (1 - basicRate)/17 * (i + 1))
                     }
-                    p *= 0.006 + 0.06 * (num - 73)
+                    p *= basicRate + (1 - basicRate)/17 * (num - 73)
                 }
                 return p
             }
         var bardata = []
         var predata = []
+        var realdata = [96976, 94944, 93796, 93448, 92665, 91823, 91224, 87977, 89278, 88588, 86568, 85780, 85042, 84598, 83665, 84362, 82685, 81622, 81327, 80140, 76742, 76065, 75587, 75071, 75236, 74032, 73092, 72537, 71937, 70814, 70074, 69271, 68687, 68657, 68050, 67577, 67316, 66231, 65737, 64384, 63944, 63102, 62075, 62572, 62335, 61994, 61474, 60628, 59802, 58799, 58235, 57179, 56984, 57262, 56704, 56448, 56162, 54938, 54411, 53546, 52376, 52103, 51488, 52375, 52616, 52733, 51592, 51521, 50785, 50582, 49973, 49963, 49635, 369240, 640615, 814540, 871861, 814467, 674595, 494883, 322315, 185921, 93519, 40517, 14965, 4532, 1087, 200, 39, 3]
+        console.log(SumData(realdata))
         for(let i=0 ;i<90;i++){
             document.write("<div class='bar' style='left:" + (5+i) + "vw'></div>")
             bardata.push(0)
@@ -35,23 +45,26 @@
         }
         for(let i=0 ;i<90;i++){
             document.write("<div class='prebar' style='left:" + (5+i) + "vw'></div>")
-            document.getElementsByClassName("prebar")[i].style.height=predata[i]*90+'vh'
+            document.getElementsByClassName("prebar")[i].style.height=predata[i]/90*8000+'vh'
+        }
+        for(let i=0 ;i<90;i++){
+            document.write("<div class='realbar' style='left:" + (5+i) + "vw'></div>")
+            realdata[i]+=(i==0?0:realdata[i-1])
+            document.getElementsByClassName("realbar")[i].style.height=realdata[i]/10363240/90*8000+'vh'
         }
         var bars = document.getElementsByClassName("bar")
         for(let j=0 ;j<10000;j++){
             setTimeout(()=>{reset()
-            var count = 0
             for(let i=0 ;i<90;i++){
                 let result = pick()
                 if(result>4){
-                    for(let k = 0;k<=90-count;k++){
-                        bardata[89-k]+=1;
-                        bars[89-k].style.height=bardata[89-k]*0.009+'vh'
+                    for(let k = i;k<90;k++){
+                        bardata[k]+=1;
+                        bars[k].style.height=bardata[k]/10000/90*8000+'vh'
                     }
                     break
                 }
-                count+=1
-            }},j)
+            }},parseInt(j/10))
         }
     </script>
     <script>
@@ -61,7 +74,7 @@
                 d1+=Math.pow(bardata[i]/Math.max(...bardata)-predata[i]/Math.max(...predata),2)
             }
             window.alert("離差平方和:" + d1/90)
-            },10000)
+            },2000)
     </script>
 </body>
 </html>
