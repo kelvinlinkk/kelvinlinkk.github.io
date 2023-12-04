@@ -67,14 +67,5 @@
             }},parseInt(j/10))
         }
     </script>
-    <script>
-        setTimeout(()=>{   
-            var d1=0
-            for(let i=0 ;i<90;i++){
-                d1+=Math.pow(bardata[i]/Math.max(...bardata)-predata[i]/Math.max(...predata),2)
-            }
-            window.alert("離差平方和:" + d1/90)
-            },2000)
-    </script>
 </body>
 </html>
