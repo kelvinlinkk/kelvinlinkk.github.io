@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="首頁資料/css/statistics.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <hr class="x-axis">
+    <hr class="y-axis">
+    <p class="x-label">x axis</p>
+    <p class="y-label">y axis</p>
+    <script src="首頁資料/js/gacha.js"></script>
+    <script>
+        var varis =[] 
+        var basicRate = 0.0045
+        while(basicRate<0.0135){
+            function pmf(num) {
+                p = Math.pow((1 - basicRate),Math.min(73, num))
+                if (num < 74) {
+                    p = p / (1 - basicRate) * basicRate
+                }
+                else {
+                    for (let i = 0; i < num - 73 - 1; i++) {
+                        p *= 1 - (basicRate + (1 - basicRate)/17 * (i + 1))
+                    }
+                    p *= basicRate + (1 - basicRate)/17 * (num - 73)
+                }
+                return p
+            }
+            var bardata = []
+            var predata = []
+            var realdata = [96976, 94944, 93796, 93448, 92665, 91823, 91224, 87977, 89278, 88588, 86568, 85780, 85042, 84598, 83665, 84362, 82685, 81622, 81327, 80140, 76742, 76065, 75587, 75071, 75236, 74032, 73092, 72537, 71937, 70814, 70074, 69271, 68687, 68657, 68050, 67577, 67316, 66231, 65737, 64384, 63944, 63102, 62075, 62572, 62335, 61994, 61474, 60628, 59802, 58799, 58235, 57179, 56984, 57262, 56704, 56448, 56162, 54938, 54411, 53546, 52376, 52103, 51488, 52375, 52616, 52733, 51592, 51521, 50785, 50582, 49973, 49963, 49635, 369240, 640615, 814540, 871861, 814467, 674595, 494883, 322315, 185921, 93519, 40517, 14965, 4532, 1087, 200, 39, 3]
+            for(let i=0 ;i<90;i++){
+                bardata.push(0)
+                predata.push(pmf(i+1))
+            }
+            var bars = document.getElementsByClassName("bar")
+            for(let j=0 ;j<10000;j++){
+                reset()
+                for(let i=0 ;i<90;i++){
+                    let result = pick()
+                    if(result>4){
+                        bardata[i]+=1;
+                        break
+                    }
+                }
+            }
+            let vari = 0
+            for(let i=0 ;i<90;i++){
+                vari += Math.pow(realdata[i]/10363240-predata[i],2)
+            }
+            varis.push(vari/=90)
+            basicRate+=0.0001
+        }
+        for(let i=0 ;i<90;i++){
+            document.write("<div class='bar' style='left:"
+             + (5+i) + "vw;height:" + varis[i]*800000 + "vh'></div>")
+        }
+        window.alert(varis.indexOf(Math.min(...varis))*0.0001+0.0045)
+    </script>
+</body>
+</html>
