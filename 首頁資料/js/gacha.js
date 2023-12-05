@@ -11,7 +11,7 @@ function pick(){
     FiveStarCounter+=1
     FourStarCounter+=1
     let [FiveStarWeight, FourStarWeight ]= setWeight(FiveStarCounter,FourStarCounter)
-    ThreeStarWeight = 0.943
+    ThreeStarWeight = 0.94
     r = Math.random()
     if(r<FiveStarWeight){
         FiveStarCounter=0
