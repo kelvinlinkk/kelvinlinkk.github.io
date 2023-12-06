@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="首頁資料/css/statistics.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <hr class="x-axis">
+    <hr class="y-axis">
+    <p class="x-label">x axis</p>
+    <p class="y-label">y axis</p>
+    <script src="首頁資料/js/gacha.js"></script>
+    <script>
+        const basicRate = 0.009
+        function pmf(num) {
+                p = Math.pow((1 - basicRate),Math.min(73, num))
+                if (num < 74) {
+                    p = p / (1 - basicRate) * basicRate
+                }
+                else {
+                    for (let i = 0; i < num - 73 - 1; i++) {
+                        p *= 1 - (basicRate + (1 - basicRate)/17 * (i + 1))
+                    }
+                    p *= basicRate + (1 - basicRate)/17 * (num - 73)
+                }
+                return p
+            }
+        var bardata = []
+        var predata = []
+        for(let i=0 ;i<180;i++){
+            document.write("<div class='prebar' style='left:" + (5+i/2) + "vw'></div>")
+            predata.push(0)
+        }
+        for(let i=0 ;i<180;i++){
+            document.write("<div class='bar' style='left:" + (5+i/2) + "vw'></div>")
+            bardata.push(0)
+        }
+        var bars = document.getElementsByClassName("bar")
+        for(let j=0 ;j<10000;j++){
+            setTimeout(()=>{
+                reset()
+                for(let i=0 ;i<180;i++){
+                    let result = pick()
+                    if(result>5){
+                        bardata[i]+=1;
+                        bars[i].style.height=bardata[i]/10000*800+'vh'
+                        break
+                    }
+            }},parseInt(j/10))
+        }
+        var prebars = document.getElementsByClassName("prebar")
+        for(let j=0 ;j<10000;j++){
+            setTimeout(()=>{
+                reset()
+                var count = 0
+                for(count=0 ;count<90;count++){
+                    let result = pick()
+                    if(result>4){
+                        predata[count]+=1;
+                        prebars[count].style.height=predata[count]/10000*800+'vh'
+                        break
+                    }}
+                reset()
+                console.log(count)
+                for(let i=count ;i<180;i++){
+                    let result = pick()
+                    if(result>4){
+                        predata[i]+=1;
+                        prebars[i].style.height=predata[i]/10000*800+'vh'
+                        break
+                    }
+            }},parseInt(j/10))
+        }
+    </script>
+</body>
+</html>

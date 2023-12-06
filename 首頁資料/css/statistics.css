@@ -4,7 +4,7 @@ body{background-color: black;margin: 0;color: aliceblue;font: 1em sans-serif;ove
 .x-label{position: absolute;right: 10px;bottom: 10px;}
 .y-label{position: absolute;top: 10px;left: 1vw;}
 .bar,.prebar,.realbar{
-    position: absolute;display: inline-block; bottom: 50px;left: 5vw; height: 0;width: 1vw;background-color: aquamarine;z-index:1
+    position: absolute;display: inline-block; bottom: 50px;left: 5vw; height: 0;width: 0.5vw;background-color: aquamarine;z-index:1
 }
 .bar{z-index: 1;}
 .prebar{background-color: brown;opacity: 0.7; z-index: 2;}
