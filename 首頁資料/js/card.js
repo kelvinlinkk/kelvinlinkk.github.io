@@ -29,16 +29,14 @@ function slide(tar, speed,from,to){
 
 function gacha(num){
     if(stone.value<160*num){window.alert("no stone");return}
-
     var pickCards = []
     stone.value=parseInt(stone.value) - 160*num
     let vid = transition.getElementsByTagName("video")[0]
     for(let i = 0;i<num;i++){pickCards.push(pick())}
-
+    console.log(pickCards)
     if(pickCards.includes(5) || pickCards.includes(6)){vid.src="首頁資料/卡池資訊/transition5.mp4"}
     else if(pickCards.includes(4) || pickCards.includes(2)){vid.src="首頁資料/卡池資訊/transition4.mp4"}
     else{vid.src="首頁資料/卡池資訊/transition3.mp4"}
-
     onecardAud.currentTime="0"
     transition.style.display="initial"
     onecardVid.style.display="none";
@@ -55,7 +53,6 @@ function gacha(num){
 }
 
 function show_ten_cards(myCard){
-    let bestcard = [0,0]
     if(showlock){return}
     showlock = true;
     onecardAud.pause()
@@ -65,8 +62,6 @@ function show_ten_cards(myCard){
         cards[i].src=""
         setTimeout(()=>{
             slide(cards[i],1,20,10);
-            if(bestcard[0]<myCard[i]){bestcard = [myCard,attempts+i+1]}
-
             if(myCard[i]==6){cards[i].src="首頁資料/卡池資訊/5up.png"}
             if(myCard[i]==2){cards[i].src="首頁資料/卡池資訊/4up" + parseInt(Math.random()*3) + ".png"}
             if(myCard[i]==5){cards[i].src="首頁資料/卡池資訊/5norm" + parseInt(Math.random()*6) + ".png"}
