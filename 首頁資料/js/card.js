@@ -5,6 +5,10 @@ var mygacha = [document.getElementById("gacha-1"), document.getElementById("gach
 const transition = document.getElementById("transition")
 const result = document.getElementById("result-area")
 const resultTxt = result.getElementsByTagName("h1")[0]
+const welcomebtn = document.getElementById("welcome-img")
+const welcomeAud = document.getElementById("welcome-audio")
+const welcomeVid = document.getElementById("welcome-video")
+const welcomelogo = document.getElementsByClassName("welcome-logo")
 const onecardVid = document.getElementById("one-card-video")
 const onecardAud = document.getElementById("one-card-audio")
 const skip = document.getElementById("skip")
@@ -117,9 +121,19 @@ function show_card(myCard) {
         }, { once: true })
     }, 1000)
 }
-
 window.onload = function () {
     myadd.addEventListener("click", function () { stone.value = parseInt(stone.value) + 1 })
     mygacha[0].addEventListener("click", function () { gacha(1) })
     mygacha[1].addEventListener("click", function () { gacha(10) })
+    welcomebtn.addEventListener('click',()=>{
+        welcomeVid.style.display='initial';
+        welcomebtn.style.display="none";
+        for(let i = 0;i<welcomelogo.length;i++){
+            welcomelogo[i].style.display="none"
+        }
+        welcomeVid.play();
+        setTimeout(()=>{welcomeAud.play();},3000)
+        }
+    )
+    welcomeVid.addEventListener('ended',()=>{document.getElementsByClassName("welcome")[0].style.display="none"})
 }
