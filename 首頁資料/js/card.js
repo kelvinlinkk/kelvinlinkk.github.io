@@ -131,9 +131,16 @@ window.onload = function () {
         for(let i = 0;i<welcomelogo.length;i++){
             welcomelogo[i].style.display="none"
         }
+        document.getElementById("welcome-search").style.display="none"
         welcomeVid.play();
         setTimeout(()=>{welcomeAud.play();},3000)
         }
     )
-    welcomeVid.addEventListener('ended',()=>{document.getElementsByClassName("welcome")[0].style.display="none"})
+    welcomeVid.addEventListener('ended',()=>{
+        welcomeVid.onclick=()=>{
+            fade(document.getElementsByClassName("welcome")[0],1,0);
+            setTimeout(()=>{document.getElementsByClassName("welcome")[0].style.display="none"},1000)
+        }
+        }
+    )
 }
