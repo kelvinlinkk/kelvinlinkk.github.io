@@ -9,12 +9,14 @@ const welcomebtn = document.getElementById("welcome-img")
 const welcomeAud = document.getElementById("welcome-audio")
 const welcomeVid = document.getElementById("welcome-video")
 const welcomelogo = document.getElementsByClassName("welcome-logo")
+const welcomeimg = document.getElementsByClassName("welcome-background")[0]
+const backgroundbtn = document.getElementById("change-background")
 const onecardVid = document.getElementById("one-card-video")
 const onecardAud = document.getElementById("one-card-audio")
 const skip = document.getElementById("skip")
 var cards = document.getElementsByClassName("card")
 
-var showlock = false
+var backgroundnum = 0
 var attempts = 0
 
 function fade(tar, speed, dir) {
@@ -132,6 +134,7 @@ window.onload = function () {
             welcomelogo[i].style.display="none"
         }
         document.getElementById("welcome-search").style.display="none"
+        backgroundbtn.style.display="none"
         welcomeVid.play();
         setTimeout(()=>{welcomeAud.play();},3000)
         }
@@ -143,4 +146,9 @@ window.onload = function () {
         }
         }
     )
+    backgroundbtn.addEventListener("click",()=>{
+        console.log(backgroundnum)
+        welcomeimg.src="首頁資料/卡池資訊/background" + backgroundnum + ".jpg"
+        backgroundnum<4?backgroundnum+=1:backgroundnum=0
+    })
 }

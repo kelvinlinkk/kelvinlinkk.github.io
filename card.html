@@ -11,19 +11,26 @@
 
 <body>
     <span class="welcome">
-        <span  id="welcome-search"><input><img src="首頁資料/logo/googlesearch.png"></span>
+        <img src="首頁資料/卡池資訊/background0.jpg" class="welcome-background">
+        <span  id="welcome-search">
+            <form action="https://www.google.com/search" method="get"><input name="q" type="search"></form>
+            <img src="首頁資料/logo/googlesearch.png">
+        </span>
         <audio id="welcome-audio" src="首頁資料/卡池資訊/welcome.mp3"></audio>
         <video id="welcome-video" src="首頁資料/卡池資訊/welcome.mp4"></video>
+        <div class="welcome-logo"><a href="https://play.google.com/" target="_blank"><img src="首頁資料/logo/googleplay.png" class="welcome-img"><p class="welcome-txt">Google PLay</p></a></div>
         <div class="welcome-logo">
-            <img src="首頁資料/logo/genshin.webp" id="welcome-img">
-            <p id="welcome-txt">原神</p>
+            <a href="#"><img src="首頁資料/logo/genshin.webp" id="welcome-img">
+            <p id="welcome-txt">原神</p></a>
         </div>
-        <div class="welcome-logo"><img src="首頁資料/logo/崩壞3.png" class="welcome-img"><p class="welcome-txt">崩壞3</p></div>
-        <div class="welcome-logo"><img src="首頁資料/logo/崩壞星宆鐵道.png" class="welcome-img"><p class="welcome-txt">崩壞:星宆鐵道</p></div>
+        <div class="welcome-logo"><a href="https://honkaiimpact3.hoyoverse.com/ua1/?game_biz=bh3_asia" target="_blank"><img src="首頁資料/logo/崩壞3.png" class="welcome-img"><p class="welcome-txt">崩壞3</p></a></div>
+        <div class="welcome-logo"><a href="https://hsr.hoyoverse.com/ua2?utm_source=CHT_google_CHT_search_UA2_broad" target="_blank"><img src="首頁資料/logo/崩壞星宆鐵道.png" class="welcome-img"><p class="welcome-txt">崩壞:星宆鐵道</p></a></div>
+        <div class="welcome-logo"><a href="https://re1999.movergames.com/" target="_blank"><img src="首頁資料/logo/1999.png" class="welcome-img"><p class="welcome-txt">重返未來：1999</p></a></div>
         <div class="welcome-logo"><a href="https://facebook.com" target="_blank"><img src="首頁資料/logo/facebook.svg" class="welcome-img"><p class="welcome-txt">facebook</p></a></div>
         <div class="welcome-logo"><a href="https://instagram.com" target="_blank"><img src="首頁資料/logo/Instagram.svg" class="welcome-img"><p class="welcome-txt">Instagram</p></a></div>
         <div class="welcome-logo"><a href="https://x.com" target="_blank"><img src="首頁資料/logo/twitter.svg" class="welcome-img"><p class="welcome-txt">Twitter</p></a></div>
-        <div class="welcome-logo"><img src="首頁資料/卡池資訊/genshin.webp" class="welcome-img"><p class="welcome-txt">原神</p></div>
+        <div class="welcome-logo"><a href="https://open.spotify.com" target="_blank"><img src="首頁資料/logo/spotify.svg" class="welcome-img"><p class="welcome-txt">Spotify</p></a></div>
+        <button id="change-background" class="bckgrd-btn">next</button>
     </span>
     
     <video style="position: fixed;object-fit: cover;inset: 0;" muted autoplay loop
