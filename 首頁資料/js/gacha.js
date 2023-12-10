@@ -3,32 +3,32 @@ var FourStarCounter = 0
 var fiveUPrate = 0.5
 var fourUPrate = 0.5
 fivebasicrate = 0.009
-function setWeight(five,four){
-    w1 = Math.min(1,fivebasicrate + (five>73?(1-fivebasicrate)/17*(five-73):0)) 
-    w2 = Math.min(1,0.051 + (four>8?0.51*(four-8):0)) 
-    return [w1,w2]
+function setWeight(five, four) {
+    w1 = Math.min(1, fivebasicrate + (five > 73 ? (1 - fivebasicrate) / 17 * (five - 73) : 0))
+    w2 = Math.min(1, 0.051 + (four > 8 ? 0.51 * (four - 8) : 0))
+    return [w1, w2]
 }
-function pick(){
-    FiveStarCounter+=1
-    FourStarCounter+=1
-    let [FiveStarWeight, FourStarWeight ]= setWeight(FiveStarCounter,FourStarCounter)
-    ThreeStarWeight = 1-0.051-fivebasicrate
+function pick() {
+    FiveStarCounter += 1
+    FourStarCounter += 1
+    let [FiveStarWeight, FourStarWeight] = setWeight(FiveStarCounter, FourStarCounter)
+    ThreeStarWeight = 1 - 0.051 - fivebasicrate
     r = Math.random()
-    if(r<FiveStarWeight){
-        FiveStarCounter=0
-        if(Math.random()<=fiveUPrate){fiveUPrate=0.5;return 6}
-        fiveUPrate=1
+    if (r < FiveStarWeight) {
+        FiveStarCounter = 0
+        if (Math.random() <= fiveUPrate) { fiveUPrate = 0.5; return 6 }
+        fiveUPrate = 1
         return 5
-    }else if(r-FiveStarWeight<FourStarWeight){
-        FourStarCounter=0
-        if(Math.random()<=fourUPrate){fourUPrate=0.5;return 2}
-        fourUPrate=1
+    } else if (r - FiveStarWeight < FourStarWeight) {
+        FourStarCounter = 0
+        if (Math.random() <= fourUPrate) { fourUPrate = 0.5; return 2 }
+        fourUPrate = 1
         return 4
-    }else{
+    } else {
         return 3
     }
 }
-function reset(){
+function reset() {
     FiveStarCounter = 0
     FourStarCounter = 0
     fiveUPrate = 0.5

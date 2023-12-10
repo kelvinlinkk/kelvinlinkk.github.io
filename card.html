@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,10 @@
     <link rel="icon" type="x-icon" href="首頁資料/pic/genshin.png">
     <link rel="stylesheet" href="首頁資料/css/card.css">
 </head>
+
 <body>
-    <video style="position: fixed;object-fit: cover;inset: 0;"muted autoplay loop src="首頁資料/卡池資訊/background.mp4"></video>
+    <video style="position: fixed;object-fit: cover;inset: 0;" muted autoplay loop
+        src="首頁資料/卡池資訊/background.mp4"></video>
     <span class="pool-area">
         <div class="pool-band"></div>
         <button class="pool"><img src="首頁資料/卡池資訊/activity.png"></button>
@@ -36,17 +39,18 @@
         <button id="skip">Skip>></button>
     </span>
     <span class="result" id="result-area">
-        <video id="one-card-video" src="首頁資料/卡池資訊/transition1.mp4" muted autoplay></video>
+        <video id="one-card-video" muted autoplay></video>
         <audio id="one-card-audio" src="首頁資料/卡池資訊/transition.mp3"></audio>
         <h1>123</h1>
         <script>
-            for(let i = 0;i<10;i++){
+            for (let i = 0; i < 10; i++) {
                 document.write("<img class='card'></img>")
             }
         </script>
-        
+
     </span>
     <script src="首頁資料/js/gacha.js"></script>
     <script src="首頁資料/js/card.js"></script>
 </body>
+
 </html>
