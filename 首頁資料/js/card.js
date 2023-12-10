@@ -147,8 +147,7 @@ window.onload = function () {
         }
     )
     backgroundbtn.addEventListener("click",()=>{
-        console.log(backgroundnum)
-        welcomeimg.src="首頁資料/卡池資訊/background" + backgroundnum + ".jpg"
         backgroundnum<4?backgroundnum+=1:backgroundnum=0
+        welcomeimg.src="首頁資料/卡池資訊/background" + backgroundnum + ".jpg"
     })
 }

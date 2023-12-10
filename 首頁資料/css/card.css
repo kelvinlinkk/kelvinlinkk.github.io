@@ -6,7 +6,7 @@ button, input{border: 0;}
 a{text-decoration: none;color: unset;}
 
 /*welcome*/
-.welcome{background-color: rgb(13, 33, 43);z-index: 10;position: fixed;inset: 0;}
+.welcome{z-index: 10;position: fixed;inset: 0;}
 .welcome-logo{position: relative;display: inline-block; top:100px; width: 7vw;height: calc(7vw + 20px); margin: 5vh 4vw;}
 #welcome-img,.welcome-img{position: absolute; height: 7vw; width: 100%;border-radius: 10px;}
 #welcome-txt,.welcome-txt{position: absolute;top: 7vw;width: 100%;text-overflow: ellipsis; text-wrap: nowrap;overflow: hidden;
