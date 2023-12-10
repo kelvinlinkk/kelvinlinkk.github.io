@@ -127,27 +127,27 @@ window.onload = function () {
     myadd.addEventListener("click", function () { stone.value = parseInt(stone.value) + 1 })
     mygacha[0].addEventListener("click", function () { gacha(1) })
     mygacha[1].addEventListener("click", function () { gacha(10) })
-    welcomebtn.addEventListener('click',()=>{
-        welcomeVid.style.display='initial';
-        welcomebtn.style.display="none";
-        for(let i = 0;i<welcomelogo.length;i++){
-            welcomelogo[i].style.display="none"
+    welcomebtn.addEventListener('click', () => {
+        welcomeVid.style.display = 'initial';
+        welcomebtn.style.display = "none";
+        for (let i = 0; i < welcomelogo.length; i++) {
+            welcomelogo[i].style.display = "none"
         }
-        document.getElementById("welcome-search").style.display="none"
-        backgroundbtn.style.display="none"
+        document.getElementById("welcome-search").style.display = "none"
+        backgroundbtn.style.display = "none"
         welcomeVid.play();
-        setTimeout(()=>{welcomeAud.play();},3000)
-        }
+        setTimeout(() => { welcomeAud.play(); }, 3000)
+    }
     )
-    welcomeVid.addEventListener('ended',()=>{
-        welcomeVid.onclick=()=>{
-            fade(document.getElementsByClassName("welcome")[0],1,0);
-            setTimeout(()=>{document.getElementsByClassName("welcome")[0].style.display="none"},1000)
+    welcomeVid.addEventListener('ended', () => {
+        welcomeVid.onclick = () => {
+            fade(document.getElementsByClassName("welcome")[0], 1, 0);
+            setTimeout(() => { document.getElementsByClassName("welcome")[0].style.display = "none" }, 1000)
         }
-        }
+    }
     )
-    backgroundbtn.addEventListener("click",()=>{
-        backgroundnum<4?backgroundnum+=1:backgroundnum=0
-        welcomeimg.src="首頁資料/卡池資訊/background" + backgroundnum + ".jpg"
+    backgroundbtn.addEventListener("click", () => {
+        backgroundnum < 4 ? backgroundnum += 1 : backgroundnum = 0
+        welcomeimg.src = "首頁資料/卡池資訊/background" + backgroundnum + ".jpg"
     })
 }

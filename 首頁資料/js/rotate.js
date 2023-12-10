@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function toPolar(x, y) {
-        return [(x**2 + y**2)**0.5, Math.atan2(y, x)];
+        return [(x ** 2 + y ** 2) ** 0.5, Math.atan2(y, x)];
     }
 
     function zmove(num, x, y) {

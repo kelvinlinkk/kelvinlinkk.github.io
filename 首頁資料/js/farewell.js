@@ -43,12 +43,12 @@ function track(n) {
 
 function move(tar) {
     for (let i = 0; i < 1000; i++) {
-        setTimeout(()=>{tar.style.left = String((i - 2000) / 200) + '%';}, i * 1.5)
+        setTimeout(() => { tar.style.left = String((i - 2000) / 200) + '%'; }, i * 1.5)
     }
 }
 function fade(tar, speed) {
     for (let i = 0; i < 1000; i++) {
-        setTimeout(()=>{tar.style.opacity = i / 1000;}, i * speed)
+        setTimeout(() => { tar.style.opacity = i / 1000; }, i * speed)
     }
 }
 function bounce(tar, speed) {
