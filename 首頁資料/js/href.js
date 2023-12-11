@@ -89,6 +89,7 @@ var info = [
     ["https://dictionary.cambridge.org/", "劍橋辭典", "cambridge.png"],
     ["https://www.merriam-webster.com/", "韋氏字典", "webster.jpg"],
     ["https://www.theguardian.com/science", "Guardian", "guardian.svg"],
+    ["https://radio.garden/", "radio garden", "radio.png"],
     ["https://www.junyiacademy.org/", "均一", "均一.svg"],
     ["https://philomedium.com/", "哲學新媒體", "philomedium.png"],
     ["https://lawplayer.com/", "lawplayer", "lawplayer.jpg"],
@@ -103,6 +104,7 @@ var info = [
     ["https://taxonomicdune.com/", "分類沙丘", "sn.svg"],
     ["https://www.science.org/", "AAAS", "aaas.svg"],
     ["https://highscope.ch.ntu.edu.tw/", "科學online", "online.jpg"],
+    ["https://jacoboneal.com/", "Jacob O'Neal", "JO.png"],
     ["https://www.geogebra.org/", "geogebra", "geogebra.png"],
     ["https://pansci.asia/", "泛科學", "pansci.jpg"]
     ],
@@ -143,6 +145,7 @@ var info = [
     ["https://bard.google.com/", "bard", "bard.jpg"],
     ["https://app.leonardo.ai/", "Leonardo", "leonardo.png"],
     ["https://www.naturalreaders.com/", "Natural Readers", "nr.svg"],
+    ["https://www.fotor.com/", "fotor", "fotor.png"],
     ["https://designer.microsoft.com", "msdesigner", "msdesigner.jpg"],
     ["https://tome.app/", "tome", "tome.png"],
     ["https://gamma.app/", "gamma", "gamma.jpg"],
