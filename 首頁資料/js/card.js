@@ -145,7 +145,8 @@ window.onload = function () {
             if(parseFloat(welcomeVid.currentTime)>14 && mylock==false){
                 mylock=true
                 fade(document.getElementsByClassName("welcome")[0], 1, 0);
-                setTimeout(() => { document.getElementsByClassName("welcome")[0].style.display = "none" }, 1000)
+                setTimeout(() => { document.getElementsByClassName("welcome")[0].style.display = "none"
+                welcomeVid.pause() }, 500)
             }
         }
     }
