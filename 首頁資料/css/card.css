@@ -25,20 +25,22 @@ a{text-decoration: none;color: unset;}
 .bckgrd-btn:hover{opacity: 0.3;}
 
 /*pool*/
-.pool-area{position: fixed;}
-.pool-band{position: fixed;border-left:5px solid;border-right:5px solid;}
+.pool-area{position: fixed;top: 15vh;left: 50px; height: 80vh;width: 150px;}
+.pool-band{position: fixed;height: 100vh;width: 50px;top: 0vh;left: calc(6vw + 25px);
+    border-left:5px solid;border-right:5px solid;}
 .pool{
-    position: relative;display: none; margin-bottom: 20px;width: 12vw;aspect-ratio: 2;padding: 0;
+    position: relative;display: block; margin-bottom: 20px;width: 12vw;aspect-ratio: 2;padding: 0;
 }
 .pool img{position: absolute; width: 150%;left: -25%;top: 0%;}
 /*description*/
 .activity-area{
-    position: fixed;top: 10vh; aspect-ratio: 1.8; right: 50px; max-height: 80vh;
+    position: fixed;left: 20vw;top: 10vh; aspect-ratio: 1.8; right: 50px; max-height: 80vh;
 }
 .activity-area button{width: 100%;height: 100%;}
 .activity-area button img{left: 0%; top: -32%;height:  160%;z-index: 1;}
 .activity-title{
-    position: fixed;top: 9vh; height:30px;border-radius: 15px 0px 30px 15px;padding: 0px 15px;z-index: 2;line-height: 30px;
+    position: fixed;top: 9vh; height:30px;border-radius: 15px 0px 30px 15px;
+    padding: 0px 15px;z-index: 2;line-height: 30px;left: calc(20vw - 10px);
 }
 .activity-area h1,.activity-area h2,.counttime,
 .activity-area h3,.activity-area p{position: absolute;left: 5%; z-index: 3;font-weight:900;}
@@ -71,22 +73,6 @@ a{text-decoration: none;color: unset;}
 }
 .stone-icon{position: fixed;width: 3vh;height: 3vh; top: calc(5px + 1vh);right: calc(150px - 3vh);}
 
-@media (max-width:700px) {
-    .activity-area{left: 50px;top: 80px;}
-    .activity-title{left: 40px;top: 70px;}
-    .pool-band{height: 20px;width: 100vw;left: 0vw;top: 3vw ;}
-    .pool-area{top: 2vh;left: 0px; width: 100vw;height: auto;}
-    .pool:nth-child(2){display:inline-block;left: 44vw;}
-}
-
-@media (min-width:700px) {
-    .activity-area{left: 20vw;}
-    .activity-title{left: calc(20vw - 10px);}
-    .pool-band{height: 100vh;width: 50px;top: 0vh;left: calc(6vw + 25px);}
-    .pool{display: block;}
-    .pool-area{top: 15vh;left: 50px; height: 80vh;width: 150px;}
-}
-
 /*transition*/
 #transition{display:none;}
 .trans-ani{position: fixed;inset: 0px;object-fit: cover;}
@@ -98,10 +84,10 @@ a{text-decoration: none;color: unset;}
     opacity: 0;object-fit:fill;z-index: 5;}
 #one-card-video{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;z-index: 0;}
 .result h1{position: absolute;width: 100vw; text-align: center;line-height: 100vh; z-index: 5;opacity: 0;}
-.gacha img                  {animation: 0.5s scalesOut forwards;}
-.gacha img:hover         {animation: 0.2s scalesIn forwards;}
-.card,.welcome-logo      {animation: 0.2s scalesOut  forwards;}
-.card:hover,.welcome-logo:hover    {animation: 0.2s scalesIn   forwards;}
+.card:hover,.welcome-logo:hover,
+.gacha img:hover                {animation: 0.2s scalesIn   forwards;}
+.gacha img                      {animation: 0.5s scalesOut forwards;}
+.card,.welcome-logo             {animation: 0.2s scalesOut  forwards;}
 
 /*color*/
 body{background-color: black;color: white;}

@@ -142,11 +142,13 @@ window.onload = function () {
     mylock = false
     welcomeVid.addEventListener('play', () => {
         welcomeVid.onclick = () => {
-            if(parseFloat(welcomeVid.currentTime)>14 && mylock==false){
-                mylock=true
+            if (parseFloat(welcomeVid.currentTime) > 15 && mylock == false) {
+                mylock = true
                 fade(document.getElementsByClassName("welcome")[0], 1, 0);
-                setTimeout(() => { document.getElementsByClassName("welcome")[0].style.display = "none"
-                welcomeVid.pause() }, 500)
+                setTimeout(() => {
+                    document.getElementsByClassName("welcome")[0].style.display = "none"
+                    welcomeVid.pause()
+                }, 500)
             }
         }
     }
