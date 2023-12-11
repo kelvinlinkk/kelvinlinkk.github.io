@@ -139,15 +139,19 @@ window.onload = function () {
         setTimeout(() => { welcomeAud.play(); }, 3000)
     }
     )
-    welcomeVid.addEventListener('ended', () => {
+    mylock = false
+    welcomeVid.addEventListener('play', () => {
         welcomeVid.onclick = () => {
-            fade(document.getElementsByClassName("welcome")[0], 1, 0);
-            setTimeout(() => { document.getElementsByClassName("welcome")[0].style.display = "none" }, 1000)
+            if(parseFloat(welcomeVid.currentTime)>14 && mylock==false){
+                mylock=true
+                fade(document.getElementsByClassName("welcome")[0], 1, 0);
+                setTimeout(() => { document.getElementsByClassName("welcome")[0].style.display = "none" }, 1000)
+            }
         }
     }
     )
     backgroundbtn.addEventListener("click", () => {
-        backgroundnum < 4 ? backgroundnum += 1 : backgroundnum = 0
+        backgroundnum < 5 ? backgroundnum += 1 : backgroundnum = 0
         welcomeimg.src = "首頁資料/卡池資訊/background" + backgroundnum + ".jpg"
     })
 }
