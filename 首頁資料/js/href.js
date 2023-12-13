@@ -59,7 +59,7 @@ var info = [
     ["https://www.autosport.com/", "autosport", "autosport.png"],
     ["https://www.sportsv.net/racing", "運動視界", "運動視界.jpg"]],
     /*程式*/
-    [["https://www.w3schools.com/", "w3schools", "w3logo.png"],
+    [["https://www.w3schools.com/", "w3schools", "w3logo/logo.png"],
     ["https://github.com", "github", "github.png"],
     ["https://stackoverflow.com/", "stack overflow", "stackoverflow.jpg"],
     ["https://linktr.ee/ncku_csie_camp", "ncku_csie", "ncku_csie.jpg"],
