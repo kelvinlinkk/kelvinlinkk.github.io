@@ -1,4 +1,3 @@
-/*有空合併一下*/
 const welcomeimg = document.getElementsByClassName("welcome-background")[0]
 const backgroundbtn = document.getElementById("change-background")
 var backgroundnum = 0
