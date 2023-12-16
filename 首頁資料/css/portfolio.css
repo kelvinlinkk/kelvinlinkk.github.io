@@ -11,10 +11,6 @@ article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight
 header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 
 /*RWD*/
-@media screen and (max-width:390px){
-    aside{display: none;}
-    nav h3{width: 33vw;}
-}
 @media (max-aspect-ratio:1/1)  {
     aside{display: none;}
     nav h3{width: 33vw;}
@@ -32,7 +28,7 @@ aside{position: absolute;top: 0px;}
 aside span{position: relative;top: 40px; margin: 5px;width: 50px;right: calc(250px - 100vw);}
 aside img{height: 40px;position: relative;right: calc(40px - 100vw);top: 25px;}
 
-/*nav*/
+/*nav*/ 
 nav h3{display: inline-block; margin: 0%;text-align: center;}
 
 /*main*/

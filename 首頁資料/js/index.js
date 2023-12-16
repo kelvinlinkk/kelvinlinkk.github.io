@@ -10,16 +10,48 @@ function Fading(obj, speed, frames, f) {
         for (let i = 0; i <= frames; i++) { setTimeout(() => { obj.style.opacity = String((f ? i : (frames - i)) / frames); }, i * speed) }
 }
 
-//info is from href.js
-function drawLogo() {
-        for (let j = 0; j < info.length; j++) {
-                document.write('<article><h3>' + infoname[j] + '</h3><section>');
-                for (let i = 0; i < info[j].length; i++) {
-                        document.write('<div class="infos"><a href="' + info[j][i][0] + '"><span>' + info[j][i][1] + '</span><img src="首頁資料/logo/' + info[j][i][2] + '"></a></div>')
+//info is from href.jsasync function
+async function getjson() {
+        const response = await fetch('首頁資料/js/data.json');
+        return await response.json();
+}
+
+async function drawLogo() {
+        const container = document.getElementById('test'); // Replace 'yourContainerId' with the actual ID of the container where you want to append the content
+        getjson().then(data => {
+                for (let i in data['categories']) {
+                        const category = data['categories'][i];
+                        const article = document.createElement('article');
+                        const section = document.createElement('section');
+                        const h3 = document.createElement('h3');
+                        h3.textContent = category['categoryName'];
+                        article.appendChild(h3);
+
+                        for (let j in Object.keys(category['links'])) {
+                                const link = Object.keys(category['links'])[j];
+                                const div = document.createElement('div');
+                                div.className = 'infos'; // Add the class attribute here
+                                const a = document.createElement('a');
+                                const span = document.createElement('span');
+                                const img = document.createElement('img');
+
+                                a.href = category['links'][link]['url'];
+                                span.textContent = link;
+                                img.src = '首頁資料/logo/' + category['links'][link]['icon'];
+
+                                a.appendChild(span);
+                                a.appendChild(img);
+                                div.appendChild(a);
+                                section.appendChild(div);
+                                article.appendChild(section);
+                        }
+
+                        container.appendChild(article);
                 }
-                document.write('</section></article>');
-        }
-};
+                displayArticle();displayHeader();
+        });
+         
+}
 
 function displayArticle() {
         var articles = document.getElementsByTagName('article');
