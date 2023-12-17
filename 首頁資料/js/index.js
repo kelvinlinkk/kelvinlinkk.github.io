@@ -1,96 +1,97 @@
-function getHeader() {
-        window.removeEventListener('scroll', getHeader)
-        header = document.getElementsByTagName('header')[0];
-        Fading(header, 5, 100, 1)
-        setTimeout(() => { header.style.visibility = "visible" }, 1)
-}
-window.addEventListener('scroll', getHeader, false)
+const welcomeimg = document.getElementById('background-img')
+const aside = document.getElementById('test')
+const asideImg = document.getElementById('aside-icon')
 
-function Fading(obj, speed, frames, f) {
-        for (let i = 0; i <= frames; i++) { setTimeout(() => { obj.style.opacity = String((f ? i : (frames - i)) / frames); }, i * speed) }
+var asideflag = 0
+var backgroundnum = 0
+
+function fade(tar, speed, dir) {
+    for (let i = 0; i <= 1000; i++) {
+        setTimeout(() => { tar.style.opacity = (dir ? i : 1000 - i) / 1000; }, i * speed)
+    }
+}
+function color(tar, speed, dir) {
+    for (let i = 0; i <= 1000; i++) {
+        setTimeout(() => { tar.style.filter = 'brightness(' + (dir ? i : 1000 - i) / 1000 + ')'; }, i * speed)
+    }
+}
+function slide(tar, speed, from, to) {
+    for (let i = 1; i <= 500; i++) {
+        setTimeout(() => {
+            clearTimeout(); tar.style.left = String(from + ((i * (-i + 1000) / 250000) * (to - from)) + "vw");
+        }, i * speed)
+    }
 }
 
 async function getjson() {
-        const response = await fetch('首頁資料/js/data.json');
-        return await response.json();
+    const response = await fetch('首頁資料/js/data.json');
+    return await response.json();
 }
 
 async function drawLogo() {
-        const container = document.getElementById('test'); // Replace 'yourContainerId' with the actual ID of the container where you want to append the content
-        getjson().then(data => {
-                for (let i in data['categories']) {
-                        const category = data['categories'][i];
-                        const article = document.createElement('article');
-                        const section = document.createElement('section');
-                        const h3 = document.createElement('h3');
-                        h3.textContent = category['categoryName'];
-                        article.appendChild(h3);
+    const container = document.getElementById('test');
+    getjson().then(data => {
+        for (let i in data['categories']) {
+            const category = data['categories'][i];
+            const article = document.createElement('article');
+            const section = document.createElement('section');
+            const h3 = document.createElement('h3');
+            h3.textContent = category['categoryName'];
+            article.appendChild(h3);
 
-                        for (let j in Object.keys(category['links'])) {
-                                const link = Object.keys(category['links'])[j];
-                                const div = document.createElement('div');
-                                div.className = 'infos'; // Add the class attribute here
-                                const a = document.createElement('a');
-                                const span = document.createElement('span');
-                                const img = document.createElement('img');
+            for (let j in Object.keys(category['links'])) {
+                const link = Object.keys(category['links'])[j];
+                const div = document.createElement('div');
+                div.className = 'infos'; // Add the class attribute here
+                const a = document.createElement('a');
+                const span = document.createElement('span');
+                const img = document.createElement('img');
 
-                                a.href = category['links'][link]['url'];
-                                span.textContent = link;
-                                img.src = '首頁資料/logo/' + category['links'][link]['icon'];
-                                img.loading='lazy'
+                a.href = category['links'][link]['url'];
+                span.textContent = link;
+                img.src = '首頁資料/logo/' + category['links'][link]['icon'];
+                img.loading = 'lazy'
+                a.setAttribute('tabindex', '-1')
 
-                                a.appendChild(span);
-                                a.appendChild(img);
-                                div.appendChild(a);
-                                section.appendChild(div);
-                                article.appendChild(section);
-                        }
+                a.appendChild(span);
+                a.appendChild(img);
+                div.appendChild(a);
+                section.appendChild(div);
+                article.appendChild(section);
+            }
 
-                        container.appendChild(article);
-                }
-                displayArticle();displayHeader();
-        });
-         
+            container.appendChild(article);
+        }
+    });
+
 }
 
-function displayArticle() {
-        var articles = document.getElementsByTagName('article');
-        for (i = 0; i < articles.length; i++) {
-                articles[i].getElementsByTagName('h3')[0].addEventListener('click', function () {
-                        let mysection = this.parentNode.getElementsByTagName('section')[0]
-                        let myflag = (mysection.style.display != 'block')
-                        if (myflag == 1) {
-                                setTimeout(() => { mysection.style.setProperty('display', 'block', 'important'); }, 1)
-                                Fading(mysection, 5, 100, myflag);
-                        }
-                        else if (mysection.style.opacity == '1') {
-                                setTimeout(() => { mysection.style.setProperty('display', 'none', 'important'); }, 800)
-                                Fading(mysection, 5, 100, myflag);
-                        }
-                }, false)
-        }
+asideImg.onclick = function () {
+    if (asideflag == 0) {
+        asideflag = 1
+        slide(aside, 2, 100, 0)
+        color(asideImg, 1, 1)
+        setTimeout(() => { asideflag = 2 }, 1000)
+    } else if (asideflag == 2) {
+        asideflag = 1
+        slide(aside, 2, 0, 100)
+        color(asideImg, 1, 0)
+        setTimeout(() => { asideflag = 0 }, 1000)
+    }
 }
-
-function displayHeader() {
-        var myselect = document.getElementsByClassName('header-select');
-        window.onclick = () => {
-                for (j = 0; j < myselect.length; j++) {
-                        myselect[j].getElementsByClassName('header-list')[0].style.setProperty('display', 'none');
-                }
-        }
-        for (i = 0; i < myselect.length; i++) {
-                myselect[i].addEventListener('click', function () {
-                        let mylist = this.getElementsByClassName('header-list')[0]
-                        let myflag = (mylist.style.display != 'block')
-                        if (myflag == 1) {
-                                setTimeout(() => { mylist.style.setProperty('display', 'block', 'important'); }, 1)
-                                Fading(mylist, 5, 100, myflag);
-                        }
-                        else if (mylist.style.opacity == '1') {
-                                setTimeout(() => { mylist.style.setProperty('display', 'none', 'important'); }, 800)
-                                Fading(mylist, 5, 100, myflag);
-                        }
-                }, false)
-        }
+/*換背景上上下下左左右右ABAB*/
+mylist = [38, 38, 40, 40, 37, 37, 39, 39, 65, 66, 65, 66]
+count = 0
+window.onkeydown = function (e) {
+    if (e.which == 38 && count == 0) {
+        count = 1
+    } else if (e.which == mylist[count] && count < mylist.length - 1) {
+        count += 1
+    } else if (e.which == mylist[count] && count == mylist.length - 1) {
+        backgroundnum < 6 ? backgroundnum += 1 : backgroundnum = 0
+        welcomeimg.src = "首頁資料/background/background" + backgroundnum + ".jpg"
+        count = 0
+    } else {
+        count = 0
+    }
 }
-

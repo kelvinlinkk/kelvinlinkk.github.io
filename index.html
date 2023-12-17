@@ -1,212 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" onselectstart="return false">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="首頁資料/logo/logo.png" type="image/x-icon">
-    <title>Kelvin's home</title>
-    <meta http-equiv="Content-Security-Policy">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kelvin's homepage~">
+    <title>Kelvin 林坤逸</title>
+    <link rel="icon" href="首頁資料/logo/logo.png" type="x-icon">
+    <link rel="stylesheet" href="首頁資料/css/index.css">
     <base target="_blank">
-    <link href="首頁資料/css/index.css" rel="stylesheet" type="text/css">
-    <script src="首頁資料/js/countdown.js"></script>
 </head>
 
 <body>
-    <script src="首頁資料/js/index.js"></script>
-    <nav></nav>
-
-    <header>
-        <h2>KELVIN</h2>
-        <div class="header-select">
-            導覽
-            <ul class="header-list">
-                <a href="#bio" target="_self"><li>自我介紹</li></a>
-                <a href="#portfolio" target="_self"><li>我(們)的作品</li></a>
-                <a href="#source" target="_self"><li>常用網站整理</li></a>
-                <a href="#collection" target="_self"><li>喜歡的東西</li></a>
-            </ul>
-        </div>
-        <div class="header-select">
-            前往
-            <ul class="header-list">
-                <a href="portfolio.html" target="_self"><li>portfolio</li></a>
-                <a href="farewell.html" target="_self"><li>farewell</li></a>
-                <a href="f1.html" target="_self"><li>f1</li></a>
-                <a href="motogp.html" target="_self"><li>MotoGP</li></a>
-                <a href="anime.html" target="_self"><li>anime</li></a>
-                <a href="singer.html" target="_self"><li>singer</li></a>
-                <a href="book.html" target="_self"><li>novel</li></a>
-                <a href="card.html" target="_self"><li>抽卡模擬器</li></a>
-            </ul>
-        </div>
-        <div class="header-select">
-            學習歷程
-            <ul class="header-list">
-                <a href="學習歷程/Chinese.html" target="_self"><li>國文</li></a>
-                <a href="學習歷程/English.html" target="_self"><li>英文</li></a>
-                <a href="學習歷程/Biology.html" target="_self"><li>生物</li></a>
-                <a href="學習歷程/History.html" target="_self"><li>歷史</li></a>
-                <a href="學習歷程/Geography.html" target="_self"> <li>地理</li></a>
-                <a href="學習歷程/Career.html" target="_self"><li>生涯</li></a>
-                <a href="學習歷程/Activity.html" target="_self"><li>活動</li></a>
-                <a href="學習歷程/Competition.html" target="_self"><li>競賽</li></a>
-            </ul>
-        </div>
-        <script>setdate("12/20/2023")</script>
-        <span id="countdown" class="countdown">🔔 離寫document還有 <span id="days"></span> 天~
-        <span id="hours"></span><span id="minutes"></span><span id="seconds"></span><span id="end"></span></span>
-        
-    </header>
-    <div class="welcome">
-        <video loop muted src="首頁資料/background/living.mp4" autoplay loading="eager"></video>
-        <h1 id="kk">K E L V I N</h1>
-        <img src="首頁資料/logo/pause.png" alt="pause video" onclick="document.getElementsByTagName('video')[0].pause();">
-    </div>
-    
+    <img src="首頁資料/background/background0.jpg" id="background-img">
+    <aside id="test">
+        <img src="首頁資料/logo/分頁.svg" id="aside-icon">
+        <article>
+            <h3>我要前往</h3>
+            <section>
+                <div class="infos"><a href="portfolio.html"><span>學習歷程</span><img src="首頁資料/logo/portfolio.png" tabindex="-1"></a></div>
+                <div class="infos"><a href="farewell.html"><span>farewell</span><img src="首頁資料/logo/mail.png" tabindex="-1"></a></div>
+                <div class="infos"><a href="anime.html"><span>動漫專區</span><img src="首頁資料/logo/anime.png" tabindex="-1"></a></div>
+                <div class="infos"><a href="singer.html"><span>音樂專區</span><img src="首頁資料/logo/singer.png" tabindex="-1"></a></div>
+                <div class="infos"><a href="book.html"><span>小說專區</span><img src="首頁資料/logo/novel.png" tabindex="-1"></a></div>
+                <div class="infos"><a href="card.html"><span>抽卡模擬器</span><img src="首頁資料/logo/genshin.webp" tabindex="-1"></a></div>
+                <div class="infos"><a href="f1.html"><span>f1成績</span><img src="首頁資料/logo/f1.svg" tabindex="-1"></a></div>
+                <div class="infos"><a href="motogp.html"><span>MotoGP成績</span><img src="首頁資料/logo/motogp.png" tabindex="-1"></a></div>
+                <div class="infos"><a href="https://youtube.com/playlist?list=PLpI-mBeJCEey_rrDJNzdfwVjtPlNdtdYk&si=kJTHqYwiNpPaFBgm"><span>活動競賽紀錄影片</span><img src="首頁資料/logo/theater.png" tabindex="-1"></a></div>
+            </section>
+        </article>
+    </aside>
+    <article id="intro">
+        <img src="首頁資料/pic/profile.jpg" alt="Kelvin programming">
+        <h1>Kelvin 林坤逸</h1>
+        <h3>Coding · Dreaming · Living<br>來自雲林，乙巳年科舉生</h3>
+        <section>
+            <a href="https://www.facebook.com/profile.php?id=100069651581286"><img src="首頁資料/logo/facebook.png"></a>
+            <a href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><img src="首頁資料/logo/youtube.png"></a>
+            <a href="https://www.instagram.com/kvl._.19"><img src="首頁資料/logo/instagram.png"></a>
+            <a href="https://open.spotify.com/playlist/2haRvmkqLQiIbFLWQDt7EW?si=7301b1b2e2404f7b&nd=1&dlsi=c6e345963dcf4465"><img src="首頁資料/logo/spotify.png"></a>
+        </section>
+    </article>
+    <br>
     <main>
-        <div class="content">
-        <h2 id="bio">Kelvin's Homepage~</h2>
         <article>
-            <h3>Kelvin's homepage~</h3>
-            <section style="display: block;opacity: 1;">
-                <img src="首頁資料/pic/me.jpg" alt="Kelvin programming">
+            <h2>About - 那些關於我的事</h2>
+            <section>
                 <p>
-                    Coding. Learning. Dreaming. Living.
+                    &emsp;&emsp;我還在想欸
                 </p>
+                <img src="/首頁資料/pic/journey.jpg">
+                <script async src="//www.instagram.com/embed.js"></script><br>
             </section>
         </article>
         <article>
-            <h3>喜歡的句子</h3>
+            <h2>Coding - 原神抽卡模擬器</h2>
             <section>
-                <img src="首頁資料/pic/choice.png" alt="Attack on Titan Levi">
-                <blockquote>
-                    「就算相信自己的實力、相信值得信賴的同伴的選擇，但還是沒有人知道結果會怎樣…
-                    所以你就自己努力選擇一個不會留下遺憾的做法吧。」
-                    <br><br>里維．阿卡曼 -《進擊的巨人》
-                </blockquote><br>
-            </section>
-        </article>
-        </div><div class="content">
-        <h2 id="portfolio">我(們)的作品</h2>
-        <article>
-            <h3>Portfolio - 我的學習歷程專區</h3>
-            <section style="display: block;opacity: 1;">
-                <iframe src="portfolio.html"></iframe><br><a href="portfolio.html">點我前往</a>
+                <p>
+                    &emsp;&emsp;感謝同學們一同想出這個超神奇題目，在這次揚中之數中我學到一大堆以後不知道用不用得到的東西😁右側是一個簡單的原神抽卡模擬器，主要是在這次的數學報告中用來分析抽卡概率模型使用，當然也少不了迷因跟惡搞的元素。<br><br>
+                    &emsp;&emsp;該程式之目的在於提供我們進行抽卡機率分析的相關研究。藉由操作模擬器並調整概率，我們可以快速產生不同參數的樣本進而進行統計分析。<br><br>
+                    <a href="card.html" style="color: wheat;">點我前往(建議使用大螢幕操作)</a><br>
+                </p>
+                <blockquote class="instagram-media" data-instgrm-captioned
+                    data-instgrm-permalink="https://www.instagram.com/p/C0wGuwwyv8P/?utm_source=ig_embed&amp;utm_campaign=loading"
+                    data-instgrm-version="14">
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script><br>
             </section>
         </article>
         <article>
-            <h3>111學年度英語話劇暨歌舞比賽~高一忠</h3>
+            <h2>Living - 我的學習歷程專區</h2>
             <section>
-                <video src="https://github.com/kelvinlinkk/portfolio/raw/main/競賽/話劇.mp4" controls loading="lazy"></video><br>
-                <a href="https://youtu.be/_PYGp8LrtiQ">點我前往</a>
+                <iframe src="學習歷程/Competition.html"></iframe><br>
+                <p>
+                    除了定期上傳學習歷程以外，我希望建立一個能夠成為我整理各種學習歷程的中心。<br>
+                    於是，這裡便誕生了——不僅僅是屬於我的個人園地，更是一本沒有頁數限制的日記。<br>
+                    潔白的卷軸在面前緩緩展開，用最耀眼的色彩揮灑最閃亮的青春吧!<br><br>
+                    <a style="color: wheat;" href="portfolio.html">點我前往</a></p>
             </section>
         </article>
         <article>
-            <h3>國文影片 - 校園秘密景點🎬</h3>
+            <h2>Dreaming - 馳騁想像力的休閒</h2>
             <section>
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PLpI-mBeJCEezXl0MOq1c3-jB7ghA7cjZR" allowfullscreen loading="lazy"></iframe><br>
+                <img src="首頁資料/background/background2.jpg">
+                <p>
+                    因為小說、因為音樂、因為動漫，人類用真摯的情感與無盡地向像力在這個宇宙之外開出了成千上外驚奇的世界。<br><br>
+                    雙耳是情緒最直接的入口。嘈雜的聲音能使人煩躁，悠揚的樂聲卻若春風令人輕鬆舒爽，所以我喜歡聽歌，將自己沉浸在音樂之中，是一種安全感，也是在這紛紛擾擾的世界裡最美好的享受。<br><br>
+                    而動畫，總能描摹出再多CG特效皆無法呈現的景致，浪漫的故事或炫麗的打鬥都能讓我們腦海中具有更高的創造力。<br><br>
+                    至於眼不見耳無法聽聞的那些情感，卻經過小說家之手輕輕描繪，在觸及人心的對話或細膩至極的風景刻畫中全部活了起來!<br><br>
             </section>
         </article>
-        <article>
-            <h3>國小英語學藝競賽(不只喔)</h3>
-            <section>
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PLpI-mBeJCEey_rrDJNzdfwVjtPlNdtdYk" allowfullscreen loading="lazy"></iframe><br>
-            </section>
-        </article>
-        <article>
-            <h3>原神抽卡模擬器</h3>
-            <section>
-                <iframe src="card.html" loading="lazy"></iframe><br><a href="card.html">點我前往(建議大螢幕)</a>
-            </section>
-        </article>
-        <article>
-            <h3>測試專案：js物理模擬</h3>
-            <section>
-                <iframe src="rotate.html" loading="lazy"></iframe><br><a href="rotate.html">點我前往</a>
-            </section>
-        </article>
-        </div><div class="content" id="test">
-        <h2 id="source">常用網站整理</h2>
-        </div><div class="content">
-        <h2 id="collection">喜歡的東西</h2>
-        <article>
-            <h3>喜歡的歌手</h3>
-            <section>
-                <iframe src="https://open.spotify.com/embed/playlist/2haRvmkqLQiIbFLWQDt7EW?utm_source=generator" frameBorder="0" allowfullscreen="" loading="lazy"></iframe><br>
-                <p><a href="singer.html">點我點我!</a></p>
-            </section>
-        </article>
-        <article>
-            <h3>動漫大集合</h3>
-            <section loading="lazy">
-                <iframe src="https://www.youtube.com/embed/E7WytLM2KvY" allowfullscreen loading="lazy"></iframe>
-                <p><a href="anime.html">點我點我!</a></p>
-            </section>
-        </article>
-        <article>
-            <h3>君の膵臓をたべたい</h3>
-            <section>
-                <iframe src="https://www.youtube.com/embed/DA_LZFaksSw"  allowfullscreen loading="lazy"></iframe>
-            </section>
-        </article>
-        <article>
-            <h3>Formula 1</h3>
-            <section>
-                <iframe src="f1.html" loading="lazy"></iframe><br>
-                <a href="https://formula.com">點我前往官網</a>
-            </section>
-        </article>
-        <article>
-            <h3>MotoGP</h3>
-            <section>
-                <iframe src="motogp.html" loading="lazy"></iframe><br>
-                <a href="https://motogp.com">點我前往官網</a>
-            </section>
-        </article>
-        </div>
-        <script>drawLogo();</script>
-        <footer id="footer">
-            <h3>Kelvin Lin 的首頁 | 技術支援：<a href="https://pages.github.com/">github pages</a></h3>
-            <div class="footer-ul">
-            <ul>
-                <span>我要回到</span>
-                <li><a href="#countdown" target="_self">自我介紹</a></li>
-                <li><a href="#portfolio" target="_self">我(們)的作品</a></li>
-                <li><a href="#source" target="_self">常用網站整理</a></li>
-                <li><a href="#collection" target="_self">喜歡的東西</a></li>
-            </ul>
-            <ul>
-                <span>其他分頁</span>
-                <li><a href="portfolio.html" target="_self">portfolio</a></li>
-                <li><a href="farewell.html" target="_self">farewell</a></li>
-                <li><a href="f1.html" target="_self">f1</a></li>
-                <li><a href="motogp.html" target="_self">MotoGP</a></li>
-                <li><a href="anime.html" target="_self">anime</a></li>
-                <li><a href="singer.html" target="_self">singer</a></li>
-                <li><a href="book.html" target="_self">novel</a></li>
-                <li><a href="card.html" target="_self">抽卡模擬器</a></li>
-            </ul>
-            <ul>
-                <span>學習歷程檔案</span>
-                <li><a href="學習歷程/Chinese.html" target="_self">國文</a></li>
-                <li><a href="學習歷程/English.html" target="_self">英文</a></li>
-                <li><a href="學習歷程/Biology.html" target="_self">生物</a></li>
-                <li><a href="學習歷程/History.html" target="_self">歷史</a></li>
-                <li><a href="學習歷程/Geography.html" target="_self">地理</a></li>
-                <li><a href="學習歷程/Career.html" target="_self">生涯</a></li>
-                <li><a href="學習歷程/Activity.html" target="_self">活動</a></li>
-                <li><a href="學習歷程/Competition.html" target="_self">競賽</a></li>
-            </ul>
-        </div>
-        <div class="footer-social">
-            <a href="https://www.instagram.com/kvl._.19"><img src="首頁資料/logo/instagram.png" alt="instagram" loading="lazy"></a>
-            <a href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><img src="首頁資料/logo/youtube.png" alt="youtube" loading="lazy"></a>
-            <a href="https://www.facebook.com/profile.php?id=100069651581286"><img src="首頁資料/logo/facebook.png" alt="facebook" loading="lazy"></a>
-            <a href="https://open.spotify.com/playlist/2haRvmkqLQiIbFLWQDt7EW?si=7301b1b2e2404f7b"><img src="首頁資料/logo/spotify.png" alt="spotify" loading="lazy"></a>    
-        </div>
-        </footer>
     </main>
+    <script src="首頁資料/js/index.js"></script>
+    <script>drawLogo()</script>
 </body>
+
 </html>
