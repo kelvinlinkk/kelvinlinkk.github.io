@@ -38,30 +38,25 @@ aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 
 
 /*main*/
 main{position: relative;}
-main article{position: relative; inset: 0; text-align: center;}
-main article h2{text-align: left;padding: 24px;}
+main article{position: relative; inset: 0; text-align: justify;margin: 0;}
+main article h2{text-align: left;padding: 24px;margin: 0;}
 main article iframe,main article img,main article video
-{ width: 40vw;height: 25vw;border: 0;margin-right: 10px; float: right;object-fit: cover;}
-main section{min-height: 30vw; text-align: justify;}
-main section p{position: absolute;padding-left:10px;padding-right:50px;left: 0px; right: 40vw;}
-
+{ width: 40vw;height: 25vw;border: 0; float: right;object-fit: cover;}
+main section{min-height: 30vw; text-align: justify;padding: 10px;}
+main section p{position: relative;width: 55vw; margin: 0;}
 
 @media (max-width:800px) {
     main article h2{text-align: center;}
-    main article iframe,main article img,main article video{ width: 80vw;height: 60vw;border: 0;margin-left: 10vw; float: none;}
-    main article p{right: 0; padding-right: 10px;}
-    /*想改掉*/
-    main article:nth-child(1) p{padding-top: 60vw;}
-    main article:nth-child(2) p{padding-top: 60vw;}
-    main section{min-height: 120vw;}
-    #instagram-embed-0{ left: 10vw;}}
+    main article iframe,main article img,main article video
+    { width: 80vw;height: 60vw;margin-left: 10vw !important; float: none;}
+    main article p{width: 95vw;}
+}
 
-@media (min-width:800px) {
-    #instagram-embed-0{ margin-right: 10px !important;}
-    }
+.instagram-embed{background-color: #111111;}
 
 /*color*/
 aside{background: linear-gradient(to right,#00000000 ,#11111155 10%,#111111cc 30%);}
 #intro h1{color: white;}
 #intro h3{color:#673300;}
 main article h2{background-color: #11111199;}
+main article{background-color: #11111155;}

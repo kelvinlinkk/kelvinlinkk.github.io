@@ -50,7 +50,6 @@ async function drawLogo() {
                 a.href = category['links'][link]['url'];
                 span.textContent = link;
                 img.src = '首頁資料/logo/' + category['links'][link]['icon'];
-                img.loading = 'lazy'
                 a.setAttribute('tabindex', '-1')
 
                 a.appendChild(span);

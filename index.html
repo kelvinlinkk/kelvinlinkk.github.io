@@ -7,13 +7,16 @@
     <title>Kelvin 林坤逸</title>
     <link rel="icon" href="首頁資料/logo/logo.png" type="x-icon">
     <link rel="stylesheet" href="首頁資料/css/index.css">
+    <link rel="preload" href="首頁資料/logo/分頁.svg" as="image">
+    <link rel="preload" href="首頁資料/logo/logo.png" as="image">
+    <link rel="preload" href="首頁資料/background/background0.jpg" as="image">
     <base target="_blank">
 </head>
 
 <body>
-    <img src="首頁資料/background/background0.jpg" id="background-img">
+    <img src="首頁資料/background/background0.jpg" id="background-img" alt="Max Verstappen drving in the sunset">
     <aside id="test">
-        <img src="首頁資料/logo/分頁.svg" id="aside-icon">
+        <img src="首頁資料/logo/分頁.svg" id="aside-icon" alt="Kelvin 林坤逸">
         <article>
             <h3>我要前往</h3>
             <section>
@@ -31,8 +34,8 @@
     </aside>
     <article id="intro">
         <img src="首頁資料/pic/profile.jpg" alt="Kelvin programming">
-        <h1>Kelvin 林坤逸</h1>
-        <h3>Coding · Dreaming · Living<br>來自雲林，乙巳年科舉生</h3>
+        <h1><a href="#about" target="_self">Kelvin 林坤逸</a></h1>
+        <h3><a href="#coding" target="_self">Coding</a> · <a href="#dreaming" target="_self">Dreaming</a> · <a href="#living" target="_self">Living</a><br>來自雲林，乙巳年科舉生</h3>
         <section>
             <a href="https://www.facebook.com/profile.php?id=100069651581286"><img src="首頁資料/logo/facebook.png"></a>
             <a href="https://www.youtube.com/channel/UC4V9rH959eGiONgF675Jh6Q"><img src="首頁資料/logo/youtube.png"></a>
@@ -42,32 +45,31 @@
     </article>
     <br>
     <main>
-        <article>
+        <article id="about">
             <h2>About - 那些關於我的事</h2>
             <section>
+                <img src="/首頁資料/pic/journey.jpg">
                 <p>
                     &emsp;&emsp;我還在想欸
                 </p>
-                <img src="/首頁資料/pic/journey.jpg">
-                <script async src="//www.instagram.com/embed.js"></script><br>
             </section>
         </article>
-        <article>
+        <article id="coding">
             <h2>Coding - 原神抽卡模擬器</h2>
             <section>
+                <blockquote class="instagram-media" data-instgrm-captioned
+                    data-instgrm-permalink="https://www.instagram.com/p/C0wGuwwyv8P"
+                    data-instgrm-version="14">
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
                 <p>
                     &emsp;&emsp;感謝同學們一同想出這個超神奇題目，在這次揚中之數中我學到一大堆以後不知道用不用得到的東西😁右側是一個簡單的原神抽卡模擬器，主要是在這次的數學報告中用來分析抽卡概率模型使用，當然也少不了迷因跟惡搞的元素。<br><br>
                     &emsp;&emsp;該程式之目的在於提供我們進行抽卡機率分析的相關研究。藉由操作模擬器並調整概率，我們可以快速產生不同參數的樣本進而進行統計分析。<br><br>
                     <a href="card.html" style="color: wheat;">點我前往(建議使用大螢幕操作)</a><br>
                 </p>
-                <blockquote class="instagram-media" data-instgrm-captioned
-                    data-instgrm-permalink="https://www.instagram.com/p/C0wGuwwyv8P/?utm_source=ig_embed&amp;utm_campaign=loading"
-                    data-instgrm-version="14">
-                </blockquote>
-                <script async src="//www.instagram.com/embed.js"></script><br>
             </section>
         </article>
-        <article>
+        <article id="living">
             <h2>Living - 我的學習歷程專區</h2>
             <section>
                 <iframe src="學習歷程/Competition.html"></iframe><br>
@@ -78,7 +80,7 @@
                     <a style="color: wheat;" href="portfolio.html">點我前往</a></p>
             </section>
         </article>
-        <article>
+        <article id="dreaming">
             <h2>Dreaming - 馳騁想像力的休閒</h2>
             <section>
                 <img src="首頁資料/background/background2.jpg">
