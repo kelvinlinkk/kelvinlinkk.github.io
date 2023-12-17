@@ -10,7 +10,6 @@ function Fading(obj, speed, frames, f) {
         for (let i = 0; i <= frames; i++) { setTimeout(() => { obj.style.opacity = String((f ? i : (frames - i)) / frames); }, i * speed) }
 }
 
-//info is from href.jsasync function
 async function getjson() {
         const response = await fetch('首頁資料/js/data.json');
         return await response.json();

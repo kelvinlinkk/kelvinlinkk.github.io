@@ -45,20 +45,18 @@
       {
         "categoryName": "娛樂🎮",
         "links": {
-          "中學生網站": {"url": "https://www.shs.edu.tw/", "icon": "中學生.png"},
-          "博碩網": {"url": "https://ndltd.ncl.edu.tw/", "icon": "博碩網.jpg"},
-          "學習歷程上傳": {"url": "https://epf-mlife.k12ea.gov.tw/", "icon": "學習歷程.png"},
-          "揚子高中": {"url": "http://210.70.188.193/skyweb/index.htm", "icon": "yths.png"},
-          "科教館": {"url": "https://twsf.ntsec.gov.tw/", "icon": "科教館.png"},
-          "網路科教館": {"url": "https://www.ntsec.edu.tw/science/list.aspx", "icon": "科教館.png"},
-          "專利檢索": {"url": "https://twpat3.tipo.gov.tw/", "icon": "IPO.png"},
-          "IEYI": {"url": "http://www.ieyiun.org/", "icon": "ieyi.png"},
-          "InnoServe": {"url": "https://innoserve.tca.org.tw/", "icon": "innoserve.gif"},
-          "旺宏科學獎": {"url": "https://www.mxeduc.org.tw/scienceaward/", "icon": "旺宏.jfif"},
-          "小水力": {"url": "https://tepu.org.tw/", "icon": "tepu.png"},
-          "ewant": {"url": "https://www.ewant.org/", "icon": "ewant.jpg"},
-          "台大開放式課程": {"url": "http://ocw.aca.ntu.edu.tw/ntu-ocw/", "icon": "台大.svg"},
-          "高中生資訊網": {"url": "https://students.tw/", "icon": "student.jpg"}
+          "spotify": {"url": "https://open.spotify.com/", "icon": "spotify.svg"},
+          "messenger": {"url": "https://www.messenger.com/", "icon": "messenger.svg"},
+          "instagram": {"url": "https://www.instagram.com/", "icon": "Instagram.svg"},
+          "Facebook": {"url": "https://www.facebook.com/", "icon": "facebook.svg"},
+          "twitter": {"url": "https://twitter.com/", "icon": "twitter.svg"},
+          "discord": {"url": "https://discord.com/app", "icon": "discord.svg"},
+          "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
+          "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
+          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"},
+          "motorsport": {"url": "https://www.motorsport.com/", "icon": "motorsport.jpg"},
+          "autosport": {"url": "https://www.autosport.com/", "icon": "autosport.png"},
+          "運動視界": {"url": "https://www.sportsv.net/racing", "icon": "運動視界.jpg"}
         }        
       },
       {

@@ -31,6 +31,9 @@ header li{position: relative;list-style:square;left: -1em;margin: 10px;min-width
 
 /*aside*/
 
+/*countdown*/
+#hours,#minutes,#seconds,#end{display: none;}
+
 /*nav*/
 
 /*main*/
