@@ -50,6 +50,7 @@ async function drawLogo() {
                 a.href = category['links'][link]['url'];
                 span.textContent = link;
                 img.src = '首頁資料/logo/' + category['links'][link]['icon'];
+                img.alt = category['links'][link]['icon'];
                 a.setAttribute('tabindex', '-1')
 
                 a.appendChild(span);
@@ -94,3 +95,5 @@ window.onkeydown = function (e) {
         count = 0
     }
 }
+
+document.addEventListener('touchstart', onTouchStart, {passive: true});

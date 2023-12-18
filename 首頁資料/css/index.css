@@ -4,6 +4,7 @@ a{text-decoration: none;color: unset;}
 @font-face {
     font-family: 'ChenYuluoyan';
     src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin-Monospaced.ttf);
+    font-display: swap;
 }
 @keyframes scalesIn{from{scale:1;}to{scale:1.25;}}
 @keyframes scalesOut{from{scale:1.25;}to{scale:1;}}
@@ -31,7 +32,7 @@ aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 
 /*intro*/
 #intro{position: relative;inset: 0; margin-top: 100px; bottom: auto;}
 #intro h1{text-align: center;}
-#intro h3{text-align: center;font-family: 'chenyuluoyan';font-size: 26px;}
+#intro h2{text-align: center;font-family: 'chenyuluoyan';font-size: 26px;}
 #intro img{position: relative;display: block;margin: auto; width: 100px; height: 100px;
     border-radius: 50px; object-fit: scale-down;}
 #intro section{display: flex;align-items: center;justify-content: center;}
@@ -58,6 +59,6 @@ main section p{position: relative;width: 55vw; margin: 0;}
 /*color*/
 aside{background: linear-gradient(to right,#00000000 ,#11111155 10%,#111111cc 30%);}
 #intro h1{color: white;}
-#intro h3{color:#673300;}
+#intro h2{color:#673300;}
 main article h2{background-color: #11111199;}
 main article{background-color: #11111155;}
