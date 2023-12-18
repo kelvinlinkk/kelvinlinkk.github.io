@@ -18,8 +18,8 @@ body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-ser
 
 /*logo*/
 .infos{display: inline-block;position: relative;margin: 20px;margin-bottom: 20px;}
-.infos img{width: 7vw;height: 7vw;border-radius: 10px;}
-.infos span{position: absolute;top: 7vw;width: 100%;text-align: center;
+.infos img{width: calc(5vw + 5vh);height: calc(5vw + 5vh);border-radius: 10px;}
+.infos span{position: absolute;top: calc(5vw + 5vh);width: 100%;text-align: center;
     white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 aside article{position: relative;font-weight: bold;right: 50px;padding: 50px;}
 aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 100vw; margin: 0px;z-index: 2;padding: 0px 50px;}
@@ -48,8 +48,8 @@ main section p{position: relative;width: 55vw; margin: 0;}
 @media (max-width:800px) {
     main article h2{text-align: center;}
     main article iframe,main article img,main article video
-    { width: 80vw;height: 60vw;margin-left: 10vw !important; float: none;}
-    main article p{width: 95vw;}
+    {display: block;margin: auto !important; width: 80vw;height: 60vw; float: none;}
+    main article p{width: 95vw;padding-top: 10px;}
 }
 
 .instagram-embed{background-color: #111111;}
