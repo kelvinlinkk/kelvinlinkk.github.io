@@ -112,7 +112,7 @@
           "AAAS": {"url": "https://www.science.org/", "icon": "aaas.svg"},
           "科學online": {"url": "https://highscope.ch.ntu.edu.tw/", "icon": "online.jpg"},
           "Jacob O'Neal": {"url": "https://jacoboneal.com/", "icon": "JO.png"},
-          "geogebra": {"url": "https://www.geogebra.org/", "icon": "geogebra.png"},
+          "geogebra": {"url": "https://www.geogebra.org/classic", "icon": "geogebra.png"},
           "泛科學": {"url": "https://pansci.asia/", "icon": "pansci.jpg"}
         }     
       },

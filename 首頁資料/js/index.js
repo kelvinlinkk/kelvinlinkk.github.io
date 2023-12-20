@@ -22,6 +22,14 @@ function slide(tar, speed, from, to) {
         }, i * speed)
     }
 }
+function bounce(tar, speed) {
+    for (let i = 0; i < 1000; i++) {
+        setTimeout(
+            function () {
+                tar.style.transform = 'scale(' + (9000 + i) / 10000 + ',' + (9000 + i) / 10000 + ')';
+            }, i * speed)
+    }
+}
 
 async function getjson() {
     const response = await fetch('首頁資料/js/data.json');
@@ -29,7 +37,6 @@ async function getjson() {
 }
 
 async function drawLogo() {
-    const container = document.getElementById('test');
     getjson().then(data => {
         for (let i in data['categories']) {
             const category = data['categories'][i];
@@ -60,7 +67,7 @@ async function drawLogo() {
                 article.appendChild(section);
             }
 
-            container.appendChild(article);
+            aside.appendChild(article);
         }
     });
 
@@ -95,5 +102,30 @@ window.onkeydown = function (e) {
         count = 0
     }
 }
+flag=[]
+function track(n) {
+    var tar = document.getElementsByClassName("content")[n];
+    var h2 = tar.getElementsByTagName('h2')[0];
+    var section = tar.getElementsByTagName('section')[0];
+    var mypic = section.childNodes[1];
+    var mytext = section.getElementsByTagName('p')[0];
+    tarTop = tar.getBoundingClientRect().top;
+    tarBot = tar.getBoundingClientRect().bottom;
+    //LYRICS
+    if (tarTop > screen.height || tarBot < 0) {
+    //mypic.style.opacity = "0";
+    flag[n] = false;
 
-document.addEventListener('touchstart', onTouchStart, {passive: true});
+    } else if (flag[n] == false) {
+        bounce(mypic, 0.5);
+        fade(mytext,1.7,1)
+        flag[n] = true;
+    }else{
+        flag[n] = true;
+    }
+}
+for( let i in document.getElementsByClassName('content')){
+    flag.push(false)
+    track(i)
+    window.addEventListener('scroll',()=>{track(i)})
+}

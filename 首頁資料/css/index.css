@@ -20,6 +20,7 @@ body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-ser
 /*logo*/
 .infos{display: inline-block;position: relative;margin: 20px;margin-bottom: 20px;}
 .infos img{width: calc(5vw + 5vh);height: calc(5vw + 5vh);border-radius: 10px;}
+.infos img:hover{filter:drop-shadow(0px 0px 10px rgba(255, 191, 0, 0.5));}
 .infos span{position: absolute;top: calc(5vw + 5vh);width: 100%;text-align: center;
     white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 aside article{position: relative;font-weight: bold;right: 50px;}
@@ -43,7 +44,7 @@ main{position: relative;}
 main article{position: relative; inset: 0; text-align: justify;margin: 0;}
 main article h2{text-align: left;padding: 24px;margin: 0;}
 main article iframe,main article img,main article video
-{ width: 40vw;height: 25vw;border: 0; float: right;object-fit: cover;}
+{ width: 40vw;height: 25vw;border: 0; float: right;object-fit: cover;border-radius: 15px 0px; filter:drop-shadow(0px 0px 15px rgba(190, 190, 190, 0.5));}
 main section{min-height: 30vw; text-align: justify;padding: 10px;}
 main section p{position: relative;width: 55vw; margin: 0;}
 
@@ -53,8 +54,6 @@ main section p{position: relative;width: 55vw; margin: 0;}
     {display: block;margin: auto !important; width: 80vw;height: 60vw; float: none;}
     main article p{width: 95vw;padding-top: 10px;}
 }
-
-.instagram-embed{background-color: #111111;}
 
 /*color*/
 aside{background: linear-gradient(to right,#00000000 ,#11111155 10%,#111111cc 30%);}
