@@ -6,13 +6,13 @@ var asideflag = 0
 var backgroundnum = 0
 
 function fade(tar, speed, dir) {
-    for (let i = 0; i <= 1000; i++) {
-        setTimeout(() => { tar.style.opacity = (dir ? i : 1000 - i) / 1000; }, i * speed)
+    for (let i = 0; i <= 500; i++) {
+        setTimeout(() => { tar.style.opacity = (dir ? i : 500 - i) / 500; }, i * speed)
     }
 }
 function color(tar, speed, dir) {
-    for (let i = 0; i <= 1000; i++) {
-        setTimeout(() => { tar.style.filter = 'brightness(' + (dir ? i : 1000 - i) / 1000 + ')'; }, i * speed)
+    for (let i = 0; i <= 500; i++) {
+        setTimeout(() => { tar.style.filter = 'brightness(' + (dir ? i : 500 - i) / 500 + ')'; }, i * speed)
     }
 }
 function slide(tar, speed, from, to) {
@@ -23,10 +23,10 @@ function slide(tar, speed, from, to) {
     }
 }
 function bounce(tar, speed) {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 500; i++) {
         setTimeout(
             function () {
-                tar.style.transform = 'scale(' + (9000 + i) / 10000 + ',' + (9000 + i) / 10000 + ')';
+                tar.style.transform = 'scale(' + (4500 + i) / 5000 + ',' + (4500 + i) / 5000 + ')';
             }, i * speed)
     }
 }
