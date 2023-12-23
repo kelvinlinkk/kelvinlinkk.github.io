@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="首頁資料/js/gacha.js"></script>
+    5UP積分<input type="input" id="5up" value="20"><br><br>
+    5星積分<input type="input" id="5star" value="10"><br><br>
+    4星積分<input type="input" id="4star" value="5"><br><br>
+    門檻&emsp;&emsp;<input type="input" id="threshold" value="90"><br><br>
+    遊戲勝率<input type="input" id="rate" value="0.7"><br><br>
+    <button onclick="test()">執行(可以修改上面數值多按幾次看看，一次為100次的平均值)</button><hr>
+    <p id="displaytxt"></p>
+    <script>
+        function test(){
+            const fiveup = parseInt(document.getElementById('5up').value)
+            const fivestar = parseInt(document.getElementById('5star').value)
+            const fourstar = parseInt(document.getElementById('4star').value)
+            const threshold = parseInt(document.getElementById('threshold').value)
+            const rate = parseFloat(document.getElementById('rate').value)
+            const displaytxt = document.getElementById('displaytxt')
+            var result = 0;
+            var money = 0;
+            for(let j = 0;j<100;j++){
+                let sum = 0;
+                for(let i = 0;i<90;i++){
+                    result = pick()
+                    switch(result){
+                    case 6: {sum+=fiveup;break;}
+                    case 2: {sum+=fourstar;break;}
+                    case 5: {sum+=fivestar;break;}
+                    case 4: {sum+=fourstar;break;}
+                    default: {break;}
+                }
+                }
+                if(Math.random()>=rate){
+                    money+=40
+                }
+                else if(sum>=threshold){
+                    money-=160
+                }else{
+                    money+=10
+                }
+            }
+            console.log(displaytxt.innerHTML=money/100)
+        }
+    </script>
+</body>
+</html>
