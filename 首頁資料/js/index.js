@@ -102,7 +102,7 @@ window.onkeydown = function (e) {
         count = 0
     }
 }
-flag=[]
+flag = []
 function track(n) {
     var tar = document.getElementsByClassName("content")[n];
     var section = tar.getElementsByTagName('section')[0];
@@ -114,14 +114,14 @@ function track(n) {
         flag[n] = false;
     } else if (flag[n] == false) {
         bounce(mypic, 0.5);
-        fade(mytext,1.7,1)
+        fade(mytext, 1.7, 1)
         flag[n] = true;
-    }else{
+    } else {
         flag[n] = true;
     }
 }
-for( let i in document.getElementsByClassName('content')){
+for (let i in document.getElementsByClassName('content')) {
     flag.push(false)
     track(i)
-    window.addEventListener('scroll',()=>{track(i)})
+    window.addEventListener('scroll', () => { track(i) })
 }

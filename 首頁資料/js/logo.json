@@ -4,6 +4,7 @@
         "categoryName": "實用小工具 🔧",
         "links": {
           "ilovepdf": {"url": "https://www.ilovepdf.com/zh-tw", "icon": "ilovepdf.png"},
+          "iloveimg": {"url": "https://www.iloveimg.com/zh-tw", "icon": "iloveimg.png"},
           "canva": {"url": "https://www.canva.com/", "icon": "canva.svg"},
           "pexels": {"url": "https://www.pexels.com/zh-tw/", "icon": "pexels.png"},
           "flaticon": {"url": "https://www.flaticon.com/", "icon": "flaticon.jpg"},
@@ -110,7 +111,7 @@
           "全球災害事件簿": {"url": "https://den.ncdr.nat.gov.tw/", "icon": "disaster.svg"},
           "medium": {"url": "https://medium.com", "icon": "medium.svg"},
           "SNExplores": {"url": "https://www.snexplores.org/", "icon": "sn.svg"},
-          "分類沙丘": {"url": "https://taxonomicdune.com/", "icon": "sn.svg"},
+          "分類沙丘": {"url": "https://taxonomicdune.com/", "icon": "dune.jpg"},
           "AAAS": {"url": "https://www.science.org/", "icon": "aaas.svg"},
           "科學online": {"url": "https://highscope.ch.ntu.edu.tw/", "icon": "online.jpg"},
           "Jacob O'Neal": {"url": "https://jacoboneal.com/", "icon": "JO.png"},

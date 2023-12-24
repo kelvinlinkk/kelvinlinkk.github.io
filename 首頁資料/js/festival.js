@@ -67,7 +67,7 @@ function gacha(num) {
             }
         }
     }
-    score.value = String(parseInt(score.value/100)) + String(parseInt(score.value%100/10)) + String(parseInt(score.value%10));
+    score.value = String(parseInt(score.value / 100)) + String(parseInt(score.value % 100 / 10)) + String(parseInt(score.value % 10));
 
     transition.style.display = "initial"
     onecardVid.style.display = "none";
