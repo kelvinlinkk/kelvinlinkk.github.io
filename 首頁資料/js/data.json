@@ -13,6 +13,7 @@
           "Power of PPT": {"url": "https://thepopp.com/templates/scheat/", "icon": "popp.svg"},
           "notion": {"url": "https://www.notion.so/", "icon": "notion.svg"},
           "fontspace": {"url": "https://www.fontspace.com/", "icon": "fontspace.jpg"},
+          "1001fonts": {"url": "https://www.1001fonts.com/", "icon": "1001.png"},
           "vectorwiki": {"url": "https://vectorwiki.com", "icon": "vectorwiki.png"},
           "free sources": {"url": "https://free.com.tw/", "icon": "free.jpg"},
           "pinterest": {"url": "https://pinterest.com", "icon": "pinterest.png"},
@@ -20,7 +21,8 @@
           "audio library": {"url": "https://www.youtube.com/@audiolibrary_", "icon": "audiolibrary.jpg"},
           "xmind": {"url": "https://xmind.app/", "icon": "xmind.svg"},
           "overleaf": {"url": "https://www.overleaf.com/", "icon": "overleaf.svg"},
-          "PNG轉ICO": {"url": "https://www.aconvert.com/tw/icon/png-to-ico/", "icon": "ico.jpg"}
+          "PNG轉ICO": {"url": "https://www.aconvert.com/tw/icon/png-to-ico/", "icon": "ico.jpg"},
+          "Zapier": {"url": "https://zapier.com/", "icon": "zapier.png"}
         }        
       },
       {
