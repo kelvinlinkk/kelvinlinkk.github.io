@@ -1,5 +1,5 @@
 /*setup*/
-body{background-color: black;color: aliceblue;}
+body{background-color: black;color: aliceblue;font-weight: 200;letter-spacing: 0.4px;}
 a{text-decoration: none;color: unset;}
 @font-face {
     font-family: 'ChenYuluoyan';
@@ -10,12 +10,12 @@ a{text-decoration: none;color: unset;}
 @keyframes scalesOut{from{scale:1.25;}to{scale:1;}}
 
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
-::-webkit-scrollbar{display: none;}
+*::-webkit-scrollbar{display: none;}
 body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;}
 
 /*background*/
-#background-img{position: fixed;width: 100%;height: 100%;inset: 0;margin: 0; object-fit: cover;}
+#background-img{position: fixed;width: 100%;height: 100%;inset: 0;margin: 0; object-fit: cover;opacity: 0.7;  }
 
 /*logo*/
 .infos{display: inline-block;position: relative;margin: 20px;margin-bottom: 20px;}
@@ -37,27 +37,38 @@ aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 
 #intro img{position: relative;display: block;margin: auto; width: 100px; height: 100px;
     border-radius: 50px; object-fit: scale-down;}
 #intro section{display: flex;align-items: center;justify-content: center;}
-#intro section img{ width: 30px;height: 30px;border-radius: 15px;margin: 5px;filter: hue-rotate(180deg);}
+#intro section img{ width: 30px;height: 30px;border-radius: 15px;margin: 5px;filter:brightness(0);}
 
 /*main*/
 main{position: relative;}
 main article{position: relative; inset: 0; text-align: justify;margin: 0;}
 main article h2{text-align: left;padding: 24px;margin: 0;}
 main article iframe,main article img,main article video
-{ width: 40vw;height: 25vw;border: 0; float: right;object-fit: cover;border-radius: 15px 0px; filter:drop-shadow(0px 0px 15px rgba(190, 190, 190, 0.5));}
+{position: relative;margin-top: -50px !important; width: 40vw;height: 25vw;border: 0; float: right;object-fit: cover;border-radius: 15px 0px; filter:drop-shadow(0px 0px 15px rgba(190, 190, 190, 0.5));}
 main section{min-height: 30vw; text-align: justify;padding: 10px;}
-main section p{position: relative;width: 55vw; margin: 0;}
+main section p{position: relative;width: 55vw; margin: 0;padding-left: 10px;}
+.lyrics{height: 45vh;overflow-y: scroll;font-style: italic;}
+.lyrics::-webkit-scrollbar{display:unset;}
 
+/*footer*/
+footer{ font:25px 'Chenyuluoyan';position: relative;height: 50px;}
+footer h3{text-align: center;font-weight: normal;margin: 0;}
+footer a{font-weight: bold;}
+
+/*RWD*/
 @media (max-width:800px) {
     main article h2{text-align: center;}
     main article iframe,main article img,main article video
     {display: block;margin: auto !important; width: 80vw;height: 60vw; float: none;}
-    main article p{width: 95vw;padding-top: 10px;}
+    main article p{width: 95vw;padding-top: 10px;padding-left: 0;}
+    main article h3{text-align: center;}
 }
 
 /*color*/
 aside{background: linear-gradient(to right,#00000000 ,#11111155 10%,#111111cc 30%);}
 #intro h1{color: white;}
-#intro h2{color:#432200;}
-main article h2{background-color: #11111199;}
-main article{background-color: #11111155;}
+#intro h2{color: #111111;}
+footer a{color: rgb(139, 127, 0);}
+main article h2,.lyrics::-webkit-scrollbar-thumb{background-color: #11111199;}
+main article,.lyrics,.lyrics::-webkit-scrollbar{background-color: #11111155;}
+footer{background-color: #000000;}

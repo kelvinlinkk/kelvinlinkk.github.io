@@ -1,0 +1,178 @@
+{
+    "categories": [
+      {
+        "categoryName": "實用小工具 🔧",
+        "links": {
+          "ilovepdf": {"url": "https://www.ilovepdf.com/zh-tw", "icon": "ilovepdf.png"},
+          "canva": {"url": "https://www.canva.com/", "icon": "canva.svg"},
+          "pexels": {"url": "https://www.pexels.com/zh-tw/", "icon": "pexels.png"},
+          "flaticon": {"url": "https://www.flaticon.com/", "icon": "flaticon.jpg"},
+          "reurl": {"url": "https://reurl.cc", "icon": "reurl.png"},
+          "google fonts": {"url": "https://fonts.google.com/", "icon": "googlefonts.png"},
+          "unsplash": {"url": "https://www.unsplash.com/", "icon": "unsplash.svg"},
+          "Power of PPT": {"url": "https://thepopp.com/templates/scheat/", "icon": "popp.svg"},
+          "notion": {"url": "https://www.notion.so/", "icon": "notion.svg"},
+          "fontspace": {"url": "https://www.fontspace.com/", "icon": "fontspace.jpg"},
+          "1001fonts": {"url": "https://www.1001fonts.com/", "icon": "1001.png"},
+          "vectorwiki": {"url": "https://vectorwiki.com", "icon": "vectorwiki.png"},
+          "free sources": {"url": "https://free.com.tw/", "icon": "free.jpg"},
+          "pinterest": {"url": "https://pinterest.com", "icon": "pinterest.png"},
+          "undraw": {"url": "https://undraw.co/illustrations", "icon": "undraw.png"},
+          "audio library": {"url": "https://www.youtube.com/@audiolibrary_", "icon": "audiolibrary.jpg"},
+          "xmind": {"url": "https://xmind.app/", "icon": "xmind.svg"},
+          "overleaf": {"url": "https://www.overleaf.com/", "icon": "overleaf.svg"},
+          "PNG轉ICO": {"url": "https://www.aconvert.com/tw/icon/png-to-ico/", "icon": "ico.jpg"},
+          "Zapier": {"url": "https://zapier.com/", "icon": "zapier.png"}
+        }        
+      },
+      {
+        "categoryName": "學校及報告📏",
+        "links": {
+          "中學生網站": {"url": "https://www.shs.edu.tw/", "icon": "中學生.png"},
+          "博碩網": {"url": "https://ndltd.ncl.edu.tw/", "icon": "博碩網.jpg"},
+          "學習歷程上傳": {"url": "https://epf-mlife.k12ea.gov.tw/", "icon": "學習歷程.png"},
+          "揚子高中": {"url": "http://210.70.188.193/skyweb/index.htm", "icon": "yths.png"},
+          "科教館": {"url": "https://twsf.ntsec.gov.tw/", "icon": "科教館.png"},
+          "網路科教館": {"url": "https://www.ntsec.edu.tw/science/list.aspx", "icon": "科教館.png"},
+          "專利檢索": {"url": "https://twpat3.tipo.gov.tw/", "icon": "IPO.png"},
+          "IEYI": {"url": "http://www.ieyiun.org/", "icon": "ieyi.png"},
+          "InnoServe": {"url": "https://innoserve.tca.org.tw/", "icon": "innoserve.gif"},
+          "旺宏科學獎": {"url": "https://www.mxeduc.org.tw/scienceaward/", "icon": "旺宏.jfif"},
+          "小水力": {"url": "https://tepu.org.tw/", "icon": "tepu.png"},
+          "ewant": {"url": "https://www.ewant.org/", "icon": "ewant.jpg"},
+          "台大開放式課程": {"url": "http://ocw.aca.ntu.edu.tw/ntu-ocw/", "icon": "台大.svg"},
+          "高中生資訊網": {"url": "https://students.tw/", "icon": "student.jpg"}
+        }        
+      },
+      {
+        "categoryName": "娛樂🎮",
+        "links": {
+          "spotify": {"url": "https://open.spotify.com/", "icon": "spotify.svg"},
+          "messenger": {"url": "https://www.messenger.com/", "icon": "messenger.svg"},
+          "instagram": {"url": "https://www.instagram.com/", "icon": "Instagram.svg"},
+          "Facebook": {"url": "https://www.facebook.com/", "icon": "facebook.svg"},
+          "twitter": {"url": "https://twitter.com/", "icon": "twitter.svg"},
+          "discord": {"url": "https://discord.com/app", "icon": "discord.svg"},
+          "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
+          "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
+          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"},
+          "motorsport": {"url": "https://www.motorsport.com/", "icon": "motorsport.jpg"},
+          "autosport": {"url": "https://www.autosport.com/", "icon": "autosport.png"},
+          "運動視界": {"url": "https://www.sportsv.net/racing", "icon": "運動視界.jpg"}
+        }        
+      },
+      {
+        "categoryName": "程式設計💻",
+        "links":{
+            "w3schools": {"url": "https://www.w3schools.com/", "icon": "w3logo.png"},
+            "github": {"url": "https://github.com", "icon": "github.png"},
+            "stack overflow": {"url": "https://stackoverflow.com/", "icon": "stackoverflow.jpg"},
+            "ncku_csie": {"url": "https://linktr.ee/ncku_csie_camp", "icon": "ncku_csie.jpg"},
+            "oxxostudio": {"url": "https://www.oxxostudio.tw/", "icon": "oxxo.png"},
+            "hello算法": {"url": "https://www.hello-algo.com/", "icon": "hello.png"},
+            "diagram": {"url": "https://diagram.com/", "icon": "diagram.svg"},
+            "figma": {"url": "https://www.figma.com/", "icon": "figma.png"},
+            "codecademy": {"url": "https://www.codecademy.com/", "icon": "codecademy.svg"},
+            "edx": {"url": "https://www.edx.org/", "icon": "edx.png"},
+            "khanacademy": {"url": "https://www.khanacademy.org/", "icon": "khan.svg"},
+            "udacity": {"url": "https://www.udacity.com/", "icon": "udacity.svg"},
+            "dash": {"url": "https://dash.generalassemb.ly/", "icon": "dash.png"},
+            "learneroo": {"url": "https://www.learneroo.com/", "icon": "learneroo.jpg"},
+            "banto.io": {"url": "https://bento.io/", "icon": "bento.svg"},
+            "freecodecamp": {"url": "https://www.freecodecamp.org/", "icon": "freecodecamp.svg"},
+            "leetcode": {"url": "https://leetcode.com/", "icon": "leetcode.png"},
+            "the coding train": {"url": "https://www.youtube.com/@TheCodingTrain", "icon": "thecodingtrain.jpg"},
+            "app inventor": {"url": "https://ai2.appinventor.mit.edu/", "icon": "appinventor.png"}
+          }
+      },
+      {
+        "categoryName": "知識充電站👀",
+        "links": {
+          "voicetube": {"url": "https://tw.voicetube.com/", "icon": "voicetube.svg"},
+          "BBCEng": {"url": "https://www.bbc.co.uk/learningenglish/", "icon": "bbc.png"},
+          "Crash Course": {"url": "https://www.youtube.com/user/crashcourse", "icon": "crashcourse.png"},
+          "TED": {"url": "https://www.youtube.com/c/TED", "icon": "ted.svg"},
+          "Quizlet": {"url": "https://quizlet.com/", "icon": "quizlet.svg"},
+          "cool english": {"url": "https://www.coolenglish.edu.tw/", "icon": "coolenglish.png"},
+          "etymonline": {"url": "https://www.etymonline.com/", "icon": "etymonline.jpg"},
+          "劍橋辭典": {"url": "https://dictionary.cambridge.org/", "icon": "cambridge.png"},
+          "韋氏字典": {"url": "https://www.merriam-webster.com/", "icon": "webster.jpg"},
+          "Guardian": {"url": "https://www.theguardian.com/science", "icon": "guardian.svg"},
+          "radio garden": {"url": "https://radio.garden/", "icon": "radio.png"},
+          "均一": {"url": "https://www.junyiacademy.org/", "icon": "均一.svg"},
+          "哲學新媒體": {"url": "https://philomedium.com/", "icon": "philomedium.png"},
+          "lawplayer": {"url": "https://lawplayer.com/", "icon": "lawplayer.jpg"},
+          "Quotes": {"url": "https://www.goodreads.com/quotes", "icon": "goodreads.jpg"},
+          "教育部辭典": {"url": "https://dict.revised.moe.edu.tw/", "icon": "dict.png"},
+          "the world's factbook": {"url": "https://www.cia.gov/the-world-factbook/", "icon": "factbook.png"},
+          "報導者": {"url": "https://www.twreporter.org/", "icon": "thereporter.svg"},
+          "PEOPO": {"url": "https://www.peopo.org/", "icon": "peopo.jpg"},
+          "全球災害事件簿": {"url": "https://den.ncdr.nat.gov.tw/", "icon": "disaster.svg"},
+          "medium": {"url": "https://medium.com", "icon": "medium.svg"},
+          "SNExplores": {"url": "https://www.snexplores.org/", "icon": "sn.svg"},
+          "分類沙丘": {"url": "https://taxonomicdune.com/", "icon": "sn.svg"},
+          "AAAS": {"url": "https://www.science.org/", "icon": "aaas.svg"},
+          "科學online": {"url": "https://highscope.ch.ntu.edu.tw/", "icon": "online.jpg"},
+          "Jacob O'Neal": {"url": "https://jacoboneal.com/", "icon": "JO.png"},
+          "geogebra": {"url": "https://www.geogebra.org/classic", "icon": "geogebra.png"},
+          "泛科學": {"url": "https://pansci.asia/", "icon": "pansci.jpg"}
+        }     
+      },
+      {
+        "categoryName": "高中升學輔導專區💼",
+        "links": {
+          "collego": {"url": "https://collego.edu.tw/", "icon": "collego.svg"},
+          "IOH": {"url": "https://ioh.tw/", "icon": "ioh.jpg"},
+          "大學問": {"url": "https://www.unews.com.tw/", "icon": "大學問.jpg"},
+          "大學聯招": {"url": "https://www.cac.edu.tw/", "icon": "college.jpg"},
+          "生涯輔導網": {"url": "https://career.cloud.ncnu.edu.tw/", "icon": "career.png"},
+          "特殊選才": {"url": "https://srecruit.moe.edu.tw/", "icon": "特殊選才.jpg"},
+          "大考中心": {"url": "https://www.ceec.edu.tw/", "icon": "大考中心.jpg"},
+          "多元入學": {"url": "https://nsdua.moe.edu.tw/", "icon": "多元入學.jpg"},
+          "1111大學網": {"url": "https://university.1111.com.tw/", "icon": "1111大學網.jpg"},
+          "104求職網": {"url": "https://www.104.com.tw/jb/career/", "icon": "104.svg"}
+        }        
+      },
+      {
+        "categoryName": "Google and Microsoft",
+        "links": {
+          "search": {"url": "https://www.google.com/", "icon": "googlesearch.png"},
+          "YouTube": {"url": "https://www.youtube.com/", "icon": "YouTube.svg"},
+          "YouTube Music": {"url": "https://music.youtube.com/", "icon": "youtubemusic.png"},
+          "gmail": {"url": "https://mail.google.com/", "icon": "gmail.png"},
+          "pagespeed insights": {"url": "https://pagespeed.web.dev/", "icon": "pagespeed.png"},
+          "translate": {"url": "https://translate.google.com/", "icon": "translate.png"},
+          "drive": {"url": "https://drive.google.com/", "icon": "drive.png"},
+          "keep": {"url": "https://keep.google.com/", "icon": "keep.png"},
+          "classroom": {"url": "https://classroom.google.com/", "icon": "classroom.png"},
+          "web store": {"url": "https://chrome.google.com/webstore/", "icon": "webstore.svg"},
+          "photo": {"url": "https://photos.google.com/", "icon": "photo.svg"},
+          "map": {"url": "https://www.google.com/maps/", "icon": "map.png"},
+          "meet": {"url": "https://meet.google.com/", "icon": "meet.png"},
+          "drawings": {"url": "https://docs.google.com/drawings/", "icon": "drawing.png"},
+          "kaggle": {"url": "https://www.kaggle.com/", "icon": "kaggle.svg"},
+          "podcast": {"url": "https://podcasts.google.com/", "icon": "podcast.png"},
+          "to-do": {"url": "https://to-do.live.com/tasks/", "icon": "todo.svg"},
+          "bing": {"url": "https://www.bing.com/", "icon": "bing.jpg"},
+          "office": {"url": "https://www.office.com/", "icon": "office.png"}
+        }
+        
+      },
+      {
+        "categoryName": "AI💥",
+        "links": {
+          "chatGPT": {"url": "https://chat.openai.com", "icon": "chatgpt.jpg"},
+          "claude": {"url": "https://claude.ai/", "icon": "claude.svg"},
+          "bard": {"url": "https://bard.google.com/", "icon": "bard.jpg"},
+          "Leonardo": {"url": "https://app.leonardo.ai/", "icon": "leonardo.png"},
+          "Natural Readers": {"url": "https://www.naturalreaders.com/", "icon": "nr.svg"},
+          "fotor": {"url": "https://www.fotor.com/", "icon": "fotor.png"},
+          "msdesigner": {"url": "https://designer.microsoft.com", "icon": "msdesigner.jpg"},
+          "tome": {"url": "https://tome.app/", "icon": "tome.png"},
+          "gamma": {"url": "https://gamma.app/", "icon": "gamma.jpg"},
+          "scribblediffusion": {"url": "https://scribblediffusion.com/", "icon": "scribblediffusion.jpg"}
+        }        
+      }
+    ]
+  }
+  

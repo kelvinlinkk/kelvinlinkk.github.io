@@ -1,6 +1,7 @@
 const welcomeimg = document.getElementById('background-img')
 const aside = document.getElementById('test')
 const asideImg = document.getElementById('aside-icon')
+const anime = document.getElementById('anime')
 
 var asideflag = 0
 var backgroundnum = 0
@@ -31,13 +32,13 @@ function bounce(tar, speed) {
     }
 }
 
-async function getjson() {
-    const response = await fetch('首頁資料/js/data.json');
+async function getjson(name) {
+    const response = await fetch('首頁資料/js/' + name + '.json');
     return await response.json();
 }
 
 async function drawLogo() {
-    getjson().then(data => {
+    getjson('logo').then(data => {
         for (let i in data['categories']) {
             const category = data['categories'][i];
             const article = document.createElement('article');
@@ -49,7 +50,7 @@ async function drawLogo() {
             for (let j in Object.keys(category['links'])) {
                 const link = Object.keys(category['links'])[j];
                 const div = document.createElement('div');
-                div.className = 'infos'; // Add the class attribute here
+                div.className = 'infos';
                 const a = document.createElement('a');
                 const span = document.createElement('span');
                 const img = document.createElement('img');
@@ -66,11 +67,9 @@ async function drawLogo() {
                 section.appendChild(div);
                 article.appendChild(section);
             }
-
             aside.appendChild(article);
         }
     });
-
 }
 
 asideImg.onclick = function () {
@@ -86,6 +85,7 @@ asideImg.onclick = function () {
         setTimeout(() => { asideflag = 0 }, 1000)
     }
 }
+
 /*換背景上上下下左左右右ABAB*/
 mylist = [38, 38, 40, 40, 37, 37, 39, 39, 65, 66, 65, 66]
 count = 0
@@ -105,17 +105,13 @@ window.onkeydown = function (e) {
 flag=[]
 function track(n) {
     var tar = document.getElementsByClassName("content")[n];
-    var h2 = tar.getElementsByTagName('h2')[0];
     var section = tar.getElementsByTagName('section')[0];
-    var mypic = section.childNodes[1];
+    var mypic = section.getElementsByTagName('img')[0];
     var mytext = section.getElementsByTagName('p')[0];
     tarTop = tar.getBoundingClientRect().top;
     tarBot = tar.getBoundingClientRect().bottom;
-    //LYRICS
     if (tarTop > screen.height || tarBot < 0) {
-    //mypic.style.opacity = "0";
-    flag[n] = false;
-
+        flag[n] = false;
     } else if (flag[n] == false) {
         bounce(mypic, 0.5);
         fade(mytext,1.7,1)
