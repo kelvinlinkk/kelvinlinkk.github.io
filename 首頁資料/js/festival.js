@@ -9,6 +9,7 @@ const backgroundbtn = document.getElementById("change-background")
 const onecardVid = document.getElementById("one-card-video")
 const onecardAud = document.getElementById("one-card-audio")
 const skip = document.getElementById("skip")
+const resetbtn = document.getElementsByClassName('stone')[0]
 var cards = document.getElementsByClassName("card")
 
 var backgroundnum = 0
@@ -31,7 +32,7 @@ function slide(tar, speed, from, to) {
     }
 }
 
-function gacha(num) {
+function gacha() {
     if (stone.value < 1600) { window.alert("no stone"); return }
     var pickCards = []
     stone.value = parseInt(stone.value) - 1600
@@ -77,13 +78,13 @@ function gacha(num) {
     onecardAud.currentTime = "0"; onecardAud.play()
     const myaction = function () {
         vid.removeEventListener('ended', myaction); skip.removeEventListener('click', myaction)
-        show_ten_cards();
+        show_cards();
     }
     vid.addEventListener("ended", myaction);
     skip.addEventListener("click", myaction);
 }
 
-function show_ten_cards() {
+function show_cards() {
     onecardAud.pause()
     transition.style.display = "none";
     result.style.display = "initial";
@@ -102,14 +103,20 @@ function show_ten_cards() {
             };
             result.style.display = "none";
             if (parseInt(score.value) >= 85) {
-                window.alert("85分的動畫放這裡")
+                window.alert("已滿85分")
             }
         }, { once: true })
     }, 2000)
-
-
 }
+
+function resetall(){
+    score.value='000'
+    reset()
+    stone.value='14400'
+    window.alert("已重置")
+}
+
 window.onload = function () {
-    mygacha[0].addEventListener("click", function () { window.alert("維修中") })
-    mygacha[1].addEventListener("click", function () { gacha(10) })
+    mygacha[0].addEventListener("click",resetall)
+    mygacha[1].addEventListener("click",gacha)
 }
