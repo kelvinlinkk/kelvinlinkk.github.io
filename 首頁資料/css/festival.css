@@ -30,7 +30,8 @@ a{text-decoration: none;color: unset;}
 .score{position: fixed;left: 40vw;top: 1vh;min-width: 10vw; padding: 0 50px;  height: 8vh;
     line-height: 8vh;font-size: 8vh; font-family: 'digital';}
 .score input{position: absolute;top: 0; height: 8vh;padding: 0; margin: 0;font-variant: normal;text-justify: inter-word; 
-    line-height: 8vh;font-size: 8vh;width: 21vh;font-family: 'digital';margin: 0;}
+    line-height: 8vh;font-size: 8vh;width: 21vh;font-family: 'digital';font-size: 8vh;}
+
 /*description*/
 .activity-area{
     position: fixed;left: 20vw;top: 10vh; aspect-ratio: 1.8; right: 50px; max-height: 80vh;
@@ -75,7 +76,7 @@ a{text-decoration: none;color: unset;}
 #skip{position: fixed;top: 0;right: 0;margin: 50px;height: 50px;width: 150px;opacity: 0.5;}
 
 /*result*/
-.result{position: fixed;inset: 0px;display: none;}
+.result{position: fixed;inset: 0px;display: none;background-image: url("/首頁資料/卡池資訊/showcard.jpg");}
 .card{position: relative;display: inline-block; top: 10vh;height: 80vh;left: 10vw;width: 8vw;
     opacity: 0;object-fit:fill;z-index: 5;}
 #one-card-video{position: absolute;top: 0px;margin: auto;text-align: center;height: 100%;opacity: 0;z-index: 0;}
