@@ -7,11 +7,13 @@
     <title>抽卡模擬器-園遊會Version</title>
     <link rel="icon" type="x-icon" href="首頁資料/pic/genshin.png">
     <link rel="stylesheet" href="首頁資料/css/festival.css">
+    <link rel='preload' as='image' href='首頁資料/卡池資訊/activity.png'>
+    <link rel='preload' as='image' href='首頁資料/卡池資訊/showcard.jpg'>
+    <meta property="og:image" content="首頁資料/卡池資訊/activity.png">
 </head>
 
 <body>
-    <video style="position: fixed;object-fit: cover;inset: 0;" muted autoplay loop
-        src="首頁資料/卡池資訊/background.mp4"></video>
+    <video id="background" muted autoplay loop src="首頁資料/卡池資訊/background.mp4"></video>
     <span class="pool-area">
         <div class="pool-band"></div>
         <button class="pool"><img src="首頁資料/卡池資訊/activity.png"></button>
@@ -58,5 +60,4 @@
     <script src="首頁資料/js/gacha.js"></script>
     <script src="首頁資料/js/festival.js"></script>
 </body>
-
 </html>

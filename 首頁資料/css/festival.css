@@ -22,6 +22,7 @@ a{text-decoration: none;color: unset;}
     position: relative;display: block; margin-bottom: 20px;width: 12vw;aspect-ratio: 2;padding: 0;
 }
 .pool img{position: absolute; width: 150%;left: -25%;top: 0%;}
+#background{position: fixed;inset: 0;}
 
 /*rules*/
 .rules{position: fixed; bottom:0;left: 0; width: 30vw;height: 30vh;padding: 5px;font-size: large;}
@@ -51,6 +52,7 @@ a{text-decoration: none;color: unset;}
 .activity-area h3{top: calc(15% + 112.5px);}
 .activity-area p{top: calc(15% + 150px);}
 .counttime{bottom: 50px;font-size: larger;}
+
 /*gacha*/
 .gacha-area{
     position: fixed;top: 85.5vh;right: 50px; bottom: 7vh; width: auto ; 
