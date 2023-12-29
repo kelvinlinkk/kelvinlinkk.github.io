@@ -109,14 +109,27 @@ function show_cards() {
     }, 2000)
 }
 
-function resetall(){
-    score.value='000'
+function resetall() {
+    score.value = '000'
     reset()
-    stone.value='14400'
+    stone.value = '14400'
     window.alert("已重置")
 }
 
 window.onload = function () {
-    mygacha[0].addEventListener("click",resetall)
-    mygacha[1].addEventListener("click",gacha)
+    mygacha[0].addEventListener("click", resetall)
+    mygacha[1].addEventListener("click", gacha)
+
 }
+/*document.onkeydown = (e) => {
+    if (e && e.key == 'F12') {
+        return false;
+    } else if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+        return false;
+    }else if (e.shiftKey && e.key == 'F10') {
+        return false;
+    }
+}*/
+var threshold=100 ;
+this.timer1 = setInterval(function (){if (window.outerWidth - window.innerWidth > threshold|| window.outerHeight - window.innerHeight > threshold)
+    { window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'}})

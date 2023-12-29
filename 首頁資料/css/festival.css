@@ -13,6 +13,13 @@ a{text-decoration: none;color: unset;}
     font-family: 'digital';
     src: url(../font/digital-7.ttf);
 }
+body {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
 /*pool*/
 .pool-area{position: absolute;top: 15vh;left: 50px; height: 80vh;width: 150px;}
