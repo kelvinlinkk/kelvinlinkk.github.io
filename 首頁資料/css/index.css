@@ -61,7 +61,7 @@ footer a{font-weight: bold;}
     main article iframe,main article img,main article video
     {display: block;margin: auto !important; width: 80vw;height: 60vw; float: none;}
     main article p{width: 95vw;padding-top: 10px;padding-left: 0;}
-    main article h3{text-align: center;}
+    main article h3,.lyrics{text-align: center;}
 }
 
 /*color*/
