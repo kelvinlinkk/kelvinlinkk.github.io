@@ -110,7 +110,7 @@ function track(n) {
     var mytext = section.getElementsByTagName('p')[0];
     tarTop = tar.getBoundingClientRect().top;
     tarBot = tar.getBoundingClientRect().bottom;
-    if (tarTop > screen.height || tarBot < 0) {
+    if (tarTop > screen.height - 100 || tarBot < 0) {
         flag[n] = false;
     } else if (flag[n] == false) {
         bounce(mypic, 0.5);
