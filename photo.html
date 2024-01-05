@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photo</title>
+    <link rel="stylesheet" href="/首頁資料/css/photo.css">
+</head>
+<body>
+    <img class="img" src="/首頁資料/pic/secondtonone.JPG">
+    <img class="img" src="/首頁資料/pic/DNA.jpg">
+    <img class="img" src="/首頁資料/pic/journey.jpg">
+    <script>
+        const img = document.getElementsByClassName('img')
+        var size = []
+        for(let j in img){
+            size.push([400,200])
+            img[j].addEventListener('click',()=>{
+            xratio = (document.body.getBoundingClientRect().height-size[j][0])/100
+            yratio = (document.body.getBoundingClientRect().width-size[j][1])/100
+            for(let i = 0;i<100;i++){
+                setTimeout(()=>{
+                    size[j][0]+=xratio;size[j][1]+=yratio;
+                    img[j].style.position = 'absolute';
+                    img[j].style.inset = '0';
+                    img[j].style.height = size[j][0] + 'px';
+                    img[j].style.width = size[j][1] + 'px';
+                },i**3/3000)
+            }
+        })
+        }
+    </script>
+</body>
+</html>

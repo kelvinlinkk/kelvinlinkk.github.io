@@ -1,0 +1,2 @@
+body{height: 100vh;margin: 0;}
+img{position: relative;inset: 0;margin: auto; display: inline-block;left:calc(50vw - 100px);top: calc(50vh - 200px); object-fit:cover; height: 400px;width: 200px;z-index: 3;}
