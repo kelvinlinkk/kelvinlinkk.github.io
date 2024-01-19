@@ -10,16 +10,6 @@ body{font-family: "Noto Sans TC", sans-serif;font-weight: bold;text-align: justi
 article{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:normal;}
 header h1 a{font-family: "Microsoft JhengHei UI"; font-weight: bolder;}
 
-/*RWD*/
-@media (max-aspect-ratio:1/1)  {
-    aside{display: none;}
-    nav h3{width: 33vw;}
-}
-@media (min-aspect-ratio:1/1) {
-    aside{display: initial;}
-    nav h3{width: 25vw;}
-}
-
 /*header*/
 h1{margin-bottom: 0%;}
 
@@ -29,8 +19,15 @@ aside span{position: relative;top: 40px; margin: 5px;width: 50px;right: calc(250
 aside img{height: 40px;position: relative;right: calc(40px - 100vw);top: 25px;}
 
 /*nav*/ 
-nav h3{display: inline-block; margin: 0%;text-align: center;}
-
+nav h3{display: inline-flex;justify-content: center;justify-items: right;margin: 0;}
+@media screen and (max-aspect-ratio:1/1)  {
+    aside{display: none;}
+    nav h3{width: 25vw;}
+}
+@media screen and (min-aspect-ratio:1/1) {
+    aside{display: initial;}
+    nav h3{width: 25vw;}
+}
 /*main*/
 main{margin: 10px;}
 body{margin: 0;}
@@ -52,24 +49,12 @@ p{font-weight: normal;}
 li{font-weight: normal;}
 dd{font-weight: normal;}
 
-/*footer*/
-footer{ font:25px 'Chenyuluoyan';text-align: center;position: relative;top: 1.5em;}
-footer h3{margin: 0;}
-.footer-ul p{position: relative; font-weight: bold;left: -1em;font-style: oblique;}
-footer ul{min-width: fit-content; display: inline-table;}
-footer li{position: relative;left: -1em;font-weight: bold;}
-.footer-ul{margin:0px 10px;}
-.footer-social{margin: 20px 10px;text-align: left;}
-.footer-social p{position: relative; float: right;bottom: 20px; overflow: hidden;}
-.footer-social img{height: 5vh;margin: 0px 5px;}
-
 /*color*/
 body{background-color: #313131;}
 body,a,.pic a{color: #e3eff6;}
 h1 a,article a,nav h3:hover a,
 .highlight{color: #f1ca00;}
-nav a,footer a,footer{color: #0d417d;}
+nav a{color: #0d417d;}
 article h2,hr{border-color: #e3eff6;}
-footer{background: linear-gradient(143deg,pink 0%,skyblue 50%,lime 100%);}
 nav{background-color: #f1ca00;}
 nav h3:hover{background-color: black;}
