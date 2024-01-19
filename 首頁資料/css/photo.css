@@ -1,3 +1,0 @@
-body{white-space: nowrap;margin: 0; width: 100vw;overflow: hidden;}
-.img{position: relative;top: calc(50vh - 15vw); width: 40vw;height: 30vw;
-    object-fit: cover;margin: 0px;padding-right: 10px;}
