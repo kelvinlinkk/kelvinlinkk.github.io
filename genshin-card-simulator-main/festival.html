@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽卡模擬器-園遊會Version</title>
+    <link rel="icon" type="x-icon" href="首頁資料/pic/genshin.png">
+    <link rel="stylesheet" href="首頁資料/css/festival.css">
+    <link rel='preload' as='image' href='首頁資料/卡池資訊/activity.png'>
+    <link rel='preload' as='image' href='首頁資料/卡池資訊/showcard.jpg'>
+    <meta property="og:image" content="首頁資料/卡池資訊/activity.png">
+</head>
+
+<body oncontextmenu="return false">
+    <video id="background" muted autoplay loop src="首頁資料/卡池資訊/background.mp4"></video>
+    <span class="pool-area">
+        <div class="pool-band"></div>
+        <button class="pool"><img src="首頁資料/卡池資訊/activity.png"></button>
+    </span>
+    <div class="activity-area">
+        <span class="activity-title">角色活動祈願</span>
+        <button><img src="首頁資料/卡池資訊/activity.png" id="poolinfo" style="position: absolute;"></button>
+        <h1><span style="color: #478fca;">翩舞</span><span style="color: #494949;">歈蓮</span></h1>
+        <h2><span style="color: #494949;">抽取機率提升!</span></h2>
+        <h3>🔹每十次祈願必出四星或以上物品。</h3>
+        <p><span style="color: #494949;">活動限定五星角色僅在UP期間，在對應的<br>祈願中獲得。具體內容查看【詳情】</span></p>
+        <article class="counttime"><span style="color: #494949;"></span></article>
+    </div>
+    <span class="rules">
+        遊戲規則:<br><br>
+        在90抽中，4星5分、常駐5星10分、5星UP卡20分。滿85分選取娃娃，否則贈送動漫IP吊飾。
+    </span>
+    <span class="score">
+        SCORE :&emsp13;<input type="text" value="000" disabled maxlength="3" id="score">
+    </span>
+    <span class="gacha-area">
+        <div class="gacha" id="gacha-1"><img src="首頁資料/卡池資訊/button1.png"></div>
+        <div class="gacha" id="gacha-10"><img src="首頁資料/卡池資訊/button10.png"></div>
+    </span>
+    <span class="stone">
+        <input type="text" class="source" value="14400" id="stone-num" disabled>
+        <img class="stone-icon" src="首頁資料/卡池資訊/stone.png">
+    </span>
+    <span id="transition">
+        <video class="trans-ani" src="首頁資料/卡池資訊/transition4.mp4" muted autoplay></video>
+        <button id="skip">Skip>></button>
+    </span>
+    <span class="result" id="result-area">
+        <video id="one-card-video" muted autoplay></video>
+        <audio id="one-card-audio" src="首頁資料/卡池資訊/transition.mp3"></audio>
+        <h1>123</h1>
+        <script>
+            for (let i = 0; i < 10; i++) {
+                document.write("<img class='card'></img>")
+            }
+        </script>
+
+    </span>
+    <script src="首頁資料/js/gacha.js"></script>
+    <script src="首頁資料/js/festival.js"></script>
+</body>
+</html>
