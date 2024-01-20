@@ -50,7 +50,7 @@
         "links": {
           "spotify": {"url": "https://open.spotify.com/", "icon": "spotify.svg"},
           "kkbox": {"url": "https://play.kkbox.com/", "icon": "kkbox.jpg"},
-          "messenger": {"url": "https://www.messenger.com/", "icon": "messenger.svg"},
+          "messenger": {"url": "https://www.facebook.com/messages/", "icon": "messenger.svg"},
           "instagram": {"url": "https://www.instagram.com/", "icon": "Instagram.svg"},
           "Facebook": {"url": "https://www.facebook.com/", "icon": "facebook.svg"},
           "Twitter": {"url": "https://twitter.com/", "icon": "twitter.svg"},
