@@ -50,7 +50,12 @@
         "links": {
           "spotify": {"url": "https://open.spotify.com/", "icon": "spotify.svg"},
           "kkbox": {"url": "https://play.kkbox.com/", "icon": "kkbox.jpg"},
-          "messenger": {"url": "https://www.facebook.com/messages/", "icon": "messenger.svg"},
+          "messenger": {"url": "https://messenger.com", "icon": "messenger.svg"},
+          "instagram": {"url": "https://www.instagram.com/", "icon": "Instagram.svg"},
+          "Facebook": {"url": "https://www.facebook.com/", "icon": "facebook.svg"},
+          "Twitter": {"url": "https://twitter.com/", "icon": "twitter.svg"},
+          "Threads": {"url": "https://www.threads.net/", "icon": "Threads.svg"},
+          "TikTok": {"url": "https://www.tiktok.com/following", "icon": "tiktok.jpg"},
           "discord": {"url": "https://discord.com/app", "icon": "discord.svg"},
           "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
           "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
@@ -169,7 +174,7 @@
         "links": {
           "chatGPT": {"url": "https://chat.openai.com", "icon": "chatgpt.svg"},
           "claude": {"url": "https://claude.ai/", "icon": "claude.svg"},
-          "bard": {"url": "https://bard.google.com/", "icon": "bard.svg"},
+          "gemini": {"url": "https://gemini.google.com/", "icon": "bard.svg"},
           "Leonardo": {"url": "https://app.leonardo.ai/", "icon": "leonardo.png"},
           "Natural Readers": {"url": "https://www.naturalreaders.com/", "icon": "nr.svg"},
           "fotor": {"url": "https://www.fotor.com/", "icon": "fotor.png"},
