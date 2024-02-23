@@ -59,10 +59,7 @@
           "discord": {"url": "https://discord.com/app", "icon": "discord.svg"},
           "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
           "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
-          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"},
-          "motorsport": {"url": "https://www.motorsport.com/", "icon": "motorsport.jpg"},
-          "autosport": {"url": "https://www.autosport.com/", "icon": "autosport.png"},
-          "運動視界": {"url": "https://www.sportsv.net/racing", "icon": "運動視界.jpg"}
+          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"}
         }        
       },
       {
