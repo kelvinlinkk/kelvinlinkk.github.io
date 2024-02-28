@@ -159,8 +159,7 @@
           "fotor": {"url": "https://www.fotor.com/", "icon": "fotor.png"},
           "msdesigner": {"url": "https://designer.microsoft.com", "icon": "msdesigner.jpg"},
           "tome": {"url": "https://tome.app/", "icon": "tome.png"},
-          "gamma": {"url": "https://gamma.app/", "icon": "gamma.jpg"},
-          "scribblediffusion": {"url": "https://scribblediffusion.com/", "icon": "scribblediffusion.jpg"}
+          "gamma": {"url": "https://gamma.app/", "icon": "gamma.jpg"}
         }        
       },
       {
