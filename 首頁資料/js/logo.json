@@ -46,23 +46,6 @@
         }        
       },
       {
-        "categoryName": "娛樂🎮",
-        "links": {
-          "spotify": {"url": "https://open.spotify.com/", "icon": "spotify.svg"},
-          "kkbox": {"url": "https://play.kkbox.com/", "icon": "kkbox.jpg"},
-          "messenger": {"url": "https://messenger.com", "icon": "messenger.svg"},
-          "instagram": {"url": "https://www.instagram.com/", "icon": "Instagram.svg"},
-          "Facebook": {"url": "https://www.facebook.com/", "icon": "facebook.svg"},
-          "Twitter": {"url": "https://twitter.com/", "icon": "twitter.svg"},
-          "Threads": {"url": "https://www.threads.net/", "icon": "Threads.svg"},
-          "TikTok": {"url": "https://www.tiktok.com/following", "icon": "tiktok.jpg"},
-          "discord": {"url": "https://discord.com/app", "icon": "discord.svg"},
-          "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
-          "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
-          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"}
-        }        
-      },
-      {
         "categoryName": "程式設計💻",
         "links":{
             "w3schools": {"url": "https://www.w3schools.com/", "icon": "w3logo.png"},
@@ -145,7 +128,6 @@
         "categoryName": "Google and Microsoft",
         "links": {
           "search": {"url": "https://www.google.com/", "icon": "googlesearch.png"},
-          "YouTube": {"url": "https://www.youtube.com/", "icon": "YouTube.svg"},
           "YouTube Music": {"url": "https://music.youtube.com/", "icon": "youtubemusic.png"},
           "gmail": {"url": "https://mail.google.com/", "icon": "gmail.svg"},
           "pagespeed insights": {"url": "https://pagespeed.web.dev/", "icon": "pagespeed.png"},
@@ -179,6 +161,24 @@
           "tome": {"url": "https://tome.app/", "icon": "tome.png"},
           "gamma": {"url": "https://gamma.app/", "icon": "gamma.jpg"},
           "scribblediffusion": {"url": "https://scribblediffusion.com/", "icon": "scribblediffusion.jpg"}
+        }        
+      },
+      {
+        "categoryName": "娛樂🎮",
+        "links": {
+          "spotify": {"url": "https://open.spotify.com/", "icon": "spotify.svg"},
+          "kkbox": {"url": "https://play.kkbox.com/", "icon": "kkbox.jpg"},
+          "messenger": {"url": "https://messenger.com", "icon": "messenger.svg"},
+          "instagram": {"url": "https://www.instagram.com/", "icon": "Instagram.svg"},
+          "Facebook": {"url": "https://www.facebook.com/", "icon": "facebook.svg"},
+          "Twitter": {"url": "https://twitter.com/", "icon": "twitter.svg"},
+          "Threads": {"url": "https://www.threads.net/", "icon": "Threads.svg"},
+          "TikTok": {"url": "https://www.tiktok.com/following", "icon": "tiktok.jpg"},
+          "discord": {"url": "https://discord.com/app", "icon": "discord.svg"},
+          "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
+          "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
+          "YouTube": {"url": "https://www.youtube.com/", "icon": "YouTube.svg"},
+          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"}
         }        
       }
     ]
