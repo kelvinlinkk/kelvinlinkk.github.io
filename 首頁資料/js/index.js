@@ -17,12 +17,28 @@ function color(tar, speed, dir) {
     }
 }
 function slide(tar, speed, from, to) {
-    for (let i = 1; i <= 500; i++) {
-        setTimeout(() => {
-            clearTimeout(); tar.style.left = String(from + ((i * (-i + 1000) / 250000) * (to - from)) + "vw");
-        }, i * speed)
+    let startTime;
+    const duration = 2500/speed; // Animation duration in milliseconds
+
+    function animateSlide(timestamp) {
+        if (!startTime) {
+            startTime = timestamp;
+        }
+        const progress = timestamp - startTime;
+
+        if (progress < duration) {
+            const newPosition = from + ((progress / duration) * (to - from));
+            tar.style.left = `${newPosition}vw`;
+            requestAnimationFrame(animateSlide);
+        } else {
+            tar.style.left = `${to}vw`;
+            startTime = null;
+        }
     }
+
+    requestAnimationFrame(animateSlide);
 }
+
 function bounce(tar, speed) {
     for (let i = 0; i < 500; i++) {
         setTimeout(
@@ -95,7 +111,7 @@ window.onkeydown = function (e) {
     } else if (e.which == mylist[count] && count < mylist.length - 1) {
         count += 1
     } else if (e.which == mylist[count] && count == mylist.length - 1) {
-        backgroundnum < 6 ? backgroundnum += 1 : backgroundnum = 0
+        backgroundnum < 2 ? backgroundnum += 1 : backgroundnum = 0
         welcomeimg.src = "首頁資料/background/background" + backgroundnum + ".jpg"
         count = 0
     } else {
