@@ -56,6 +56,9 @@ async function getjson(name) {
 async function drawLogo() {
     getjson('logo').then(data => {
         for (let i in data['categories']) {
+            if (data['categories'][i]['categoryName']=="娛樂🎮"){
+                break; //拿掉娛樂
+            }
             const category = data['categories'][i];
             const article = document.createElement('article');
             const section = document.createElement('section');
@@ -84,6 +87,7 @@ async function drawLogo() {
                 article.appendChild(section);
             }
             aside.appendChild(article);
+            aside.appendChild(document.createElement('br'));
         }
     });
 }

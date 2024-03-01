@@ -25,7 +25,8 @@ body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-ser
     white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
 aside article{position: relative;font-weight: bold;right: 50px;}
 aside article h3{padding-left: 10px;}
-aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 100vw; margin: 0px;z-index: 2;padding: 0px 50px;}
+aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 100vw;
+     margin: 0px;z-index: 2; padding: 0px 50px;}
 #aside-icon{position: fixed;right: 0px;top: 0px;width: 50px;height: 50px;filter:brightness(0);z-index: 1;}
 .infos,#intro section img               {animation: 0.2s scalesOut  forwards;}
 .infos:hover,#intro section img:hover   {animation: 0.2s scalesIn   forwards;}
