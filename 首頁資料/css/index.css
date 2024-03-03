@@ -18,36 +18,30 @@ body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-ser
 #background-img{position: fixed;width: 100%;height: 100%;inset: 0;margin: 0; object-fit: cover;opacity: 0.7;  }
 
 /*logo*/
-.infos{display: inline-block;position: relative;margin: 20px;margin-bottom: 20px;}
+.apps{padding-bottom: 20px;}
+.infos{display: inline-block;position: relative ;margin: 20px;margin-bottom: 20px;}
 .infos img{width: calc(5vw + 5vh);height: calc(5vw + 5vh);border-radius: 10px;}
 .infos img:hover{filter:drop-shadow(0px 0px 10px rgba(255, 191, 0, 0.5));}
 .infos span{position: absolute;top: calc(5vw + 5vh);width: 100%;text-align: center;
     white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
-aside article{position: relative;font-weight: bold;right: 50px;}
-aside article h3{padding-left: 10px;}
-aside{position: fixed;top: 0px; bottom:0px;overflow: scroll; left: 100vw;width: 100vw;
-     margin: 0px;z-index: 2; padding: 0px 50px;}
-#aside-icon{position: fixed;right: 0px;top: 0px;width: 50px;height: 50px;filter:brightness(0);z-index: 1;}
-.infos,#intro section img               {animation: 0.2s scalesOut  forwards;}
-.infos:hover,#intro section img:hover   {animation: 0.2s scalesIn   forwards;}
+.infos      {animation: 0.2s scalesOut  forwards;}
+.infos:hover{animation: 0.2s scalesIn   forwards;}
 
 /*intro*/
 #intro{position: relative;inset: 0; margin-top: 100px; bottom: auto;}
 #intro h1{text-align: center;}
-#intro h2{text-align: center;font-family: 'chenyuluoyan';font-size: 26px;}
 #intro img{position: relative;display: block;margin: auto; width: 100px; height: 100px;
     border-radius: 50px; object-fit: scale-down;}
-#intro section{display: flex;align-items: center;justify-content: center;}
-#intro section img{ width: 30px;height: 30px;border-radius: 15px;margin: 5px;filter:brightness(0);}
-
 /*main*/
 main{position: relative;}
-main article{position: relative; inset: 0; text-align: justify;margin: 0;}
-main article h2{text-align: left;padding: 24px;margin: 0;}
-main article iframe,main article img,main article video
-{position: relative;margin-top: -50px !important; width: 40vw;height: 25vw;border: 0; float: right;object-fit: cover;border-radius: 15px 0px; filter:drop-shadow(0px 0px 15px rgba(190, 190, 190, 0.5));}
-main section{min-height: 30vw; text-align: justify;padding: 10px;}
-main section p{position: relative;width: 55vw; margin: 0;padding-left: 10px;}
+main article {position: relative; inset: 0; text-align: justify;margin: 0;}
+main article h2,main article h3{padding: 24px;margin: 0;}
+.content iframe,.content img,.content video
+{position: absolute;top: 84px; border: 0;height: calc(100% - 84px);width: 40vw !important; object-fit:cover;}
+.content section{min-height: 30vw; text-align: justify;}
+main section p{width: 55vw;padding: 10px;}
+.content:nth-child(odd) section p, .content:nth-child(odd) h3{margin-left: 42vw;}
+.content:nth-child(even) iframe,.content:nth-child(even) img,.content:nth-child(even) video{right: 0;}
 .lyrics{height: 45vh;overflow-y: scroll;font-style: italic;}
 .lyrics::-webkit-scrollbar{display:unset;}
 
@@ -58,17 +52,17 @@ footer a{font-weight: bold;}
 
 /*RWD*/
 @media (max-width:800px) {
-    main article h2{text-align: center;}
-    main article iframe,main article img,main article video
-    {display: block;margin: auto !important; width: 80vw;height: 60vw; float: none;}
-    main article p{width: 95vw;padding-top: 10px;padding-left: 0;}
-    main article h3,.lyrics{text-align: center;}
+    .content h2{text-align: center;}
+    .content iframe,.content img,.content video
+    {position: relative;inset: 0; display: block; width: 80vw !important;height: 60vw;}
+    .content p{width: 95vw;padding-top: 10px;padding-left: 0;}
+    .content h3,.lyrics{text-align: center;}
+    .content iframe,.content img,.content video,.content p,.content h3{margin: auto !important;}
 }
 
 /*color*/
-aside{background: linear-gradient(to right,#00000000 ,#11111155 10%,#111111cc 30%);}
+aside{background-color: #111111cc;}
 #intro h1{color: white;}
-#intro h2{color: #111111;}
 footer a{color: rgb(139, 127, 0);}
 main article h2,.lyrics::-webkit-scrollbar-thumb{background-color: #11111199;}
 main article,.lyrics,.lyrics::-webkit-scrollbar{background-color: #11111155;}
