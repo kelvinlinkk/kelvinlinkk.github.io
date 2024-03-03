@@ -1,5 +1,5 @@
 /*setup*/
-body{background-color: black;color: aliceblue;font-weight: 200;letter-spacing: 0.4px;}
+body{background-color: black;color: aliceblue;}
 a{text-decoration: none;color: unset;}
 @font-face {
     font-family: 'ChenYuluoyan';
@@ -18,7 +18,6 @@ body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-ser
 #background-img{position: fixed;width: 100%;height: 100%;inset: 0;margin: 0; object-fit: cover;opacity: 0.7;  }
 
 /*logo*/
-.apps{padding-bottom: 20px;}
 .infos{display: inline-block;position: relative ;margin: 20px;margin-bottom: 20px;}
 .infos img{width: calc(5vw + 5vh);height: calc(5vw + 5vh);border-radius: 10px;}
 .infos img:hover{filter:drop-shadow(0px 0px 10px rgba(255, 191, 0, 0.5));}
@@ -34,36 +33,19 @@ body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-ser
     border-radius: 50px; object-fit: scale-down;}
 /*main*/
 main{position: relative;}
-main article {position: relative; inset: 0; text-align: justify;margin: 0;}
+main article {position: relative; inset: 0;padding-bottom: 20px; text-align: center;margin: 0;}
 main article h2,main article h3{padding: 24px;margin: 0;}
-.content iframe,.content img,.content video
-{position: absolute;top: 84px; border: 0;height: calc(100% - 84px);width: 40vw !important; object-fit:cover;}
-.content section{min-height: 30vw; text-align: justify;}
 main section p{width: 55vw;padding: 10px;}
-.content:nth-child(odd) section p, .content:nth-child(odd) h3{margin-left: 42vw;}
-.content:nth-child(even) iframe,.content:nth-child(even) img,.content:nth-child(even) video{right: 0;}
-.lyrics{height: 45vh;overflow-y: scroll;font-style: italic;}
-.lyrics::-webkit-scrollbar{display:unset;}
 
 /*footer*/
 footer{ font:25px 'Chenyuluoyan';position: relative;min-height: 50px;}
 footer h3{text-align: center;font-weight: normal;margin: 0;}
 footer a{font-weight: bold;}
 
-/*RWD*/
-@media (max-width:800px) {
-    .content h2{text-align: center;}
-    .content iframe,.content img,.content video
-    {position: relative;inset: 0; display: block; width: 80vw !important;height: 60vw;}
-    .content p{width: 95vw;padding-top: 10px;padding-left: 0;}
-    .content h3,.lyrics{text-align: center;}
-    .content iframe,.content img,.content video,.content p,.content h3{margin: auto !important;}
-}
-
 /*color*/
 aside{background-color: #111111cc;}
 #intro h1{color: white;}
 footer a{color: rgb(139, 127, 0);}
-main article h2,.lyrics::-webkit-scrollbar-thumb{background-color: #11111199;}
-main article,.lyrics,.lyrics::-webkit-scrollbar{background-color: #11111155;}
+main article h2{background-color: #11111199;}
+main article{background-color: #11111155;}
 footer{background-color: #000000;}
