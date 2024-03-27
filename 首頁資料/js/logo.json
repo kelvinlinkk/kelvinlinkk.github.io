@@ -146,7 +146,7 @@
           "bing": {"url": "https://www.bing.com/", "icon": "bing.svg"},
           "office": {"url": "https://www.office.com/", "icon": "office.png"},
           "messenger": {"url": "https://messenger.com", "icon": "messenger.svg"},
-          "discord": {"url": "https://discord.com/app", "icon": "discord.svg"}
+          "discord": {"url": "https://discord.com/channels/@me", "icon": "discord.svg"}
         }
         
       },
