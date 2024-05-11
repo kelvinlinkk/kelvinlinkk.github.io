@@ -56,9 +56,10 @@ footer a{font-weight: bold;}
 }
 
 /*color*/
-main{background-color: #624421;}
+main{background-color: #624421cc;}
 #intro h1,#intro h2{color: rgb(255, 255, 255);}
 footer a{color: rgb(139, 127, 0);}
 main article h2,.lyrics::-webkit-scrollbar-thumb{background-color: #2b2b2bb8;color: aliceblue;}
 main article,.lyrics,.lyrics::-webkit-scrollbar{background-color: #11111155;color: #f9eddb;}
 footer{background-color: #000000;color: #faf3e3;}
+#highlight{color: red;}
