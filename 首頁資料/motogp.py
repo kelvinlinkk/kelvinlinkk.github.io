@@ -18,7 +18,7 @@ with open('motogp.html','w',encoding='utf-8') as f:
 <html>
 <head>
   <title>車手排行</title>
-  <link href="首頁資料/css/motogp.css" rel="stylesheet" type="text/css">
+  <link href="首頁資料/css/autosport.css" rel="stylesheet" type="text/css">
 <head>
 <body>
 <h1>STANDINGS</h1>
