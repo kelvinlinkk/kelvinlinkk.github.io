@@ -141,7 +141,6 @@
           "meet": {"url": "https://meet.google.com/", "icon": "meet.png"},
           "drawings": {"url": "https://docs.google.com/drawings/", "icon": "drawing.png"},
           "kaggle": {"url": "https://www.kaggle.com/", "icon": "kaggle.svg"},
-          "podcast": {"url": "https://podcasts.google.com/", "icon": "podcast.png"},
           "to-do": {"url": "https://to-do.live.com/tasks/", "icon": "todo.svg"},
           "bing": {"url": "https://www.bing.com/", "icon": "bing.svg"},
           "office": {"url": "https://www.office.com/", "icon": "office.png"},
