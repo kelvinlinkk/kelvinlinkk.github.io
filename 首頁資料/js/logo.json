@@ -23,7 +23,11 @@
           "xmind": {"url": "https://xmind.app/", "icon": "xmind.svg"},
           "overleaf": {"url": "https://www.overleaf.com/", "icon": "overleaf.svg"},
           "PNG轉ICO": {"url": "https://www.aconvert.com/tw/icon/png-to-ico/", "icon": "ico.jpg"},
-          "Zapier": {"url": "https://zapier.com/", "icon": "zapier.png"}
+          "Zapier": {"url": "https://zapier.com/", "icon": "zapier.png"},
+          "tuneform": {"url": "https://tuneform.com/", "icon": "tuneform.webp"},
+          "svgl": {"url": "https://svgl.app/", "icon": "svgl.svg"},
+          "fakeupdate": {"url": "https://fakeupdate.net/", "icon": "fakeupdate.png"},
+          "tinkercad": {"url": "https://www.tinkercad.com/", "icon": "tinkercad.svg"}
         }        
       },
       {
@@ -42,7 +46,8 @@
           "小水力": {"url": "https://tepu.org.tw/", "icon": "tepu.png"},
           "ewant": {"url": "https://www.ewant.org/", "icon": "ewant.jpg"},
           "台大開放式課程": {"url": "http://ocw.aca.ntu.edu.tw/ntu-ocw/", "icon": "台大.svg"},
-          "高中生資訊網": {"url": "https://students.tw/", "icon": "student.jpg"}
+          "高中生資訊網": {"url": "https://students.tw/", "icon": "student.jpg"},
+          "University TW": {"url": "https://university-tw.ldkrsi.men/", "icon": "university-tw.png"}
         }        
       },
       {
@@ -66,7 +71,13 @@
             "freecodecamp": {"url": "https://www.freecodecamp.org/", "icon": "freecodecamp.svg"},
             "leetcode": {"url": "https://leetcode.com/", "icon": "leetcode.png"},
             "the coding train": {"url": "https://www.youtube.com/@TheCodingTrain", "icon": "thecodingtrain.jpg"},
-            "app inventor": {"url": "https://ai2.appinventor.mit.edu/", "icon": "appinventor.png"}
+            "app inventor": {"url": "https://ai2.appinventor.mit.edu/", "icon": "appinventor.png"},
+            "three.js": {"url": "https://threejs.org/", "icon": "three.png"},
+            "zerojudge": {"url": "https://zerojudge.tw/", "icon": "zerojudge.svg"},
+            "roboflow": {"url": "https://app.roboflow.com/", "icon": "roboflow.png"},
+            "cfrs": {"url": "https://susam.net/cfrs.html", "icon": "cfrs.png"},
+            "Chrome Extensions": {"url": "https://developer.chrome.com/docs/extensions/reference", "icon": "chrome.svg"},
+            "LLM Visualization": {"url": "https://bbycroft.net/llm", "icon": "llm.png"}
           }
       },
       {
@@ -99,7 +110,10 @@
           "報導者": {"url": "https://www.twreporter.org/", "icon": "thereporter.svg"},
           "PEOPO": {"url": "https://www.peopo.org/", "icon": "peopo.jpg"},
           "全球災害事件簿": {"url": "https://den.ncdr.nat.gov.tw/", "icon": "disaster.svg"},
+          "民生示警公開資料平台": {"url": "https://alerts.ncdr.nat.gov.tw/", "icon": "alerts.png"},
+          "全國土地使用分區": {"url": "https://luz.tcd.gov.tw/web/", "icon": "land.jpg"},
           "medium": {"url": "https://medium.com", "icon": "medium.svg"},
+          "GIS": {"url": "https://gissrv4.sinica.edu.tw/gis/twhgis.aspx", "icon": "gis.png"},
           "SNExplores": {"url": "https://www.snexplores.org/", "icon": "sn.svg"},
           "分類沙丘": {"url": "https://taxonomicdune.com/", "icon": "dune.jpg"},
           "AAAS": {"url": "https://www.science.org/", "icon": "aaas.svg"},
@@ -143,9 +157,7 @@
           "kaggle": {"url": "https://www.kaggle.com/", "icon": "kaggle.svg"},
           "to-do": {"url": "https://to-do.live.com/tasks/", "icon": "todo.svg"},
           "bing": {"url": "https://www.bing.com/", "icon": "bing.svg"},
-          "office": {"url": "https://www.office.com/", "icon": "office.png"},
-          "messenger": {"url": "https://messenger.com", "icon": "messenger.svg"},
-          "discord": {"url": "discord://", "icon": "discord.svg"}
+          "office": {"url": "https://www.office.com/", "icon": "office.png"}
         }
         
       },
@@ -160,7 +172,9 @@
           "fotor": {"url": "https://www.fotor.com/", "icon": "fotor.png"},
           "msdesigner": {"url": "https://designer.microsoft.com", "icon": "msdesigner.jpg"},
           "tome": {"url": "https://tome.app/", "icon": "tome.png"},
-          "gamma": {"url": "https://gamma.app/", "icon": "gamma.jpg"}
+          "gamma": {"url": "https://gamma.app/", "icon": "gamma.jpg"},
+          "suno": {"url": "https://suno.com/", "icon": "suno.svg"},
+          "openai API": {"url": "https://platform.openai.com/docs/introduction/overview", "icon": "openai.png"}
         }        
       },
       {
@@ -176,7 +190,9 @@
           "dcard": {"url": "https://www.dcard.tw/", "icon": "dcard.png"},
           "巴哈姆特動畫瘋": {"url": "https://ani.gamer.com.tw/", "icon": "anime.jpg"},
           "YouTube": {"url": "https://www.youtube.com/", "icon": "YouTube.svg"},
-          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"}
+          "twitch": {"url": "https://www.twitch.tv/", "icon": "twitch.svg"},
+          "messenger": {"url": "https://messenger.com", "icon": "messenger.svg"},
+          "discord": {"url": "discord://", "icon": "discord.svg"}
         }        
       }
     ]
