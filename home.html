@@ -3,23 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="首頁資料/css/home.css">
+    <title>Kelvin 林坤逸</title>
+    <meta http-equiv="Content-Security-Policy">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="首頁資料/logo/logo.png" type="x-icon">
+    <link rel="stylesheet" href="首頁資料/css/index.css">
+    <link rel="preload" href="首頁資料/logo/分頁.svg" as="image">
+    <link rel="preload" href="首頁資料/pic/profile.jpg" as="image">
+    <link rel="preload" href="首頁資料/background/background0.jpg" as="image">
+    <meta name="description" content="This is Kelvin's homepage. Here you can find the information about Kelvin 林坤逸. Also, this website contains useful links.">
+    <meta property="og:image" content="首頁資料/logo/分頁.svg">
+    <base target="_blank">
 </head>
+
 <body>
-    <img src="首頁資料/background/background3.jpg" id="background">
+    <img src="首頁資料/background/background0.jpg" id="background-img" alt="Max Verstappen drving in the sunset">
+    <article id="intro">
+        <img src="首頁資料/pic/bocchi.jpg" alt="Kelvin programming">
+        <h1>Kelvin 林坤逸</h1>
+    </article>
+    <br>
     <main>
-        <h1>學測倒數<span id="days">00</span>天</h1>
         <article class="apps">
+            <h2>我要前往</h2>
             <section>
-                <div class="infos"><a href="index.html" target="_parent"><span>自介首頁</span><img src="首頁資料/pic/profile.jpg" alt="profile.jpg"></a></div>
-                <div class="infos"><a href="https://ani.gamer.com.tw" target="_parent"><span>巴哈姆特動畫瘋</span><img src="首頁資料/logo/anime.jpg" alt="anime.jpg"></a></div>
-                <div class="infos"><a href="https://open.spotify.com" target="_parent"><span>spotify</span><img src="首頁資料/logo/spotify.svg" alt="spotify.svg"></a></div>
-                
+                <div class="infos"><a href="index.html"><span>自介首頁</span><img src="首頁資料/pic/profile.jpg" alt="profile.jpg"></a></div>
+                <div class="infos"><a href="portfolio.html"><span>學習歷程</span><img src="首頁資料/logo/portfolio.png" alt="portfolio.png"></a></div>
+                <div class="infos"><a href="https://github.com/kelvinlinkk/genshin-card-simulator"><span>抽卡模擬器</span><img src="首頁資料/logo/genshin.webp" alt="genshin.webp"></a></div>
+                <div class="infos"><a href="f1.html"><span>f1成績</span><img src="首頁資料/logo/f1.svg" alt="f1.svg"></a></div>
+                <div class="infos"><a href="motogp.html"><span>MotoGP成績</span><img src="首頁資料/logo/motogp.png" alt="motogp.png"></a></div>
+                <div class="infos"><a href="https://youtube.com/playlist?list=PLpI-mBeJCEey_rrDJNzdfwVjtPlNdtdYk&si=kJTHqYwiNpPaFBgm"><span>活動競賽紀錄影片</span><img src="首頁資料/logo/theater.png" alt="theater.png"></a></div>
             </section>
         </article>
     </main>
-    <script src="首頁資料/js/countdown.js"></script>
-    <script>setdate("2025/01/20")</script>
+    <aside id="test">
+    </aside>
+    <script src="首頁資料/js/index.js"></script>
+    <script>drawLogo()</script>
+    <footer>
+        <h3><a href="#about">Kelvin Lin</a> 的首頁 | 技術支援：<a href="https://pages.github.com/">github pages</a></h3>
+    </footer>
 </body>
 </html>
