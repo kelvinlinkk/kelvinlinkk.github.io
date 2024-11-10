@@ -15,7 +15,7 @@ h1{margin-bottom: 0%;}
 
 /*aside*/
 aside{position: absolute;top: 0px;}
-aside span{position: relative;top: 40px; margin: 5px;width: 50px;right: calc(250px - 100vw);}
+aside span{position: relative;top: 40px; margin: 5px;width: 50px;right: calc(180px - 100vw);}
 aside img{height: 40px;position: relative;right: calc(40px - 100vw);top: 25px;}
 
 /*nav*/ 
