@@ -1,0 +1,43 @@
+::-webkit-scrollbar {
+    display: none;
+}
+a{text-decoration: none;}
+body {
+    text-align: center;
+    font-size: large;
+    text-overflow: ellipsis;
+}
+h1 {
+    position: absolute;inset: 0;height: 100px;line-height: 100px;
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin: 0;
+}
+caption{font-size:x-large;padding: 40px;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
+table {
+    width: 50%;position: absolute;top: 100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main table:nth-child(1){left: 0px;}
+main table:nth-child(2){right: 0px;}
+@media (max-width:800px) {
+    table{width: 100%;position: relative;left: 0;}
+    h2{position: relative; width: 100%;}
+}
+
+th:nth-child(1) {
+    width: 30%;
+}
+
+th:nth-child(2) {
+    width: 40%;
+}
+
+th:nth-child(3) {
+    width: 30%;
+}
+
+a{color: unset;}
+body{color: aliceblue;}
+h1{background-color: black;}
+caption{background-color: rgb(173, 112, 0);}
+main table:nth-child(1){background-color: rgb(0, 69, 69);}
+body,main table:nth-child(2){background-color: rgb(0, 0, 145);}
