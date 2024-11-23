@@ -16,7 +16,7 @@ function fillList(type) {
         }
     })
 }
-types = ["motogp","f1"]
+let types = ["motogp","f1"]
 for(let type in types){
-    fillList(type);
+    fillList(types[type]);
 }
