@@ -16,7 +16,9 @@ function fillList(type) {
         }
     })
 }
-let types = ["motogp","f1"]
-for(let type in types){
-    fillList(types[type]);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    let types = ["motogp","f1"];
+    for(let type of types){
+        fillList(type);
+    }
+});
