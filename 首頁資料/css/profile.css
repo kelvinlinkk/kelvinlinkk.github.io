@@ -35,7 +35,7 @@ main article iframe,main article img,main article video
 {position: absolute;top: 84px; border: 0;height: calc(100% - 84px);width: 40vw !important; object-fit:cover;}
 main section{min-height: 30vw; text-align: justify;}
 main section p{width: 55vw;padding: 0px 10px;margin: 0;}
-main article:nth-child(odd) section p, main article:nth-child(odd) h3{margin-left: 42vw;}
+main article:nth-child(odd) section p,section ul, main article:nth-child(odd) h3{margin-left: 42vw;}
 main article:nth-child(even) iframe,main article:nth-child(even) img,main article:nth-child(even) video{right: 0;}
 .lyrics{height: 45vh;padding: 0px 20px; overflow-y: scroll;font-style: italic;}
 .lyrics::-webkit-scrollbar{display:unset;}
@@ -52,7 +52,9 @@ footer a{font-weight: bold;}
     {position: relative;inset: 0; display: block; width: 80vw !important;height: 60vw;}
     main article p{width: 95vw;padding-top: 10px;padding-left: 0;}
     main article h3{text-align: center;}
-    main article iframe,main article img,main article video,main article p,main article h3{margin: auto !important;}
+    section ul{margin: 0 auto; width: fit-content;}
+    section li{text-align: left; list-style-position: inside;}
+    main article iframe,main article img,main article video,main article p,section ul,main article h3{margin: auto !important;}
 }
 
 /*color*/

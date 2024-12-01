@@ -1,24 +1,32 @@
-function fillList(type) {
-    const table = document.getElementById(type)
-    async function getjson() {
-        const response = await fetch('首頁資料/'+ type + '.json');
-        return await response.json();
-    }
-    getjson().then(datas => {
-        for (let i in datas) {
+async function fillList(type) {
+    const table = document.getElementById(type);
+    try {
+        const response = await fetch(`首頁資料/${type}.json`);
+        const data = await response.json();
+        
+        const fragment = document.createDocumentFragment();
+        
+        Object.entries(data).forEach(([name, score]) => {
             const tr = document.createElement('tr');
-            const name = document.createElement('td');
-            const score = document.createElement('td');
-            name.textContent = i;
-            score.textContent = datas[i];
-            tr.appendChild(name); tr.appendChild(score);
-            table.appendChild(tr)
-        }
-    })
-}
-document.addEventListener('DOMContentLoaded', function() {
-    let types = ["motogp","f1"];
-    for(let type of types){
-        fillList(type);
+            const nameTd = document.createElement('td');
+            const link = document.createElement('a');
+            
+            link.href = `https://www.google.com/search?q=${encodeURIComponent(name)}`;
+            link.textContent = name;
+            
+            nameTd.appendChild(link);
+            tr.appendChild(nameTd);
+            tr.appendChild(Object.assign(document.createElement('td'), {textContent: score}));
+            
+            fragment.appendChild(tr);
+        });
+        
+        table.appendChild(fragment);
+    } catch (err) {
+        console.error(`Error loading ${type} data:`, err);
     }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    ['motogp', 'f1'].forEach(fillList);
 });
