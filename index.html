@@ -1,38 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelvin 林坤逸</title>
-    <meta http-equiv="Content-Security-Policy">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' 'unsafe-inline' *.github.io *.youtube.com *.instagram.com *.spotify.com">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="首頁資料/logo/logo.png" type="x-icon">
+    <link rel="icon" href="首頁資料/logo/logo.png" type="image/png">
     <link rel="stylesheet" href="首頁資料/css/index.css">
-    <link rel="preload" href="首頁資料/logo/分頁.svg" as="image">
-    <link rel="preload" href="首頁資料/pic/profile.jpg" as="image">
-    <link rel="preload" href="首頁資料/background/background0.jpg" as="image">
-    <meta name="description"
-        content="This is Kelvin's homepage. Here you can find the information about Kelvin 林坤逸. Also, this website contains useful links.">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="首頁資料/pic/profile.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="首頁資料/css/index.css" as="style">
+
+
+    <!-- Defer non-critical images -->
+    <link rel="preload" href="首頁資料/pic/me.jpg" as="image" fetchpriority="low">
+    <link rel="preload" href="首頁資料/pic/gept.jpg" as="image" fetchpriority="low">
+    <link rel="preload" href="首頁資料/pic/chess.png" as="image" fetchpriority="low">
+    <link rel="preload" href="首頁資料/pic/code.png" as="image" fetchpriority="low">
+
+    <!-- Meta tags -->
+    <meta name="description" content="Kelvin林坤逸是一位來自雲林的學生。專長包括C++、Python、前端開發。曾獲全國小論文特優、科展優等、IEYI銅牌等獎項。">
+    <meta name="keywords" content="Kelvin林坤逸, 程式設計, 科展, 競賽得獎, 學生">
+    <meta property="og:title" content="Kelvin林坤逸 | 學生程式設計師">
+    <meta property="og:description" content="Kelvin林坤逸是一位來自雲林的學生程式設計師。專長包括C++、Python、前端開發。">
     <meta property="og:image" content="首頁資料/logo/分頁.svg">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kelvinlinkk.github.io/profile.html">
     <base target="_blank">
 </head>
 
 <body>
-    <img src="首頁資料/background/background0.jpg" id="background-img">
+    <article id="intro">
+        <img src="首頁資料/pic/me.jpg" id="background-img" alt="Max Verstappen drving in the sunset"
+            loading="eager" decoding="async" width="1920" height="1080" onerror="handleImageError(this)">
+        <img src="首頁資料/pic/profile.jpg" id="profile" alt="Kelvin programming" loading="eager" decoding="async"
+            width="400" height="400" onerror="handleImageError(this)">
+        <h1><a href="https://youtube.com/playlist?list=PLpI-mBeJCEey_rrDJNzdfwVjtPlNdtdYk&si=kJTHqYwiNpPaFBgm"
+                target="_self">Kelvin 林坤逸</a></h1>
+        <section>
+            <h2><a href="#about" aria-label="about me" target="_self">Profile</a> · </h2>
+            <h2><a href="#portfolio" aria-label="my portfolio" target="_self">Portfolio</a> · </h2>
+            <h2><a href="#gacha" aria-label="genshin gacha simulator" target="_self">Project</a></h2>
+        </section>
+        <br>
+    </article>
     <main>
-        <article class="apps">
+        <article id="about" class="content">
+            <h2>Profile - 個人經歷</h2>
             <section>
-                <div class="infos"><a href="portfolio.html"><span>Portfolio</span><img src="首頁資料/logo/portfolio.png"
-                            alt="portfolio.png"></a></div>
-                <div class="infos"><a href="profile.html"><span>KELVIN</span><img src="首頁資料/pic/profile.jpg"
-                            alt="profile.jpg"></a></div>
-                <div class="infos"><a
-                        href="https://github.com/kelvinlinkk/genshin-card-simulator"><span>Gacha</span><img
-                            src="首頁資料/logo/genshin.webp" alt="genshin.webp"></a></div>
+                <img src="首頁資料/pic/高二運動會.jpg" alt="Kelvin with classmates" loading="lazy" decoding="async" width="800"
+                    height="600" onerror="handleImageError(this)">
+                <h3>就學歷程</h3>
+                <ul>
+                    <li>2015-2020 雲林縣<a href="https://ljes.ylc.edu.tw/">立仁國民小學</a></li><br>
+                    <li>2020-2025 雲林縣私立<a href="http://www.ytjh.ylc.edu.tw/">揚子高級中等學校</a></li>
+                </ul><br>
+                <h3>比賽經歷</h3>
+                <ul>
+                    <li>1120315梯次全國高級中學小論文寫作比賽 獲得特優</li><br>
+                    <li>第64屆私立高級中等學校第四區科展 獲得優等</li><br>
+                    <li>2024 IEYI臺灣選拔賽 獲得銅牌</li><br>
+                    <li>113學年度數理及資訊學科能力競賽國教署第三區 獲得佳作</li>
+                </ul><br>
             </section>
         </article>
+        <article id="portfolio" class="content">
+            <h2>Portfolio - 學習歷程</h2>
+            <section>
+                <img src="首頁資料/pic/chess.png" alt="Kelvin with classmates" loading="lazy" decoding="async" width="800"
+                    height="600" onerror="handleImageError(this)">
+                <h3>學習歷程檔案專區</h3>
+                <p>歡迎來到<a href="portfolio.html">我的電子作品集</a>！這個網站展示了我在學習和創作過程中的各種成果與經歷。透過這個平台，我希望能夠分享我的學習歷程、技能和對未來的展望。無論是我的個人專案、學術研究，還是我在不同領域的探索，這裡都將是我成長的見證。感謝您的光臨，期待與您分享我的故事！</p><br>
+            </section>
+        </article>
+        <article id="gacha" class="content">
+            <h2>Project - 程式小專案</h2>
+            <section>
+                <img src="首頁資料/pic/cardpool.png" alt="Kelvin with classmates" loading="lazy" decoding="async" width="800"
+                    height="600" onerror="handleImageError(this)">
+                <h3>原神抽卡模擬器</h3>
+                <p>這個<a href="https://github.com/kelvinlinkk/genshin-gacha-simulator">抽卡模擬器</a>專為《原神》遊戲設計，旨在幫助玩家理解抽卡機制及其背後的數學原理。模擬器允許玩家進行單抽或十連抽，並根據遊戲內的機率計算結果，提供視覺化的動畫效果和音效，增強互動體驗。透過這個工具，玩家可以更清楚地了解抽卡的期望值和實際機率，從而做出更明智的抽卡決策。</p><br>
+            </section>
+        </article>
+        <script src="首頁資料/js/index.js" defer></script>
     </main>
+    <footer>
+        <h3><a href="https://www.instagram.com/kvl._.19">Kelvin Lin</a> 的首頁 | 技術支援：<a href="https://pages.github.com/">github pages</a></h3>
+    </footer>
+    <script>
+        function handleError(event) {
+            console.error('An error occurred:', event.error);
+            // You can add more error handling logic here
+        }
+
+        function handleImageError(img) {
+            console.error('Image failed to load:', img.src);
+            img.src = '首頁資料/logo/logo.png'; // Fallback image
+            img.alt = 'Image loading failed';
+        }
+    </script>
 </body>
 
 </html>

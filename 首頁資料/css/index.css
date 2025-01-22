@@ -4,34 +4,67 @@ a{text-decoration: none;color: unset;}
 @font-face {
     font-family: 'ChenYuluoyan';
     src: local("ChenYuluoyan"), url(../font/ChenYuluoyan-Thin-Monospaced.ttf);
-    font-display: swap;
+        -display: swap;
 }
 @keyframes scalesIn{from{scale:1;}to{scale:1.25;}}
 @keyframes scalesOut{from{scale:1.25;}to{scale:1;}}
 
-@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 *::-webkit-scrollbar{display: none;}
 body{margin: 0px; font-family: "Noto Sans TC", Tahoma, Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;}
 
-/*background*/
-#background-img{position: fixed;width: 100%;height: 100%;inset: 0;margin: 0; object-fit: cover;opacity: 0.7;  }
-
-/*logo*/
-.infos{display:inline-block;position: relative ;margin: 0vw 5vw;margin-bottom: 50px;}
-.infos img{max-width:100px;max-height: 100px; width: 15vw;height: 15vw;border-radius: 10px;}
-.infos img:hover{filter:drop-shadow(0px 0px 10px rgb(123, 60, 55,0.5));}
-.infos span{position: absolute;top: min(15vw ,100px);width: 100%;text-align: center;
-    white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
-.infos      {animation: 0.2s scalesOut  forwards;}
-.infos:hover{animation: 0.2s scalesIn   forwards;}
+/*intro*/
+#intro{position: relative; margin: 0;}
+#background-img{position: fixed; width: 100%;height: 100%;inset: 0;margin: 0;
+     object-fit: cover; z-index: 0; opacity: 0.6;}
+#intro h1{position: relative; text-align: center;margin: 10px;}
+#intro h2{position: relative; text-align: center;margin: 0%;font-size:medium;font-style: italic;}
+#profile{position: relative;display: block;margin: 100px auto 30px auto;border-radius: 60px;  width: 120px; height: 120px;
+     object-fit: scale-down;}
+#intro section{display: flex;align-items: center;justify-content: center;}
+#intro section img{ width: 30px;height: 30px;margin: 5px;filter:grayscale(1) brightness(3);}
+#intro section img{animation: 0.2s scalesOut  forwards;}
+#intro section img:hover   {animation: 0.2s scalesIn   forwards;}
 
 /*main*/
 main{position: relative;}
-main article {display: flex;align-items: center;justify-content: center; position: fixed; inset: 0;padding-bottom: 20px;
-             text-align: center;margin: 0;
-    min-height:100vh;}
-main section p{width: 55vw;padding: 10px;}
+main article{position: relative; inset: 0; text-align: justify;margin: 0;font-weight: bold;}
+main article h2{padding: 24px;margin: 0;}
+main article h3{padding: 10px;}
+main article iframe,main article img,main article video
+{position: absolute;top: 84px; border: 0;height: calc(100% - 84px);width: 40vw !important; object-fit:cover;}
+main section{min-height: 30vw; text-align: justify;}
+main section p{width: 55vw;padding: 0px 10px;margin: 0;}
+main article:nth-child(odd) section p,main article:nth-child(odd) section ul,
+        main article:nth-child(odd) h3{margin-left: 42vw;padding-right: 20px;}
+main article:nth-child(even) iframe,main article:nth-child(even) img,
+        main article:nth-child(even) video{right: 0;}
+.lyrics{height: 45vh;padding: 0px 20px; overflow-y: scroll;font-style: italic;}
+.lyrics::-webkit-scrollbar{display:unset;}
+
+/*footer*/
+footer{ font:25px 'Chenyuluoyan';position: relative;min-height: 60px;padding-top: 20px;}
+footer h3{text-align: center;font-weight: normal;margin: 0;}
+footer a{font-weight: bold;}
+
+/*RWD*/
+@media (max-width:600px) {
+    main article h2{text-align: center;}
+    main article iframe,main article img,main article video
+    {position: relative;inset: 0; display: block; width: 80vw !important;height: 60vw;}
+    main article p{width: 95vw;padding-top: 10px;padding-left: 0;}
+    main article h3{text-align: left;padding-left: 10vw;}
+    section ul{ width: 80vw;}
+    section li{text-align: left; list-style-position: inside;}
+    main article iframe,main article img,main article video,main article p,section ul,main article h3{margin: auto !important;}
+}
 
 /*color*/
-main article{background-color: #11111155;}
+main{background-color: #ffffff5a;}
+#intro h1{color: rgb(255, 255, 255);}
+#intro h2 a{color: rgb(188, 187, 187);}
+section a,footer a{color: #c44225;}
+#highlight{color: #ff5733;}
+main article h2,.lyrics::-webkit-scrollbar-thumb{background-color: #007bff;color: white;}
+main article,.lyrics,.lyrics::-webkit-scrollbar{background-color: #ffffff9f;color: #333333;}
+footer{background-color: #ffffff;color: #333333;}
