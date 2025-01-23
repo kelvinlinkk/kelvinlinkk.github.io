@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
               document.addEventListener('keydown', function onEvent(event) {
                   if (event.key === " ") {
                       document.removeEventListener('keydown', onEvent);
-                      resolve();
+                      resolve();window.alert();
                   }
               });
           });
