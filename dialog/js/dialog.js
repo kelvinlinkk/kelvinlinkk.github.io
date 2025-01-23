@@ -53,6 +53,14 @@ class DialogSystem {
     commandhandler(com) {
         let params = com.split(" ");
         switch(params[0]) {
+            case 'show':
+                //show dialog
+                dialog.style.visibility = 'visible';
+                break;
+            case 'hide':
+                //show dialog
+                dialog.style.display = 'hidden';
+                break;
             case 'n':
                 //new line
                 return '<br>';
