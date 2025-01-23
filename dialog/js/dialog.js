@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let lines = text.split("\r\n");
         for(let line of lines){
             let words = line.split(""), display = "", islock = false, bracketContent = "";        
+            
+            // 先完成整行文字的處理
             for(let word of words){
                 if(word == "[") {
                     islock = true;
@@ -43,15 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 await new Promise(r => setTimeout(r, 10));
                 dialog.innerHTML = display;
             }
-          await new Promise(resolve => {
-              document.addEventListener('keydown', function onEvent(event) {
-                  if (event.key === " ") {
-                      document.removeEventListener('keydown', onEvent);
-                      resolve();window.alert();
-                  }
-              });
-          });
-          }
+            
+            // 確保在完整顯示一行文字後才等待空白鍵
+            if (words.length > 0) {  // 只在有內容的行才等待
+                await new Promise(resolve => {
+                    const onKeyPress = (event) => {
+                        if (event.key === " ") {
+                            document.removeEventListener('keydown', onKeyPress);
+                            resolve();
+                        }
+                    };
+                    document.addEventListener('keydown', onKeyPress);
+                });
+            }
+        }
        })
       .catch((e) => console.error(e));
 });
