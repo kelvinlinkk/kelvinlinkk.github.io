@@ -17,40 +17,41 @@ function commandhandler(com){
   }
   return "";
 }
-
-fetch("myText.txt")
-  .then((res) => res.text())
-  .then(async (text) => {
-    //main logic
-    let lines = text.split("\r\n");
-    for(let line of lines){
-        let words = line.split(""), display = "", islock = false, bracketContent = "";        
-        for(let word of words){
-            if(word == "[") {
-                islock = true;
-                bracketContent = ""; 
-                continue;
-            } else if (islock) {
-                if (word == "]") {
-                    islock = false;
-                    word = commandhandler(bracketContent); 
-                } else {
-                    bracketContent += word; 
+document.addEventListener('DOMContentLoaded', () => {
+    fetch("myText.txt")
+      .then((res) => res.text())
+      .then(async (text) => {
+        //main logic
+        let lines = text.split("\r\n");
+        for(let line of lines){
+            let words = line.split(""), display = "", islock = false, bracketContent = "";        
+            for(let word of words){
+                if(word == "[") {
+                    islock = true;
+                    bracketContent = ""; 
                     continue;
-                }
-            } 
-            display += word;
-            await new Promise(r => setTimeout(r, 10));
-            dialog.innerHTML = display;
-        }
-      await new Promise(resolve => {
-          document.addEventListener('keydown', function onEvent(event) {
-              if (event.key === " ") {
-                  document.removeEventListener('keydown', onEvent);
-                  resolve();
-              }
+                } else if (islock) {
+                    if (word == "]") {
+                        islock = false;
+                        word = commandhandler(bracketContent); 
+                    } else {
+                        bracketContent += word; 
+                        continue;
+                    }
+                } 
+                display += word;
+                await new Promise(r => setTimeout(r, 10));
+                dialog.innerHTML = display;
+            }
+          await new Promise(resolve => {
+              document.addEventListener('keydown', function onEvent(event) {
+                  if (event.key === " ") {
+                      document.removeEventListener('keydown', onEvent);
+                      resolve();
+                  }
+              });
           });
-      });
-      }
-   })
-  .catch((e) => console.error(e));
+          }
+       })
+      .catch((e) => console.error(e));
+});
