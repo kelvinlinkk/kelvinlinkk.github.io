@@ -20,11 +20,16 @@ function commandhandler(com){
 
 async function handledialog(line){
   let words = line.split(""), display = "", islock = false, bracketContent = "";
+  
+  const clickHandler = (resolve) => {
+    dialog.removeEventListener('click', clickHandler);
+    resolve();
+  };
+  
   await new Promise(resolve => {
-    dialog.addEventListener('click', () => {
-      resolve();
-    });
+    dialog.addEventListener('click', () => clickHandler(resolve));
   });
+  
   for(let word of words){
     if(word == "[") {
       islock = true;
