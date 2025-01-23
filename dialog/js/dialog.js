@@ -20,21 +20,21 @@ function commandhandler(com){
 
 async function handledialog(line){
   let words = line.split(""), display = "", islock = false, bracketContent = "";
-  for(let word in words){
-    if(words[word] == "[") {
+  for(let word of words){
+    if(word == "[") {
       islock = true;
       bracketContent = ""; 
       continue;
     } else if (islock) {
-      if (words[parseInt(word)] == "]") {
+      if (word == "]") {
         islock = false;
-        words[parseInt(word)] = commandhandler(bracketContent); 
+        word = commandhandler(bracketContent); 
       } else {
-        bracketContent += words[word]; 
+        bracketContent += word; 
         continue;
       }
     } 
-    display += words[word];
+    display += word;
     await new Promise(r => setTimeout(r, 10));
     dialog.innerHTML = display;
     
@@ -47,7 +47,7 @@ fetch("myText.txt")
     //main logic
     let lines = text.split("\r\n");
     for(let line in lines){
-        handledialog(lines[line]);
+        await handledialog(lines[line]);
         await new Promise(resolve => {
             dialog.addEventListener('click', () => {
                 resolve();
