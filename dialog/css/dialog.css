@@ -1,0 +1,10 @@
+main{position: fixed;inset: 0px; margin: auto; aspect-ratio: 16 / 9;max-width: 100vw;max-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+#bg{position: absolute; inset: 0; width: 100%;height: 100%;z-index: 0;visibility:hidden;}
+#dialog{position: absolute;bottom: 5%;left: 5%;width: 86%;height: 40%;padding: 2%;
+     font-size: min(4.8vh, 2.7vw);}
+
+#dialog{color: aliceblue;}
+#dialog{background-color: rgba(0, 0, 0, 0.375);}
+main{background-color: rgb(34, 34, 34);}
+body{background-color: black;}
