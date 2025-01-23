@@ -20,6 +20,11 @@ function commandhandler(com){
 
 async function handledialog(line){
   let words = line.split(""), display = "", islock = false, bracketContent = "";
+  await new Promise(resolve => {
+    dialog.addEventListener('click', () => {
+      resolve();
+    }, { once: true });
+  });
   for(let word of words){
     if(word == "[") {
       islock = true;
@@ -37,7 +42,6 @@ async function handledialog(line){
     display += word;
     await new Promise(r => setTimeout(r, 10));
     dialog.innerHTML = display;
-    
   }
 }
 
@@ -48,15 +52,6 @@ fetch("myText.txt")
     let lines = text.split("\r\n");
     for(let line of lines){
         await handledialog(line);
-        await new Promise(resolve => {
-            const handleClick = (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                document.removeEventListener('mousedown', handleClick, true);
-                resolve();
-            };
-            document.addEventListener('mousedown', handleClick, true);
-        });
     }
    })
   .catch((e) => console.error(e));
