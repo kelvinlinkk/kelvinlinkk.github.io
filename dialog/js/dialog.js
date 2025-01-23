@@ -49,9 +49,13 @@ fetch("myText.txt")
     for(let line in lines){
         await handledialog(lines[line]);
         await new Promise(resolve => {
-            dialog.addEventListener('click', () => {
+            const handleInteraction = () => {
+                dialog.removeEventListener('click', handleInteraction);
+                dialog.removeEventListener('touchend', handleInteraction);
                 resolve();
-            }, { once: true });
+            };
+            dialog.addEventListener('click', handleInteraction);
+            dialog.addEventListener('touchend', handleInteraction);
         });
     }
    })
