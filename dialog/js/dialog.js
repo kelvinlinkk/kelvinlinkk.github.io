@@ -1,64 +1,80 @@
-const dialog = document.getElementById('dialog')
-const background = document.getElementById('bg')
-function commandhandler(com){
-  let params = com.split(" ");
-  switch(params[0]){
-    case 'n':
-      return '<br>';
-    case 'img':
-      background.style.visibility = 'visible';
-      if(params[1]==0){
-        background.style.visibility = 'hidden';
-        break;
-      }
-      background.src = 'background/' + params[1] + '.jpg';
-      background.style.objectFit = params[2];
-      break;
-  }
-  return "";
-}
-document.addEventListener('DOMContentLoaded', () => {
-    fetch("myText.txt")
-      .then((res) => res.text())
-      .then(async (text) => {
-        //main logic
-        let lines = text.split("\r\n");
-        for(let line of lines){
-            let words = line.split(""), display = "", islock = false, bracketContent = "";        
-            
-            // 先完成整行文字的處理
-            for(let word of words){
-                if(word == "[") {
-                    islock = true;
-                    bracketContent = ""; 
-                    continue;
-                } else if (islock) {
-                    if (word == "]") {
-                        islock = false;
-                        word = commandhandler(bracketContent); 
-                    } else {
-                        bracketContent += word; 
-                        continue;
-                    }
-                } 
-                display += word;
-                await new Promise(r => setTimeout(r, 10));
-                dialog.innerHTML = display;
+class DialogSystem {
+    constructor() {
+        this.dialog = document.getElementById('dialog');
+        this.background = document.getElementById('bg');
+        this.currentLine = 0;
+        this.isAnimating = false;
+        this.commands = {
+            n: () => '<br>',
+            img: (filename, fit = 'cover') => {
+                if (filename === '0') {
+                    this.background.style.visibility = 'hidden';
+                    return '';
+                }
+                this.background.style.visibility = 'visible';
+                this.background.src = `background/${filename}.jpg`;
+                this.background.style.objectFit = fit;
+                return '';
             }
-            
-            // 確保在完整顯示一行文字後才等待空白鍵
-            if (words.length > 0) {  // 只在有內容的行才等待
-                await new Promise(resolve => {
-                    const onKeyPress = (event) => {
-                        if (event.key === " ") {
-                            document.removeEventListener('keydown', onKeyPress);
-                            resolve();
-                        }
-                    };
-                    document.addEventListener('keydown', onKeyPress);
-                });
-            }
+        };
+    }
+
+    async init() {
+        try {
+            const response = await fetch('myText.txt');
+            const text = await response.text();
+            this.script = text.split('\r\n');
+            this.bindEvents();
+            this.processNextLine();
+        } catch (error) {
+            console.error('Failed to load script:', error);
         }
-       })
-      .catch((e) => console.error(e));
+    }
+
+    bindEvents() {
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && !this.isAnimating) {
+                this.processNextLine();
+            }
+        });
+    }
+
+    parseCommand(text) {
+        const commandRegex = /\[(.*?)\]/g;
+        return text.replace(commandRegex, (match, command) => {
+            const [cmd, ...args] = command.split(' ');
+            return this.commands[cmd]?.(...args) || '';
+        });
+    }
+
+    async animateText(text) {
+        this.isAnimating = true;
+        let displayText = '';
+        const processedText = this.parseCommand(text);
+        
+        for (const char of processedText) {
+            displayText += char;
+            this.dialog.innerHTML = displayText;
+            await new Promise(resolve => setTimeout(resolve, 30));
+        }
+        this.isAnimating = false;
+    }
+
+    async processNextLine() {
+        if (this.currentLine >= this.script.length) {
+            console.log('Script finished');
+            return;
+        }
+
+        const line = this.script[this.currentLine];
+        if (line.trim()) {
+            await this.animateText(line);
+        }
+        this.currentLine++;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dialogSystem = new DialogSystem();
+    dialogSystem.init();
 });
