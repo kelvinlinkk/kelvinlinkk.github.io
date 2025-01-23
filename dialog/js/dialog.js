@@ -46,16 +46,14 @@ fetch("myText.txt")
   .then(async (text) => {
     //main logic
     let lines = text.split("\r\n");
-    for(let line in lines){
-        await handledialog(lines[line]);
+    for(let line of lines){
+        await handledialog(line);
         await new Promise(resolve => {
-            const handleInteraction = () => {
-                dialog.removeEventListener('click', handleInteraction);
-                dialog.removeEventListener('touchend', handleInteraction);
+            const handleClick = () => {
+                document.removeEventListener('click', handleClick);
                 resolve();
             };
-            dialog.addEventListener('click', handleInteraction);
-            dialog.addEventListener('touchend', handleInteraction);
+            document.addEventListener('click', handleClick);
         });
     }
    })
