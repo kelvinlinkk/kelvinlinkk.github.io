@@ -50,12 +50,19 @@ fetch("myText.txt")
         await handledialog(lines[line]);
         await new Promise(resolve => {
             const handleInteraction = () => {
+<<<<<<< HEAD
                 dialog.removeEventListener('click', handleInteraction);
                 dialog.removeEventListener('touchend', handleInteraction);
                 resolve();
             };
             dialog.addEventListener('click', handleInteraction);
             dialog.addEventListener('touchend', handleInteraction);
+=======
+                resolve();
+            };
+            dialog.addEventListener('click', handleInteraction, { once: true });
+            dialog.addEventListener('touchend', handleInteraction, { once: true });
+>>>>>>> 103f71756ec9825695ab6dc64e1e939616c11526
         });
     }
    })
