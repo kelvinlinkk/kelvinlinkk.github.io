@@ -19,44 +19,41 @@ function commandhandler(com){
 }
 
 async function handledialog(line){
-  let words = line.split(""), display = "", islock = false, bracketContent = "";
-  
-  const clickHandler = (resolve) => {
-    dialog.removeEventListener('click', clickHandler);
-    resolve();
-  };
-  
-  await new Promise(resolve => {
-    dialog.addEventListener('click', () => clickHandler(resolve));
-  });
-  
-  for(let word of words){
-    if(word == "[") {
-      islock = true;
-      bracketContent = ""; 
-      continue;
-    } else if (islock) {
-      if (word == "]") {
-        islock = false;
-        word = commandhandler(bracketContent); 
-      } else {
-        bracketContent += word; 
-        continue;
-      }
-    } 
-    display += word;
-    await new Promise(r => setTimeout(r, 10));
-    dialog.innerHTML = display;
-  }
 }
 
+  // Start of Selection
 fetch("myText.txt")
   .then((res) => res.text())
   .then(async (text) => {
-    //main logic
-    let lines = text.split("\r\n");
-    for(let line of lines){
-        await handledialog(line);
+    const lines = text.split("\r\n");
+    for (const line of lines) {
+      let display = "", islock = false, bracketContent = "";
+      
+      await new Promise(resolve => {
+        const clickHandler = () => {
+          dialog.removeEventListener('click', clickHandler);
+          resolve();
+        };
+        dialog.addEventListener('click', clickHandler);
+      });
+
+      for (const word of line) {
+        if (word === "[") {
+          islock = true;
+          bracketContent = "";
+        } else if (islock) {
+          if (word === "]") {
+            islock = false;
+            display += commandhandler(bracketContent);
+          } else {
+            bracketContent += word;
+          }
+        } else {
+          display += word;
+        }
+        await new Promise(r => setTimeout(r, 10));
+        dialog.innerHTML = display;
+      }
     }
-   })
-  .catch((e) => console.error(e));
+  })
+  .catch(console.error);
