@@ -23,7 +23,7 @@ async function handledialog(line){
   await new Promise(resolve => {
     dialog.addEventListener('click', () => {
       resolve();
-    }, { once: true });
+    });
   });
   for(let word of words){
     if(word == "[") {
