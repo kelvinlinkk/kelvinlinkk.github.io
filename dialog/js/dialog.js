@@ -7,17 +7,24 @@ class DialogSystem {
     constructor() {
         this.linenum = 0;
         this.islocked = true;
+        this.text = [];  // 清空初始對話
 
-        //story here
-        this.text = [
-            "Once upon a time, there was a small village nestled in the mountains.[bg sunset cover]",
-            "The villagers lived peacefully,[n] tending to their gardens and livestock.[bg 0 cover]"
-        ];
+        // 讀取txt檔案
+        fetch('story.txt')
+            .then(response => response.text())
+            .then(data => {
+                // 將文字分割成行
+                this.text = data.split('\n').filter(line => line.trim() !== '');
+                // 開始顯示第一行
+                this.showwords(this.linenum);
+            })
+            .catch(error => console.error('Error loading story:', error));
 
-        this.showwords(this.linenum);
         dialog.addEventListener('click', () => {
-            this.islocked = true;
-            this.showwords(this.linenum);
+            if (!this.islocked && this.linenum < this.text.length) {
+                this.islocked = true;
+                this.showwords(this.linenum);
+            }
         });
     }
     // show words individually
@@ -56,10 +63,11 @@ class DialogSystem {
             case 'show':
                 //show dialog
                 dialog.style.visibility = 'visible';
+                //await new Promise(r => setTimeout(r, 10));
                 break;
             case 'hide':
                 //show dialog
-                dialog.style.display = 'hidden';
+                dialog.style.visibility = 'hidden';
                 break;
             case 'n':
                 //new line
