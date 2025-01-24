@@ -1,4 +1,4 @@
-# DialogJS
+# DialogJS (experimental)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -29,7 +29,9 @@ To create your interactive dialogue system, start by writing your script in a fi
 >Remember, each line in `story.txt` represents a single paragraph in your game's narrative. 
 
 This file will contain the narrative of your game, including character dialogues, scene descriptions, and [commands](#commands) to control the visual and audio elements. 
-Use the commands listed below to enhance your story with features such as displaying [images](#image), playing [audio](#audio), and managing the dialogue box. 
+Use the commands listed below to enhance your story with features such as displaying [images](#image), playing [audio](#audio), and managing the dialogue box.
+
+**Note**: To further enhance the narrative in `story.txt`, HTML elements can be incorporated. For font size adjustments, it is recommended to use the `em` unit, a relative font size measurement.
 
 ### File Management
 Music and images should be stored in the `resources` folder for system access.

@@ -19,6 +19,10 @@ class DialogSystem {
         this.imgfile = this.createElement('span', 'imgfile');
         this.audiofile = this.createElement('span', 'audiofile');
 
+        this.stylesheet = document.head.appendChild(document.createElement("link"));
+        this.stylesheet.rel = "stylesheet";
+        this.stylesheet.href = "resources/appearance.css";
+
         // 讀取txt檔案
         fetch('story.txt')
             .then(response => response.text())
@@ -124,6 +128,7 @@ class DialogSystem {
                 // [audio name src play time(s) fade(ms)]
                 if (params[3] == 'play') {
                     let audio = document.createElement('audio'); // 創建音頻元素
+                    audio.style.visibility = "hidden0;"
                     this.audiofile.appendChild(audio);
                     audio.src = "resources/" + params[2];
                     audio.play(); // 開始播放音頻
