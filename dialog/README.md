@@ -40,10 +40,13 @@ Music and images should be stored in the `resources` folder for system access.
 
 **DialogJS** provides several commands to enhance your interactive dialogue system: use `[show]` to display the dialog box, `[hide]` to conceal it, and `[n]` to insert a line break. Change the background image with `[bg]`, where the first parameter is the image source and the second is the object-fit style. To display images, use `[img]`, and for audio playback, utilize `[audio]`, which allows for duration and fade-in/out effects.
 
-### show
+### setting
+> [ setting font-family color dialog-background-color dialog-background-img ]
+* Customizes the font and the dialog box.
+
+### display (show and hide)
 > [ show ]
 - Displays the dialog box.
-### hide
 > [ hide ]
 - Hides the dialog box.
 ### newline
@@ -59,6 +62,28 @@ Music and images should be stored in the `resources` folder for system access.
 >[ audio name src play time(s) fade(ms) ]
 - Plays an audio file with options for duration and fade-in/out effects.
 
+### Variables (setVar and showVar)
+> [setVar variable-name value ]
+* Assigns a value to a variable
+
+> [ showVar variable-name ]
+* Retrieves and displays the value of a variable
+
+### Script Flow(goto and button)
+> [ goto filename ]
+* This command is used to navigate to a different part of the script. The parameter `filename` should be the name of the file to navigate to.
+
+## Update log
+### v0.1
+- Mute the audio when [ hide ]
+- Add command [ setting ] to personalize the appearance
+### v0.2
+- Introduce [ setVar ] and [ showVar ] for variable customization.
+- Enable user interaction through click and space key for dialog progression.
+- Exclude lines containing only commands from being considered as lines.
+- Incorporate the [ goto ] command for script navigation.
+
+
 ## TODO
 ### New Commands
 - [ effect ] : This command enables users to manipulate images or modify audio files.
@@ -66,13 +91,16 @@ Music and images should be stored in the `resources` folder for system access.
 - [ particle ] : This command can be used to create effects such as wind, rain, shooting stars, or other visual elements.
 
 ### functions
-- **Variables**: Enables the use of custom variables within the dialogue system.
 
 - **Buttons**: Facilitates player interaction by allowing them to respond to prompts.
 
-- **Process Logic**: Supports the creation of conditional statements and loops, enabling the development of more intricate narrative structures and player interactions.
+- **Input Box**: Allows players to enter text responses during the dialogue.
 
-- **Custom Font and Color Scheme**: Allows developers to personalize the visual appearance of the dialogue system by applying custom font styles and color schemes.
+- **setting**: Sets all kinds of functions.
+
+- **Customizable Key Binding**: Enables players to assign their preferred keys to specific actions.
+
+- **log**: Enables players to review previous dialog.
 
 ## Contribute
 
