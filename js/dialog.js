@@ -46,6 +46,7 @@ class DialogSystem {
             const response = await fetch(filename);
             const data = await response.text();
             this.text = data.split('\r\n').filter(line => line.trim() !== '');
+            console.log(this.text);
             this.showWords(this.lineNum);
         } catch (error) {
             console.error('Error loading story:', error);
@@ -107,7 +108,6 @@ class DialogSystem {
         }
         this.lineNum += 1;
         if (display === "") {
-            console.log(123);
             this.showWords(num + 1);
         } else {
             this.isLocked = false;
