@@ -1,0 +1,17 @@
+/*don't change*/ 
+#dialog{
+    position: fixed;inset: 0px; margin: auto; aspect-ratio: 16 / 9;max-width: 100vw;max-height: 100vh;
+    font-size: min(4.8vh, 2.7vw);
+}
+#dialog p{
+    position: absolute;bottom: 5%;left: 5%;width: 86%;height: 40%;z-index: 100;padding: 2%;margin: 0;
+    font-size: 1em;
+}
+#buttons{position: absolute;right: 5%;width: 30%;bottom: 35%;height: fit-content;
+     z-index: 101;padding: 0px;display: none;}
+#buttons button{position: relative;width: 100%; bottom: 0px;display: block;border: 0px; margin: 5% 0%;font-size: 1em;
+    background-color: #111111;color: aliceblue;}
+
+#dialogBoxImg{position: absolute;bottom: 5%;left: 5%;width: 90%;height: 47%;z-index: 99;object-fit: cover;}
+#imgfile img{position: absolute;}
+#bg{position: absolute; inset: 0; width: 100%;height: 100%;visibility: hidden;z-index: 0;}

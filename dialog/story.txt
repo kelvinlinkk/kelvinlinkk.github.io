@@ -1,9 +1,11 @@
 [[]
 [show]
+[button story1]
+[button story2 story2.txt]
 [setting 0 0 0 bocchi.jpg]
 [setVar mystring Gimmy Wang]
-[button hi story2 goto story2.txt]
 (click to continue)
+[showbutton]
 [bg sunset.jpg cover]
 [img bocchi bocchi.jpg 710 290 1 500 500 1]
 [audio Music Music.mp3 play 60 0]
