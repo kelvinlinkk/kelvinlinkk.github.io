@@ -105,6 +105,21 @@ class DialogSystem {
             if (display)
                 this.dialogBoxInstance.setText(display);
         }
+        
+        // 在這裡添加等待用戶輸入的邏輯
+        await new Promise(resolve => {
+            const handleInput = () => {
+                if (!this.isLocked) {
+                    resolve();
+                    document.removeEventListener('click', handleInput);
+                    document.removeEventListener('keydown', handleInput);
+                }
+            };
+            
+            document.addEventListener('click', handleInput);
+            document.addEventListener('keydown', handleInput);
+        });
+        
         this.lineNum += 1;
         if (display === "") {
             this.showWords(num + 1);
