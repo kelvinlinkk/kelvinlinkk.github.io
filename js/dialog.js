@@ -46,7 +46,6 @@ class DialogSystem {
             const response = await fetch(filename);
             const data = await response.text();
             this.text = data.split('\n').filter(line => line.trim() !== '');
-            console.log(this.text);
             this.showWords(this.lineNum);
         } catch (error) {
             console.error('Error loading story:', error);
