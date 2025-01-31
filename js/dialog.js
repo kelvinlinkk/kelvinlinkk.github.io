@@ -45,7 +45,7 @@ class DialogSystem {
         try {
             const response = await fetch(filename);
             const data = await response.text();
-            this.text = data.split('\r\n').filter(line => line.trim() !== '');
+            this.text = data.split('\n').filter(line => line.trim() !== '');
             console.log(this.text);
             this.showWords(this.lineNum);
         } catch (error) {
