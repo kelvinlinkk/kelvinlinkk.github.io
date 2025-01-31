@@ -1,6 +1,8 @@
 class DialogSystem {
     constructor(filename) {
         this.variables = {};
+        this.dialog = document.createElement("div");
+        document.getElementsByTagName("main")[0].appendChild(this.dialog).id = "dialog";
 
         this.dialogBoxInstance = new dialogBox();
         this.imgContainer = new ImageContainer();
@@ -16,10 +18,6 @@ class DialogSystem {
     }
 
     setDialogElements() {
-        this.dialog = document.createElement("div");
-        document.getElementsByTagName("main")[0].appendChild(this.dialog).id = "dialog";
-        this.dialog.appendChild(this.dialogBoxInstance.getBox());
-        this.dialog.appendChild(this.dialogBoxInstance.getImg());
         this.dialog.appendChild(this.imgContainer.getContainer());
         this.dialog.appendChild(this.audContainer.getContainer());
         this.dialog.appendChild(this.btnContainer.getContainer());
@@ -152,7 +150,7 @@ class DialogSystem {
                 return '<br>';
 
             case 'bg':
-                // background src object-fit
+                // [background src object-fit]
                 if (params[1] == 0) {
                     this.background.style.visibility = 'hidden';
                 } else {
@@ -202,11 +200,16 @@ class DialogSystem {
 }
 class dialogBox {
     constructor() {
+        let dialog = document.getElementById("dialog");
         this.box = document.createElement("p");
         this.img = document.createElement("img");
         this.img.id = "dialogBoxImg";
-        this.setColor("#00000060");
         this.img.style.visibility = "hidden";
+        this.input = document.createElement("textarea");
+        dialog.appendChild(this.img);
+        dialog.appendChild(this.box);
+        dialog.appendChild(this.input);
+        this.setColor("#00000060");
     }
     getBox() {
         return this.box;
@@ -214,6 +217,8 @@ class dialogBox {
 
     getImg() {
         return this.img;
+    }
+    getMessage(){
     }
     setColor(color) {
         this.img.style.visibility = "hidden";

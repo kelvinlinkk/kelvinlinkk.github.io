@@ -7,6 +7,9 @@
     position: absolute;bottom: 5%;left: 5%;width: 86%;height: 40%;z-index: 100;padding: 2%;margin: 0;
     font-size: 1em;
 }
+textarea{z-index: 102;position: absolute;top: 48%;left: 5%;width: 86%;
+    border: 0px; padding: 2%;font-size: 1em;height: 43%;word-break: break-word;
+    background-color: #00000000;color: inherit;font-family: unset;display: none;}
 #buttons{position: absolute;right: 5%;width: 30%;bottom: 35%;height: fit-content;
      z-index: 101;padding: 0px;display: none;}
 #buttons button{position: relative;width: 100%; bottom: 0px;display: block;border: 0px; margin: 5% 0%;font-size: 1em;
