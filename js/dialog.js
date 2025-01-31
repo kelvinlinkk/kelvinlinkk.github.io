@@ -47,11 +47,13 @@ class DialogSystem {
             const data = await response.text();
             this.text = data.split('\r\n').filter(line => line.trim() !== '');
             this.showWords(this.lineNum);
+            console.log(465);
         } catch (error) {
             console.error('Error loading story:', error);
         }
 
         this.dialogBoxInstance.getBox().addEventListener('dblclick', () => {
+            console.log(123);
             if (!this.isLocked && this.lineNum < this.text.length) {
                 this.isLocked = true;
                 this.showWords(this.lineNum);
