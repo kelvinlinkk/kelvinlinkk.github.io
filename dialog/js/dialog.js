@@ -1,6 +1,7 @@
 class DialogSystem {
     constructor(filename) {
         this.variables = {};
+        this.speaker = "someone";
         this.dialog = document.createElement("div");
         document.getElementsByTagName("main")[0].appendChild(this.dialog).id = "dialog";
 
@@ -25,16 +26,32 @@ class DialogSystem {
 
     setDialogStyles() {
         // 設置對話框的外觀
-        this.dialog.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
-        this.dialog.style.color = "aliceblue";
+        Object.assign(this.dialog.style, {
+            fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            color: "aliceblue"
+        });
 
-        this.background = document.createElement('img');
-        this.background.id = 'bg';
-        this.dialog.appendChild(this.background); // 將背景添加到對話框中
+        this.background = Object.assign(document.createElement('img'), {
+            id: 'bg'
+        });
+        this.dialog.appendChild(this.background);
 
-        this.stylesheet = document.head.appendChild(document.createElement("link"));
-        this.stylesheet.rel = "stylesheet";
-        this.stylesheet.href = "css/appearance.css";
+        this.stylesheet = Object.assign(document.createElement("link"), {
+            rel: "stylesheet",
+            href: "css/appearance.css"
+        });
+        document.head.appendChild(this.stylesheet);
+
+        this.dialogHistory = Object.assign(document.createElement("article"),{
+            id: "dialogHistory"
+        })
+        this.dialog.appendChild(this.dialogHistory);
+        document.addEventListener("keydown", (n) => {
+            if(n.key === "l"){
+                this.dialogHistory.style.display = 
+                this.dialogHistory.style.display === "none" ? "initial" : "none";
+            }
+        });
     }
 
     async loadStory(filename) {
@@ -45,7 +62,7 @@ class DialogSystem {
         try {
             const response = await fetch(filename);
             const data = await response.text();
-            this.text = data.split('\n').filter(line => line.trim() !== '');
+            this.text = data.replace(/\r\n|\r|\n/g, '\n').split('\n').filter(line => line.trim() !== '');
             this.showWords(this.lineNum);
         } catch (error) {
             console.error('Error loading story:', error);
@@ -91,6 +108,10 @@ class DialogSystem {
                             let storyname = await this.btnContainer.showButton();
                             if (storyname != "undefined") { this.loadStory(storyname); return; }
                             word = ""; break;
+                        case "input":
+                            this.variables[commandParts[1]] =  
+                            String(await this.dialogBoxInstance.getMessage(commandParts[2])).replace(/[^\w\u4E00-\u9FFF_]/g,"");
+                            word = ""; break;
                         default:
                             word = this.commandHandler(bracketContent);
                             break;
@@ -109,6 +130,9 @@ class DialogSystem {
         if (display === "") {
             this.showWords(num + 1);
         } else {
+            let paragraph = document.createElement("section");
+            paragraph.innerHTML = this.speaker + " : " + display;
+            this.dialogHistory.appendChild(paragraph);
             this.isLocked = false;
         }
     }
@@ -183,12 +207,23 @@ class DialogSystem {
 
             case "setVar":
                 // [setVar name val]
-                this.variables[params[1]] = params.slice(2).join(" "); // 合併第2項以後的所有項目
+                this.variables[params[1]] = String(params.slice(2).join(" "))
+                    .replace(/[^\w\u4E00-\u9FFF_]/g,"");  // Remove HTML tags
                 break;
 
             case "showVar":
                 // [showVar name]
                 return this.variables[params[1]];
+
+            
+            case "speaker":
+                // [speaker isvariable txt/variable]
+                if(params[1] == 1){
+                    this.speaker = this.variables[params[2]];
+                }else{
+                    this.speaker = params[2];
+                }
+                break;
 
             case "button":
                 this.btnContainer.addButton(params[1], params[2]);
@@ -201,14 +236,34 @@ class DialogSystem {
 class dialogBox {
     constructor() {
         let dialog = document.getElementById("dialog");
-        this.box = document.createElement("p");
-        this.img = document.createElement("img");
-        this.img.id = "dialogBoxImg";
-        this.img.style.visibility = "hidden";
-        this.input = document.createElement("textarea");
-        dialog.appendChild(this.img);
-        dialog.appendChild(this.box);
-        dialog.appendChild(this.input);
+        const fragment = document.createDocumentFragment();
+
+        const elements = {
+            box: Object.assign(document.createElement("p"), {
+                className: "dialogBox"
+            }),
+            img: Object.assign(document.createElement("img"), {
+                id: "dialogBoxImg",
+                style: { visibility: "hidden" }
+            }),
+            inputBackground: Object.assign(document.createElement("section"), {
+                id: "inputBackground"
+            }),
+            input: Object.assign(document.createElement("input"), {
+                type: "text",
+                id: "dialogInput"
+            }),
+            inputTxt: Object.assign(document.createElement("p"), {
+                id: "inputTxt"
+            })
+        };
+
+        elements.inputBackground.appendChild(elements.input);
+        elements.inputBackground.appendChild(elements.inputTxt);
+        fragment.append(elements.img, elements.box, elements.inputBackground);
+        dialog.appendChild(fragment);
+
+        Object.assign(this, elements);
         this.setColor("#00000060");
     }
     getBox() {
@@ -218,7 +273,20 @@ class dialogBox {
     getImg() {
         return this.img;
     }
-    getMessage(){
+    getMessage(txt) {
+        return new Promise((resolve) => {
+            this.inputBackground.style.display = "initial";
+            this.inputTxt.innerHTML = txt;
+            this.box.style.display = "none";
+            this.input.focus();
+            this.input.addEventListener("keydown", (n) => {
+                if (n.key === "Enter") {
+                    resolve(this.input.value);
+                    this.inputBackground.style.display = "none";
+                    this.box.style.display = "initial";
+                }
+            })
+        })
     }
     setColor(color) {
         this.img.style.visibility = "hidden";
@@ -333,7 +401,7 @@ class ButtonContainer {
         return this.buttonsArea;
     }
 
-    setAppearance(){
+    setAppearance() {
         this.buttonsArea.style.backgroundColor = "#00000068";
     }
 
@@ -352,18 +420,27 @@ class ButtonContainer {
         // Create a Promise that resolves when a button is clicked
         return new Promise((resolve) => {
             let select = -1;
-            document.addEventListener("wheel",()=>{
-                if(select>=Array.from(this.buttonsArea.children).length-1){
+            const handleWheelEvent = (flag) => {
+                select = flag ? select + 1 : select - 1;
+                if (select > Array.from(this.buttonsArea.children).length - 1) {
                     select = 0;
-                }else{
-                    select+=1;
+                }
+                if (select < 0) {
+                    select = Array.from(this.buttonsArea.children).length - 1;
+                }
+            };
+
+            document.addEventListener("wheel", handleWheelEvent, true);
+            document.addEventListener("keydown", (n) => {
+                if ((n.key === "Enter" || n.key === " ") && select != -1) {
+                    resolve(Array.from(this.buttonsArea.children)[select].className);
+                    this.clearButton(); return;
+                } else if (n.key === "ArrowUp" || n.key === "ArrowDown") {
+                    handleWheelEvent(n.key === "ArrowDown");
+                } else if (n.key === "w" || n.key === "s") {
+                    handleWheelEvent(n.key === "s");
                 }
             });
-            document.addEventListener("keydown",(n)=>{
-                if((n.key==="Enter" || n.key === " ") && select!=-1){
-                    resolve(Array.from(this.buttonsArea.children)[select].className);
-                    this.clearButton();
-                }},{once:true});
             for (let btn of this.buttonsArea.children) {
                 let num = Array.from(this.buttonsArea.children).indexOf(btn);
                 btn.addEventListener("mouseenter", () => {
@@ -371,22 +448,13 @@ class ButtonContainer {
                 });
 
                 btn.addEventListener("mouseleave", () => {
-                    select = -1;btn.style.background = "#111111";
+                    select = -1; btn.style.background = "#111111";
                 });
-                this.buttonsArea.addEventListener("mousemove",()=>{
-                    if(select==num){
-                        btn.style.background = "#555555";
-                    }else{
-                        btn.style.background = "#111111";
-                    }
-                })
-                document.addEventListener("wheel",()=>{
-                    if(select==num){
-                        btn.style.background = "#555555";
-                    }else{
-                        btn.style.background = "#111111";
-                    }
-                })
+                ["mousemove", "wheel", "keydown"].forEach(event => {
+                    document.addEventListener(event, () => {
+                        btn.style.background = select === num ? "#555555" : "#111111";
+                    });
+                });
 
                 btn.addEventListener("click", () => {
                     resolve(btn.className);
@@ -402,7 +470,7 @@ class ButtonContainer {
             if (this.buttonElements[name]) {
                 this.buttonsArea.removeChild(this.buttonElements[name]);
                 delete this.buttonElements[name];
-                this.buttonsArea.style.display="none";
+                this.buttonsArea.style.display = "none";
             }
         } else {
             // Clear all buttons

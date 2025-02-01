@@ -3,12 +3,13 @@
 [button story1]
 [button story2 story2.txt]
 [setting 0 0 0 bocchi.jpg]
-[setVar mystring Gimmy Wang]
 (click to continue)
 [showbutton]
 [bg sunset.jpg cover]
 [img bocchi bocchi.jpg 710 290 1 500 500 1]
 [audio Music Music.mp3 play 60 0]
+[input mystring 請輸入姓名]
+[speaker 1 mystring]
 In a distant galaxy, a brave explorer named [showVar mystring] set out on an adventure to discover new worlds.
 As [showVar mystring] navigated through the stars, she encountered a beautiful planet covered in lush hills.
 [bg resize.jpg cover]The hills were alive with vibrant colors, and [showVar mystring] felt a sense of wonder as she landed her ship.
