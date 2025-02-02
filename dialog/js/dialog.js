@@ -1,73 +1,57 @@
 class DialogSystem {
     constructor(filename) {
+        //initial
         this.variables = {};
         this.speaker = "someone";
         this.dialog = document.createElement("div");
-        document.getElementsByTagName("main")[0].appendChild(this.dialog).id = "dialog";
+        document.querySelector("main").appendChild(this.dialog).id = "dialog";
 
+        //綁定dialogBox、img、audio、btn
         this.dialogBoxInstance = new dialogBox();
         this.imgContainer = new ImageContainer();
         this.audContainer = new AudioContainer();
         this.btnContainer = new ButtonContainer();
-        this.setDialogElements();
-
-        // 設置樣式
-        this.setDialogStyles();
-
-        // 讀取txt檔案
-        this.loadStory(filename);
-    }
-
-    setDialogElements() {
         this.dialog.appendChild(this.imgContainer.getContainer());
         this.dialog.appendChild(this.audContainer.getContainer());
         this.dialog.appendChild(this.btnContainer.getContainer());
-    }
 
-    setDialogStyles() {
-        // 設置對話框的外觀
-        Object.assign(this.dialog.style, {
-            fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-            color: "aliceblue"
-        });
+        //set up dialog elements
+        this.background =
+            Object.assign(this.dialog.appendChild(document.createElement('img')), {id: 'bg'});
 
-        this.background = Object.assign(document.createElement('img'), {
-            id: 'bg'
-        });
-        this.dialog.appendChild(this.background);
-
-        this.stylesheet = Object.assign(document.createElement("link"), {
-            rel: "stylesheet",
-            href: "css/appearance.css"
-        });
-        document.head.appendChild(this.stylesheet);
-
-        this.dialogHistory = Object.assign(document.createElement("article"),{
-            id: "dialogHistory"
-        })
-        this.dialog.appendChild(this.dialogHistory);
+        this.dialogHistory =
+            Object.assign(this.dialog.appendChild(document.createElement("article")), {id: "dialogHistory"})
+        document.head.appendChild(
+            Object.assign(document.createElement("link"), {rel: "stylesheet",href: "css/appearance.css"}));
+        
+        //press l to read log
         document.addEventListener("keydown", (n) => {
-            if(n.key === "l"){
-                this.dialogHistory.style.display = 
-                this.dialogHistory.style.display === "none" ? "initial" : "none";
+            if (n.key === "l") {
+                this.dialogHistory.style.display =
+                    this.dialogHistory.style.display === "none" ? "initial" : "none";
             }
         });
+
+        // load txt file
+        this.loadStory(filename);
     }
 
     async loadStory(filename) {
         this.lineNum = 0;
         this.isLocked = true;
-        this.text = []; // 清空初始對話
-
+        this.text = []; 
+        
+        //fetch file or usethe backup ones
         try {
             const response = await fetch(filename);
             const data = await response.text();
             this.text = data.replace(/\r\n|\r|\n/g, '\n').split('\n').filter(line => line.trim() !== '');
             this.showWords(this.lineNum);
         } catch (error) {
-            console.error('Error loading story:', error);
+            this.text = story[filename.split(".")[0]];
+            this.showWords(this.lineNum);
         }
-
+        //click or press space to continue
         this.dialogBoxInstance.getBox().addEventListener('click', () => {
             if (!this.isLocked && this.lineNum < this.text.length) {
                 this.isLocked = true;
@@ -90,15 +74,17 @@ class DialogSystem {
             flag = false,
             bracketContent = "";
 
+        //handle words    
         for (let word of words) {
             if (word === "[" && !flag) {
+                //collect command
                 flag = true;
                 bracketContent = "";
                 continue;
             } else if (flag) {
                 if (word === "]") {
+                    //execute command
                     flag = false;
-                    //在這裡可以處理跳轉
                     const commandParts = bracketContent.split(" ");
                     switch (commandParts[0]) {
                         case "goto":
@@ -109,8 +95,8 @@ class DialogSystem {
                             if (storyname != "undefined") { this.loadStory(storyname); return; }
                             word = ""; break;
                         case "input":
-                            this.variables[commandParts[1]] =  
-                            String(await this.dialogBoxInstance.getMessage(commandParts[2])).replace(/[^\w\u4E00-\u9FFF_]/g,"");
+                            this.variables[commandParts[1]] =
+                                String(await this.dialogBoxInstance.getMessage(String(commandParts.slice(2).join(" ")))).replace(/[^\w\u4E00-\u9FFF_]/g, "");
                             word = ""; break;
                         default:
                             word = this.commandHandler(bracketContent);
@@ -127,6 +113,7 @@ class DialogSystem {
                 this.dialogBoxInstance.setText(display);
         }
         this.lineNum += 1;
+        //detect empty line(only command)
         if (display === "") {
             this.showWords(num + 1);
         } else {
@@ -151,7 +138,7 @@ class DialogSystem {
                 this.dialog.style.color = params[2] || "aliceblue";
                 this.dialogBoxInstance.setColor(params[3] || "#00000060");
 
-                if (params[4]) {
+                if (params[4] === "") {
                     this.dialogBoxInstance.setImg(params[4]);
                 }
                 break;
@@ -201,33 +188,51 @@ class DialogSystem {
                 }
                 break;
 
-            case 'effect':
-                // [effect]
+            case 'move':
+                // [move obj x y time]
+                this.imgContainer.move(params[1], params[2], params[3], params[4]);
+                break;
+                
+            case 'scale':
+                //[ scale obj width height time ]
+                this.imgContainer.scale(params[1], params[2], params[3], params[4]);
+                break;
+
+            case 'skew':
+                //[ skew obj angleX angleY time ]
+                this.imgContainer.skew(params[1], params[2], params[3], params[4]);
+                break;
+
+            case 'rotate':
+                //[ rotate obj angle time ]
+                this.imgContainer.rotate(params[1], params[2], params[3]);
                 break;
 
             case "setVar":
                 // [setVar name val]
                 this.variables[params[1]] = String(params.slice(2).join(" "))
-                    .replace(/[^\w\u4E00-\u9FFF_]/g,"");  // Remove HTML tags
+                    .replace(/[^\w\u4E00-\u9FFF_]/g, "");  // Remove HTML tags
                 break;
 
             case "showVar":
                 // [showVar name]
                 return this.variables[params[1]];
 
-            
+
             case "speaker":
                 // [speaker isvariable txt/variable]
-                if(params[1] == 1){
+                if (params[1] == 1) {
                     this.speaker = this.variables[params[2]];
-                }else{
+                } else {
                     this.speaker = params[2];
                 }
                 break;
 
             case "button":
-                this.btnContainer.addButton(params[1], params[2]);
+                this.btnContainer.addButton(params[1], String(params.slice(2).join(" ")));
                 break;
+            default:
+                return String(params.slice(2).join(""));
         }
 
         return "";
@@ -331,6 +336,129 @@ class ImageContainer {
         });
         this.imageElements[name].style.zIndex = parseFloat(zIndex);
     }
+    move(name, deltaX, deltaY, time) {
+        let imgElement = this.imageElements[name];
+        let start = performance.now();
+        let startX = parseFloat(imgElement.style.left);
+        let startY = parseFloat(imgElement.style.top);
+        let duration = parseFloat(time) * 1000; 
+        function animate(currentTime) {
+            let elapsed = currentTime - start;
+            let progress = Math.min(elapsed / duration, 1);
+
+            // Calculate current position
+            let currentX = startX + parseFloat(deltaX) / 1920 * 100 * progress;
+            let currentY = startY + parseFloat(deltaY) / 1080 * 100 * progress;
+
+            // Update element position
+            imgElement.style.left = currentX + '%';
+            imgElement.style.top = currentY + '%';
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                resolve();
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    scale(name, w, h, time) {
+            const imgElement = this.imageElements[name];
+            const start = performance.now();
+            
+            // Get current scale or default to 1
+            const computedStyle = window.getComputedStyle(imgElement);
+            const currentTransform = computedStyle.transform;
+            const [startScaleX, startScaleY] = currentTransform === 'none' ? 
+                [1, 1] : 
+                currentTransform.match(/matrix\((.*)\)/)?.[1].split(',').map(Number) || [1, 1];
+
+            const targetScaleX = parseFloat(w);
+            const targetScaleY = parseFloat(h);
+            const duration = parseFloat(time) * 1000;
+
+            function animate(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Interpolate scale values
+                const currentScaleX = startScaleX + (targetScaleX - startScaleX) * progress;
+                const currentScaleY = startScaleY + (targetScaleY - startScaleY) * progress;
+
+                // Apply transform
+                imgElement.style.transform = `scale(${currentScaleX}, ${currentScaleY})`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(animate);
+    }
+    skew(name, angleX, angleY, time) {
+            const imgElement = this.imageElements[name];
+            const start = performance.now();
+            
+            const computedStyle = window.getComputedStyle(imgElement);
+            const currentTransform = computedStyle.transform;
+            const [startSkewX, startSkewY] = currentTransform === 'none' ? 
+                [0, 0] : 
+                currentTransform.match(/skew\((.*?)\)/)?.[1].split(',').map(angle => parseFloat(angle)) || [0, 0];
+
+            const targetSkewX = parseFloat(angleX);
+            const targetSkewY = parseFloat(angleY);
+            const duration = parseFloat(time) * 1000;
+
+            function animate(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const currentSkewX = startSkewX + (targetSkewX - startSkewX) * progress;
+                const currentSkewY = startSkewY + (targetSkewY - startSkewY) * progress;
+
+                imgElement.style.transform = `skew(${currentSkewX}deg, ${currentSkewY}deg)`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(animate);
+    }
+
+    rotate(name, angle, time) {
+            const imgElement = this.imageElements[name];
+            const start = performance.now();
+            
+            const computedStyle = window.getComputedStyle(imgElement);
+            const currentTransform = computedStyle.transform;
+            const startAngle = currentTransform === 'none' ? 
+                0 : 
+                parseFloat(currentTransform.match(/rotate\((.*?)deg\)/)?.[1]) || 0;
+
+            const targetAngle = parseFloat(angle);
+            const duration = parseFloat(time) * 1000;
+
+            function animate(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const currentAngle = startAngle + (targetAngle - startAngle) * progress;
+                imgElement.style.transform = `rotate(${currentAngle}deg)`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(animate);
+    }
 }
 
 class AudioContainer {
@@ -405,7 +533,7 @@ class ButtonContainer {
         this.buttonsArea.style.backgroundColor = "#00000068";
     }
 
-    addButton(text, src) {
+    addButton(src, text) {
         let newButton = document.createElement('button');
         newButton.innerHTML = text;
         newButton.classList.add(src);
@@ -431,11 +559,14 @@ class ButtonContainer {
             };
 
             document.addEventListener("wheel", handleWheelEvent, true);
-            document.addEventListener("keydown", (n) => {
+            document.addEventListener("keydown",(n)=>{
                 if ((n.key === "Enter" || n.key === " ") && select != -1) {
                     resolve(Array.from(this.buttonsArea.children)[select].className);
-                    this.clearButton(); return;
-                } else if (n.key === "ArrowUp" || n.key === "ArrowDown") {
+                    this.clearButton();
+                }
+            },{once:true})
+            document.addEventListener("keydown", (n) => {
+                if (n.key === "ArrowUp" || n.key === "ArrowDown") {
                     handleWheelEvent(n.key === "ArrowDown");
                 } else if (n.key === "w" || n.key === "s") {
                     handleWheelEvent(n.key === "s");
@@ -478,4 +609,47 @@ class ButtonContainer {
             this.buttonElements = [];
         }
     }
+}
+const story = {
+    "story": [
+        "[[]",
+        "[show]",
+        "[button story1]",
+        "[button story2 story2.txt]",
+        "[setting 0 aliceblue 0 bocchi.jpg]",
+        "(click to continue)",
+        "[showbutton]",
+        "[bg sunset.jpg cover]",
+        "[img bocchi bocchi.jpg 710 290 1 500 500 1]",
+        "[audio Music Music.mp3 play 60 0]",
+        "[input mystring 請輸入姓名]",
+        "[speaker 1 mystring]",
+        "In a distant galaxy, a brave explorer named [showVar mystring] set out on an adventure to discover new worlds.",
+        "As [showVar mystring] navigated through the stars, she encountered a beautiful planet covered in lush hills.",
+        "[bg resize.jpg cover]The hills were alive with vibrant colors, and [showVar mystring] felt a sense of wonder as she landed her ship.",
+        "Suddenly, she spotted a mysterious light in the distance. What could it be?",
+        "[bg sunset.jpg cover]",
+        "With courage in her heart, [showVar mystring] decided to investigate the source of the light.",
+        "As she approached, she realized it was a portal to another dimension!",
+        "(Written by ChatGPT)",
+        "[audio Music Music.mp3 stop 0 4000]",
+        "[goto story2.txt]"
+    ],
+"story2": [
+    "[show]",
+    "Once upon a time, in a magical forest, there lived a kind-hearted rabbit named Benny. Benny loved to help his friends and explore the wonders of the forest.",
+    "",
+    "One sunny day, Benny found a sparkling stream. As he approached, he noticed a little bird trapped in some vines. \"Don't worry, I'll help you!\" Benny said. He carefully untangled the vines, and the bird chirped happily, \"Thank you, Benny! I can now fly again!\"",
+    "",
+    "To show his gratitude, the bird invited Benny to a secret party in the heart of the forest that evening. Benny was thrilled and hopped along to prepare for the celebration.",
+    "[audio 123 Music.mp3 play 0 0]",
+    "",
+    "As night fell, Benny arrived at the party, where all his friends were gathered. They danced under the stars, shared stories, and enjoyed delicious treats. Benny felt grateful for his friends and the magic of the forest.",
+    "[audio 123 Music.mp3 stop 0 0]",
+    "",
+    "From that day on, Benny and the little bird became the best of friends, and they had many more adventures together, spreading kindness and joy throughout the magical forest.",
+    "",
+    "[hide]",
+    "The end."
+]
 }

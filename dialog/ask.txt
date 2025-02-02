@@ -1,0 +1,22 @@
+[setting Arial #ffffff #000000 ""]
+[show]
+[bg bocchi.jpg cover]
+[audio bgm Music.mp3 play 999999 1000]
+
+[speaker 0 Strange Girl]
+"My name is Bocchi. I'm from a distant civilization that has been monitoring Earth."
+
+"We've detected an anomaly that could affect both our worlds, and we believe you have the unique ability to help us resolve it."
+
+[bg resize.jpg cover]
+I looked across the peaceful hillside, taking in the weight of her words. The gentle breeze carried an otherworldly feeling now.
+
+[speaker 0 Bocchi]
+"Will you help us save both our worlds? Your decision here will change everything."
+
+[bg sunset.jpg cover]
+As the sun continued its descent, I realized this moment would define not just my future, but potentially the future of two civilizations.
+
+"Thank you for listening. Whatever you choose, this meeting was meant to be."
+
+[hide]
