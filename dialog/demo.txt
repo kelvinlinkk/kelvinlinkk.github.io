@@ -49,6 +49,7 @@ Character dialogue works like this:
 I'm your guide!
 [speaker true playerName]
 Now you're speaking!
+press `l` to read previous dialog.
 
 Let's change scenes...
 [bg bocchi.jpg cover]

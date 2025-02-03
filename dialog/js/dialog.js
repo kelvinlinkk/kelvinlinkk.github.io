@@ -226,9 +226,9 @@ class DialogSystem {
             case "speaker":
                 // [speaker isvariable txt/variable]
                 if (params[1] == 1) {
-                    this.speaker = this.variables[params[2]];
+                    this.speaker = this.dialogBoxInstance.setSpeaker(String(this.variables[params.slice(2).join(" ")]));
                 } else {
-                    this.speaker = params[2];
+                    this.speaker =this.dialogBoxInstance.setSpeaker(params.slice(2).join(" "));
                 }
                 break;
 
@@ -255,6 +255,10 @@ class dialogBox {
                 id: "dialogBoxImg",
                 style: { visibility: "hidden" }
             }),
+            nametag: Object.assign(document.createElement("div"), {
+                id: "nametag",
+                innerHTML: "someone"
+            }),
             inputBackground: Object.assign(document.createElement("section"), {
                 id: "inputBackground"
             }),
@@ -269,7 +273,7 @@ class dialogBox {
 
         elements.inputBackground.appendChild(elements.input);
         elements.inputBackground.appendChild(elements.inputTxt);
-        fragment.append(elements.img, elements.box, elements.inputBackground);
+        fragment.append(elements.img, elements.box, elements.inputBackground, elements.nametag);
         dialog.appendChild(fragment);
 
         Object.assign(this, elements);
@@ -300,6 +304,7 @@ class dialogBox {
     setColor(color) {
         this.img.style.visibility = "hidden";
         this.box.style.backgroundColor = color;
+        this.nametag.style.backgroundColor = color;
     }
     setText(text) {
         this.box.innerHTML = text;
@@ -307,6 +312,10 @@ class dialogBox {
     setImg(source) {
         this.img.src = `resources/${source}`;
         this.img.style.visibility = "visible";
+    }
+    setSpeaker(name) {
+        this.nametag.innerHTML = name;
+        return name;
     }
 }
 
