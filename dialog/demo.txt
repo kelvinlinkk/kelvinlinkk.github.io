@@ -1,6 +1,6 @@
-[show]
 [setting Arial #000000 #999999 none]
-(Wriiten by Claude 3.5 Sonnet)
+[show]
+(Written by Claude 3.5 Sonnet)
 Welcome to DialogJS! Let's explore how to create interactive stories.
 
 First, to display a command in text, use [[]]. For example: [[]show] prints the command.
@@ -57,8 +57,10 @@ Time to learn about choices:
 [[]button filename text] creates a choice
 [[]showbutton] displays all choices
 Where would you like to go?
-[button story.txt "Begin Adventure"]
-[button demo.txt "Restart Demo"]
+[button story.txt Begin Adventure]
+[button none Continue Demo]
 [showbutton]
+Use [[]goto filename] to jump between files.
+[goto demo.txt]
 
 [hide]

@@ -33,6 +33,10 @@ class DialogSystem {
         });
 
         // load txt file
+        this.main(filename);
+    }
+
+    main(filename){
         this.loadStory(filename);
     }
 
@@ -92,7 +96,7 @@ class DialogSystem {
                             return;
                         case "showbutton":
                             let storyname = await this.btnContainer.showButton();
-                            if (storyname != "undefined") { this.loadStory(storyname); return; }
+                            if (storyname != "none") { this.loadStory(storyname); return; }
                             word = ""; break;
                         case "input":
                             this.variables[commandParts[1]] =
