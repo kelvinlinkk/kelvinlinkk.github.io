@@ -1,64 +1,11 @@
-[show]
-[setting Arial #000000 #999999 none]
-(Wriiten by Claude 3.5 Sonnet)
-Welcome to DialogJS! Let's explore how to create interactive stories.
-
-First, to display a command in text, use [[]]. For example: [[]show] prints the command.
-Let me demonstrate basic commands:
-[[]show] - Shows the dialog box
-[[]hide] - Hides the dialog box
-[[]n] - Creates a new line
-
-Let's customize our appearance:
-[setting Arial #FFFFFF #333333 none]
-[[]setting font-family color dialog-bg-color dialog-bg-img] changes the look
-
-Time for some media commands!
-[bg sunset.jpg cover]
-[[]bg source fit-style] changes the background
-
-[img bocchi bocchi.jpg 20 20 1 300 300 true]
-[[]img name src x y z width height show] displays images
-[move bocchi 50 50 1]
-[[]move name deltaX deltaY time(s)] moves images
-[scale bocchi 1.2 1.8 1]
-[[]scale name deltaX deltaY time(s)] scales images
-[skew bocchi 20 10 1]
-[[]skew degX degY time(s)] skews images
-[rotate bocchi 40 1]
-[[]rotate deg time(s)] rotates images
-
-[audio bgm Music.mp3 play 30 2000]
-[[]audio name src play time fade] plays music
-
-Let's try the variable system:
-[[]setVar name value] sets a variable
-[setVar playerName "Explorer"]
-[[]showVar name] displays a variable
-Hello, [showVar playerName]!
-
-[[]input varname prompt] gets user input
-[input favPlace "What's your favorite place?"]
-You like [showVar favPlace]? That's wonderful!
-
-[bg resize.jpg contain]
-
-Character dialogue works like this:
-[[]speaker isvariable name] sets the speaker
-[speaker false Guide]
-I'm your guide!
-[speaker true playerName]
-Now you're speaking!
-
-Let's change scenes...
-[bg bocchi.jpg cover]
-
-Time to learn about choices:
-[[]button filename text] creates a choice
-[[]showbutton] displays all choices
-Where would you like to go?
-[button story.txt "Begin Adventure"]
-[button demo.txt "Restart Demo"]
-[showbutton]
-
-[hide]
+Once upon a time, there was a brave knight who lived in a castle made of crystal.
+The knight had a magical sword that could cut through shadows and reveal hidden truths.
+Every morning, he would ride his silver horse through the enchanted forest nearby.
+break
+One day, he discovered a mysterious cave glowing with blue light.
+Inside the cave, he found a dragon who was not fierce at all, but rather loved to read books.
+The knight and the dragon became unlikely friends, sharing stories and drinking tea together.
+Soon, other magical creatures began visiting their cave for weekly book club meetings.
+Word spread throughout the kingdom about the reading dragon and the literary knight.
+The kingdom became known as a place where magic and knowledge lived in harmony.
+And so, they all lived happily ever after, surrounded by books and magic.

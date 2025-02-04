@@ -1,0 +1,4 @@
+body{background-color: black;color: thistle;}
+#intro{position: absolute;inset: 0;}
+#intro button{position: absolute;margin: auto;inset: 0; text-align: center;height: 10%;width: 20%;
+font-size: min(4.8vh, 2.7vw);}
