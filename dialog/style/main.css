@@ -1,4 +1,34 @@
-body{background-color: black;color: thistle;}
-#intro{position: absolute;inset: 0;}
-#intro button{position: absolute;margin: auto;inset: 0; text-align: center;height: 10%;width: 20%;
-font-size: min(4.8vh, 2.7vw);}
+body{background-color: black;color: #999999;}
+main{
+    position: fixed;inset: 0px; margin: auto; aspect-ratio: 16 / 9;max-width: 100vw;max-height: 100vh;
+    font-size: min(3.2vh, 1.8vw); user-select: none; 
+}
+#dialogbox{position: absolute;inset:0%;top: 84%; height: 16%; display: none;z-index: 100;}
+#dialogbox p{
+    position: absolute; left: 30%;height: 100%;z-index: 100;padding-left: 2%; margin: 0;
+    font-size: 1em;
+}
+#nametag{
+    position: absolute; width: 30%;height: 100%;text-align: right;
+    padding-right: 2%;z-index: 100;font-weight: bold;
+}
+#buttons{position: absolute;inset: 0;
+    display: flex; justify-content: center;align-items:center;flex-direction: column;
+     z-index: 101;padding: 0px;background-color: #00000068;}
+#buttons button{position: relative; width: 60%;height: 10%;margin: 2% 0%;
+    border: 0px; font-size: 1em; background-color: #111111;color: aliceblue;}
+#imgfile img{position: absolute;inset: 0;display: none;z-index: 1;}
+#log{
+    position: absolute;top: 0;left: 0;z-index: 102; width: 100%;height: 100%;background-color: #000000dd;
+    overflow: scroll;display: none;
+}
+#log::-webkit-scrollbar {
+    display: none;/* Chrome, Safari and Opera */
+}
+#log section{
+    position: relative;font-size: 0.5em;padding: 5%;border-bottom: 1px solid #ffffff99;
+}
+#bg{position: absolute; inset: 0; width: 100%;height: 100%;z-index: 0;opacity: 0.5;}
+
+#dialogbox{background: linear-gradient(#1110 0%, #111f 100%);}
+main{background-color: rgb(34, 34, 34);}
