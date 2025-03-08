@@ -3,6 +3,7 @@ class ButtonManager {
         this.buttonArea = this.createElement("div", { id: "buttons" });
         this.buttonArea.style.display = 'none';
         this.buttonElements = [];
+        this.flag = true;
 
         main.appendChild(this.buttonArea);
     }
@@ -33,7 +34,7 @@ class ButtonManager {
             };
 
             const handleKeyEvent = (n) => {
-                if (n.key === "Enter" && select !== -1) {
+                if (n.key === "Enter" && select !== -1 && this.flag) {
                     resolve(this.buttonArea.children[select].className);
                     this.clearButton();
                     document.removeEventListener("keydown", handleKeyEvent);
@@ -52,8 +53,10 @@ class ButtonManager {
                     btn.style.background = "#111111";
                 });
                 btn.addEventListener("click", () => {
-                    resolve(btn.className);
-                    this.clearButton();
+                    if (this.flag) {
+                        resolve(btn.className);
+                        this.clearButton();
+                    }
                 });
                 ["mousemove", "wheel", "keydown"].forEach(event => {
                     document.addEventListener(event, () => {

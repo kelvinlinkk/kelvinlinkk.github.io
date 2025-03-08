@@ -6,63 +6,84 @@ import { loadSource } from './util.js';
 
 export class Game {
     constructor() {
-        this.gameArea = document.querySelector("main");
-        this.managers = {
-            dialog: new DialogSystem(this.gameArea),
-            audio: new AudioManager(this.gameArea),
-            button: new ButtonManager(this.gameArea),
-            image: new ImageManager(this.gameArea)
+        this.gameContainer = document.querySelector("main").appendChild(document.createElement("div"));
+        this.gameContainer.id = "gameContainer";
+
+        this.systemManagers = {
+            dialogManager: new DialogSystem(this.gameContainer),
+            audioManager: new AudioManager(this.gameContainer),
+            buttonManager: new ButtonManager(this.gameContainer),
+            imageManager: new ImageManager(this.gameContainer)
         };
-        this.stageFigures = new Map();
-        this.background = null;
-        this.isPaused = false;
+
+        this.activeCharacters = new Map();
+        this.backgroundImage = null;
+        this.isGamePaused = false;
+        this.pausePromiseResolver = null;
+        this.completedStoryIds = [];
     }
 
-    setBackground(src) {
-        if (this.background) {
-            this.background.src = src;
-            return this.background;
+    toggleGamePause() {
+        this.isGamePaused = !this.isGamePaused;
+        this.systemManagers.buttonManager.isInteractive = !this.systemManagers.buttonManager.isInteractive;
+
+        if (!this.isGamePaused && this.pausePromiseResolver) {
+            this.pausePromiseResolver();
+            this.pausePromiseResolver = null;
         }
-        this.background = Object.assign(document.createElement("img"), {
+    }
+
+    async waitForResume() {
+        if (!this.isGamePaused) return;
+        return new Promise(resolve => {
+            this.pausePromiseResolver = resolve;
+        });
+    }
+
+    setBackgroundImage(src) {
+        if (this.backgroundImage) {
+            this.backgroundImage.src = src;
+            return this.backgroundImage;
+        }
+        this.backgroundImage = Object.assign(document.createElement("img"), {
             id: "bg",
             src: src
         });
-        this.gameArea.appendChild(this.background);
-        return this.background;
+        this.gameContainer.appendChild(this.backgroundImage);
+        return this.backgroundImage;
     }
 
     async initialize(bgm, background, figures) {
-        this.managers.audio.audPlay(bgm, 0, 0);
-        this.setBackground(background);
+        this.systemManagers.audioManager.audPlay(bgm, 0, 0);
+        this.setBackgroundImage(background);
         this.setStage(figures);
-        await this.managers.dialog.readWords('');
+        this.systemManagers.dialogManager.setText('');
     }
 
     async waitForClick(eventType = 'click') {
-        if (this.isPaused) return;
         return new Promise(resolve => {
             const handler = () => {
-                this.gameArea.removeEventListener(eventType, handler);
+                this.gameContainer.removeEventListener(eventType, handler);
                 resolve();
             };
-            this.gameArea.addEventListener(eventType, handler);
+            this.gameContainer.addEventListener(eventType, handler);
         });
     }
 
     setupChoices(choices = []) {
-        this.managers.button.clearButton();
+        this.systemManagers.buttonManager.clearButton();
         choices.forEach(({ value, text }) =>
-            this.managers.button.addButton(value, text)
+            this.systemManagers.buttonManager.addButton(value, text)
         );
     }
 
     setStage(figures = []) {
         if (!figures.length) return;
 
-        this.stageFigures.clear();
+        this.activeCharacters.clear();
         figures.forEach(({ name, src }) => {
-            this.stageFigures.set(name, src);
-            this.managers.image.setAppearance(src, {
+            this.activeCharacters.set(name, src);
+            this.systemManagers.imageManager.setAppearance(src, {
                 width: '',
                 height: 960,
                 left: 810,
@@ -74,62 +95,84 @@ export class Game {
     async getChoice(choices) {
         return new Promise(async (resolve) => {
             this.setupChoices(choices);
-            const response = await this.managers.button.showButton();
-            this.managers.dialog.setSpeaker("Player");
+            const response = await this.systemManagers.buttonManager.showButton();
+            this.systemManagers.dialogManager.setSpeaker("Player");
             resolve(response);
         })
     }
 
-    async playStory({ texts, bgm, background, figures, choices }) {
-        const { image, dialog } = this.managers;
+    saveProgress(ans, line) {
+        const data = {
+            log: this.systemManagers.dialogManager.log,
+            storyline: this.completedStoryIds,
+            ans: ans,
+            line: line,
+        }
+        localStorage.clear();
+        localStorage.setItem("data", JSON.stringify(data))
+    }
 
+    async playStory(ans, line, { texts, bgm, background, figures, choices }) {
+        const { imageManager, dialogManager } = this.systemManagers;
         const actions = {
             button: async () => {
-                await dialog.readWords(await this.getChoice(choices[btnCount]));
-                btnCount += 1;
+                await dialogManager.readWords(await this.getChoice(choices[ansCount]));
+                ansCount += 1;
             },
             default: () => { }
         }
 
         await this.initialize(bgm, background, figures);
-        let btnCount = 0;
-        dialog.show();
+        let ansCount = ans;
+        let lineCount = line;
+        dialogManager.show();
+        [...this.activeCharacters.values()].forEach(src => imageManager.showImg(src));
 
-        // Show all figures
-        for (const [, src] of this.stageFigures) {
-            image.showImg(src);
-        }
-
-        for (const [speaker, words] of texts) {
+        for (const [speaker, words] of texts.slice(lineCount)) {
+            if (this.isGamePaused) {
+                await this.waitForResume();
+                await this.waitForClick();
+            }
             if (speaker === "system") {
                 await (actions[words] || actions["default"])();
             } else {
-                dialog.setSpeaker(speaker);
-                await dialog.readWords(words);
+                dialogManager.setSpeaker(speaker);
+                await dialogManager.readWords(words);
             }
+            lineCount += 1;
             await this.waitForClick();
+            this.saveProgress(ansCount, lineCount);
         }
-
-        // Hide all figures
     }
 
-    async start() {
-        this.managers.dialog.setAppearance("#ffffff");
-        await loadSource(this.managers.image, this.managers.audio);
+    async start(data = {
+        log: [],
+        storyline: [],
+        ans: 0,
+        line: 0,
+    }) {
+        this.systemManagers.dialogManager.setAppearance("#ffffff");
+        this.systemManagers.dialogManager.readLog(data.log);
+        await loadSource(this.systemManagers.imageManager, this.systemManagers.audioManager);
         try {
             const response = await fetch('story/mainStory.json');
             const stories = await response.json();
-
+            var ans = data.ans;
+            var line = data.line;
             for (const story of Object.values(stories)) {
-                await this.playStory(story);
+                if (data.storyline.includes(story.id)) continue
+                await this.playStory(ans, line, story);
+                ans = 0; line = 0;
+                this.completedStoryIds.push(story.id);
             }
 
-            for (const [, src] of this.stageFigures) {
-                this.managers.image.hideImg(src);
+            for (const [, src] of this.activeCharacters) {
+                this.systemManagers.imageManager.hideImg(src);
             }
-            this.managers.dialog.hide();
+            this.systemManagers.dialogManager.hide();
         } catch (error) {
             console.error('Failed to load or play story:', error);
         }
+        localStorage.clear();
     }
 }

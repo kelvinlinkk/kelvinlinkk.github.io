@@ -11,11 +11,11 @@ class ImageManager {
         return element;
     }
 
-    getImg(name, src) {
+    async getImg(name, src) {
         if (this.imageElements[name]) {
             return this.imageElements[name];
         } else {
-            let imgElement = this.createElement('img', { src: src });
+            let imgElement = await this.createElement('img', { src: src });
             this.imgfile.appendChild(imgElement);
             this.imageElements[name] = imgElement;
             return imgElement;

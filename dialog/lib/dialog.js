@@ -31,10 +31,21 @@ class DialogSystem {
         return element;
     }
 
-    createLog(text) {
+    createLog(text, speaker = "") {
         const newLog = this.elements.logArea.appendChild(this.createElement("section", {}));
-        newLog.innerHTML = this.status.speaker + " : " + text;
-        this.log.push({ speaker: this.status.speaker, message: text });
+        if (speaker === "") {
+            newLog.innerHTML = this.status.speaker + " : " + text;
+            this.log.push({ speaker: this.status.speaker, message: text });
+        } else {
+            newLog.innerHTML = speaker + " : " + text;
+            this.log.push({ speaker: speaker, message: text });
+        }
+    }
+
+    readLog(log) {
+        log.forEach(line => {
+            this.createLog(line.message, line.speaker);
+        });
     }
 
     async readWords(text) {
