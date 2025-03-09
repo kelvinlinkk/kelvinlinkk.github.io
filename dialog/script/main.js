@@ -1,32 +1,58 @@
 import { Game } from '../lib/game.js';
 
-const setting = document.getElementById('setting');
-const settingbtn = document.getElementById('settingbtn');
+const showArea = document.getElementById('showArea');
+const {settingbtn,affinitybtn,exitbtn} = document.getElementsByClassName('funcbtn');
 const landing = document.getElementById('landing');
 const startbtn = document.getElementById('startbtn');
+var data = localStorage.getItem('data');
 const game = new Game();
-
-const ICONS = {
-    SETTINGS: './assets/icon/setting.png',
-    LOGOUT: './assets/icon/logout.png'
-};
 
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
-        game.togglePause();
+        game.toggleGamePause();
     }
 })
 
+const toggleButtonVisibility = (isShow) => {
+    settingbtn.style.visibility = !isShow ? "visible" : "hidden";
+    affinitybtn.style.visibility = !isShow ? "visible" : "hidden";
+    exitbtn.style.visibility = isShow ? "visible" : "hidden";
+};
+
 settingbtn.addEventListener('click', () => {
-    const isSettingVisible = setting.style.display === 'flex';
-    setting.style.display = isSettingVisible ? 'none' : 'flex';
-    settingbtn.src = isSettingVisible ? ICONS.SETTINGS : ICONS.LOGOUT;
+    toggleButtonVisibility(true);
+    showArea.style.display = "flex";
+    showArea.innerHTML = "";
+    for(let name of ['save','sound','Untitled-1']){
+        const btn = document.createElement('button');
+        btn.innerText = name;
+        showArea.appendChild(btn);
+    }
+});
+affinitybtn.addEventListener('click', () => {
+    toggleButtonVisibility(true);
+    showArea.innerHTML = "";
+    showArea.style.display = "initial";
+    if(!game.affinity) return;
+    for(let name in game.affinity){
+        const section = document.createElement('section');
+        showArea.appendChild(section);
+        const profile = section.appendChild(document.createElement('img'));
+        profile.src = `./assets/profile/${name}.jpg`;
+        const nametag = section.appendChild(document.createElement('h1'));
+        nametag.innerText = name;
+        const affinity = section.appendChild(document.createElement('p'));
+        affinity.innerText = `${game.affinity[name]}%`;
+    }
+});
+exitbtn.addEventListener('click', () => {
+    showArea.style.display = "none";
+    toggleButtonVisibility(false)
 });
 
 startbtn.addEventListener('click', async e => {
     landing.style.display = 'none';
-    const data = (localStorage.getItem('data'));
-    console.log(data)
+    data = localStorage.getItem('data');
     if (data) {
         await game.start(JSON.parse(data));
     } else {

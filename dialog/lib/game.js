@@ -21,6 +21,14 @@ export class Game {
         this.isGamePaused = false;
         this.pausePromiseResolver = null;
         this.completedStoryIds = [];
+        this.affinity = {};
+
+        document.addEventListener("keydown", (n) => {
+            if (n.key == "l") {
+                this.systemManagers.dialogManager.showLog();
+                this.toggleGamePause();
+            }
+        })
     }
 
     toggleGamePause() {
@@ -107,9 +115,10 @@ export class Game {
             storyline: this.completedStoryIds,
             ans: ans,
             line: line,
+            affinity: this.affinity
         }
         localStorage.clear();
-        localStorage.setItem("data", JSON.stringify(data))
+        localStorage.setItem("data", JSON.stringify(data));
     }
 
     async playStory(ans, line, { texts, bgm, background, figures, choices }) {
@@ -118,8 +127,16 @@ export class Game {
             button: async () => {
                 await dialogManager.readWords(await this.getChoice(choices[ansCount]));
                 ansCount += 1;
+                await this.waitForClick();
             },
-            default: () => { }
+            default:async (words) => {//affinity
+                const [name, delta] = words.split('+')
+                if (this.affinity[name] === undefined) {
+                    this.affinity[name] = parseInt(delta);
+                }else{
+                    this.affinity[name] += parseInt(delta);
+                }
+            }
         }
 
         await this.initialize(bgm, background, figures);
@@ -134,13 +151,15 @@ export class Game {
                 await this.waitForClick();
             }
             if (speaker === "system") {
-                await (actions[words] || actions["default"])();
+                await (actions[words] || actions["default"])(words);
+            } else if (speaker === "node") {
+                return words === "" ? await this.getChoice(choices[ansCount]) : words;
             } else {
                 dialogManager.setSpeaker(speaker);
                 await dialogManager.readWords(words);
+                await this.waitForClick();
             }
             lineCount += 1;
-            await this.waitForClick();
             this.saveProgress(ansCount, lineCount);
         }
     }
@@ -150,29 +169,35 @@ export class Game {
         storyline: [],
         ans: 0,
         line: 0,
+        affinity: {}
     }) {
         this.systemManagers.dialogManager.setAppearance("#ffffff");
-        this.systemManagers.dialogManager.readLog(data.log);
+        this.systemManagers.dialogManager.readSavedLog(data.log);
+        this.affinity = data.affinity;
         await loadSource(this.systemManagers.imageManager, this.systemManagers.audioManager);
         try {
             const response = await fetch('story/mainStory.json');
             const stories = await response.json();
             var ans = data.ans;
             var line = data.line;
-            for (const story of Object.values(stories)) {
-                if (data.storyline.includes(story.id)) continue
-                await this.playStory(ans, line, story);
+            var story = "main" || data.storyline[data.storyline.length - 1];
+
+            while (story !== "end") {
+                let nextStory = await this.playStory(ans, line, stories[story]);
+                this.completedStoryIds.push(story);
+                story = nextStory;
                 ans = 0; line = 0;
-                this.completedStoryIds.push(story.id);
             }
 
             for (const [, src] of this.activeCharacters) {
                 this.systemManagers.imageManager.hideImg(src);
             }
             this.systemManagers.dialogManager.hide();
+
         } catch (error) {
             console.error('Failed to load or play story:', error);
         }
         localStorage.clear();
+        this.systemManagers.dialogManager.readSavedLog([]);
     }
 }

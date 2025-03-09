@@ -3,21 +3,39 @@ main{
     position: fixed;inset: 0px; margin: auto; aspect-ratio: 16 / 9;max-width: 100vw;max-height: 100vh;
     font-size: min(3.2vh, 1.8vw); user-select: none; 
 }
-
-#setting{
-    position: absolute;inset: 0;z-index: 11;background-color: antiquewhite;padding: 10%;
-    display: none;flex-wrap:wrap;align-items: start;flex-direction:column;
-}
-#setting button{
-    display:flex;height: 15%; width: 30%;margin: auto; justify-content: center; align-items: center;
-}
-#settingbtn{
-    position: absolute;right: 2%;top: 2%;width: 5%;aspect-ratio: 1/1;z-index: 12;
+.funcbtn{
+    position: absolute;right: 2%;top: 2%;width: 5%;aspect-ratio: 1/1;z-index: 1002;
     padding: 0;border: 0; background-color: #0000;
 }
-#settingbtn:hover{
-    animation: pulse 0.5s forwards;
-    cursor: pointer;
+.funcbtn:hover{animation: pulse 0.5s forwards;cursor: pointer;}
+#settingbtn{right: 2%;}
+#exitbtn{right: 2%;visibility: hidden;}
+#affinitybtn{left: 2%;}
+
+#showArea{
+    position: absolute;inset: 0;z-index: 1001;background-color: antiquewhite;padding: 5% 5%;
+    display: none;flex-wrap:wrap;align-items: start;flex-direction:column;
+    overflow-x: scroll;overflow-y: hidden; white-space: nowrap;
+}
+#showArea button{
+    display:flex;height: 15%; width: 30%;margin: auto; justify-content: center; align-items: center;
+    font-size: 1em;
+}
+#showArea section h1{
+    position: absolute;bottom: 0;margin: 0;width: 100%;height: 10%;font-size: 1.2em;padding-left: 15%;
+    color: rgb(0, 0, 0); background: linear-gradient(#1110 0%, #ffff 100%);
+}
+#showArea section p{
+    position: absolute;bottom: 0;margin: 0;width: 100%;height: 10%;font-size: 1.2em;color: rgb(0, 0, 0);
+    text-align: right;right: 15%;
+}
+
+#showArea section{
+     position: relative;display:inline-block ;width: 20%;height: 100%;
+     margin: 0; background-color: rgb(240, 200, 119);
+}
+#showArea section img{
+    width: 100%;height: 100%;object-fit: cover;margin: 0;
 }
 
 @keyframes pulse {

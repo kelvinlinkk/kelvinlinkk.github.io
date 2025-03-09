@@ -3,7 +3,7 @@ class ButtonManager {
         this.buttonArea = this.createElement("div", { id: "buttons" });
         this.buttonArea.style.display = 'none';
         this.buttonElements = [];
-        this.flag = true;
+        this.isInteractive = true;
 
         main.appendChild(this.buttonArea);
     }
@@ -27,6 +27,7 @@ class ButtonManager {
             let select = -1;
 
             const handleWheelEvent = (flag) => {
+                if (!this.isInteractive) return;
                 select = flag ? select + 1 : select - 1;
                 const children = Array.from(this.buttonArea.children);
                 if (select >= children.length) select = 0;
@@ -34,7 +35,8 @@ class ButtonManager {
             };
 
             const handleKeyEvent = (n) => {
-                if (n.key === "Enter" && select !== -1 && this.flag) {
+                if (!this.isInteractive) return;
+                if (n.key === "Enter" && select !== -1) {
                     resolve(this.buttonArea.children[select].className);
                     this.clearButton();
                     document.removeEventListener("keydown", handleKeyEvent);
@@ -47,13 +49,17 @@ class ButtonManager {
             document.addEventListener("keydown", handleKeyEvent);
 
             Array.from(this.buttonArea.children).forEach((btn, num) => {
-                btn.addEventListener("mouseenter", () => select = num);
-                btn.addEventListener("mouseleave", () => {
-                    select = -1;
-                    btn.style.background = "#111111";
+                btn.addEventListener("mouseover", () => {
+                    if (this.isInteractive) select = num
+                });
+                btn.addEventListener("mouseout", () => {
+                    if (this.isInteractive) {
+                        select = -1;
+                        btn.style.background = "#111111";
+                    }
                 });
                 btn.addEventListener("click", () => {
-                    if (this.flag) {
+                    if (this.isInteractive) {
                         resolve(btn.className);
                         this.clearButton();
                     }

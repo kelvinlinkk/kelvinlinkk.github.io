@@ -1,13 +1,17 @@
 {
-    "story1": {
+    "main": {
         "id": "story1",
         "texts": [
+            ["system","Bocchi+0"],
             ["Bocchi","I'm ... s...orry,."],
             ["Bocchi","how are you?"],
             ["system","button"],
+            ["system","Bocchi+5"],
             ["Bocchi","Where do you live?"],
             ["system","button"],
-            ["Bocchi","Nice, let's go outside."]
+            ["system","Bocchi+10"],
+            ["Bocchi","Nice, let's go outside."],
+            ["node","story2"]
         ],
         "bgm":"song",
         "background":"resources/livehouse.jpg",
@@ -26,14 +30,15 @@
         "id": "story2",
         "texts": [
             ["Bocchi","We have a live performance next month."],
-            ["Bocchi","Please buy a ticket!(run)"]
+            ["Bocchi","Please buy a ticket!(run)"],
+            ["system","Bocchi+10"],
+            ["node","end"]
         ],
         "bgm":"song",
         "background":"resources/sunset.jpg",
         "figures":[
             { "name": "B", "src": "Bocchi" }
         ],
-        "choices":[
-        ]
+        "choices":[]
     }
 }

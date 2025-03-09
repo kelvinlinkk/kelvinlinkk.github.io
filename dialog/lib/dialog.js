@@ -17,12 +17,6 @@ class DialogSystem {
         this.elements.box.appendChild(this.elements.tag);
         main.appendChild(this.elements.logArea);
         main.appendChild(this.elements.box);
-        document.addEventListener("keydown", (n) => {
-            const display = this.elements.logArea.style.display;
-            if (n.key == "l" && this.status.display) {
-                this.elements.logArea.style.display = display == "initial" ? "none" : "initial";
-            }
-        })
     }
 
     createElement(tag, attributes) {
@@ -42,7 +36,15 @@ class DialogSystem {
         }
     }
 
-    readLog(log) {
+    showLog(){
+        const display = this.elements.logArea.style.display;
+        if (this.status.display) {
+            this.elements.logArea.style.display = display == "initial" ? "none" : "initial";
+        }
+    }
+
+    readSavedLog(log) {
+        this.elements.logArea.innerHTML = "";
         log.forEach(line => {
             this.createLog(line.message, line.speaker);
         });
