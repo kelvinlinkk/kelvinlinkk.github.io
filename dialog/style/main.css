@@ -4,7 +4,7 @@ main{
     font-size: min(3.2vh, 1.8vw); user-select: none; 
 }
 .funcbtn{
-    position: absolute;right: 2%;top: 2%;width: 5%;aspect-ratio: 1/1;z-index: 1002;
+    position: absolute;right: 2%;top: 2%;width: 5%;aspect-ratio: 1/1;z-index: 10001;
     padding: 0;border: 0; background-color: #0000;
 }
 .funcbtn:hover{animation: pulse 0.5s forwards;cursor: pointer;}
@@ -13,16 +13,17 @@ main{
 #affinitybtn{left: 2%;}
 
 #showArea{
-    position: absolute;inset: 0;z-index: 1001;background-color: antiquewhite;padding: 5% 5%;
-    display: none;flex-wrap:wrap;align-items: start;flex-direction:column;
-    overflow-x: scroll;overflow-y: hidden; white-space: nowrap;
+    position: absolute;inset: 0;z-index: 10000;background-color: antiquewhite;padding: 5% 5%;
+    display: none;overflow-x: scroll;overflow-y: hidden;
 }
 #showArea button{
-    display:flex;height: 15%; width: 30%;margin: auto; justify-content: center; align-items: center;
-    font-size: 1em;
+    position: relative; height: 15%; width: 30%; font-size: 1em;margin:5% 35%;
+}
+#showArea input{
+    width:80%;margin:5% 10%;height: 10%;
 }
 #showArea section h1{
-    position: absolute;bottom: 0;margin: 0;width: 100%;height: 10%;font-size: 1.2em;padding-left: 15%;
+    position: absolute;bottom: 0;margin: 0;width: 85%;height: 10%;font-size: 1.2em;padding-left: 15%;
     color: rgb(0, 0, 0); background: linear-gradient(#1110 0%, #ffff 100%);
 }
 #showArea section p{
@@ -44,26 +45,27 @@ main{
 }
 
 #landing{
-    position: absolute;inset: 0;z-index: 10;background-color: rgb(0, 0, 0);
+    position: absolute;inset: 0;z-index: 1000;background-color: rgb(0, 0, 0);
 }
 #landing img{
-    position: absolute;inset: 0;width: 100%;height: 100%;object-fit: cover;opacity: 0.5;z-index: 10;
+    position: absolute;inset: 0;width: 100%;height: 100%;object-fit: cover;opacity: 0.5;
 }
 #landing h1{
-    position: absolute;width: 100%;text-align: center;top: 35%; line-height: 10%;color: #111111;z-index: 10;
+    position: absolute;width: 100%;text-align: center;top: 35%; line-height: 10%;color: #111111;
 }
-#landing button{
-    position: absolute;left: 40%;top: 50%; width: 20%;height: 10%;font-size: 1em;z-index: 10;
+.startbtn{
+    position: relative;left: 40%;top: 50%; width: 20%;display: block;margin-bottom:2%; height: 10%;font-size: 1em;
 }
+#continuebtn{display: none;}
 
-#dialogbox{position: absolute;inset:0%;top: 84%; height: 16%; display: none;z-index: 100;}
+#dialogbox{position: absolute;inset:0%;top: 80%;display: none;z-index: 100;}
 #dialogbox p{
-    position: absolute; left: 30%;height: 100%;z-index: 100;padding-left: 2%; margin: 0;
+    position: absolute;top: 25%; left: 30%;height: 100%;padding-left: 2%; margin: 0;
     font-size: 1em;
 }
 #nametag{
-    position: absolute; width: 30%;height: 100%;text-align: right;
-    padding-right: 2%;z-index: 100;font-weight: bold;
+    position: absolute;top: 25%; width: 30%;height: 100%;text-align: right;
+    padding-right: 2%;font-weight: bold;
 }
 #buttons{position: absolute;inset: 0;
     display: flex; justify-content: center;align-items:center;flex-direction: column;
@@ -80,9 +82,8 @@ main{
 }
 #log section{
     position: relative;font-size: 1em;padding: 5%;border-bottom: 1px solid #ffffff99;
-    
 }
 #bg{position: absolute; inset: 0; width: 100%;height: 100%;z-index: 0;opacity: 0.5;}
 
-#dialogbox{background: linear-gradient(#1110 0%, #111f 100%);}
+#dialogbox{background: linear-gradient(#10101000 0%,#101010aa 30%, #101010ff 100%);}
 main{background-color: rgb(34, 34, 34);}

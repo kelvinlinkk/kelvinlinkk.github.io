@@ -64,6 +64,10 @@ export class Game {
     async initialize(bgm, background, figures) {
         this.systemManagers.audioManager.audPlay(bgm, 0, 0);
         this.setBackgroundImage(background);
+        await new Promise(resolve => {
+            this.backgroundImage.onload = resolve;
+        }
+        );
         this.setStage(figures);
         this.systemManagers.dialogManager.setText('');
     }
@@ -125,25 +129,27 @@ export class Game {
         const { imageManager, dialogManager } = this.systemManagers;
         const actions = {
             button: async () => {
+                lineCount += 1; //skip button and choice
                 await dialogManager.readWords(await this.getChoice(choices[ansCount]));
                 ansCount += 1;
+                this.saveProgress(ansCount, lineCount+1);
                 await this.waitForClick();
             },
-            default:async (words) => {//affinity
+            default: (words) => {//affinity
                 const [name, delta] = words.split('+')
                 if (this.affinity[name] === undefined) {
                     this.affinity[name] = parseInt(delta);
-                }else{
+                } else {
                     this.affinity[name] += parseInt(delta);
                 }
             }
         }
+        var ansCount = ans;
+        var lineCount = line;
 
         await this.initialize(bgm, background, figures);
-        let ansCount = ans;
-        let lineCount = line;
-        dialogManager.show();
-        [...this.activeCharacters.values()].forEach(src => imageManager.showImg(src));
+        await dialogManager.show();
+        [...this.activeCharacters.values()].forEach(async src => await imageManager.showImg(src));
 
         for (const [speaker, words] of texts.slice(lineCount)) {
             if (this.isGamePaused) {
@@ -158,15 +164,15 @@ export class Game {
                 dialogManager.setSpeaker(speaker);
                 await dialogManager.readWords(words);
                 await this.waitForClick();
+                lineCount += 1;
+                this.saveProgress(ansCount, lineCount);
             }
-            lineCount += 1;
-            this.saveProgress(ansCount, lineCount);
         }
     }
 
     async start(data = {
         log: [],
-        storyline: [],
+        storyline: ["main"],
         ans: 0,
         line: 0,
         affinity: {}
@@ -180,11 +186,11 @@ export class Game {
             const stories = await response.json();
             var ans = data.ans;
             var line = data.line;
-            var story = "main" || data.storyline[data.storyline.length - 1];
+            var story = data.storyline[data.storyline.length - 1];
 
             while (story !== "end") {
-                let nextStory = await this.playStory(ans, line, stories[story]);
                 this.completedStoryIds.push(story);
+                let nextStory = await this.playStory(ans, line, stories[story]);
                 story = nextStory;
                 ans = 0; line = 0;
             }

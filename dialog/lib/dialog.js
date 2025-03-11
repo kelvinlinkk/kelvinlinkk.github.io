@@ -80,7 +80,7 @@ class DialogSystem {
         this.elements.textArea.style.color = color;
     }
 
-    show() {
+    async show() {
         this.elements.box.style.display = "initial";
         this.status.display = true;
     }

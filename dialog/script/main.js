@@ -1,40 +1,45 @@
 import { Game } from '../lib/game.js';
 
 const showArea = document.getElementById('showArea');
-const {settingbtn,affinitybtn,exitbtn} = document.getElementsByClassName('funcbtn');
+const { settingbtn, affinitybtn, exitbtn } = document.getElementsByClassName('funcbtn');
+const { startbtn, continuebtn } = document.getElementsByClassName('startbtn');
 const landing = document.getElementById('landing');
-const startbtn = document.getElementById('startbtn');
-var data = localStorage.getItem('data');
 const game = new Game();
 
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-        game.toggleGamePause();
-    }
-})
-
 const toggleButtonVisibility = (isShow) => {
+    showArea.style.display = isShow ? "initial" : 'none';
     settingbtn.style.visibility = !isShow ? "visible" : "hidden";
     affinitybtn.style.visibility = !isShow ? "visible" : "hidden";
     exitbtn.style.visibility = isShow ? "visible" : "hidden";
+    showArea.innerHTML = "";
 };
+
+const returnToLanding = () => {
+    continuebtn.style.display = localStorage.getItem('data')||game.isGamePaused ? "initial" : "none";
+    landing.style.display = "initial";
+}
 
 settingbtn.addEventListener('click', () => {
     toggleButtonVisibility(true);
-    showArea.style.display = "flex";
-    showArea.innerHTML = "";
-    for(let name of ['save','sound','Untitled-1']){
-        const btn = document.createElement('button');
-        btn.innerText = name;
-        showArea.appendChild(btn);
-    }
+    showArea.style.whiteSpace = "wrap";
+
+    const btn = document.createElement('button');
+    btn.innerText = 'Untitled-1';
+    showArea.appendChild(btn);
+
+    const volume = Object.assign(document.createElement('input'),
+        { id: 'volume', type: 'range', min: 0, max: 100, innerText: 'v' })
+    showArea.appendChild(volume);
+    volume.addEventListener('input', () => {
+        game.systemManagers.audioManager.setVolume(volume.value / 100);
+    })
 });
 affinitybtn.addEventListener('click', () => {
     toggleButtonVisibility(true);
-    showArea.innerHTML = "";
-    showArea.style.display = "initial";
-    if(!game.affinity) return;
-    for(let name in game.affinity){
+    showArea.style.whiteSpace = "nowrap";
+
+    if (!game.affinity) return;
+    for (let name in game.affinity) {
         const section = document.createElement('section');
         showArea.appendChild(section);
         const profile = section.appendChild(document.createElement('img'));
@@ -46,17 +51,33 @@ affinitybtn.addEventListener('click', () => {
     }
 });
 exitbtn.addEventListener('click', () => {
-    showArea.style.display = "none";
     toggleButtonVisibility(false)
 });
 
-startbtn.addEventListener('click', async e => {
-    landing.style.display = 'none';
-    data = localStorage.getItem('data');
-    if (data) {
-        await game.start(JSON.parse(data));
-    } else {
+window.onload = () => {
+    continuebtn.style.display = localStorage.getItem('data') ? "initial" : "none";
+    startbtn.addEventListener('click', async e => {
+        landing.style.display = 'none';
         await game.start();
+        startbtn.style.display = "initial";
+        returnToLanding();
+    })
+    continuebtn.addEventListener('click', async e => {
+        landing.style.display = 'none';
+        if (game.isGamePaused) {
+            console.log(JSON.parse(localStorage.getItem('data')))
+            game.toggleGamePause();
+        } else {
+            await game.start(JSON.parse(localStorage.getItem('data')));
+            startbtn.style.display = "initial";
+            returnToLanding();
+        }
+    })
+}
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !game.isGamePaused) {
+        game.toggleGamePause();
+        startbtn.style.display = "none";
+        returnToLanding();
     }
-    landing.style.display = "initial";
 })

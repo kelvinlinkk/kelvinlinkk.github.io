@@ -22,10 +22,13 @@ class ImageManager {
         }
     }
 
-    showImg(name) {
+    async showImg(name) {
         const imgElement = this.imageElements[name];
         if (imgElement) {
             imgElement.style.display = 'initial';
+            await new Promise(resolve => {
+                imgElement.onload = resolve;
+            })
         }
     }
 

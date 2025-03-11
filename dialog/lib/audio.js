@@ -1,11 +1,8 @@
 class AudioManager {
     constructor(main) {
-        this.bgm = this.createElement("audio", { src: "" });
-        this.narration = this.createElement("audio", { src: "" });
         this.audioEffects = {};
         this.audfile = this.createElement("span", { id: "audiofile", style: "visibility:hidden" });
-
-        this.audfile.appendChild(this.bgm);
+        this.maxVolume = 1;
         main.appendChild(this.audfile);
     }
 
@@ -15,11 +12,6 @@ class AudioManager {
         return element;
     }
 
-    narrate(src) {
-        this.narration.src = src;
-        this.narration.play();
-    }
-
     addAudio(name, src) {
         if (!this.audioEffects[name]) {
             const audioElement = this.createElement('audio', { src: src });
@@ -27,6 +19,13 @@ class AudioManager {
             this.audioEffects[name] = audioElement;
         }
         return this.audioEffects[name];
+    }
+
+    setVolume(volume) {
+        this.maxVolume = volume;
+        for (let audio in this.audioEffects) {
+            this.audioEffects[audio].volume = volume;
+        }
     }
 
     audPlay(name, time = 0, fade = 0) {
@@ -44,7 +43,6 @@ class AudioManager {
 
     audStop(name, fade = 0) {
         const audio = this.audioEffects[name];
-
         if (fade > 0) {
             this.fadeOut(audio, fade);
         } else {
@@ -53,18 +51,18 @@ class AudioManager {
     }
 
     fadeIn(audio, duration) {
-        const volumeIncrement = 1 / (duration * 100);
+        const volumeIncrement = this.maxVolume / (duration * 100);
         audio.volume = 0;
 
         for (let i = 0; i <= duration * 100; i++) {
             setTimeout(() => {
-                audio.volume = Math.min(audio.volume + volumeIncrement, 1);
+                audio.volume = Math.min(audio.volume + volumeIncrement, this.maxVolume);
             }, i * 10);
         }
     }
 
     fadeOut(audio, duration) {
-        const volumeIncrement = 1 / (duration * 100);
+        const volumeIncrement = this.maxVolume / (duration * 100);
 
         for (let i = 0; i <= duration * 100; i++) {
             setTimeout(() => {
