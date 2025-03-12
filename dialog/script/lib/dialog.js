@@ -36,7 +36,7 @@ class DialogSystem {
         }
     }
 
-    showLog(){
+    showLog() {
         const display = this.elements.logArea.style.display;
         if (this.status.display) {
             this.elements.logArea.style.display = display == "initial" ? "none" : "initial";

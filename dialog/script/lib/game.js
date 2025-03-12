@@ -61,14 +61,17 @@ export class Game {
         return this.backgroundImage;
     }
 
-    async initialize(bgm, background, figures) {
+    async setStage(bgm, background, figures) {
         this.systemManagers.audioManager.audPlay(bgm, 0, 0);
         this.setBackgroundImage(background);
-        await new Promise(resolve => {
-            this.backgroundImage.onload = resolve;
-        }
-        );
-        this.setStage(figures);
+        await new Promise(resolve => { this.backgroundImage.onload = resolve; });
+
+        this.activeCharacters.clear();
+        figures.forEach(({ name, src }) => {
+            this.activeCharacters.set(name, src);
+            this.systemManagers.imageManager.setAppearance(src, { width: '', height: 960, left: 810, top: 60 });
+        });
+
         this.systemManagers.dialogManager.setText('');
     }
 
@@ -87,21 +90,6 @@ export class Game {
         choices.forEach(({ value, text }) =>
             this.systemManagers.buttonManager.addButton(value, text)
         );
-    }
-
-    setStage(figures = []) {
-        if (!figures.length) return;
-
-        this.activeCharacters.clear();
-        figures.forEach(({ name, src }) => {
-            this.activeCharacters.set(name, src);
-            this.systemManagers.imageManager.setAppearance(src, {
-                width: '',
-                height: 960,
-                left: 810,
-                top: 60
-            });
-        });
     }
 
     async getChoice(choices) {
@@ -132,22 +120,15 @@ export class Game {
                 lineCount += 1; //skip button and choice
                 await dialogManager.readWords(await this.getChoice(choices[ansCount]));
                 ansCount += 1;
-                this.saveProgress(ansCount, lineCount+1);
+                this.saveProgress(ansCount, lineCount + 1);
                 await this.waitForClick();
             },
-            default: (words) => {//affinity
-                const [name, delta] = words.split('+')
-                if (this.affinity[name] === undefined) {
-                    this.affinity[name] = parseInt(delta);
-                } else {
-                    this.affinity[name] += parseInt(delta);
-                }
-            }
+            default: (words) => { console.log(words); }
         }
         var ansCount = ans;
         var lineCount = line;
 
-        await this.initialize(bgm, background, figures);
+        await this.setStage(bgm, background, figures);
         await dialogManager.show();
         [...this.activeCharacters.values()].forEach(async src => await imageManager.showImg(src));
 
@@ -156,54 +137,68 @@ export class Game {
                 await this.waitForResume();
                 await this.waitForClick();
             }
-            if (speaker === "system") {
-                await (actions[words] || actions["default"])(words);
-            } else if (speaker === "node") {
-                return words === "" ? await this.getChoice(choices[ansCount]) : words;
-            } else {
-                dialogManager.setSpeaker(speaker);
-                await dialogManager.readWords(words);
-                await this.waitForClick();
-                lineCount += 1;
-                this.saveProgress(ansCount, lineCount);
+            switch (speaker) {
+                case "system":
+                    await (actions[words] || actions["default"])(words);
+                    break;
+                case "node":
+                    return words === "" ? await this.getChoice(choices[ansCount]) : words;
+                case "affinity": const [name, delta] = words.split('+')
+                    this.affinity[name] = this.affinity[name]||0 + parseInt(delta);
+                    break;
+                default:
+                    dialogManager.setSpeaker(speaker);
+                    await dialogManager.readWords(words);
+                    await this.waitForClick();
+                    lineCount += 1;
+                    this.saveProgress(ansCount, lineCount);
             }
         }
     }
 
-    async start(data = {
+    async initialize(data) {
+        const { dialogManager, imageManager, audioManager } = this.systemManagers;
+        dialogManager.setAppearance("#ffffff");
+        await loadSource(imageManager, audioManager);
+        this.affinity = data.affinity;
+        dialogManager.readSavedLog(data.log);
+        try {
+            const response = await fetch('resources/mainStory.json');
+            const stories = await response.json();
+            const story = data.storyline[data.storyline.length - 1];
+            return { stories, story }
+
+        } catch (error) {
+            console.error('Failed to load or play story:', error);
+        }
+    }
+
+    ending() {
+        const { dialogManager, imageManager } = this.systemManagers;
+        for (const [, src] of this.activeCharacters) {
+            imageManager.hideImg(src);
+        }
+        dialogManager.hide();
+        localStorage.clear();
+        dialogManager.readSavedLog([]);
+    }
+
+    async startloop(data = {
         log: [],
         storyline: ["main"],
         ans: 0,
         line: 0,
         affinity: {}
     }) {
-        this.systemManagers.dialogManager.setAppearance("#ffffff");
-        this.systemManagers.dialogManager.readSavedLog(data.log);
-        this.affinity = data.affinity;
-        await loadSource(this.systemManagers.imageManager, this.systemManagers.audioManager);
-        try {
-            const response = await fetch('story/mainStory.json');
-            const stories = await response.json();
-            var ans = data.ans;
-            var line = data.line;
-            var story = data.storyline[data.storyline.length - 1];
+        var { stories, story } = await this.initialize(data);
+        var { ans, line } = data;
 
-            while (story !== "end") {
-                this.completedStoryIds.push(story);
-                let nextStory = await this.playStory(ans, line, stories[story]);
-                story = nextStory;
-                ans = 0; line = 0;
-            }
-
-            for (const [, src] of this.activeCharacters) {
-                this.systemManagers.imageManager.hideImg(src);
-            }
-            this.systemManagers.dialogManager.hide();
-
-        } catch (error) {
-            console.error('Failed to load or play story:', error);
+        while (story !== "end") {
+            this.completedStoryIds.push(story);
+            let nextStory = await this.playStory(ans, line, stories[story]);
+            story = nextStory;
+            ans = 0; line = 0;
         }
-        localStorage.clear();
-        this.systemManagers.dialogManager.readSavedLog([]);
+        if (story === "end") this.ending();
     }
 }

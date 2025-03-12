@@ -1,4 +1,4 @@
-import { Game } from '../lib/game.js';
+import { Game } from './lib/game.js';
 
 const showArea = document.getElementById('showArea');
 const { settingbtn, affinitybtn, exitbtn } = document.getElementsByClassName('funcbtn');
@@ -58,26 +58,29 @@ window.onload = () => {
     continuebtn.style.display = localStorage.getItem('data') ? "initial" : "none";
     startbtn.addEventListener('click', async e => {
         landing.style.display = 'none';
-        await game.start();
+        await game.startloop();
         startbtn.style.display = "initial";
         returnToLanding();
     })
     continuebtn.addEventListener('click', async e => {
         landing.style.display = 'none';
         if (game.isGamePaused) {
-            console.log(JSON.parse(localStorage.getItem('data')))
             game.toggleGamePause();
         } else {
-            await game.start(JSON.parse(localStorage.getItem('data')));
+            await game.startloop(JSON.parse(localStorage.getItem('data')));
             startbtn.style.display = "initial";
             returnToLanding();
         }
     })
 }
+
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !game.isGamePaused) {
         game.toggleGamePause();
         startbtn.style.display = "none";
         returnToLanding();
+    }
+    if(e.key === "`"){
+        localStorage.clear();
     }
 })
