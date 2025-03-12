@@ -4,6 +4,10 @@
         "src": "resources/bocchi.webp"
     },
     {
+        "name": "Nijika",
+        "src": "resources/Nijika.jpg"
+    },
+    {
         "name": "hill",
         "src": "resources/hill.jpg"
     },
@@ -12,7 +16,15 @@
         "src": "resources/sunset.jpg"
     },
     {
+        "name": "BTR",
+        "src": "resources/BTR.jpg"
+    },
+    {
         "name": "livehouse",
         "src": "resources/livehouse.jpg"
+    },
+    {
+        "name": "studio",
+        "src": "resources/studio.jpg"
     }
 ]

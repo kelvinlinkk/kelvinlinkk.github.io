@@ -1,34 +1,51 @@
 {
-    "main": {
-        "id": "story1",
+    "main":{
         "texts": [
             ["affinity","Bocchi+0"],
-            ["Bocchi","I'm ... s...orry,."],
+            ["affinity","Nijika+0"],
+            ["Narrator","(In the studio)"],
+            ["Nijika","We are having a live show next month~"],
+            ["Nijika","Alright, everyone must sell five tickets!"],
+            ["Bocchi","W....ell, I c..an't do this..."],
+            ["Nijika", "Don't worry, Bocchi chan."],
+            ["Nijika", "Cause u are the hero in my heart!"],
+            ["Bocchi", "W...hat?"],
+            ["node","invite"]
+        ],
+        "bgm":"song",
+        "background":"resources/studio.jpg",
+        "figures":[
+            {"color":"#ff2291", "name": "Bocchi", "src": "Bocchi" },
+            {"color":"#ffb400", "name": "Nijika", "src":"Nijika"}
+        ],
+        "choices":[]
+    },
+    "invite": {
+        "texts": [
+            ["Narrator","(Bocchi at Starry)"],
+            ["Bocchi","I'm ... s...orry,"],
             ["Bocchi","how are you?"],
             ["system","button"],
             ["affinity","Bocchi+5"],
-            ["Bocchi","Where do you live?"],
-            ["system","button"],
-            ["affinity","Bocchi+10"],
-            ["Bocchi","Nice, let's go outside."],
-            ["node","story2"]
+            ["Bocchi", "Could you give me a moment?"],
+            ["node",""]
         ],
         "bgm":"song",
         "background":"resources/livehouse.jpg",
         "figures":[
-            { "name": "B", "src": "Bocchi" }
+            {"color":"#ff2291",  "name": "Bocchi", "src": "Bocchi" }
         ],
         "choices":[[
             { "text": "Fine" ,"value": "So far, so good.." },
             {  "text": "Bad","value": "Not quite so well." }
         ],[
-            { "text": "City" ,"value": "I live in the city." },
-            {  "text": "Country","value": "I live in the country." }
+            { "text": "Sure" ,"value": "ticket" },
+            {  "text": "No","value": "end" }
         ]]
     },
-    "story2": {
-        "id": "story2",
+    "ticket": {
         "texts": [
+            ["Narrator","(You and Bocchi go to outside, under gorgeous sunset)"],
             ["Bocchi","We have a live performance next month."],
             ["Bocchi","Please buy a ticket!(run)"],
             ["affinity","Bocchi+10"],
@@ -37,7 +54,7 @@
         "bgm":"song",
         "background":"resources/sunset.jpg",
         "figures":[
-            { "name": "B", "src": "Bocchi" }
+            {"color":"#ff2291", "name": "Bocchi", "src": "Bocchi" }
         ],
         "choices":[]
     }
