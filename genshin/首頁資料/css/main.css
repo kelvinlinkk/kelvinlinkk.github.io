@@ -1,0 +1,68 @@
+body{margin: 0;background-color: black;font-family: 'genshin';overflow: hidden;}
+main{position: absolute;inset: 0;margin: auto; max-width: 100%;max-height: 100%;
+     aspect-ratio: 16 / 9;background-color: white; font-size: min(4.8vw,2.7vh);overflow: hidden;}
+@font-face {
+    font-family: 'genshin';
+    src: url(../font/ZH-CN_0.TTF);
+}
+@keyframes scalesIn {
+    from {scale: 1.1;}
+    to {scale: 1.2;}
+}
+
+@keyframes scalesOut {
+    from {scale: 1.2;}
+    to {scale: 1.1;}
+}
+
+#landing{position: absolute;inset: 0;}
+#startbtn {position: absolute;inset: 0;width: 15%;height: 5%; margin: auto; font-size: 1em;}
+
+#welcome{position: absolute;inset: 0; display: none;}
+#welcome video{position: absolute;inset:0;width: 100%;height: 100%;object-fit: cover;}
+#welcome audio{visibility: hidden;}
+
+#playground{position: absolute;inset: 0; display: none;}
+#background{position: absolute;inset: 0;width: 100%;height: 100%; object-fit:fit;z-index: 0;}
+
+#pool-band{position: absolute;left: 7%; width: 4%;height: 100%; z-index: 2;
+    border-left: 0.5em solid #f5deb3aa ;border-right: 0.5em solid #f5deb3aa ;background-color: #111111aa;}
+#pool-band img{position: absolute;top: 5%;left: -250%; width:600%;}
+
+#activity-area{position: absolute;top: 10%; width: 75%; height: 75%; left: 20%;
+    padding: 0;}
+#activity-area h1{position: absolute;left: -1.5%; bottom: 95%;z-index: 2;font-size: 0.75em;line-height: 1em;
+    border-radius: 1em 0% 2em 1em;padding:0.5em 1em;
+    color: white;background-color: #478fca;}
+#activity-area img{position: absolute;inset: 0; width: 100%; height: 100%;
+     z-index: 1;}
+#activity-area p{position: absolute; color: #494949;z-index: 2;padding: 5%;
+    text-shadow: 1px 1px 0 rgb(224, 224, 224), -1px -1px 0 rgb(224, 224, 224);}
+#countdown{bottom: 5%;}
+
+#stone{position: absolute;top: 2%;right: 2%;height: 4%;width: 10%;}
+#stone input{position: absolute;inset: 0;border-radius: 50em; border: 0px solid;
+    text-align: center;background-color: #111111aa;color: white;font-weight: bold;}
+#stone img{position: absolute;top: 10%;left: 5%; height: 80%;}
+#stone button{position: absolute;top: 5%; right: 1%;height: 90%;aspect-ratio: 1 / 1; border-radius: 50%;border: 0px solid;}
+
+#gachabtn{position: absolute;display: flex; bottom: 5%;right: 0%;height: 8%;width: 95%;}
+#gachabtn button{
+    position: relative; bottom: 0%;right: -50%;height: 100%;background: none;
+    margin:0% 2%; border: 0px solid;
+}
+#gachabtn button img:hover{animation: scalesIn 0.2s forwards;}
+#gachabtn button img{width: 100%;height: 100%; animation: scalesOut 0.2s forwards;}
+
+#display-area{position: absolute;inset: 0;z-index: 10;display: none;}
+#transition{position: absolute;inset: 0;z-index: 10;display: none;}
+#transition video{position: absolute;inset: 0;height: 100%;width: 100%; z-index: 10;}
+#transition button{position: absolute;top: 5%;right: 8%; height: 6%;width: 10%;
+    border:0px solid; z-index: 10;}
+
+#result-area{position: absolute;inset: 0;z-index: 10;display: none;}
+#result-area h1{position: absolute;inset: 0;width: fit-content;height: 5%; text-align: center; margin: auto; font-size: 2em;z-index: 11;}
+#result-area video{position: absolute;inset: 0;height: 100%;width: 100%; z-index: 11;visibility: hidden;}
+#result-bg{position: absolute;inset: 0;width: 100%;height: 100%;z-index: 10;}
+.cards{position: relative;left: 20%;bottom: -10%; margin: auto;width: 9%;height: 80%;
+    z-index: 11;visibility: hidden;}

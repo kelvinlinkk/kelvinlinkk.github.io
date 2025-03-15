@@ -1,122 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>抽卡模擬器</title>
     <link rel="icon" type="x-icon" href="首頁資料/pic/genshin.png">
-    <link rel="stylesheet" href="首頁資料/css/card.css">
-    <script>
-        for (let i = 0; i < 6; i++) {
-            document.write("<link rel='preload' as='image' href='首頁資料/卡池資訊/background" + i + ".jpg'>")
-        }
-    </script>
+    <link rel="stylesheet" href="首頁資料/css/main.css">
 </head>
-
 <body>
-    <span class="welcome">
-        <img src="首頁資料/卡池資訊/background0.jpg" class="welcome-background">
-        <span id="welcome-search">
-            <form action="https://www.google.com/search" method="get"><input name="q" type="search" value="原神 啟動~">
-            </form>
-            <img src="../首頁資料/logo/googlesearch.png">
-        </span>
-        <audio id="welcome-audio" src="首頁資料/卡池資訊/welcome.mp3"></audio>
-        <video id="welcome-video" src="首頁資料/卡池資訊/welcome.mp4"></video>
-        <div class="welcome-logo"><a href="https://play.google.com/" target="_blank"><img src="首頁資料/logo/googleplay.png"
-                    class="welcome-img">
-                <p class="welcome-txt">Google PLay</p>
-            </a></div>
-        <div class="welcome-logo">
-            <a href="#"><img src="首頁資料/logo/genshin.webp" id="welcome-img">
-                <p id="welcome-txt">原神</p>
-            </a>
+    <main>
+        <div id="landing">
+            <button id="startbtn">START</button>
         </div>
-        <div class="welcome-logo"><a href="https://honkaiimpact3.hoyoverse.com/ua1/?game_biz=bh3_asia"
-                target="_blank"><img src="首頁資料/logo/崩壞3.png" class="welcome-img">
-                <p class="welcome-txt">崩壞3</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://hsr.hoyoverse.com/ua2?utm_source=CHT_google_CHT_search_UA2_broad"
-                target="_blank"><img src="首頁資料/logo/崩壞星宆鐵道.png" class="welcome-img">
-                <p class="welcome-txt">崩壞:星宆鐵道</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://re1999.movergames.com/" target="_blank"><img src="首頁資料/logo/1999.png"
-                    class="welcome-img">
-                <p class="welcome-txt">重返未來：1999</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://www.facebook.com/TW.BlueArchive/" target="_blank"><img
-                    src="首頁資料/logo/蔚藍.png" class="welcome-img">
-                <p class="welcome-txt">蔚藍檔案 Blue Archive</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://facebook.com" target="_blank"><img src="首頁資料/logo/facebook.svg"
-                    class="welcome-img">
-                <p class="welcome-txt">facebook</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://instagram.com" target="_blank"><img src="首頁資料/logo/Instagram.svg"
-                    class="welcome-img">
-                <p class="welcome-txt">Instagram</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://x.com" target="_blank"><img src="首頁資料/logo/twitter.svg"
-                    class="welcome-img">
-                <p class="welcome-txt">Twitter</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://open.spotify.com" target="_blank"><img src="首頁資料/logo/spotify.svg"
-                    class="welcome-img">
-                <p class="welcome-txt">Spotify</p>
-            </a></div>
-        <div class="welcome-logo"><a href="https://www.canva.com/design/DAF2HFEkx2A/view?embed" target="_blank"><img
-                    src="首頁資料/logo/canva.svg" class="welcome-img">
-                <p class="welcome-txt">Canva</p>
-            </a></div>
-        <div class="welcome-logo"><a href="首頁資料/卡池資訊/揚中之數.docx" class="welcome-img"><img src="首頁資料/logo/office.png">
-                <p class="welcome-txt">Office</p>
-            </a></div>
-        <button id="change-background" class="bckgrd-btn">next</button>
-
-    </span>
-
-    <video style="position: fixed;object-fit: cover;inset: 0;" muted autoplay loop
-        src="首頁資料/卡池資訊/background.mp4"></video>
-    <span class="pool-area">
-        <div class="pool-band"></div>
-        <button class="pool"><img src="首頁資料/卡池資訊/activity.png"></button>
-    </span>
-    <div class="activity-area">
-        <span class="activity-title">角色活動祈願</span>
-        <button><img src="首頁資料/卡池資訊/activity.png" id="poolinfo" style="position: absolute;"></button>
-        <h1><span style="color: #478fca;">翩舞</span><span style="color: #494949;">歈蓮</span></h1>
-        <h2><span style="color: #494949;">抽取機率提升!</span></h2>
-        <h3>🔹每十次祈願必出四星或以上物品。</h3>
-        <p><span style="color: #494949;">活動限定五星角色僅在UP期間，在對應的<br>祈願中獲得。具體內容查看【詳情】</span></p>
-        <article class="counttime"><span style="color: #494949;">剩餘時間<br>16天20時55分</span></article>
-    </div>
-    <span class="gacha-area">
-        <div class="gacha" id="gacha-1"><img src="首頁資料/卡池資訊/button1.png"></div>
-        <div class="gacha" id="gacha-10"><img src="首頁資料/卡池資訊/button10.png"></div>
-    </span>
-    <span class="stone">
-        <input type="text" class="source" value="15000" id="stone-num">
-        <button class="add-source" id="plus">+</button>
-        <img class="stone-icon" src="首頁資料/卡池資訊/stone.png">
-    </span>
-    <span id="transition">
-        <video class="trans-ani" src="首頁資料/卡池資訊/transition4.mp4" muted autoplay></video>
-        <button id="skip">Skip>></button>
-    </span>
-    <span class="result" id="result-area">
-        <video id="one-card-video" muted autoplay></video>
-        <audio id="one-card-audio" src="首頁資料/卡池資訊/transition.mp3"></audio>
-        <h1>123</h1>
-        <script>
-            for (let i = 0; i < 10; i++) {
-                document.write("<img class='card'></img>")
-            }
-        </script>
-
-    </span>
-    <script src="首頁資料/js/gacha.js"></script>
-    <script src="首頁資料/js/card.js"></script>
+        <div id="welcome">
+            <video src="首頁資料/卡池資訊/welcome.mp4"></video>
+            <audio src="首頁資料/卡池資訊/welcome.mp3"></audio>
+        </div>
+        <div id="playground">
+            <video id="background" muted autoplay loop src="首頁資料/卡池資訊/background.mp4"></video>
+            <span id="pool-band"><img src="首頁資料/卡池資訊/activity.png"></span>
+            <span id="activity-area">
+                <img id="activity-img" src="首頁資料/卡池資訊/activity/activity.png">
+                <h1 id="activity-title">角色活動祈願</h1>
+                <p id="activity-info">
+                    <span style="color: #478fca;font-size:2.5em;">翩舞</span><!--
+                    --><span style="color: #494949;font-size:2.5em;">歈蓮</span><br><br><br>
+                    <span style="font-size: 1.25em;">抽取機率提升!</span><br><br>
+                    <span style="background-color: #478fca;color: white;text-shadow: none;">🔹每十次祈願必出四星或以上物品。</span><br><br>
+                    <span>活動限定五星角色僅在UP期間，在對應的</span><br><span>祈願中獲得。具體內容查看【詳情】</span><br>
+                </p>
+                <p id="countdown">
+                    <span>剩餘時間</span><br><span>5天20時55分</span>
+                </p>
+            </span>
+            <span id="stone">
+                <input type="text" value="15000" id="stone-num">
+                <button class="add-source" id="plus">+</button>
+                <img class="stone-icon" src="首頁資料/卡池資訊/stone.png">
+            </span>
+            <span id="gachabtn">
+                <button id="gacha-1"><img src="首頁資料/卡池資訊/button1.png"></button>
+                <button id="gacha-10"><img src="首頁資料/卡池資訊/button10.png"></button>
+            </span>
+        </div>
+        <div id="display-area">
+            <span id="transition">
+                <video src="首頁資料/卡池資訊/transition4.mp4" muted autoplay></video>
+                <button id="skip">Skip>></button>
+                <audio src="首頁資料/卡池資訊/transition.mp3"></audio>
+            </span>
+        </div>
+        <span id="result-area">
+            <video src="首頁資料/卡池資訊/onecard3.mp4" muted autoplay></video>
+            <h1></h1>
+            <img id="result-bg" src="首頁資料/卡池資訊/showcard.jpg">
+            <script>
+            </script>
+        </span>
+        <script type="module" src="首頁資料/js/main.js"></script>
+    </main>
 </body>
-
 </html>
