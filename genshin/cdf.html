@@ -9,8 +9,8 @@
 <body>
     <hr class="x-axis">
     <hr class="y-axis">
-    <p class="x-label">x axis</p>
-    <p class="y-label">y axis</p>
+    <p class="x-label">抽數</p>
+    <p class="y-label">CDF</p>
     <script src="首頁資料/js/gacha.js"></script>
     <script>
         const basicRate = 0.009
@@ -50,7 +50,7 @@
         for(let i=0 ;i<90;i++){
             document.write("<div class='realbar' style='left:" + (5+i) + "vw'></div>")
             realdata[i]+=(i==0?0:realdata[i-1])
-            document.getElementsByClassName("realbar")[i].style.height=realdata[i]/10363240/90*8000+'vh'
+            document.getElementsByClassName("realbar")[i].style.height=realdata[i]/10363240/90*6000+'vh'
         }
         var bars = document.getElementsByClassName("bar")
         for(let j=0 ;j<10000;j++){
@@ -60,7 +60,7 @@
                 if(result>4){
                     for(let k = i;k<90;k++){
                         bardata[k]+=1;
-                        bars[k].style.height=bardata[k]/10000/90*8000+'vh'
+                        bars[k].style.height=bardata[k]/10000/90*6000+'vh'
                     }
                     break
                 }

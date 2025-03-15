@@ -3,11 +3,14 @@ import Gacha from "./util/gacha.js"
 const landing = document.getElementById('landing');
 const startbtn = document.getElementById('startbtn');
 const welcome = document.getElementById('welcome');
+const showdata = document.getElementById('showdata');
+const data = document.getElementById('data');
 
 const playground = document.getElementById('playground');
 const gacha1 = document.getElementById('gacha-1');
 const gacha10 = document.getElementById('gacha-10');
 const stone = document.getElementById('stone-num');
+const add = document.getElementById('plus');
 
 const displayArea = document.getElementById('display-area');
 const transition = document.getElementById('transition');
@@ -69,33 +72,35 @@ const showcard = async (num, pickCards) => {
                 cards[i].style.visibility = "visible";
             }, i * 100);
         }
-    }else if(num === 1){
+    } else if (num === 1) {
         const card = pickCards[0];
         result.style.display = "initial";
-        switch(card){
-            case 6:{
-                vid.style.visibility = "visible";vid.currentTime = "0"
+        switch (card) {
+            case 6: {
+                vid.style.visibility = "visible"; vid.currentTime = "0"
                 vid.src = "首頁資料/卡池資訊/onecard6.mp4"
                 break;
             }
-            case 4:{resultTxt.innerText = "4UP星";break;}
-            case 3:{resultTxt.innerText = "4星";break;}
-            case 2:{
-                vid.style.visibility = "visible";vid.currentTime = "0"
+            case 4: { resultTxt.innerText = "4UP星"; break; }
+            case 3: { resultTxt.innerText = "4星"; break; }
+            case 2: {
+                vid.style.visibility = "visible"; vid.currentTime = "0"
                 vid.src = "首頁資料/卡池資訊/onecard3.mp4"
                 break;
             }
-            default:{resultTxt.innerText = card+"星";break;}
+            default: { resultTxt.innerText = card + "星"; break; }
         }
     }
 
-    return new Promise(r=>{result.addEventListener('click',()=>{
-        result.style.display = 'none';
-        playground.style.display = "initial";
-        vid.style.visibility = 'hidden';
-        [...document.getElementsByClassName('cards')].forEach(elm => {elm.remove();});
-        r();
-    })})
+    return new Promise(r => {
+        result.addEventListener('click', () => {
+            result.style.display = 'none';
+            playground.style.display = "initial";
+            vid.style.visibility = 'hidden';
+            [...document.getElementsByClassName('cards')].forEach(elm => { elm.remove(); });
+            r();
+        })
+    })
 }
 
 const start = async () => {
@@ -104,6 +109,8 @@ const start = async () => {
     const welcomeAud = welcome.querySelector('audio');
     welcome.style.display = "initial";
     welcomeVid.play();
+    await new Promise(r => { welcomeVid.addEventListener('play', r); }, { once: true })
+    initialize();
     setTimeout(() => {
         if (welcome.style.display !== "none") {
             welcomeAud.play();
@@ -115,17 +122,31 @@ const start = async () => {
     welcomeVid.pause();
     welcomeAud.pause();
     welcome.style.display = "none";
-    initialize();
-    gacha1.addEventListener('click', async () => { showcard(1, await gacha(1)); });
-    gacha10.addEventListener('click', async () => { showcard(10, await gacha(10)); });
+    add.addEventListener('click', () => {
+        stone.value = parseInt(stone.value) + 1600;
+    })
+    gacha1.addEventListener('click', async () => {
+        if (stone.value < 160) { window.alert("no stone"); return }
+        else { showcard(1, await gacha(1)); }
+    });
+    gacha10.addEventListener('click', async () => {
+        if (stone.value < 1600) { window.alert("no stone"); return }
+        else { showcard(10, await gacha(10)); }
+    });
 }
-startbtn.addEventListener('click', start)
+window.onload = () => {
+    startbtn.addEventListener('click', start)
+    showdata.addEventListener('click', () => {
+        if (data.style.display == "none") {
+            data.style.display = "initial";
+            showdata.innerText = "隱藏統計資料";
+        } else {
+            data.style.display = "none";
+            showdata.innerText = "顯示統計資料";
+        }
+    })
+}
 
-function fade(tar, speed, dir) {
-    for (let i = 0; i < 1000; i++) {
-        setTimeout(() => { tar.style.opacity = (dir ? i : 1000 - i) / 1000; }, i * speed)
-    }
-}
 
 function slide(tar, speed, from, to) {
     for (let i = 0; i < 500; i++) {

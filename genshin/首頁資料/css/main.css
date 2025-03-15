@@ -15,10 +15,14 @@ main{position: absolute;inset: 0;margin: auto; max-width: 100%;max-height: 100%;
     to {scale: 1.1;}
 }
 
-#landing{position: absolute;inset: 0;}
-#startbtn {position: absolute;inset: 0;width: 15%;height: 5%; margin: auto; font-size: 1em;}
+#landing{position: absolute;inset: 0;display: flex;}
+#landing img{position: absolute;inset: 0;height: 100%;width: 100%; }
+.startbtn {position: relative;inset: 0;width: 15%;height: 5%;z-index: 2; margin: auto; font-size: 1em;}
 
-#welcome{position: absolute;inset: 0; display: none;}
+#data{position: absolute;inset: 0; display: none;z-index: 1;}
+#data iframe{position: absolute;border: 0px; height: 40%;aspect-ratio: 16 / 9;}
+
+#welcome{position: absolute;inset: 0; display: none;z-index: 10;}
 #welcome video{position: absolute;inset:0;width: 100%;height: 100%;object-fit: cover;}
 #welcome audio{visibility: hidden;}
 

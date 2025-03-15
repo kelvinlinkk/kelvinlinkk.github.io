@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,21 @@
     <link rel="icon" type="x-icon" href="首頁資料/pic/genshin.png">
     <link rel="stylesheet" href="首頁資料/css/main.css">
 </head>
+
 <body>
     <main>
         <div id="landing">
-            <button id="startbtn">START</button>
+            <img src="首頁資料/卡池資訊/background.png">
+            <button class="startbtn"><a href="gacha.html">初代抽卡模擬器</a></button>
+            <button class="startbtn" id="startbtn">抽卡模擬器2.0</button>
+            <button class="startbtn" id="showdata">顯示統計資料</button>
+
+        </div>
+        <div id="data">
+            <iframe src="pmf.html" style="top: 0%;right: 0%;"></iframe>
+            <iframe src="pmfup.html" style="top: 0px;left: 0%;"></iframe>
+            <iframe src="cdf.html" style="bottom: 0%;left: 0%;"></iframe>
+            <iframe src="variance.html" style="bottom: 0%;right: 0%;"></iframe>
         </div>
         <div id="welcome">
             <video src="首頁資料/卡池資訊/welcome.mp4"></video>
@@ -26,7 +38,8 @@
                     <span style="color: #478fca;font-size:2.5em;">翩舞</span><!--
                     --><span style="color: #494949;font-size:2.5em;">歈蓮</span><br><br><br>
                     <span style="font-size: 1.25em;">抽取機率提升!</span><br><br>
-                    <span style="background-color: #478fca;color: white;text-shadow: none;">🔹每十次祈願必出四星或以上物品。</span><br><br>
+                    <span
+                        style="background-color: #478fca;color: white;text-shadow: none;">🔹每十次祈願必出四星或以上物品。</span><br><br>
                     <span>活動限定五星角色僅在UP期間，在對應的</span><br><span>祈願中獲得。具體內容查看【詳情】</span><br>
                 </p>
                 <p id="countdown">
@@ -60,4 +73,5 @@
         <script type="module" src="首頁資料/js/main.js"></script>
     </main>
 </body>
+
 </html>
