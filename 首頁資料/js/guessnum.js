@@ -1,0 +1,128 @@
+const enter = document.getElementById('enter');
+const guessnum = document.getElementById('guessnum');
+const ans = [8,5,2,1,0];
+var results = [];
+const isValid = (array) => {
+    // Convert array to Set to remove duplicates and compare lengths
+    return array.length === new Set(array).size && array.length === 5;
+}
+function generatePermutations(remainingDigits, currentNumber) {
+    if (currentNumber.length === 5) {
+        results.push(currentNumber)
+    } else {
+        remainingDigits.forEach(digit => {
+            const updatedDigits = [...remainingDigits];
+            const updatedNumber = [...currentNumber];
+            updatedDigits.splice(updatedDigits.indexOf(digit), 1);
+            updatedNumber.push(digit);
+            generatePermutations(updatedDigits, updatedNumber);
+        });
+    }
+}
+function compareNumbers(answer, guess) {
+    let A = 0;
+    let B = 0;
+
+    // Convert numbers to arrays if they aren't already
+    const answerArray = Array.isArray(answer) ? answer : [...answer.toString()];
+    const guessArray = Array.isArray(guess) ? guess : [...guess.toString()];
+
+    // Check for exact matches (A)
+    for (let i = 0; i < 5; i++) {
+        if (guessArray[i] === answerArray[i]) {
+            A++;
+        }
+    }
+
+    // Check for number matches in wrong positions (B)
+    for (let i = 0; i < 5; i++) {
+        if (answerArray.includes(guessArray[i]) && guessArray[i] !== answerArray[i]) {
+            B++;
+        }
+    }
+
+    return { A, B };
+}
+
+function analyzeFrequencies() {
+    // 建立5個位置的計數器
+    const positionCounts = Array(5).fill().map(() => Array(10).fill(0));
+    
+    // 計算每個位置的數字出現次數
+    results.forEach(combination => {
+        for (let i = 0; i < 5; i++) {
+            positionCounts[i][parseInt(combination[i])]++;
+        }
+    });
+
+    // 更新表格
+    const tbody = document.querySelector('#frequencyTable tbody');
+    tbody.innerHTML = ''; // 清空表格内容
+
+    // 為每個位置創建一行
+    for (let position = 0; position < 5; position++) {
+        const row = document.createElement('tr');
+        
+        // 添加位置標籤
+        const positionCell = document.createElement('td');
+        positionCell.textContent = `第${position + 1}位`;
+        row.appendChild(positionCell);
+
+        // 添加每個數字的出現機率
+        for (let digit = 0; digit < 10; digit++) {
+            const cell = document.createElement('td');
+            const frequency = (positionCounts[position][digit] / results.length * 100).toFixed(1);
+            cell.textContent = `${frequency}%`;
+            
+            // 如果機率大於0，添加高亮
+            if (frequency > 0) {
+                cell.classList.add('highlight');
+            }
+            
+            row.appendChild(cell);
+        }
+
+        tbody.appendChild(row);
+    }
+
+    // 更新剩餘組合數
+    document.getElementById('remainingCount').textContent = results.length;
+}
+
+function updateHistory(guess, result) {
+    const tbody = document.querySelector('#historyTable tbody');
+    const row = document.createElement('tr');
+    
+    const guessCell = document.createElement('td');
+    guessCell.textContent = guess.join('');
+    row.appendChild(guessCell);
+    
+    const resultCell = document.createElement('td');
+    resultCell.textContent = `${result.A}A${result.B}B`;
+    row.appendChild(resultCell);
+    
+    tbody.insertBefore(row, tbody.firstChild);
+}
+
+window.onload = async() => {
+    generatePermutations([...Array(10).keys()], []);
+    analyzeFrequencies(); // 初始化表格
+
+    enter.addEventListener('click', e => {
+        const guess = [...guessnum.value].map(num => parseInt(num, 10));
+        if (!isValid(guess)) return;
+        
+        const result = compareNumbers(guess, ans);
+        updateHistory(guess, result);
+        
+        const newResults = [];
+        for (let elm of results) {
+            if (JSON.stringify(compareNumbers(guess, elm)) === JSON.stringify(result)) {
+                newResults.push(elm);
+            }
+        }
+        results = newResults;
+        
+        analyzeFrequencies();
+    })
+}

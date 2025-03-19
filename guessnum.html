@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜數字~</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+            text-align: center;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+        }
+        #historyTable {
+            margin-right: 20px;
+            float: left;
+        }
+        #frequencyTable {
+            float: left;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜數字工具~</h1>
+    <input id="guessnum" value="12345">
+    <button id="enter">enter</button>
+    <div>剩餘組合數：<span id="remainingCount">0</span></div>
+    <div class="clearfix">
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>猜測號碼</th>
+                    <th>結果</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <table id="frequencyTable">
+            <thead>
+                <tr>
+                    <th>位置/數字</th>
+                    <th>0</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="首頁資料/js/guessnum.js"></script>
+</body>
+</html>
