@@ -1,6 +1,8 @@
 const enter = document.getElementById('enter');
 const guessnum = document.getElementById('guessnum');
-const ans = [8,5,2,1,0];
+const inputA = document.getElementById('A');
+const inputB = document.getElementById('B');
+var ans = [0, 0];
 var results = [];
 const isValid = (array) => {
     // Convert array to Set to remove duplicates and compare lengths
@@ -47,7 +49,7 @@ function compareNumbers(answer, guess) {
 function analyzeFrequencies() {
     // 建立5個位置的計數器
     const positionCounts = Array(5).fill().map(() => Array(10).fill(0));
-    
+
     // 計算每個位置的數字出現次數
     results.forEach(combination => {
         for (let i = 0; i < 5; i++) {
@@ -62,7 +64,7 @@ function analyzeFrequencies() {
     // 為每個位置創建一行
     for (let position = 0; position < 5; position++) {
         const row = document.createElement('tr');
-        
+
         // 添加位置標籤
         const positionCell = document.createElement('td');
         positionCell.textContent = `第${position + 1}位`;
@@ -73,12 +75,12 @@ function analyzeFrequencies() {
             const cell = document.createElement('td');
             const frequency = (positionCounts[position][digit] / results.length * 100).toFixed(1);
             cell.textContent = `${frequency}%`;
-            
+
             // 如果機率大於0，添加高亮
             if (frequency > 0) {
                 cell.classList.add('highlight');
             }
-            
+
             row.appendChild(cell);
         }
 
@@ -92,37 +94,32 @@ function analyzeFrequencies() {
 function updateHistory(guess, result) {
     const tbody = document.querySelector('#historyTable tbody');
     const row = document.createElement('tr');
-    
+
     const guessCell = document.createElement('td');
     guessCell.textContent = guess.join('');
     row.appendChild(guessCell);
-    
+
     const resultCell = document.createElement('td');
-    resultCell.textContent = `${result.A}A${result.B}B`;
+    resultCell.textContent = `${result[0]}A${result[1]}B`;
     row.appendChild(resultCell);
-    
+
     tbody.insertBefore(row, tbody.firstChild);
 }
 
-window.onload = async() => {
+window.onload = async () => {
     generatePermutations([...Array(10).keys()], []);
     analyzeFrequencies(); // 初始化表格
 
-    enter.addEventListener('click', e => {
+    enter.addEventListener('click', () => {
+        ans = { A: parseInt(inputA.value), B: parseInt(inputB.value) };
         const guess = [...guessnum.value].map(num => parseInt(num, 10));
         if (!isValid(guess)) return;
-        
-        const result = compareNumbers(guess, ans);
-        updateHistory(guess, result);
-        
-        const newResults = [];
-        for (let elm of results) {
-            if (JSON.stringify(compareNumbers(guess, elm)) === JSON.stringify(result)) {
-                newResults.push(elm);
-            }
-        }
-        results = newResults;
-        
+        updateHistory(guess, [ans.A, ans.B]);
+
+        results = results.filter(elm => {
+            const comparison = compareNumbers(guess, elm);
+            return comparison.A === ans.A && comparison.B === ans.B;
+        });
         analyzeFrequencies();
     })
 }

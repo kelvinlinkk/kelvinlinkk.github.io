@@ -1,42 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>猜數字~</title>
     <style>
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .input-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            display: inline-block;
+            width: 60px;
+        }
+
+        input {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .remaining-count {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2196F3;
+            margin: 20px 0;
+        }
+
         table {
             border-collapse: collapse;
-            margin-top: 20px;
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-        th, td {
-            border: 1px solid black;
-            padding: 5px 10px;
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
             text-align: center;
         }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
         .highlight {
-            background-color: #ffeb3b;
+            background-color: #fff3cd;
+            font-weight: bold;
         }
+
         #historyTable {
-            margin-right: 20px;
+            margin-right: 30px;
             float: left;
+            width: 200px;
         }
+
         #frequencyTable {
             float: left;
         }
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
+
+        .tables-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
         }
     </style>
 </head>
+
 <body>
-    <h1>猜數字工具~</h1>
-    <input id="guessnum" value="12345">
-    <button id="enter">enter</button>
-    <div>剩餘組合數：<span id="remainingCount">0</span></div>
-    <div class="clearfix">
+    <h1>🎲 猜數字小幫手</h1>
+    <div class="input-section">
+        <div class="input-group">
+            <label for="guessnum">數字：</label>
+            <input id="guessnum" value="12345" maxlength="5">
+        </div>
+        <div class="input-group">
+            <label for="A">幾A：</label>
+            <input id="A" value="0" type="number" min="0" max="5">
+        </div>
+        <div class="input-group">
+            <label for="B">幾B：</label>
+            <input id="B" value="0" type="number" min="0" max="5">
+        </div>
+        <button id="enter">確認輸入</button>
+    </div>
+
+    <div class="remaining-count">
+        剩餘組合數：<span id="remainingCount">0</span>
+    </div>
+
+    <div class="tables-container">
         <table id="historyTable">
             <thead>
                 <tr>
@@ -67,4 +158,5 @@
     </div>
     <script src="首頁資料/js/guessnum.js"></script>
 </body>
+
 </html>
