@@ -20,6 +20,12 @@
             margin-bottom: 20px;
         }
 
+        .input-section h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2196F3;
+        }
+
         .input-group {
             margin-bottom: 10px;
         }
@@ -102,12 +108,48 @@
             color: #333;
             margin-bottom: 30px;
         }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
     </style>
 </head>
 
 <body>
     <h1>🎲 猜數字小幫手</h1>
+    
+    <!-- 出題工具區域 -->
     <div class="input-section">
+        <h2>出題工具</h2>
+        <div class="input-group">
+            <label for="answer">答案：</label>
+            <input id="answer" maxlength="5" placeholder="請輸入5位不重複數字">
+            <button id="setAnswer">設定答案</button>
+        </div>
+        <div class="input-group">
+            <label for="checkNum">檢測：</label>
+            <input id="checkNum" maxlength="5" placeholder="請輸入猜測數字">
+            <button id="checkAnswer">檢查答案</button>
+        </div>
+        <div id="checkResult" class="result"></div>
+    </div>
+
+    <!-- 答題工具區域 -->
+    <div class="input-section">
+        <h2>答題工具</h2>
         <div class="input-group">
             <label for="guessnum">數字：</label>
             <input id="guessnum" value="12345" maxlength="5">

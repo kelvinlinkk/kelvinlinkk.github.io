@@ -106,6 +106,54 @@ function updateHistory(guess, result) {
     tbody.insertBefore(row, tbody.firstChild);
 }
 
+// 添加新的變量
+const answerInput = document.getElementById('answer');
+const checkNumInput = document.getElementById('checkNum');
+const setAnswerBtn = document.getElementById('setAnswer');
+const checkAnswerBtn = document.getElementById('checkAnswer');
+const checkResult = document.getElementById('checkResult');
+
+let secretAnswer = null;
+
+// 添加出題功能
+setAnswerBtn.addEventListener('click', () => {
+    const answer = [...answerInput.value].map(num => parseInt(num, 10));
+    if (!isValid(answer)) {
+        checkResult.textContent = '請輸入5個不重複的數字！';
+        checkResult.className = 'result error';
+        return;
+    }
+    secretAnswer = answer;
+    answerInput.value = '';
+    checkResult.textContent = '答案已設定！';
+    checkResult.className = 'result success';
+});
+
+// 添加檢查功能
+checkAnswerBtn.addEventListener('click', () => {
+    if (!secretAnswer) {
+        checkResult.textContent = '請先設定答案！';
+        checkResult.className = 'result error';
+        return;
+    }
+
+    const guess = [...checkNumInput.value].map(num => parseInt(num, 10));
+    if (!isValid(guess)) {
+        checkResult.textContent = '請輸入5個不重複的數字！';
+        checkResult.className = 'result error';
+        return;
+    }
+
+    const result = compareNumbers(secretAnswer, guess);
+    checkResult.textContent = `結果：${result.A}A${result.B}B`;
+    checkResult.className = 'result success';
+    checkNumInput.value = '';
+
+    if (result.A === 5) {
+        checkResult.textContent = '恭喜答對了！🎉';
+    }
+});
+
 window.onload = async () => {
     generatePermutations([...Array(10).keys()], []);
     analyzeFrequencies(); // 初始化表格
