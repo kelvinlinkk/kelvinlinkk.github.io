@@ -1,15 +1,18 @@
 {
     "main":{
         "texts": [
-            ["affinity","Bocchi+0"],
-            ["affinity","Nijika+0"],
+            ["affinity","Bocchi", "0"],
+            ["affinity","Nijika", "0"],
             ["Narrator","(In the studio)"],
+            ["system","setVariable","i","3"],
             ["Nijika","We are having a live show next month~"],
             ["Nijika","Alright, everyone must sell five tickets!"],
             ["Bocchi","W....ell, I c..an't do this..."],
             ["Nijika", "Don't worry, Bocchi chan."],
+            ["system","setVariable","i","3"],
             ["Nijika", "Cause u are the hero in my heart!"],
             ["Bocchi", "W...hat?"],
+            ["system","getVariable","i"],
             ["node","invite"]
         ],
         "bgm":"song",
@@ -26,7 +29,7 @@
             ["Bocchi","I'm ... s...orry,"],
             ["Bocchi","how are you?"],
             ["system","button"],
-            ["affinity","Bocchi+5"],
+            ["affinity","Bocchi", "5"],
             ["Bocchi", "Could you give me a moment?"],
             ["node",""]
         ],
@@ -48,7 +51,7 @@
             ["Narrator","(You and Bocchi go to outside, under gorgeous sunset)"],
             ["Bocchi","We have a live performance next month."],
             ["Bocchi","Please buy a ticket!(run)"],
-            ["affinity","Bocchi+10"],
+            ["affinity","Bocchi", "10"],
             ["node","end"]
         ],
         "bgm":"song",

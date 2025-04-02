@@ -22,6 +22,7 @@ export class Game {
         this.pausePromiseResolver = null;
         this.completedStoryIds = [];
         this.affinity = {};
+        this.variable = {};
 
         document.addEventListener("keydown", (n) => {
             if (n.key == "l") {
@@ -67,8 +68,8 @@ export class Game {
         await new Promise(resolve => { this.backgroundImage.onload = resolve; });
 
         this.activeCharacters = [];
-        figures.forEach(({color, name, src }) => {
-            this.activeCharacters.push({color, name, src});
+        figures.forEach(({ color, name, src }) => {
+            this.activeCharacters.push({ color, name, src });
             this.systemManagers.imageManager.setAppearance(src, { width: '', height: 960, left: 810, top: 60 });
         });
 
@@ -109,10 +110,12 @@ export class Game {
             storyline: this.completedStoryIds,
             ans,
             line,
-            affinity: this.affinity
+            affinity: this.affinity,
+            variable: this.variable
         }
         localStorage.clear();
         localStorage.setItem("data", JSON.stringify(data));
+        console.log(data)
     }
 
     async playStory(ans, line, storyResources) {
@@ -120,11 +123,22 @@ export class Game {
         const { texts, bgm, background, figures, choices } = storyResources;
         const actions = {
             button: async () => {
-                lineCount += 1; //skip button and choice
+                //skip button and choice
                 await dialogManager.readWords(await this.getChoice(choices[ansCount]));
                 ansCount += 1;
-                this.saveProgress(ansCount, lineCount + 1);
+                this.saveProgress(ansCount, lineCount);
                 await this.waitForUser();
+            },
+            setVariable: (params) => {
+                if (this.variable[params[0]] === undefined) {
+                    this.variable[params[0]] = params[1];
+                }
+                else {
+                    this.variable[params[0]] = parseFloat(this.variable[params[0]]) + parseFloat(params[1]);
+                }
+            },
+            getVariable: (params) => {
+                console.log(this.variable[params]);
             },
             default: (words) => { console.log(words); }
         }
@@ -135,35 +149,36 @@ export class Game {
         await dialogManager.show();
         [...this.activeCharacters.values()].forEach(async name => await imageManager.showImg(name));
 
-        for (const [speaker, words] of texts.slice(lineCount)) {
+        for (const [speaker, ...params] of texts.slice(lineCount)) {
+            const words = params.join("");
             if (this.isGamePaused) {
                 await this.waitForResume();
                 await this.waitForUser();
             }
+            this.saveProgress(ansCount, lineCount);
+            lineCount += 1;
             switch (speaker) {
                 case "system":
-                    await (actions[words] || actions["default"])(words);
+                    await (actions[params[0]] || actions["default"])(params.slice(1));
                     break;
                 case "node":
                     return words === "" ? await this.getChoice(choices[ansCount]) : words;
-                case "affinity": const [name, delta] = words.split('+')
-                    this.affinity[name] = (this.affinity[name] ? this.affinity[name] : 0) + parseInt(delta);
+                case "affinity":
+                    this.affinity[params[0]] = (this.affinity[params[0]] ? this.affinity[params[0]] : 0) + parseInt(params[1]);
                     break;
                 default:
                     dialogManager.setSpeaker(speaker);
                     dialogManager.elements.tag.style.color = "aliceblue";
-                    for (const {color,name, src} of this.activeCharacters) {
-                        if(name === speaker){
-                            dialogManager.elements.tag.style.color = color||"aliceblue";
+                    for (const { color, name, src } of this.activeCharacters) {
+                        if (name === speaker) {
+                            dialogManager.elements.tag.style.color = color || "aliceblue";
                             imageManager.showImg(src);
-                        }else{
+                        } else {
                             imageManager.hideImg(src);
                         }
                     }
                     await dialogManager.readWords(words);
                     await this.waitForUser();
-                    lineCount += 1;
-                    this.saveProgress(ansCount, lineCount);
             }
         }
     }
@@ -187,7 +202,7 @@ export class Game {
 
     ending() {
         const { dialogManager, imageManager } = this.systemManagers;
-        for (const {src} of this.activeCharacters) {
+        for (const { src } of this.activeCharacters) {
             imageManager.hideImg(src);
         }
         dialogManager.hide();
@@ -200,7 +215,8 @@ export class Game {
         storyline: ["main"],
         ans: 0,
         line: 0,
-        affinity: {}
+        affinity: {},
+        variable: {}
     }) {
         var { stories, readingStory } = await this.initialize(data);
         var { ans, line } = data;
