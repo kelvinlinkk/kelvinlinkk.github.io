@@ -1,0 +1,64 @@
+{
+    "main":{
+        "texts": [
+            ["system","affinity","Bocchi", "0"],
+            ["system","affinity","Nijika", "0"],
+            ["Narrator","(In the studio)"],
+            ["system","setVariable","i","3"],
+            ["Nijika","We are having a live show next month~"],
+            ["Nijika","Alright, everyone must sell five tickets!"],
+            ["Bocchi","W....ell, I c..an't do this..."],
+            ["Nijika", "Don't worry, Bocchi chan."],
+            ["system","setVariable","i","3"],
+            ["Nijika", "Cause u are the hero in my heart!"],
+            ["Bocchi", "W...hat?"],
+            ["system","getVariable","i"],
+            ["node","invite"]
+        ],
+        "bgm":"song",
+        "background":"resources/img/studio.jpg",
+        "figures":[
+            {"color":"#ff2291", "name": "Bocchi", "src": "Bocchi" },
+            {"color":"#ffb400", "name": "Nijika", "src":"Nijika"}
+        ],
+        "choices":[]
+    },
+    "invite": {
+        "texts": [
+            ["Narrator","(Bocchi at Starry)"],
+            ["Bocchi","I'm ... s...orry,"],
+            ["Bocchi","how are you?"],
+            ["system","button"],
+            ["system","affinity","Bocchi", "5"],
+            ["Bocchi", "Could you give me a moment?"],
+            ["node",""]
+        ],
+        "bgm":"song",
+        "background":"resources/img/livehouse.jpg",
+        "figures":[
+            {"color":"#ff2291",  "name": "Bocchi", "src": "Bocchi" }
+        ],
+        "choices":[[
+            { "text": "Fine" ,"value": "So far, so good.." },
+            {  "text": "Bad","value": "Not quite so well." }
+        ],[
+            { "text": "Sure" ,"value": "ticket" },
+            {  "text": "No","value": "end" }
+        ]]
+    },
+    "ticket": {
+        "texts": [
+            ["Narrator","(You and Bocchi go to outside, under gorgeous sunset)"],
+            ["Bocchi","We have a live performance next month."],
+            ["Bocchi","Please buy a ticket!(run)"],
+            ["system","affinity","Bocchi", "10"],
+            ["node","end"]
+        ],
+        "bgm":"song",
+        "background":"resources/img/sunset.jpg",
+        "figures":[
+            {"color":"#ff2291", "name": "Bocchi", "src": "Bocchi" }
+        ],
+        "choices":[]
+    }
+}

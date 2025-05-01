@@ -1,14 +1,18 @@
+// Import necessary modules and utilities.
 import DialogSystem from './dialog.js';
 import AudioManager from './audio.js';
 import ButtonManager from './button.js';
 import ImageManager from './image.js';
 import { loadSource } from './util.js';
 
+// Game class manages the overall game logic, including systems, story progression, and user interaction.
 export class Game {
     constructor() {
+        // Create the main game container.
         this.gameContainer = document.querySelector("main").appendChild(document.createElement("div"));
         this.gameContainer.id = "gameContainer";
 
+        // Initialize system managers for dialog, audio, buttons, and images.
         this.systemManagers = {
             dialogManager: new DialogSystem(this.gameContainer),
             audioManager: new AudioManager(this.gameContainer),
@@ -16,32 +20,38 @@ export class Game {
             imageManager: new ImageManager(this.gameContainer)
         };
 
-        this.activeCharacters = [];
-        this.backgroundImage = null;
-        this.isGamePaused = false;
-        this.pausePromiseResolver = null;
-        this.completedStoryIds = [];
-        this.affinity = {};
-        this.variable = {};
+        // Initialize game state variables.
+        this.gameFile = "";
+        this.activeCharacters = []; // List of active characters in the scene.
+        this.backgroundImage = null; // Current background image.
+        this.isGamePaused = false; // Pause state of the game.
+        this.pausePromiseResolver = null; // Resolver for pause-related promises.
+        this.completedStoryIds = []; // List of completed story IDs.
+        this.affinity = {}; // Affinity values for characters.
+        this.variable = {}; // Custom game variables.
 
+        // Add a keydown event listener for toggling the log and pausing the game.
         document.addEventListener("keydown", (n) => {
             if (n.key == "l") {
                 this.systemManagers.dialogManager.showLog();
                 this.toggleGamePause();
             }
-        })
+        });
     }
 
+    // Toggles the game's pause state.
     toggleGamePause() {
         this.isGamePaused = !this.isGamePaused;
         this.systemManagers.buttonManager.isInteractive = !this.systemManagers.buttonManager.isInteractive;
-
+        this.systemManagers.audioManager.toggleAllAudio();
+        // Resolve the pause promise if the game is resumed.
         if (!this.isGamePaused && this.pausePromiseResolver) {
             this.pausePromiseResolver();
             this.pausePromiseResolver = null;
         }
     }
 
+    // Waits for the game to resume if it is paused.
     async waitForResume() {
         if (!this.isGamePaused) return;
         return new Promise(resolve => {
@@ -49,6 +59,7 @@ export class Game {
         });
     }
 
+    // Sets the background image for the game.
     setBackgroundImage(src) {
         if (this.backgroundImage) {
             this.backgroundImage.src = src;
@@ -62,6 +73,7 @@ export class Game {
         return this.backgroundImage;
     }
 
+    // Sets up the stage with background music, background image, and character figures.
     async setStage(bgm, background, figures) {
         this.systemManagers.audioManager.audPlay(bgm, 0, 0);
         this.setBackgroundImage(background);
@@ -76,6 +88,7 @@ export class Game {
         this.systemManagers.dialogManager.setText('');
     }
 
+    // Waits for user interaction (click or space key).
     async waitForUser() {
         return new Promise(resolve => {
             const handler = () => {
@@ -88,6 +101,7 @@ export class Game {
         });
     }
 
+    // Sets up choice buttons for the user.
     setupChoices(choices = []) {
         this.systemManagers.buttonManager.clearButton();
         choices.forEach(({ value, text }) =>
@@ -95,15 +109,17 @@ export class Game {
         );
     }
 
+    // Displays choices and waits for the user to make a selection.
     async getChoice(choices) {
         return new Promise(async (resolve) => {
             this.setupChoices(choices);
             const response = await this.systemManagers.buttonManager.showButton();
             this.systemManagers.dialogManager.setSpeaker("Player");
             resolve(response);
-        })
+        });
     }
 
+    // Saves the current game progress to local storage.
     saveProgress(ans, line) {
         const data = {
             log: this.systemManagers.dialogManager.log,
@@ -112,28 +128,29 @@ export class Game {
             line,
             affinity: this.affinity,
             variable: this.variable
-        }
+        };
         localStorage.clear();
         localStorage.setItem("data", JSON.stringify(data));
-        console.log(data)
     }
 
+    // Plays a story segment based on the provided resources.
     async playStory(ans, line, storyResources) {
         const { imageManager, dialogManager } = this.systemManagers;
         const { texts, bgm, background, figures, choices } = storyResources;
         const actions = {
             button: async () => {
-                //skip button and choice
                 await dialogManager.readWords(await this.getChoice(choices[ansCount]));
                 ansCount += 1;
                 this.saveProgress(ansCount, lineCount);
                 await this.waitForUser();
             },
+            affinity: (params) => {
+                this.affinity[params[0]] = (this.affinity[params[0]] ? this.affinity[params[0]] : 0) + parseInt(params[1]);
+            },
             setVariable: (params) => {
                 if (this.variable[params[0]] === undefined) {
                     this.variable[params[0]] = params[1];
-                }
-                else {
+                } else {
                     this.variable[params[0]] = parseFloat(this.variable[params[0]]) + parseFloat(params[1]);
                 }
             },
@@ -141,7 +158,7 @@ export class Game {
                 console.log(this.variable[params]);
             },
             default: (words) => { console.log(words); }
-        }
+        };
         var ansCount = ans;
         var lineCount = line;
 
@@ -163,9 +180,6 @@ export class Game {
                     break;
                 case "node":
                     return words === "" ? await this.getChoice(choices[ansCount]) : words;
-                case "affinity":
-                    this.affinity[params[0]] = (this.affinity[params[0]] ? this.affinity[params[0]] : 0) + parseInt(params[1]);
-                    break;
                 default:
                     dialogManager.setSpeaker(speaker);
                     dialogManager.elements.tag.style.color = "aliceblue";
@@ -183,6 +197,7 @@ export class Game {
         }
     }
 
+    // Initializes the game with saved data or default settings.
     async initialize(data) {
         const { dialogManager, imageManager, audioManager } = this.systemManagers;
         dialogManager.setAppearance("#ffffff");
@@ -190,27 +205,29 @@ export class Game {
         this.affinity = data.affinity;
         dialogManager.readSavedLog(data.log);
         try {
-            const response = await fetch('resources/mainStory.json');
+            const response = await fetch(this.gameFile);
             const stories = await response.json();
             const readingStory = data.storyline[data.storyline.length - 1];
-            return { stories, readingStory }
-
+            return { stories, readingStory };
         } catch (error) {
             console.error('Failed to load or play story:', error);
         }
     }
 
+    // Ends the game and clears progress.
     ending() {
-        const { dialogManager, imageManager } = this.systemManagers;
+        const { dialogManager, imageManager, audioManager } = this.systemManagers;
         for (const { src } of this.activeCharacters) {
             imageManager.hideImg(src);
         }
+        audioManager.toggleAllAudio();
         dialogManager.hide();
         localStorage.clear();
         dialogManager.readSavedLog([]);
     }
 
-    async startloop(data = {
+    // Starts the game loop, progressing through the story.
+    async startloop(name, data = {
         log: [],
         storyline: ["main"],
         ans: 0,
@@ -218,9 +235,9 @@ export class Game {
         affinity: {},
         variable: {}
     }) {
+        this.gameFile = name;
         var { stories, readingStory } = await this.initialize(data);
         var { ans, line } = data;
-
         while (readingStory !== "end") {
             this.completedStoryIds.push(readingStory);
             let nextStory = await this.playStory(ans, line, stories[readingStory]);

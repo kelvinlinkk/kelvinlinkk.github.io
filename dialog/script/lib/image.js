@@ -1,16 +1,22 @@
+// ImageManager class handles the creation, display, and manipulation of image elements.
 class ImageManager {
     constructor(main) {
+        // Object to store image elements by name.
         this.imageElements = {};
+
+        // Hidden container for image elements.
         this.imgfile = this.createElement("span", { id: "imgfile" });
         main.appendChild(this.imgfile);
     }
 
+    // Utility method to create a DOM element with specified attributes.
     createElement(tag, attributes) {
         const element = document.createElement(tag);
         Object.assign(element, attributes);
         return element;
     }
 
+    // Retrieves an image element by name or creates a new one if it doesn't exist.
     async getImg(name, src) {
         if (this.imageElements[name]) {
             return this.imageElements[name];
@@ -22,16 +28,18 @@ class ImageManager {
         }
     }
 
+    // Displays an image element by name.
     async showImg(name) {
         const imgElement = this.imageElements[name];
         if (imgElement) {
             imgElement.style.display = 'initial';
             await new Promise(resolve => {
                 imgElement.onload = resolve;
-            })
+            });
         }
     }
 
+    // Hides an image element by name.
     hideImg(name) {
         const imgElement = this.imageElements[name];
         if (imgElement) {
@@ -39,10 +47,10 @@ class ImageManager {
         }
     }
 
-
+    // Sets the appearance of an image element (position, size, and z-index).
     setAppearance(name, { left = 0, top = 0, zIndex = 1, width = 100, height = 100 }) {
         let img = this.imageElements[name];
-        // Set image styles (1920x1080 grid)
+        // Set image styles (1920x1080 grid).
         Object.assign(img.style, {
             left: (parseFloat(left) / 1920 * 100) + '%',
             top: (parseFloat(top) / 1080 * 100) + '%',
@@ -51,6 +59,8 @@ class ImageManager {
         });
         img.style.zIndex = parseFloat(zIndex);
     }
+
+    // Moves an image element by a specified delta over a given duration.
     move(name, deltaX, deltaY, time) {
         let imgElement = this.imageElements[name];
         let start = performance.now();
@@ -62,11 +72,11 @@ class ImageManager {
                 let elapsed = currentTime - start;
                 let progress = Math.min(elapsed / duration, 1);
 
-                // Calculate current position
+                // Calculate current position.
                 let currentX = startX + parseFloat(deltaX) / 1920 * 100 * progress;
                 let currentY = startY + parseFloat(deltaY) / 1080 * 100 * progress;
 
-                // Update element position
+                // Update element position.
                 imgElement.style.left = currentX + '%';
                 imgElement.style.top = currentY + '%';
 
@@ -76,14 +86,16 @@ class ImageManager {
                     resolve();
                 }
             }
-            requestAnimationFrame(animate)
+            requestAnimationFrame(animate);
         });
     }
+
+    // Scales an image element to a specified width and height over a given duration.
     scale(name, w, h, time) {
         const imgElement = this.imageElements[name];
         const start = performance.now();
 
-        // Get current scale or default to 1
+        // Get current scale or default to 1.
         const computedStyle = window.getComputedStyle(imgElement);
         const currentTransform = computedStyle.transform;
         const [startScaleX, startScaleY] = currentTransform === 'none' ?
@@ -98,11 +110,11 @@ class ImageManager {
                 const elapsed = currentTime - start;
                 const progress = Math.min(elapsed / duration, 1);
 
-                // Interpolate scale values
+                // Interpolate scale values.
                 const currentScaleX = startScaleX + (targetScaleX - startScaleX) * progress;
                 const currentScaleY = startScaleY + (targetScaleY - startScaleY) * progress;
 
-                // Apply transform
+                // Apply transform.
                 imgElement.style.transform = `scale(${currentScaleX}, ${currentScaleY})`;
 
                 if (progress < 1) {
@@ -112,9 +124,11 @@ class ImageManager {
                 }
             }
 
-            requestAnimationFrame(animate)
+            requestAnimationFrame(animate);
         });
     }
+
+    // Skews an image element by specified angles over a given duration.
     skew(name, angleX, angleY, time) {
         const imgElement = this.imageElements[name];
         const start = performance.now();
@@ -147,10 +161,11 @@ class ImageManager {
                 }
             }
 
-            requestAnimationFrame(animate)
+            requestAnimationFrame(animate);
         });
     }
 
+    // Rotates an image element by a specified angle over a given duration.
     rotate(name, angle, time) {
         const imgElement = this.imageElements[name];
         const start = performance.now();
@@ -184,4 +199,5 @@ class ImageManager {
     }
 }
 
+// Export the ImageManager class for use in other modules.
 export default ImageManager;

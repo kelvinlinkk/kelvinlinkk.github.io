@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Bocchi",
+        "src": "bocchi.webp"
+    },
+    {
+        "name": "Nijika",
+        "src": "Nijika.jpg"
+    },
+    {
+        "name": "hill",
+        "src": "hill.jpg"
+    },
+    {
+        "name": "sunset",
+        "src": "sunset.jpg"
+    },
+    {
+        "name": "BTR",
+        "src": "BTR.jpg"
+    },
+    {
+        "name": "livehouse",
+        "src": "livehouse.jpg"
+    },
+    {
+        "name": "studio",
+        "src": "studio.jpg"
+    }
+]
