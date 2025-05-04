@@ -4,6 +4,7 @@ import AudioManager from './audio.js';
 import ButtonManager from './button.js';
 import ImageManager from './image.js';
 import { loadSource } from './util.js';
+import { DrumGame } from '../custom/drum.js';
 
 // Game class manages the overall game logic, including systems, story progression, and user interaction.
 export class Game {
@@ -21,7 +22,6 @@ export class Game {
         };
 
         // Initialize game state variables.
-        this.gameFile = "";
         this.activeCharacters = []; // List of active characters in the scene.
         this.backgroundImage = null; // Current background image.
         this.isGamePaused = false; // Pause state of the game.
@@ -198,17 +198,17 @@ export class Game {
     }
 
     // Initializes the game with saved data or default settings.
-    async initialize(data) {
+    async initialize(chapter, data) {
         const { dialogManager, imageManager, audioManager } = this.systemManagers;
         dialogManager.setAppearance("#ffffff");
         await loadSource(imageManager, audioManager);
         this.affinity = data.affinity;
         dialogManager.readSavedLog(data.log);
         try {
-            const response = await fetch(this.gameFile);
-            const stories = await response.json();
+            const response = await fetch("resources/stories/mainStory.json");
+            const chapters = await response.json();
             const readingStory = data.storyline[data.storyline.length - 1];
-            return { stories, readingStory };
+            return { stories: chapters[chapter], readingStory };
         } catch (error) {
             console.error('Failed to load or play story:', error);
         }
@@ -222,21 +222,14 @@ export class Game {
         }
         audioManager.toggleAllAudio();
         dialogManager.hide();
+        this.backgroundImage.style.display = "none";
         localStorage.clear();
         dialogManager.readSavedLog([]);
     }
 
     // Starts the game loop, progressing through the story.
-    async startloop(name, data = {
-        log: [],
-        storyline: ["main"],
-        ans: 0,
-        line: 0,
-        affinity: {},
-        variable: {}
-    }) {
-        this.gameFile = name;
-        var { stories, readingStory } = await this.initialize(data);
+    async startloop(chapter, data) {
+        var { stories, readingStory } = await this.initialize(chapter, data);
         var { ans, line } = data;
         while (readingStory !== "end") {
             this.completedStoryIds.push(readingStory);
@@ -245,5 +238,29 @@ export class Game {
             ans = 0; line = 0;
         }
         if (readingStory === "end") this.ending();
+    }
+
+    async main(data = {
+        log: [],
+        storyline: ["main"],
+        ans: 0,
+        line: 0,
+        affinity: {},
+        variable: {}
+    }) {
+        // Create a new instance of the DrumGame class to manage the drum game
+        const drumGame = new DrumGame({
+            notesContainerId: 'notes',
+            scoreDisplayId: 'score',
+            missesDisplayId: 'misses',
+            colors: ['red', 'blue'],
+            noteSpeed: 2, // px per frame
+            spawnInterval: 1000, // ms
+            hitZoneLeft: 80,
+            hitZoneRight: 140
+        });
+        await this.startloop("Preface", data);
+        console.log(this.variable["i"])
+        await drumGame.start();
     }
 }

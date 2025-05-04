@@ -1,127 +1,57 @@
-// Import the Game class from the game library
+// Import the Game class and Landing class from their respective modules
 import { Game } from './lib/game.js';
-
-// DOM elements for various UI components
-const showArea = document.getElementById('showArea');
-const { settingbtn, affinitybtn, exitbtn } = document.getElementsByClassName('funcbtn');
-const { startbtn, continuebtn } = document.getElementsByClassName('startbtn');
-const landing = document.getElementById('landing');
-
-// Create a new instance of the Game class
+import { Landing } from './landing.js';
+// Create a new instance of the Game class to manage the game logic
 const game = new Game();
 
-/**
- * Toggles the visibility of buttons and the showArea.
- * @param {boolean} isShow - Whether to show or hide the buttons and showArea.
- */
-const toggleButtonVisibility = (isShow) => {
-    showArea.style.display = isShow ? "initial" : 'none';
-    settingbtn.style.visibility = !isShow ? "visible" : "hidden";
-    affinitybtn.style.visibility = !isShow ? "visible" : "hidden";
-    exitbtn.style.visibility = isShow ? "visible" : "hidden";
-    showArea.innerHTML = ""; // Clear the showArea content
-};
-
-/**
- * Returns the user to the landing screen and adjusts the visibility of the continue button.
- */
-const returnToLanding = () => {
-    continuebtn.style.display = localStorage.getItem('data') || game.isGamePaused ? "initial" : "none";
-    landing.style.display = "initial";
-};
-
-// Event listener for the settings button
-settingbtn.addEventListener('click', () => {
-    toggleButtonVisibility(true);
-    showArea.style.whiteSpace = "wrap";
-
-    // Add a button to the showArea
-    const btn = document.createElement('button');
-    btn.innerText = 'Untitled-1';
-    showArea.appendChild(btn);
-
-    // Add a volume slider to the showArea
-    const volume = Object.assign(document.createElement('input'), {
-        id: 'volume',
-        type: 'range',
-        min: 0,
-        max: 100,
-        innerText: 'v'
-    });
-    showArea.appendChild(volume);
-
-    // Adjust the game's audio volume based on the slider value
-    volume.addEventListener('input', () => {
-        game.systemManagers.audioManager.setVolume(volume.value / 100);
-    });
-});
-
-// Event listener for the affinity button
-affinitybtn.addEventListener('click', () => {
-    toggleButtonVisibility(true);
-    showArea.style.whiteSpace = "nowrap";
-
-    // Display affinity data if available
-    if (!game.affinity) return;
-    for (let name in game.affinity) {
-        const section = document.createElement('section');
-        showArea.appendChild(section);
-
-        // Add a profile image
-        const profile = section.appendChild(document.createElement('img'));
-        profile.src = `./assets/profile/${name}.jpg`;
-
-        // Add a name tag
-        const nametag = section.appendChild(document.createElement('h1'));
-        nametag.innerText = name;
-
-        // Add affinity percentage
-        const affinity = section.appendChild(document.createElement('p'));
-        affinity.innerText = `${game.affinity[name]}%`;
-    }
-});
-
-// Event listener for the exit button
-exitbtn.addEventListener('click', () => {
-    toggleButtonVisibility(false);
-});
+// Create a new instance of the Landing class to manage the landing screen
+const landing = new Landing(game);
 
 // Initialize the game when the window loads
 window.onload = () => {
-    // Show the continue button if saved data exists
-    continuebtn.style.display = localStorage.getItem('data') ? "initial" : "none";
+    // Check if there is saved game data in localStorage
+    const hasSavedData = localStorage.getItem('data');
 
-    // Start a new game when the start button is clicked
-    startbtn.addEventListener('click', async e => {
-        landing.style.display = 'none';
-        await game.startloop("resources/playscript/mainStory.json");
-        startbtn.style.display = "initial";
-        returnToLanding();
+    // Show or hide the "Continue" button based on the presence of saved data
+    landing.buttons.continuebtn.style.display = hasSavedData ? "initial" : "none";
+
+    // Add an event listener to the "Start" button
+    landing.buttons.startbtn.addEventListener('click', async () => {
+        // Hide the landing screen
+        landing.landingArea.style.display = 'none';
+
+        // Start the game loop with the main story JSON file
+        await game.main();
+        // Return to the landing screen after the game ends
+        //landing.returnToLanding();
     });
 
-    // Continue a saved game when the continue button is clicked
-    continuebtn.addEventListener('click', async e => {
-        landing.style.display = 'none';
+    // Add an event listener to the "Continue" button
+    landing.buttons.continuebtn.addEventListener('click', async () => {
+        // Hide the landing screen
+        landing.landingArea.style.display = 'none';
+
+        // Resume the game if it is paused, otherwise load saved data and start the game
         if (game.isGamePaused) {
             game.toggleGamePause();
         } else {
-            await game.startloop(JSON.parse(localStorage.getItem('data')));
-            startbtn.style.display = "initial";
-            returnToLanding();
+            const savedData = JSON.parse(localStorage.getItem('data'));
+            await game.main(savedData);
+            // Return to the landing screen after the game ends
+            landing.returnToLanding();
         }
     });
 };
 
-// Global event listener for keyboard inputs
-document.addEventListener('keydown', e => {
-    // Pause the game and return to the landing screen when Escape is pressed
+// Add a global event listener for keyboard inputs
+document.addEventListener('keydown', (e) => {
+    // If the "Escape" key is pressed and the game is not paused, pause the game and return to the landing screen
     if (e.key === 'Escape' && !game.isGamePaused) {
         game.toggleGamePause();
-        startbtn.style.display = "none";
-        returnToLanding();
+        landing.returnToLanding();
     }
 
-    // Clear local storage when the backtick key (`) is pressed
+    // If the backtick key (`) is pressed, clear all saved data from localStorage
     if (e.key === "`") {
         localStorage.clear();
     }
