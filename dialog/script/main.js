@@ -10,10 +10,12 @@ const landing = new Landing(game);
 // Initialize the game when the window loads
 window.onload = () => {
     // Check if there is saved game data in localStorage
-    const hasSavedData = localStorage.getItem('data');
+    const savedData = JSON.parse(localStorage.getItem('data'));
+    // If there is saved data, parse it and set it in the game instance
+    const completedEnds = JSON.parse(localStorage.getItem('completedEnds')) || {"name": []};
 
     // Show or hide the "Continue" button based on the presence of saved data
-    landing.buttons.continuebtn.style.display = hasSavedData ? "initial" : "none";
+    landing.buttons.continuebtn.style.display = savedData ? "initial" : "none";
 
     // Add an event listener to the "Start" button
     landing.buttons.startbtn.addEventListener('click', async () => {
@@ -21,7 +23,11 @@ window.onload = () => {
         landing.landingArea.style.display = 'none';
 
         // Start the game loop with the main story JSON file
-        await game.main();
+        const end = await game.main();
+        if(!completedEnds['name'].includes(end)) {
+            completedEnds['name'].push(end);
+            localStorage.setItem('completedEnds', JSON.stringify(completedEnds));
+        }
         // Return to the landing screen after the game ends
         //landing.returnToLanding();
     });
@@ -35,8 +41,11 @@ window.onload = () => {
         if (game.isGamePaused) {
             game.toggleGamePause();
         } else {
-            const savedData = JSON.parse(localStorage.getItem('data'));
-            await game.main(savedData);
+        const end = await game.main(savedData);
+        if(!completedEnds['name'].includes(end)) {
+            completedEnds['name'].push(end);
+            localStorage.setItem('completedEnds', JSON.stringify(completedEnds));
+        }
             // Return to the landing screen after the game ends
             landing.returnToLanding();
         }

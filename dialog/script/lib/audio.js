@@ -14,6 +14,7 @@ class AudioManager {
         this.toggle = false;
 
         // Append the hidden container to the provided main element.
+        this.setVolume(0);
         main.appendChild(this.audfile);
     }
 
@@ -29,6 +30,7 @@ class AudioManager {
     addAudio(name, src) {
         if (!this.audioEffects[name]) {
             const audioElement = this.createElement('audio', { src: src });
+            audioElement.volume = this.maxVolume;
             this.audfile.appendChild(audioElement);
             this.audioEffects[name] = audioElement;
         }

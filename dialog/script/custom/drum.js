@@ -12,8 +12,7 @@ export class DrumGame {
         this.score = 0;
         this.misses = 0;
         this.notes = [];
-        this.noteSpeed = options.noteSpeed || 2; // px per frame
-        this.spawnInterval = options.spawnInterval || 1000; // ms
+        this.noteSpeed = options.noteSpeed || 8; // px per frame
         this.hitZoneLeft = options.hitZoneLeft || 80;
         this.hitZoneRight = options.hitZoneRight || 140;
         this.spawnTimer = null;
@@ -23,7 +22,8 @@ export class DrumGame {
     async start() {
         document.getElementById('drumgame').style.display = 'block';
         this.setBackgroundImage('resources/img/livehouse.jpg');
-        this.spawnTimer = setInterval(() => this.spawnNote(), this.spawnInterval);
+        this._spawnLoopActive = true;
+        this._spawnLoop(); // Start random spawn loop
         this.animationFrame = requestAnimationFrame(() => this.animate());
         document.addEventListener('keydown', this._keyHandler);
         this.buttons.red.addEventListener('click', () => this.hit('red'));
@@ -33,7 +33,7 @@ export class DrumGame {
 
     stop() {
         document.getElementById('drumgame').style.display = 'none';
-        clearInterval(this.spawnTimer);
+        this._spawnLoopActive = false;
         cancelAnimationFrame(this.animationFrame);
         document.removeEventListener('keydown', this._keyHandler);
         this.buttons.red.removeEventListener('click', () => this.hit('red'));
@@ -100,7 +100,17 @@ export class DrumGame {
                 } else {
                     accuracyScore = 1; // ok
                 }
-                if (this.notesContainer.contains(noteObj.el)) this.notesContainer.removeChild(noteObj.el);
+                // 發光特效
+                noteObj.el.classList.add('hit-glow');
+                setTimeout(() => {
+                    noteObj.el.classList.remove('hit-glow');
+                }, 150);
+
+                if (this.notesContainer.contains(noteObj.el))
+                    setTimeout(() => {
+                        this.notesContainer.removeChild(noteObj.el);
+                    }, 150);
+
                 this.notes.splice(i, 1);
                 this.score += accuracyScore;
                 this.scoreDisplay.textContent = this.score;
@@ -115,5 +125,14 @@ export class DrumGame {
     _keyHandler = (e) => {
         if (e.key.toLowerCase() === 'f') this.hit('red');
         if (e.key.toLowerCase() === 'j') this.hit('blue');
+    }
+
+    // Add a random spawn loop instead of setInterval
+    _spawnLoop = () => {
+        if (!this._spawnLoopActive) return;
+        this.spawnNote();
+        // Random interval between 600ms and 1400ms
+        const nextInterval = 600 + Math.random() * 800;
+        this._spawnTimeout = setTimeout(this._spawnLoop, nextInterval);
     }
 }

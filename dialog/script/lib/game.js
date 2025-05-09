@@ -12,6 +12,7 @@ export class Game {
         // Create the main game container.
         this.gameContainer = document.querySelector("main").appendChild(document.createElement("div"));
         this.gameContainer.id = "gameContainer";
+        this.storyline = "";
 
         // Initialize system managers for dialog, audio, buttons, and images.
         this.systemManagers = {
@@ -122,8 +123,9 @@ export class Game {
     // Saves the current game progress to local storage.
     saveProgress(ans, line) {
         const data = {
+            storyline: this.storyline,
             log: this.systemManagers.dialogManager.log,
-            storyline: this.completedStoryIds,
+            completeStoryIds: this.completedStoryIds,
             ans,
             line,
             affinity: this.affinity,
@@ -202,12 +204,13 @@ export class Game {
         const { dialogManager, imageManager, audioManager } = this.systemManagers;
         dialogManager.setAppearance("#ffffff");
         await loadSource(imageManager, audioManager);
+        this.storyline = data.storyline;
         this.affinity = data.affinity;
         dialogManager.readSavedLog(data.log);
         try {
-            const response = await fetch("resources/stories/mainStory.json");
+            const response = await fetch("resources/stories/" + this.storyline);
             const chapters = await response.json();
-            const readingStory = data.storyline[data.storyline.length - 1];
+            const readingStory = data.completeStoryIds[data.completeStoryIds.length - 1];
             return { stories: chapters[chapter], readingStory };
         } catch (error) {
             console.error('Failed to load or play story:', error);
@@ -241,8 +244,9 @@ export class Game {
     }
 
     async main(data = {
+        storyline: "mainStory.json",
         log: [],
-        storyline: ["main"],
+        completeStoryIds: ["main"],
         ans: 0,
         line: 0,
         affinity: {},
@@ -254,13 +258,15 @@ export class Game {
             scoreDisplayId: 'score',
             missesDisplayId: 'misses',
             colors: ['red', 'blue'],
-            noteSpeed: 2, // px per frame
-            spawnInterval: 1000, // ms
+            noteSpeed: 8, // px per frame
             hitZoneLeft: 80,
             hitZoneRight: 140
         });
         await this.startloop("Preface", data);
-        console.log(this.variable["i"])
+        console.log(this.variable["i"]);
+        return {
+            completedEnd : "main"
+        }
         await drumGame.start();
     }
 }

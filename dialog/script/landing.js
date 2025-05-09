@@ -44,6 +44,7 @@ export class Landing {
         const volume = this.createElement('input', {
             id: 'volume',
             type: 'range',
+            value: this.game.systemManagers.audioManager.maxVolume * 100, // Set the initial volume based on the audio manager
             min: 0,
             max: 100
         });
