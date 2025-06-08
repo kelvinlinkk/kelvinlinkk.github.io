@@ -34,8 +34,9 @@
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+            // 閃動冒號：偶數秒顯示冒號，奇數秒顯示空白
+            const colon = now.getSeconds() % 2 === 0 ? ':' : ' ';
+            clockElement.textContent = `${hours}${colon}${minutes}`;
         }
         setInterval(updateClock, 1000);
         updateClock(); // Initialize clock immediately
