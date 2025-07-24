@@ -84,6 +84,11 @@
       font-weight: bold;
       cursor: not-allowed;
     }
+    .puzzle-cell {
+      color: #1976d2 !important;
+      font-weight: bold;
+      background: #e3f2fd !important;
+    }
     #num-pad {
       margin: 18px 0;
       display: flex;
@@ -133,6 +138,13 @@
       #num-pad button{width:12vw;height:12vw;font-size:1.1em;}
       .action-btn{font-size:0.95em;padding:8px 12vw;}
     }
+    .highlight-same {
+      background: #ffe082 !important;
+      color: #d84315 !important;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.15s;
+    }
   </style>
 </head>
 <body>
@@ -153,6 +165,7 @@
   <div>
     <button class="action-btn" onclick="lockPuzzle()">鎖定題目（開始解題）</button>
     <button class="action-btn" onclick="updateNotes()">更新可能數字</button>
+    <button class="action-btn" onclick="restartSudoku()">下一題</button>
   </div>
   <script>
     let activeInput = null;
@@ -173,11 +186,15 @@
           btn.type = "button";
           btn.className = "cell-btn";
           btn.textContent = "";
+          btn.onmousedown = e => e.preventDefault(); // 防止手機長按選單
           btn.onclick = () => {
             document.querySelectorAll(".cell-btn.selected-cell").forEach(b=>b.classList.remove("selected-cell"));
             activeInput = btn;
             btn.classList.add("selected-cell");
+            // 若有數字則高亮
+            highlightSameNumbers(btn.textContent);
           };
+          btn.onblur = removeHighlight;
 
           const note = document.createElement("div");
           note.className = "notes";
@@ -192,13 +209,26 @@
 
     function setActiveCell(val) {
       if (!activeInput) return;
-      if (!locked || (locked && !activeInput.disabled)) {
-        activeInput.textContent = val;
-        updateNotes();
-        activeInput.focus();
+      // 取得目前格子可填的數字
+      const allBtns = Array.from(document.querySelectorAll(".cell-btn"));
+      const idx = allBtns.indexOf(activeInput);
+      const row = Math.floor(idx / 9), col = idx % 9;
+      const grid = getGridValues();
+      const possible = [];
+      for (let n = 1; n <= 9; n++) {
+        if (isValid(grid, row, col, n.toString())) possible.push(n);
+      }
+      // 只能輸入可填的數字
+      if (val === "" || possible.includes(Number(val))) {
+        if (!locked || (locked && !activeInput.disabled)) {
+          activeInput.textContent = val;
+          updateNotes();
+          activeInput.focus();
+        }
       }
     }
 
+    // 題目數字變藍色
     function lockPuzzle() {
       const rows = table.getElementsByTagName("tr");
       for (let r = 0; r < 9; r++) {
@@ -206,10 +236,10 @@
           const btn = rows[r].cells[c].querySelector(".cell-btn");
           if (btn.textContent) {
             btn.disabled = true;
-            btn.classList.add("locked-cell");
+            btn.classList.add("locked-cell", "puzzle-cell");
           } else {
             btn.disabled = false;
-            btn.classList.remove("locked-cell");
+            btn.classList.remove("locked-cell", "puzzle-cell");
           }
         }
       }
@@ -251,7 +281,7 @@
               possible.push(n);
             }
           }
-          // 以 3x3 格子方式顯示
+          // 以 3x3 格子方式顯示，每個小數字用 span
           let html = "";
           for (let i = 0; i < 9; i++) {
             html += `<span style="display:block;text-align:center;">${possible.includes(i+1) ? i+1 : ""}</span>`;
@@ -275,11 +305,44 @@
       return true;
     }
 
+    function highlightSameNumbers(num) {
+      // 先移除所有高亮
+      document.querySelectorAll(".cell-btn, .notes span").forEach(el => {
+        el.classList.remove("highlight-same");
+      });
+      if (!num) return;
+      // 高亮所有大數字
+      document.querySelectorAll(".cell-btn").forEach(btn => {
+        if (btn.textContent === num) btn.classList.add("highlight-same");
+      });
+      // 高亮所有小數字
+      document.querySelectorAll(".notes").forEach(note => {
+        Array.from(note.children).forEach(span => {
+          if (span.textContent === num) span.classList.add("highlight-same");
+        });
+      });
+    }
+
+    function removeHighlight() {
+      document.querySelectorAll(".cell-btn, .notes span").forEach(el => {
+        el.classList.remove("highlight-same");
+      });
+    }
+
+    // 鍵盤模式也只能輸入可填數字
     document.addEventListener("keydown", function(e) {
       if (!activeInput) return;
+      const allBtns = Array.from(document.querySelectorAll(".cell-btn"));
+      const idx = allBtns.indexOf(activeInput);
+      const row = Math.floor(idx / 9), col = idx % 9;
+      const grid = getGridValues();
+      const possible = [];
+      for (let n = 1; n <= 9; n++) {
+        if (isValid(grid, row, col, n.toString())) possible.push(n);
+      }
       // 數字鍵 1~9
       if (/^[1-9]$/.test(e.key)) {
-        if (!locked || (locked && !activeInput.disabled)) {
+        if ((possible.includes(Number(e.key))) && (!locked || (locked && !activeInput.disabled))) {
           activeInput.textContent = e.key;
           updateNotes();
           activeInput.focus();
@@ -297,24 +360,28 @@
       }
       // 方向鍵移動
       if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
-        const allBtns = Array.from(document.querySelectorAll(".cell-btn"));
-        const idx = allBtns.indexOf(activeInput);
-        if (idx === -1) return;
-        let row = Math.floor(idx / 9), col = idx % 9;
-        if (e.key === "ArrowUp" && row > 0) row--;
-        if (e.key === "ArrowDown" && row < 8) row++;
-        if (e.key === "ArrowLeft" && col > 0) col--;
-        if (e.key === "ArrowRight" && col < 8) col++;
-        const nextBtn = allBtns[row * 9 + col];
+        let r = row, c = col;
+        if (e.key === "ArrowUp" && r > 0) r--;
+        if (e.key === "ArrowDown" && r < 8) r++;
+        if (e.key === "ArrowLeft" && c > 0) c--;
+        if (e.key === "ArrowRight" && c < 8) c++;
+        const nextBtn = allBtns[r * 9 + c];
         if (nextBtn) {
           document.querySelectorAll(".cell-btn.selected-cell").forEach(b=>b.classList.remove("selected-cell"));
           activeInput = nextBtn;
           nextBtn.classList.add("selected-cell");
-          nextBtn.focus();
           e.preventDefault();
         }
       }
     });
+
+    function restartSudoku() {
+      // 清空盤面並重建
+      table.innerHTML = "";
+      locked = false;
+      activeInput = null;
+      createGrid();
+    }
 
     createGrid();
   </script>
