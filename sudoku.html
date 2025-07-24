@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>數獨遊戲</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background: #f7fafd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0 48px 0;
+      min-height: 100vh;
+    }
+    h1 {
+      margin-bottom: 18px;
+      color: #2196f3;
+      letter-spacing: 2px;
+      font-size: 2em;
+      font-weight: bold;
+      text-shadow: 0 2px 8px #2196f344;
+    }
+    table {
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 4px 24px #2196f322;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    td {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid #bbb;
+      position: relative;
+      padding: 0;
+      background: #fafdff;
+      transition: background 0.2s;
+    }
+    .cell-btn {
+      width: 100%;
+      height: 100%;
+      font-size: 18px;
+      text-align: center;
+      border: none;
+      background: transparent;
+      position: relative;
+      z-index: 2;
+      padding-top: 12px;
+      box-sizing: border-box;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .cell-btn.selected-cell {
+      outline: 2.5px solid #2196f3;
+      z-index: 3;
+      background: #e3f2fd;
+    }
+    .notes {
+      position: absolute;
+      font-size: 10px;
+      top: 2px;
+      left: 2px;
+      color: #888;
+      line-height: 1.2em;
+      text-align: left;
+      pointer-events: none;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0;
+      white-space: normal;
+    }
+    .locked-cell {
+      background: #e0e0e0 !important;
+      color: #888 !important;
+      font-weight: bold;
+      cursor: not-allowed;
+    }
+    #num-pad {
+      margin: 18px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    #num-pad button {
+      width: 44px;
+      height: 44px;
+      font-size: 1.2em;
+      border-radius: 50%;
+      border: none;
+      background: #e3f2fd;
+      color: #2196f3;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #2196f322;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    #num-pad button:hover, #num-pad button:focus {
+      background: #2196f3;
+      color: #fff;
+    }
+    .action-btn {
+      margin: 0 8px 18px 8px;
+      padding: 10px 22px;
+      font-size: 1em;
+      border-radius: 18px;
+      border: none;
+      background: #2196f3;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 2px 8px #2196f322;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .action-btn:hover, .action-btn:focus {
+      background: #1565c0;
+    }
+    @media (max-width:600px){
+      table{width:98vw;}
+      td{width:9vw;height:9vw;min-width:32px;min-height:32px;}
+      .cell-btn{font-size:5vw;padding-top:5vw;}
+      .notes{font-size:2.8vw;line-height:3vw;}
+      h1{font-size:1.2em;}
+      #num-pad button{width:12vw;height:12vw;font-size:1.1em;}
+      .action-btn{font-size:0.95em;padding:8px 12vw;}
+    }
+  </style>
+</head>
+<body>
+  <h1>數獨遊戲（自動標記可能數字）</h1>
+  <table id="sudoku"></table>
+  <div id="num-pad">
+    <button onclick="setActiveCell('1')">1</button>
+    <button onclick="setActiveCell('2')">2</button>
+    <button onclick="setActiveCell('3')">3</button>
+    <button onclick="setActiveCell('4')">4</button>
+    <button onclick="setActiveCell('5')">5</button>
+    <button onclick="setActiveCell('6')">6</button>
+    <button onclick="setActiveCell('7')">7</button>
+    <button onclick="setActiveCell('8')">8</button>
+    <button onclick="setActiveCell('9')">9</button>
+    <button onclick="setActiveCell('')">清除</button>
+  </div>
+  <div>
+    <button class="action-btn" onclick="lockPuzzle()">鎖定題目（開始解題）</button>
+    <button class="action-btn" onclick="updateNotes()">更新可能數字</button>
+  </div>
+  <script>
+    let activeInput = null;
+    const table = document.getElementById("sudoku");
+    let locked = false;
+
+    function createGrid() {
+      for (let r = 0; r < 9; r++) {
+        const row = document.createElement("tr");
+        for (let c = 0; c < 9; c++) {
+          const cell = document.createElement("td");
+          if (r % 3 === 0) cell.style.borderTopWidth = "2px";
+          if (c % 3 === 0) cell.style.borderLeftWidth = "2px";
+          if (r === 8) cell.style.borderBottomWidth = "2px";
+          if (c === 8) cell.style.borderRightWidth = "2px";
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cell-btn";
+          btn.textContent = "";
+          btn.onclick = () => {
+            document.querySelectorAll(".cell-btn.selected-cell").forEach(b=>b.classList.remove("selected-cell"));
+            activeInput = btn;
+            btn.classList.add("selected-cell");
+          };
+
+          const note = document.createElement("div");
+          note.className = "notes";
+
+          cell.appendChild(btn);
+          cell.appendChild(note);
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
+      }
+    }
+
+    function setActiveCell(val) {
+      if (!activeInput) return;
+      if (!locked || (locked && !activeInput.disabled)) {
+        activeInput.textContent = val;
+        updateNotes();
+        activeInput.focus();
+      }
+    }
+
+    function lockPuzzle() {
+      const rows = table.getElementsByTagName("tr");
+      for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+          const btn = rows[r].cells[c].querySelector(".cell-btn");
+          if (btn.textContent) {
+            btn.disabled = true;
+            btn.classList.add("locked-cell");
+          } else {
+            btn.disabled = false;
+            btn.classList.remove("locked-cell");
+          }
+        }
+      }
+      locked = true;
+    }
+
+    function getGridValues() {
+      const values = [];
+      const rows = table.getElementsByTagName("tr");
+      for (let r = 0; r < 9; r++) {
+        const row = rows[r];
+        values[r] = [];
+        for (let c = 0; c < 9; c++) {
+          const btn = row.cells[c].querySelector(".cell-btn");
+          values[r][c] = btn.textContent;
+        }
+      }
+      return values;
+    }
+
+    function updateNotes() {
+      const grid = getGridValues();
+      const rows = table.getElementsByTagName("tr");
+
+      for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+          const cell = rows[r].cells[c];
+          const btn = cell.querySelector(".cell-btn");
+          const note = cell.querySelector(".notes");
+
+          if (btn.textContent !== "") {
+            note.innerHTML = "";
+            continue;
+          }
+
+          const possible = [];
+          for (let n = 1; n <= 9; n++) {
+            if (isValid(grid, r, c, n.toString())) {
+              possible.push(n);
+            }
+          }
+          // 以 3x3 格子方式顯示
+          let html = "";
+          for (let i = 0; i < 9; i++) {
+            html += `<span style="display:block;text-align:center;">${possible.includes(i+1) ? i+1 : ""}</span>`;
+          }
+          note.innerHTML = html;
+        }
+      }
+    }
+
+    function isValid(grid, row, col, num) {
+      for (let i = 0; i < 9; i++) {
+        if (grid[row][i] === num || grid[i][col] === num) return false;
+      }
+      const boxRow = Math.floor(row / 3) * 3;
+      const boxCol = Math.floor(col / 3) * 3;
+      for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 3; c++) {
+          if (grid[boxRow + r][boxCol + c] === num) return false;
+        }
+      }
+      return true;
+    }
+
+    createGrid();
+  </script>
+</body>
+</html>
