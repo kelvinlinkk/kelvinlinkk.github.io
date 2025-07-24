@@ -275,6 +275,47 @@
       return true;
     }
 
+    document.addEventListener("keydown", function(e) {
+      if (!activeInput) return;
+      // 數字鍵 1~9
+      if (/^[1-9]$/.test(e.key)) {
+        if (!locked || (locked && !activeInput.disabled)) {
+          activeInput.textContent = e.key;
+          updateNotes();
+          activeInput.focus();
+          e.preventDefault();
+        }
+      }
+      // Backspace 或 Delete 清除
+      if (e.key === "Backspace" || e.key === "Delete" || e.key === "0") {
+        if (!locked || (locked && !activeInput.disabled)) {
+          activeInput.textContent = "";
+          updateNotes();
+          activeInput.focus();
+          e.preventDefault();
+        }
+      }
+      // 方向鍵移動
+      if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
+        const allBtns = Array.from(document.querySelectorAll(".cell-btn"));
+        const idx = allBtns.indexOf(activeInput);
+        if (idx === -1) return;
+        let row = Math.floor(idx / 9), col = idx % 9;
+        if (e.key === "ArrowUp" && row > 0) row--;
+        if (e.key === "ArrowDown" && row < 8) row++;
+        if (e.key === "ArrowLeft" && col > 0) col--;
+        if (e.key === "ArrowRight" && col < 8) col++;
+        const nextBtn = allBtns[row * 9 + col];
+        if (nextBtn) {
+          document.querySelectorAll(".cell-btn.selected-cell").forEach(b=>b.classList.remove("selected-cell"));
+          activeInput = nextBtn;
+          nextBtn.classList.add("selected-cell");
+          nextBtn.focus();
+          e.preventDefault();
+        }
+      }
+    });
+
     createGrid();
   </script>
 </body>
