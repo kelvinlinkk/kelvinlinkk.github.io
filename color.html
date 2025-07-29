@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RGB Color Cube 3D Visualization</title>
+  <style>
+    body {
+      background: #181c22;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #info {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(24,28,34,0.8);
+      padding: 12px 18px;
+      border-radius: 12px;
+      z-index: 2;
+      font-size: 1.1em;
+      box-shadow: 0 2px 12px #0006;
+      user-select: none;
+    }
+    #info input[type=range] {
+      width: 80px;
+      vertical-align: middle;
+    }
+    #canvas3d {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      background: #181c22;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <b>RGB Color Cube 3D</b><br>
+    <span>拖曳滑鼠旋轉，滾輪縮放</span><br>
+    <span>R:</span><input type="range" id="r" min="0" max="255" value="128">
+    <span>G:</span><input type="range" id="g" min="0" max="255" value="128">
+    <span>B:</span><input type="range" id="b" min="0" max="255" value="128">
+    <span id="rgbval" style="margin-left:10px;"></span>
+  </div>
+  <canvas id="canvas3d"></canvas>
+  <script>
+    // --- 3D engine setup ---
+    const canvas = document.getElementById('canvas3d');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    function resize() {
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+    }
+    window.addEventListener('resize', resize); resize();
+
+    // --- Cube data ---
+    const N = 8; // 8x8x8 grid
+    const points = [];
+    for(let r=0;r<N;r++) for(let g=0;g<N;g++) for(let b=0;b<N;b++)
+      points.push({x:r/(N-1),y:g/(N-1),z:b/(N-1),color:`rgb(${Math.round(r*255/(N-1))},${Math.round(g*255/(N-1))},${Math.round(b*255/(N-1))})`});
+
+    // --- Camera & controls ---
+    let angleX = Math.PI/6, angleY = Math.PI/4, zoom = 420;
+    let dragging = false, lastX=0, lastY=0;
+    canvas.addEventListener('mousedown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;});
+    canvas.addEventListener('mouseup',()=>dragging=false);
+    canvas.addEventListener('mouseleave',()=>dragging=false);
+    canvas.addEventListener('mousemove',e=>{
+      if(dragging){
+        angleY += (e.clientX-lastX)*0.01;
+        angleX += (e.clientY-lastY)*0.01;
+        angleX = Math.max(-Math.PI/2,Math.min(Math.PI/2,angleX));
+        lastX = e.clientX; lastY = e.clientY;
+        draw();
+      }
+    });
+    canvas.addEventListener('wheel',e=>{
+      zoom *= (e.deltaY>0?0.92:1.08);
+      zoom = Math.max(120,Math.min(zoom,2000));
+      draw();
+    });
+
+    // --- RGB marker ---
+    const rSlider = document.getElementById('r');
+    const gSlider = document.getElementById('g');
+    const bSlider = document.getElementById('b');
+    function getMarker() {
+      return {
+        x: rSlider.value/255,
+        y: gSlider.value/255,
+        z: bSlider.value/255,
+        color: `rgb(${rSlider.value},${gSlider.value},${bSlider.value})`
+      };
+    }
+    [rSlider,gSlider,bSlider].forEach(sl=>{
+      sl.addEventListener('input',()=>{
+        document.getElementById('rgbval').textContent = `rgb(${rSlider.value},${gSlider.value},${bSlider.value})`;
+        draw();
+      });
+    });
+
+    // --- 3D projection ---
+    function project3D(x,y,z) {
+      // Center cube at (0,0,0)
+      x -= 0.5; y -= 0.5; z -= 0.5;
+      // Rotate
+      let y1 = y*Math.cos(angleX)-z*Math.sin(angleX);
+      let z1 = y*Math.sin(angleX)+z*Math.cos(angleX);
+      let x1 = x*Math.cos(angleY)-z1*Math.sin(angleY);
+      let z2 = x*Math.sin(angleY)+z1*Math.cos(angleY);
+      // Perspective
+      let scale = zoom/(z2+2.2);
+      return {
+        x: W/2 + x1*scale,
+        y: H/2 - y1*scale
+      };
+    }
+
+    // --- Draw function ---
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+
+      // Draw axes
+      const axisLen = 0.6;
+      const axes = [
+        {from: [0,0,0], to: [axisLen,0,0], color: "#f44", label: "R"},
+        {from: [0,0,0], to: [0,axisLen,0], color: "#4f4", label: "G"},
+        {from: [0,0,0], to: [0,0,axisLen], color: "#49f", label: "B"}
+      ];
+      ctx.save();
+      ctx.lineWidth = 4;
+      axes.forEach(ax => {
+        const p0 = project3D(...ax.from);
+        const p1 = project3D(...ax.to);
+        ctx.beginPath();
+        ctx.moveTo(p0.x, p0.y);
+        ctx.lineTo(p1.x, p1.y);
+        ctx.strokeStyle = ax.color;
+        ctx.globalAlpha = 0.85;
+        ctx.stroke();
+        // Axis label
+        ctx.font = "bold 20px Arial";
+        ctx.fillStyle = ax.color;
+        ctx.globalAlpha = 1;
+        ctx.fillText(ax.label, p1.x + 8, p1.y - 8);
+      });
+      ctx.restore();
+
+      // Draw all points (sort by z for painter's algorithm)
+      const pts = points.map(p=>{
+        const proj = project3D(p.x,p.y,p.z);
+        return {...p,screen:proj,zval:p.x*Math.sin(angleY)+p.z*Math.cos(angleY)};
+      });
+      pts.sort((a,b)=>a.zval-b.zval);
+      for(const p of pts){
+        ctx.beginPath();
+        ctx.arc(p.screen.x,p.screen.y,6,0,2*Math.PI);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = 0.7;
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1.0;
+      // Draw marker
+      const m = getMarker();
+      const proj = project3D(m.x,m.y,m.z);
+      ctx.beginPath();
+      ctx.arc(proj.x,proj.y,16,0,2*Math.PI);
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(proj.x,proj.y,12,0,2*Math.PI);
+      ctx.fillStyle = m.color;
+      ctx.fill();
+      // Draw marker border
+      ctx.beginPath();
+      ctx.arc(proj.x,proj.y,18,0,2*Math.PI);
+      ctx.strokeStyle = "#000a";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+    }
+    document.getElementById('rgbval').textContent = `rgb(${rSlider.value},${gSlider.value},${bSlider.value})`;
+    draw();
+  </script>
+</body>
+</html>
