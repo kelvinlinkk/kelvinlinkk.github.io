@@ -165,6 +165,7 @@
   <div>
     <button class="action-btn" onclick="lockPuzzle()">鎖定題目（開始解題）</button>
     <button class="action-btn" onclick="updateNotes()">更新可能數字</button>
+    <button class="action-btn" onclick="autoSolve()">自動解題</button>
     <button class="action-btn" onclick="restartSudoku()">下一題</button>
   </div>
   <script>
@@ -172,15 +173,173 @@
     const table = document.getElementById("sudoku");
     let locked = false;
 
+    // Cache frequently accessed DOM elements
+    const cachedRows = [];
+    
+    function cacheGridElements() {
+      const rows = table.getElementsByTagName("tr");
+      for (let r = 0; r < 9; r++) {
+        cachedRows[r] = [];
+        for (let c = 0; c < 9; c++) {
+          cachedRows[r][c] = {
+            btn: rows[r].cells[c].querySelector(".cell-btn"),
+            note: rows[r].cells[c].querySelector(".notes")
+          };
+        }
+      }
+    }
+
+    // Optimized empty cell finder - prioritizes cells with fewer possibilities
+    function findBestEmptyCell(grid) {
+      let bestCell = null;
+      let minPossibilities = 10;
+
+      for (let row = 0; row < 9; row++) {
+        for (let col = 0; col < 9; col++) {
+          if (grid[row][col] !== "") continue;
+          
+          // Count possible numbers for this cell
+          let possibilities = 0;
+          for (let num = 1; num <= 9; num++) {
+            if (isValid(grid, row, col, num.toString())) {
+              possibilities++;
+            }
+          }
+          
+          // If we found a cell with only one possibility, return it immediately
+          if (possibilities === 1) {
+            return [row, col];
+          }
+          
+          // Update best cell if this one has fewer possibilities
+          if (possibilities < minPossibilities) {
+            minPossibilities = possibilities;
+            bestCell = [row, col];
+          }
+        }
+      }
+      return bestCell;
+    }
+
+    // Optimized validator using pre-calculated box indices
+    const boxIndices = Array(9).fill().map(() => Array(9).fill().map(() => ({row: 0, col: 0})));
+    
+    function initBoxIndices() {
+      for (let box = 0; box < 9; box++) {
+        const boxRow = Math.floor(box / 3) * 3;
+        const boxCol = (box % 3) * 3;
+        let idx = 0;
+        for (let r = 0; r < 3; r++) {
+          for (let c = 0; c < 3; c++) {
+            boxIndices[box][idx] = {
+              row: boxRow + r,
+              col: boxCol + c
+            };
+            idx++;
+          }
+        }
+      }
+    }
+
+    function autoSolve() {
+      if (!locked) {
+        alert("請先鎖定題目再使用自動解題功能");
+        return;
+      }
+
+      const solveBtn = document.querySelector('button[onclick="autoSolve()"]');
+      solveBtn.disabled = true;
+      solveBtn.textContent = "解題中...";
+      
+      // Use setTimeout to allow UI to update
+      setTimeout(() => {
+        const grid = getGridValues();
+        if (solveSudoku(grid)) {
+          // Apply solution gradually with animation
+          const emptyPositions = [];
+          for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+              if (!cachedRows[r][c].btn.classList.contains("puzzle-cell")) {
+                emptyPositions.push({r, c, value: grid[r][c]});
+              }
+            }
+          }
+          
+          let filled = 0;
+          function fillNext() {
+            if (filled < emptyPositions.length) {
+              const pos = emptyPositions[filled];
+              cachedRows[pos.r][pos.c].btn.textContent = pos.value;
+              filled++;
+              setTimeout(fillNext, 50); // 50ms delay between each number
+            } else {
+              updateNotes();
+              solveBtn.disabled = false;
+              solveBtn.textContent = "自動解題";
+            }
+          }
+          fillNext();
+        } else {
+          alert("此題目無解！");
+          solveBtn.disabled = false;
+          solveBtn.textContent = "自動解題";
+        }
+      }, 0);
+    }
+
+    function solveSudoku(grid) {
+      const empty = findBestEmptyCell(grid);
+      if (!empty) return true;
+      
+      const [row, col] = empty;
+      // Try most promising numbers first based on existing patterns
+      const numberFrequency = new Array(9).fill(0);
+      
+      // Count frequency of each number in the grid
+      for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+          if (grid[r][c] !== "") {
+            numberFrequency[parseInt(grid[r][c]) - 1]++;
+          }
+        }
+      }
+      
+      // Sort numbers by frequency (less frequent numbers might be more likely to work)
+      const orderedNumbers = Array.from({length: 9}, (_, i) => i + 1)
+        .sort((a, b) => numberFrequency[a-1] - numberFrequency[b-1]);
+      
+      for (const num of orderedNumbers) {
+        const numStr = num.toString();
+        if (isValid(grid, row, col, numStr)) {
+          grid[row][col] = numStr;
+          if (solveSudoku(grid)) return true;
+          grid[row][col] = "";
+        }
+      }
+      return false;
+    }
+
+    // Pre-calculate border styles for better performance
+    const borderStyles = Array(9).fill().map((_, r) => 
+      Array(9).fill().map((_, c) => ({
+        top: r % 3 === 0 ? "2px" : "",
+        left: c % 3 === 0 ? "2px" : "",
+        bottom: r === 8 ? "2px" : "",
+        right: c === 8 ? "2px" : ""
+      }))
+    );
+
     function createGrid() {
+      table.innerHTML = "";
       for (let r = 0; r < 9; r++) {
         const row = document.createElement("tr");
         for (let c = 0; c < 9; c++) {
           const cell = document.createElement("td");
-          if (r % 3 === 0) cell.style.borderTopWidth = "2px";
-          if (c % 3 === 0) cell.style.borderLeftWidth = "2px";
-          if (r === 8) cell.style.borderBottomWidth = "2px";
-          if (c === 8) cell.style.borderRightWidth = "2px";
+          const style = borderStyles[r][c];
+          if (style.top) cell.style.borderTopWidth = style.top;
+          if (style.left) cell.style.borderLeftWidth = style.left;
+          if (style.bottom) cell.style.borderBottomWidth = style.bottom;
+          if (style.right) cell.style.borderRightWidth = style.right;
 
           const btn = document.createElement("button");
           btn.type = "button";
@@ -383,7 +542,19 @@
       createGrid();
     }
 
-    createGrid();
+    // Initialize everything
+    function init() {
+      createGrid();
+      cacheGridElements();
+      initBoxIndices();
+    }
+
+    // Start initialization when DOM is ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
   </script>
 </body>
 </html>
