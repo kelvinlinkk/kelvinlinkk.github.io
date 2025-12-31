@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2026 全台跨年戰情室 - 官網連結與智慧搜尋版，查看台灣各地跨年晚會資訊、藝人陣容、轉播頻道與煙火秀。">
+    <meta name="keywords" content="2026, 跨年, 台灣, 晚會, 煙火, 藝人, 轉播, MOD, 搜尋">
+    <meta name="author" content="Kelvin">
+    <meta property="og:title" content="2026 全台跨年戰情室">
+    <meta property="og:description" content="查看台灣各地跨年晚會資訊、藝人陣容、轉播頻道與煙火秀。">
+    <meta property="og:type" content="website">
+    <link rel="preload" href="首頁資料/css/new_year.css" as="style">
+    <link rel="preload" href="首頁資料/js/new_year.js" as="script">
+    <title>2026 全台跨年戰情室 (官網連結+智慧搜尋版)</title>
+    <link rel="stylesheet" href="首頁資料/css/new_year.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>2026 全台跨年戰情室</h1>
+
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" list="searchSuggestions"
+                placeholder="搜尋藝人、地點、電視台 (例如: 告五人, 台中)..." aria-label="搜尋跨年晚會">
+            <datalist id="searchSuggestions">
+            </datalist>
+        </div>
+
+        <div class="filter-nav">
+            <button class="filter-btn active" data-target="all" onclick="setRegion('all')">全部</button>
+            <button class="filter-btn" data-target="north" onclick="setRegion('north')">北部</button>
+            <button class="filter-btn" data-target="central" onclick="setRegion('central')">中部</button>
+            <button class="filter-btn" data-target="south" onclick="setRegion('south')">南部</button>
+            <button class="filter-btn" data-target="east" onclick="setRegion('east')">東部</button>
+            <button class="filter-btn" data-target="island" onclick="setRegion('island')">離島</button>
+        </div>
+    </header>
+
+    <div class="utility-bar">
+        <a href="https://www.cwa.gov.tw/V8/C/" target="_blank" class="util-link">☁️ 天氣預報</a>
+        <a href="https://1968.freeway.gov.tw/" target="_blank" class="util-link">🚗 國道即時</a>
+        <a href="https://www.thsrc.com.tw/" target="_blank" class="util-link">🚄 高鐵時刻</a>
+        <a href="https://www.railway.gov.tw/" target="_blank" class="util-link">🚆 台鐵動態</a>
+    </div>
+
+    <div class="container" id="cardsContainer">
+
+        <div class="card" data-region="north">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">台北最High新年城</div>
+                        <span class="sub-title">市民廣場 | SNOOPY光雕</span>
+                    </div>
+                    <span class="region-tag">台北</span>
+                </div>
+                <a href="https://www.travel.taipei/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>中視</span> <span>CH 10 / MOD <span class="mod-hl">010</span></span>
+                    </div>
+                    <div class="broadcast-row"><span>公視</span> <span>CH 13 / MOD <span class="mod-hl">013</span></span>
+                    </div>
+                    <div class="broadcast-row"><span>網路</span> <span>台北市府 YT</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 KARA</span>
+                    <span class="artist-btn">蔡健雅</span>
+                    <span class="artist-btn">韋禮安</span>
+                    <span class="artist-btn">周湯豪</span>
+                    <span class="artist-btn">玖壹壹</span>
+                    <span class="artist-btn">幻藍小熊</span>
+                    <span class="artist-btn">Bii畢書盡</span>
+                    <span class="artist-btn">李千娜</span>
+                    <span class="artist-btn">安心亞</span>
+                    <span class="artist-btn">U:NUS</span>
+                    <span class="artist-btn">美秀集團</span>
+                    <span class="artist-btn">高爾宣</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="north">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">閃耀新北1314煙火</div>
+                        <span class="sub-title">淡水漁人碼頭 / 八里左岸</span>
+                    </div>
+                    <span class="region-tag">新北</span>
+                </div>
+                <a href="https://newtaipei.travel/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>民視</span> <span>CH 6 / MOD <span
+                                class="mod-hl">317(台灣台)</span></span></div>
+                    <div class="broadcast-row"><span>時間</span> <span>16:30 開始 / 20:26 煙火</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 華莎 HWASA</span>
+                    <span class="artist-btn foreign">🇯🇵 樋口愛</span>
+                    <span class="artist-btn">動力火車</span>
+                    <span class="artist-btn">蘇慧倫</span>
+                    <span class="artist-btn">Ozone</span>
+                    <span class="artist-btn">蕭煌奇</span>
+                    <span class="artist-btn">張語噥</span>
+                    <span class="artist-btn">黃偉晉</span>
+                    <span class="artist-btn">梁文音</span>
+                    <span class="artist-btn">陳華</span>
+                    <span class="artist-btn">U:NUS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="north">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">桃園ON AIR跨年</div>
+                        <span class="sub-title">樂天棒球場 | 50攤市集</span>
+                    </div>
+                    <span class="region-tag">桃園</span>
+                </div>
+                <a href="https://travel.tycg.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>TVBS歡樂</span> <span>CH 42 / MOD <span
+                                class="mod-hl">311</span></span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 Apink</span>
+                    <span class="artist-btn">徐若瑄</span>
+                    <span class="artist-btn">宇宙人</span>
+                    <span class="artist-btn">温嵐</span>
+                    <span class="artist-btn">陳勢安</span>
+                    <span class="artist-btn">蕭秉治</span>
+                    <span class="artist-btn">YELLOW黃宣</span>
+                    <span class="artist-btn">J.Sheon</span>
+                    <span class="artist-btn">派偉俊</span>
+                    <span class="artist-btn">HUR+</span>
+                    <span class="artist-btn">icyball冰球樂團</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="north">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">新竹 ON LOOP</div>
+                        <span class="sub-title">大湳雅公園 | 300秒煙火</span>
+                    </div>
+                    <span class="region-tag">新竹</span>
+                </div>
+                <a href="https://gov.hccg.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>東森戲劇</span> <span>CH 40 / MOD <span class="no-mod">無</span></span>
+                    </div>
+                    <div class="broadcast-row"><span>網路</span> <span>東森新聞 YT</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">蘇慧倫</span>
+                    <span class="artist-btn">韋禮安</span>
+                    <span class="artist-btn">TRASH</span>
+                    <span class="artist-btn">孫盛希</span>
+                    <span class="artist-btn">蕭秉治</span>
+                    <span class="artist-btn">呂士軒</span>
+                    <span class="artist-btn">白安</span>
+                    <span class="artist-btn">張涵雅</span>
+                    <span class="artist-btn">海岸乾杯</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="central">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">台中最強跨年夜</div>
+                        <span class="sub-title">水湳中央公園 | 180秒煙火</span>
+                    </div>
+                    <span class="region-tag">台中</span>
+                </div>
+                <a href="https://travel.taichung.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>三立都會</span> <span>CH 30 / MOD <span
+                                class="mod-hl">301</span></span></div>
+                    <div class="broadcast-row"><span>台視</span> <span>CH 8 / MOD <span class="mod-hl">008</span></span>
+                    </div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">蕭敬騰</span>
+                    <span class="artist-btn">動力火車</span>
+                    <span class="artist-btn">盧廣仲</span>
+                    <span class="artist-btn">告五人</span>
+                    <span class="artist-btn">麋先生</span>
+                    <span class="artist-btn">TRASH</span>
+                    <span class="artist-btn">怕胖團</span>
+                    <span class="artist-btn">吳思賢</span>
+                    <span class="artist-btn">PIZZALI</span>
+                    <span class="artist-btn">babyMINT</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="central">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">田中跨年晚會</div>
+                        <span class="sub-title">彰化高鐵站前</span>
+                    </div>
+                    <span class="region-tag">彰化</span>
+                </div>
+                <a href="https://town.chcg.gov.tw/tianzhong/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>網路</span> <span>中天新聞 YT</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">陳勢安</span>
+                    <span class="artist-btn">邱鋒澤</span>
+                    <span class="artist-btn">黃西田</span>
+                    <span class="artist-btn">戴梅君</span>
+                    <span class="artist-btn">田亞霍</span>
+                    <span class="artist-btn">陳大天</span>
+                    <span class="artist-btn">八青哥</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="central">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">日月潭跨年晚會</div>
+                        <span class="sub-title">水社/伊達邵碼頭</span>
+                    </div>
+                    <span class="region-tag">南投</span>
+                </div>
+                <a href="https://www.sunmoonlake.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>特色</span> <span>300秒湖畔煙火</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">好蘇吳樂團</span>
+                    <span class="artist-btn">全世煌</span>
+                    <span class="artist-btn">極限火舞團</span>
+                    <span class="artist-btn">原民藝術團</span>
+                    <span class="artist-btn">音樂盒室內樂集</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="central">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">電光跨年・點亮未來</div>
+                        <span class="sub-title">雲林縣立田徑場</span>
+                    </div>
+                    <span class="region-tag">雲林</span>
+                </div>
+                <a href="https://www.yunlin.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>八大綜合</span> <span>CH 28 / MOD <span class="no-mod">無</span></span>
+                    </div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 HIGHLIGHT</span>
+                    <span class="artist-btn">羅志祥</span>
+                    <span class="artist-btn">周湯豪</span>
+                    <span class="artist-btn">艾怡良</span>
+                    <span class="artist-btn">舞思愛</span>
+                    <span class="artist-btn">吳卓源</span>
+                    <span class="artist-btn">AcQUA源少年</span>
+                    <span class="artist-btn">甜約翰</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="central">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">劍湖山摩天輪跨年</div>
+                        <span class="sub-title">1000公尺環山煙火</span>
+                    </div>
+                    <span class="region-tag">雲林</span>
+                </div>
+                <a href="https://www.janfusun.com.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>特色</span> <span>888秒摩天輪煙火</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">艾薇 Ivy</span>
+                    <span class="artist-btn foreign">🇰🇷 TRI.BE Kelly</span>
+                    <span class="artist-btn">麗小花</span>
+                    <span class="artist-btn">翁鈺鈞</span>
+                    <span class="artist-btn">林琇琪</span>
+                    <span class="artist-btn">蔡宜軒</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="south">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">全嘉藝起來</div>
+                        <span class="sub-title">嘉義市府北棟預定地</span>
+                    </div>
+                    <span class="region-tag">嘉義</span>
+                </div>
+                <a href="https://www.chiayi.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>民視</span> <span>CH 6 / MOD <span
+                                class="mod-hl">317(台灣)</span></span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 Solar頌樂</span>
+                    <span class="artist-btn">蕭煌奇</span>
+                    <span class="artist-btn">羅志祥</span>
+                    <span class="artist-btn">許富凱</span>
+                    <span class="artist-btn">林美秀</span>
+                    <span class="artist-btn">馬念先</span>
+                    <span class="artist-btn">Crispy脆樂團</span>
+                    <span class="artist-btn">守夜人</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="south">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">台南好Young</div>
+                        <span class="sub-title">永華市政中心西側</span>
+                    </div>
+                    <span class="region-tag">台南</span>
+                </div>
+                <a href="https://www.tainanyoung.com.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>TVBS歡樂</span> <span>CH 42 / MOD <span
+                                class="mod-hl">311</span></span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 STAYC</span>
+                    <span class="artist-btn foreign">🇯🇵 鈴木愛理</span>
+                    <span class="artist-btn foreign">🇰🇷 ALL(H)OURS</span>
+                    <span class="artist-btn">八三夭</span>
+                    <span class="artist-btn">理想混蛋</span>
+                    <span class="artist-btn">9m88</span>
+                    <span class="artist-btn">魏浚笙</span>
+                    <span class="artist-btn">麋先生</span>
+                    <span class="artist-btn">炎亞綸</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="south">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">雄嗨趴 (夢時代)</div>
+                        <span class="sub-title">6900發煙火</span>
+                    </div>
+                    <span class="region-tag">高雄</span>
+                </div>
+                <a href="https://khh.travel/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>華視</span> <span>CH 12 / MOD <span class="mod-hl">012</span></span>
+                    </div>
+                    <div class="broadcast-row"><span>年代</span> <span>CH 38 / MOD <span class="mod-hl">312</span></span>
+                    </div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇰🇷 權恩妃</span>
+                    <span class="artist-btn">告五人</span>
+                    <span class="artist-btn">滅火器</span>
+                    <span class="artist-btn">熊仔</span>
+                    <span class="artist-btn">Lulu</span>
+                    <span class="artist-btn">陳漢典</span>
+                    <span class="artist-btn">芒果醬</span>
+                    <span class="artist-btn">鳳小岳</span>
+                    <span class="artist-btn">AcQUA源少年</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="south">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">義大世界煙火</div>
+                        <span class="sub-title">999秒藍色流星雨</span>
+                    </div>
+                    <span class="region-tag">高雄</span>
+                </div>
+                <a href="http://www.edaworld.com.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>時間</span> <span>00:00 施放</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">巨型煙火樹</span>
+                    <span class="artist-btn">水母煙火</span>
+                    <span class="artist-btn">流墨幻彩</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="south">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">High歌之夜</div>
+                        <span class="sub-title">屏東體育館前</span>
+                    </div>
+                    <span class="region-tag">屏東</span>
+                </div>
+                <a href="https://www.cultural.pthg.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>網路</span> <span>屏東縣府 FB/YT</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">丁噹</span>
+                    <span class="artist-btn">婁峻碩</span>
+                    <span class="artist-btn">梁文音</span>
+                    <span class="artist-btn">陳忻玥</span>
+                    <span class="artist-btn">李杰明</span>
+                    <span class="artist-btn">鳳小岳</span>
+                    <span class="artist-btn">FEniX</span>
+                    <span class="artist-btn">草屯囝仔</span>
+                    <span class="artist-btn">舞炯恩</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="south">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">里港跨年晚會</div>
+                        <span class="sub-title">里港過江河堤公園</span>
+                    </div>
+                    <span class="region-tag">屏東</span>
+                </div>
+                <a href="https://www.pthg.gov.tw/ligang/Default.aspx" target="_blank" class="official-link-btn">🔗
+                    官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="artist-container">
+                    <span class="artist-btn">滅火器</span>
+                    <span class="artist-btn">郭書瑤</span>
+                    <span class="artist-btn">許富凱</span>
+                    <span class="artist-btn">楊繡惠</span>
+                    <span class="artist-btn">莊振凱</span>
+                    <span class="artist-btn">林良歡</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="east">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">宜蘭運動公園跨年</div>
+                        <span class="sub-title">5210發煙火</span>
+                    </div>
+                    <span class="region-tag">宜蘭</span>
+                </div>
+                <a href="https://www.ilancity.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>轉播</span> <span>聯禾有線電視</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">徐懷鈺</span>
+                    <span class="artist-btn">彭佳慧</span>
+                    <span class="artist-btn">高爾宣</span>
+                    <span class="artist-btn">陳芳語</span>
+                    <span class="artist-btn">四分衛</span>
+                    <span class="artist-btn">呂士軒</span>
+                    <span class="artist-btn">陳華</span>
+                    <span class="artist-btn">晨悠</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="east">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">太平洋觀光節</div>
+                        <span class="sub-title">花蓮東大門 | 日團首演</span>
+                    </div>
+                    <span class="region-tag">花蓮</span>
+                </div>
+                <a href="https://tour-hualien.hl.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>台視</span> <span>CH 8 / MOD <span class="mod-hl">008</span></span>
+                    </div>
+                    <div class="broadcast-row"><span>MTV</span> <span>CH 96 / MOD <span class="mod-hl">154</span></span>
+                    </div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn foreign">🇯🇵 Czecho No Republic</span>
+                    <span class="artist-btn">李聖傑</span>
+                    <span class="artist-btn">Ozone</span>
+                    <span class="artist-btn">VERA</span>
+                    <span class="artist-btn">魏如昀</span>
+                    <span class="artist-btn">柏霖</span>
+                    <span class="artist-btn">張語噥</span>
+                    <span class="artist-btn">偏執狂樂團</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="east">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">東！帶我走</div>
+                        <span class="sub-title">台東國際地標 | 阿妹回鄉</span>
+                    </div>
+                    <span class="region-tag">台東</span>
+                </div>
+                <a href="https://tour.taitung.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>TVBS歡樂</span> <span>CH 42 / MOD <span
+                                class="mod-hl">311</span></span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn star">張惠妹 aMEI</span>
+                    <span class="artist-btn">A-Lin</span>
+                    <span class="artist-btn">玖壹壹</span>
+                    <span class="artist-btn">范曉萱</span>
+                    <span class="artist-btn">李英宏</span>
+                    <span class="artist-btn">葛仲珊</span>
+                    <span class="artist-btn">持修</span>
+                    <span class="artist-btn">戴愛玲</span>
+                    <span class="artist-btn">葛西瓦</span>
+                    <span class="artist-btn">桑布伊</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="island">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">好事發生 精彩馬上</div>
+                        <span class="sub-title">澎湖縣府廣場</span>
+                    </div>
+                    <span class="region-tag">澎湖</span>
+                </div>
+                <a href="https://www.penghu.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="broadcast-info">
+                    <div class="broadcast-row"><span>時間</span> <span>19:30 - 00:25</span></div>
+                </div>
+                <div class="artist-container">
+                    <span class="artist-btn">海島風情表演</span>
+                    <span class="artist-btn">在地樂團</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="island">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">金采門耀．喜納滿城</div>
+                        <span class="sub-title">金城鎮莒光共融公園</span>
+                    </div>
+                    <span class="region-tag">金門</span>
+                </div>
+                <a href="https://kinmen.travel/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="artist-container">
+                    <span class="artist-btn">Matzka</span>
+                    <span class="artist-btn">柯有倫</span>
+                    <span class="artist-btn">詹雅雯</span>
+                    <span class="artist-btn">閻奕格</span>
+                    <span class="artist-btn">李浩瑋</span>
+                    <span class="artist-btn">江志豐</span>
+                    <span class="artist-btn">AKB48 Team TP</span>
+                    <span class="artist-btn">未來少女ELL&S</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" data-region="island">
+            <div class="card-header">
+                <div class="header-top">
+                    <div>
+                        <div class="city-title">馬祖跨年晚會</div>
+                        <span class="sub-title">南竿白馬王公園</span>
+                    </div>
+                    <span class="region-tag">馬祖</span>
+                </div>
+                <a href="https://www.matsu-news.gov.tw/" target="_blank" class="official-link-btn">🔗 官方網站</a>
+            </div>
+            <div class="card-body">
+                <div class="artist-container">
+                    <span class="artist-btn">林隆璇</span>
+                    <span class="artist-btn">林逸欣</span>
+                    <span class="artist-btn">王大文</span>
+                    <span class="artist-btn">卜星慧</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results hidden" id="noResults">
+            <h3>🔍 找不到相關場次，試試其他關鍵字？</h3>
+        </div>
+
+    </div>
+
+    <div class="fab" onclick="toggleModal()">
+        <span>📺</span>
+    </div>
+
+    <div id="modModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="color:var(--mod-btn)">📺 電視台 MOD 對照表</h2>
+                <span class="close-modal" onclick="toggleModal()">&times;</span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>電視台</th>
+                        <th>第四台</th>
+                        <th>MOD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>民視 (無線/台灣)</td>
+                        <td>6 / 152</td>
+                        <td class="hl">006 / 317</td>
+                    </tr>
+                    <tr>
+                        <td>台視 (TTV)</td>
+                        <td>8</td>
+                        <td class="hl">008</td>
+                    </tr>
+                    <tr>
+                        <td>中視 (CTV)</td>
+                        <td>10</td>
+                        <td class="hl">010</td>
+                    </tr>
+                    <tr>
+                        <td>華視 (CTS)</td>
+                        <td>12</td>
+                        <td class="hl">012</td>
+                    </tr>
+                    <tr>
+                        <td>公視 (PTS)</td>
+                        <td>13</td>
+                        <td class="hl">013</td>
+                    </tr>
+                    <tr>
+                        <td>三立都會台</td>
+                        <td>30</td>
+                        <td class="hl">301 (綜合)</td>
+                    </tr>
+                    <tr>
+                        <td>年代 MUCH</td>
+                        <td>38</td>
+                        <td class="hl">312 (壹綜合)</td>
+                    </tr>
+                    <tr>
+                        <td>TVBS 歡樂台</td>
+                        <td>42</td>
+                        <td class="hl">311 (精采)</td>
+                    </tr>
+                    <tr>
+                        <td>MTV</td>
+                        <td>96</td>
+                        <td class="hl">154</td>
+                    </tr>
+                    <tr>
+                        <td>東森、八大</td>
+                        <td>32/40/28</td>
+                        <td style="color:#ff5555">無 (請用YT)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="toast">搜尋中...</div>
+
+    <script src="首頁資料/js/new_year.js" defer></script>
+
+</body>
+
+</html>
