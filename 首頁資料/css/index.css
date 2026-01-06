@@ -1,33 +1,355 @@
-/*setup*/
-body{margin:0;background:#181c24;color:#f3f6fa;font-family:"Noto Sans TC",Tahoma,Geneva,Verdana,sans-serif;scroll-behavior:smooth;}
-a{color:#3fa7ff;text-decoration:none;transition:color .2s;}
-a:hover{color:#ffb347;}
-@font-face{font-family:'ChenYuluoyan';src:local("ChenYuluoyan"),url(../font/ChenYuluoyan-Thin-Monospaced.ttf);-display:swap;}
-*::-webkit-scrollbar{width:8px;background:#23283a;}
-*::-webkit-scrollbar-thumb{background:#3fa7ff;border-radius:4px;}
-#background-img{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-2;opacity:.18;}
-.overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:linear-gradient(120deg,#23283a 60%,#3fa7ff33 100%);z-index:-1;}
-header{width:100%;padding:36px 0 16px 0;text-align:center;}
-#profile{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 4px 24px #0006;margin:0 auto 18px auto;display:block;}
-header h1{font-size:2.5em;letter-spacing:2px;margin:0 0 8px 0;}
-header nav{margin:0 auto 0 auto;display:flex;justify-content:center;gap:24px;}
-header nav a{font-size:1.1em;padding:8px 20px;border-radius:18px;background:#23283a33;transition:background .2s;}
-header nav a:hover{background:#3fa7ff;color:#fff;}
-main{max-width:900px;margin:32px auto 0 auto;padding:0 2vw;}
-.section-card{background:#23283aee;border-radius:20px;box-shadow:0 4px 24px #0003;margin-bottom:32px;padding:32px 28px 24px 28px;}
-.section-card h2{display:block;width:100%;background:transparent;color:#3fa7ff;font-size:2em;font-weight:bold;margin:0 0 18px 0;padding:0 0 12px 0;border-radius:0;border-bottom:2px solid #3fa7ff;box-shadow:none;letter-spacing:1px;text-align:left;}
-.section-card h3{color:#ffb347;font-size:1.15em;margin:18px 0 8px 0;}
-.section-card img{display:block;margin:0 auto 18px auto;width:auto;max-width:90%;max-height:320px;border-radius:12px;box-shadow:0 2px 12px #0004;object-fit:contain;}
-.section-card ul{padding-left:22px;margin:0 0 18px 0;}
-.section-card li{margin-bottom:7px;font-size:1.08em;line-height:1.7;}
-.section-card p{font-size:1.08em;line-height:1.7;margin:0 0 12px 0;}
-footer{background:#23283a;padding:24px 0 12px 0;text-align:center;font:22px 'ChenYuluoyan',sans-serif;color:#b8c1d6;}
-footer a{color:#ffb347;font-weight:bold;}
-#highlight{color:#ff5733;}
-@media (max-width:700px){
-    main{padding:0 1vw;}
-    .section-card{padding:18px 6vw 14px 6vw;}
-    .section-card img{max-width:98vw;max-height:36vw;}
-    header h1{font-size:2em;}
-    .section-card h2{font-size:1.3em;padding:0 0 8px 0;}
+/* CSS Variables */
+:root {
+    --primary-color: #3fa7ff;
+    --secondary-color: #ffb347;
+    --accent-color: #ff5733;
+    --text-color: #333;
+    --bg-color: #fff;
+    --card-bg: #f9f9f9;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+    width: 8px;
+    background: #f0f0f0;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    margin-right: 20px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: var(--card-bg);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+header nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 80px 0;
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 5px solid white;
+}
+
+/* Sections */
+.section-card {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+.section-card:nth-child(even) {
+    background-color: var(--card-bg);
+}
+
+.section-card .container {
+    max-width: 1000px;
+}
+
+.section-card h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.section-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.text-content h3 {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.text-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text-content li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.text-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.text-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.content-grid img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.content-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer .container {
+    max-width: 800px;
+}
+
+footer h3 {
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+footer a {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #profile {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .header-content {
+        align-items: center;
+    }
+
+    header nav {
+        margin-top: 20px;
+    }
+
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-image {
+        width: 200px;
+        height: 200px;
+        margin-top: 40px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .section-card h2 {
+        font-size: 2em;
+    }
+
+    .section-card {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav a {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .section-card h2 {
+        font-size: 1.8em;
+    }
+
+    .text-content h3 {
+        font-size: 1.3em;
+    }
 }
