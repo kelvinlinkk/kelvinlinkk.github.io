@@ -7,100 +7,282 @@
     <title>Kelvin 林坤逸</title>
     <link rel="icon" href="首頁資料/logo/logo.png" type="image/png">
     <link rel="stylesheet" href="首頁資料/css/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="description" content="Kelvin林坤逸是一位來自雲林的學生。專長包括C++、Python、前端開發。曾獲全國小論文特優、科展優等、IEYI銅牌等獎項。">
     <meta name="keywords" content="Kelvin林坤逸, 程式設計, 科展, 競賽得獎, 學生">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <img src="首頁資料/pic/profile.jpg" id="profile" alt="Kelvin programming" loading="eager" decoding="async"
-                width="120" height="120" onerror="this.src='首頁資料/logo/logo.png';this.alt='Image loading failed';">
-            <div class="header-content">
-                <h1>Kelvin 林坤逸</h1>
-                <nav>
-                    <a href="#about" aria-label="about me"><i class="fas fa-user"></i> Profile</a>
-                    <a href="#portfolio" aria-label="my portfolio"><i class="fas fa-briefcase"></i> Portfolio</a>
-                    <a href="#project" aria-label="genshin gacha simulator"><i class="fas fa-code"></i> Project</a>
-                </nav>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="首頁資料/pic/profile.jpg" alt="Kelvin" class="nav-avatar">
+                <span>Kelvin 林坤逸</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#hero" class="nav-link active">首頁</a>
+                <a href="#about" class="nav-link">關於</a>
+                <a href="#portfolio" class="nav-link">作品</a>
+                <a href="#project" class="nav-link">專案</a>
+                <a href="#contact" class="nav-link">聯絡</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </header>
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>歡迎來到我的個人網站</h2>
-                    <p>來自雲林的學生，專長程式設計與學習探索</p>
-                    <a href="#about" class="cta-button"><i class="fas fa-arrow-down"></i> 了解更多</a>
-                </div>
-                <img src="首頁資料/pic/me.jpg" alt="Kelvin" class="hero-image">
-            </div>
-        </section>
-        <section id="about" class="section-card">
-            <div class="container">
-                <h2><i class="fas fa-info-circle"></i> Profile - 個人經歷</h2>
-                <div class="content-grid">
-                    <div class="text-content">
-                        <h3><i class="fas fa-graduation-cap"></i> 就學歷程</h3>
-                        <ul>
-                            <li>2015-2020 雲林縣<a href="https://ljes.ylc.edu.tw/">立仁國民小學</a></li>
-                            <li>2020-2025 雲林縣私立<a href="http://www.ytjh.ylc.edu.tw/">揚子高級中等學校</a></li>
-                        </ul>
-                        <h3><i class="fas fa-trophy"></i> 比賽經歷</h3>
-                        <ul>
-                            <li>1120315梯次全國高級中學小論文寫作比賽 獲得特優</li>
-                            <li>第64屆私立高級中等學校第四區科展 獲得優等</li>
-                            <li>2024 IEYI臺灣選拔賽 獲得銅牌</li>
-                            <li>113學年度數理及資訊學科能力競賽國教署第三區 獲得佳作</li>
-                        </ul>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="hero-bg">
+            <div class="hero-shape shape-1"></div>
+            <div class="hero-shape shape-2"></div>
+            <div class="hero-shape shape-3"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-greeting">你好，我是</span>
+                    <span class="hero-name">Kelvin 林坤逸</span>
+                </h1>
+                <p class="hero-subtitle">來自雲林的學生，熱愛程式設計與創新學習</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">年學習</span>
                     </div>
-                    <img src="首頁資料/pic/高二運動會.jpg" alt="Kelvin with classmates" loading="lazy" decoding="async">
-                </div>
-            </div>
-        </section>
-        <section id="portfolio" class="section-card">
-            <div class="container">
-                <h2><i class="fas fa-book-open"></i> Portfolio - 學習歷程</h2>
-                <div class="content-grid">
-                    <div class="text-content">
-                        <h3><i class="fas fa-folder-open"></i> 學習歷程檔案專區</h3>
-                        <p>歡迎來到<a
-                                href="portfolio.html">我的電子作品集</a>！這個網站展示了我在學習和創作過程中的各種成果與經歷。透過這個平台，我希望能夠分享我的學習歷程、技能和對未來的展望。無論是我的個人專案、學術研究，還是我在不同領域的探索，這裡都將是我成長的見證。感謝您的光臨，期待與您分享我的故事！
-                        </p>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">專案作品</span>
                     </div>
-                    <img src="首頁資料/pic/chess.png" alt="Chess" loading="lazy" decoding="async">
-                </div>
-            </div>
-        </section>
-        <section id="project" class="section-card">
-            <div class="container">
-                <h2><i class="fas fa-project-diagram"></i> Project - 程式小專案</h2>
-                <div class="content-grid">
-                    <div class="text-content">
-                        <h3><i class="fas fa-gamepad"></i> 原神抽卡模擬器</h3>
-                        <p>這個<a
-                                href="https://github.com/kelvinlinkk/genshin-gacha-simulator">抽卡模擬器</a>專為《原神》遊戲設計，旨在幫助玩家理解抽卡機制及其背後的數學原理。模擬器允許玩家進行單抽或十連抽，並根據遊戲內的機率計算結果，提供視覺化的動畫效果和音效，增強互動體驗。透過這個工具，玩家可以更清楚地了解抽卡的期望值和實際機率，從而做出更明智的抽卡決策。
-                        </p>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">競賽獎項</span>
                     </div>
-                    <img src="首頁資料/pic/cardpool.png" alt="Gacha simulator" loading="lazy" decoding="async">
+                </div>
+                <div class="hero-actions">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-user"></i> 認識我
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> 查看作品
+                    </a>
                 </div>
             </div>
-        </section>
-    </main>
-    <footer>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="首頁資料/pic/me.jpg" alt="Kelvin" class="profile-image">
+                    <div class="image-overlay">
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/kvl._.19" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://github.com/kelvinlinkk" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">關於我</h2>
+                <p class="section-subtitle">我的學習歷程與成就</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>教育背景</h3>
+                    <ul class="timeline">
+                        <li>
+                            <span class="timeline-year">2015-2020</span>
+                            <span class="timeline-content">雲林縣立仁國民小學</span>
+                        </li>
+                        <li>
+                            <span class="timeline-year">2020-2025</span>
+                            <span class="timeline-content">雲林縣私立揚子高級中等學校</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>競賽成就</h3>
+                    <ul class="achievement-list">
+                        <li class="achievement-item">
+                            <span class="achievement-badge gold">特優</span>
+                            <span class="achievement-text">1120315梯次全國高級中學小論文寫作比賽</span>
+                        </li>
+                        <li class="achievement-item">
+                            <span class="achievement-badge silver">優等</span>
+                            <span class="achievement-text">第64屆私立高級中等學校第四區科展</span>
+                        </li>
+                        <li class="achievement-item">
+                            <span class="achievement-badge bronze">銅牌</span>
+                            <span class="achievement-text">2024 IEYI臺灣選拔賽</span>
+                        </li>
+                        <li class="achievement-item">
+                            <span class="achievement-badge honorable">佳作</span>
+                            <span class="achievement-text">113學年度數理及資訊學科能力競賽國教署第三區</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-card full-width">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>技能專長</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span class="skill-name">C++</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">前端開發</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">資料分析</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">學習作品集</h2>
+                <p class="section-subtitle">我的學習歷程與創作成果</p>
+            </div>
+            <div class="portfolio-content">
+                <div class="portfolio-text">
+                    <p>歡迎來到我的電子作品集！這個網站展示了我在學習和創作過程中的各種成果與經歷。透過這個平台，我希望能夠分享我的學習歷程、技能和對未來的展望。</p>
+                    <p>無論是我的個人專案、學術研究，還是我在不同領域的探索，這裡都將是我成長的見證。感謝您的光臨，期待與您分享我的故事！</p>
+                    <a href="portfolio.html" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> 進入作品集
+                    </a>
+                </div>
+                <div class="portfolio-image">
+                    <img src="首頁資料/pic/chess.png" alt="Chess" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project" class="project">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">精選專案</h2>
+                <p class="section-subtitle">我的程式設計作品</p>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-badge">精選專案</div>
+                    <h3>原神抽卡模擬器</h3>
+                    <p>專為《原神》遊戲設計的抽卡模擬器，幫助玩家理解抽卡機制及其背後的數學原理。模擬器允許玩家進行單抽或十連抽，並根據遊戲內的機率計算結果，提供視覺化的動畫效果和音效，增強互動體驗。</p>
+                    <p>透過這個工具，玩家可以更清楚地了解抽卡的期望值和實際機率，從而做出更明智的抽卡決策。</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">數學建模</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/kelvinlinkk/genshin-gacha-simulator" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> 查看程式碼
+                        </a>
+                        <a href="genshin/" class="btn btn-outline">
+                            <i class="fas fa-play"></i> 體驗專案
+                        </a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <img src="首頁資料/pic/cardpool.png" alt="Gacha simulator" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">聯絡我</h2>
+                <p class="section-subtitle">歡迎與我交流學習心得</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Instagram</h4>
+                            <a href="https://www.instagram.com/kvl._.19">@kvl._.19</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/kelvinlinkk">@kelvinlinkk</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>歡迎透過社群媒體聯絡</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-image">
+                    <img src="首頁資料/pic/高二運動會.jpg" alt="Kelvin with classmates" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <h3><a href="https://www.instagram.com/kvl._.19"><i class="fab fa-instagram"></i> Kelvin Lin</a> 的首頁 |
-                    技術支援：<a href="https://pages.github.com/"><i class="fab fa-github"></i> GitHub Pages</a></h3>
-                <p>&copy; 2025 Kelvin Lin. All rights reserved.</p>
+                <p>&copy; 2025 Kelvin 林坤逸. All rights reserved.</p>
+                <p>技術支援：<a href="https://pages.github.com/">GitHub Pages</a></p>
             </div>
         </div>
     </footer>
-    <button id="back-to-top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="首頁資料/js/index.js"></script>
 </body>
 
