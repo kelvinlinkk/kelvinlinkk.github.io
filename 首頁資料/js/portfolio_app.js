@@ -2,148 +2,193 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Configuration
     const menuItems = [
-        { key: 'home', name: 'Portfolio Home', icon: '🏠' },
-        { key: 'chinese', name: 'Chinese (國文)', icon: '📜' },
-        { key: 'english', name: 'English (英文)', icon: '🅰️' },
-        { key: 'biology', name: 'Biology (生物)', icon: '🧬' },
-        { key: 'history', name: 'History (歷史)', icon: '🏺' },
-        { key: 'geography', name: 'Geography (地理)', icon: '🌏' },
-        { key: 'career', name: 'Career (生涯)', icon: '🎓' },
-        { key: 'activity', name: 'Activity (活動)', icon: '🎭' },
-        { key: 'competition', name: 'Competition (競賽)', icon: '🏆' },
-        { link: 'index.html', name: 'Back to Main Site', icon: '🔙', special: true }
+        { key: 'home', name: 'Portfolio Home', icon: 'fa-home' },
+        { key: 'chinese', name: 'Chinese (國文)', icon: 'fa-book' },
+        { key: 'english', name: 'English (英文)', icon: 'fa-language' },
+        { key: 'biology', name: 'Biology (生物)', icon: 'fa-dna' },
+        { key: 'history', name: 'History (歷史)', icon: 'fa-landmark' },
+        { key: 'geography', name: 'Geography (地理)', icon: 'fa-globe-asia' },
+        { key: 'career', name: 'Career (生涯)', icon: 'fa-graduation-cap' },
+        { key: 'activity', name: 'Activity (活動)', icon: 'fa-users' },
+        { key: 'competition', name: 'Competitions (競賽)', icon: 'fa-trophy' }
     ];
 
-    const mainElement = document.querySelector('main');
+    const mainElement = document.getElementById('main-content');
+    const sidebarList = document.getElementById('portfolio-nav-list');
 
-    // 1. Build Navigation
-    const navContainer = document.createElement('nav');
-    navContainer.className = 'modern-nav';
-    navContainer.innerHTML = `
-        <div class="nav-logo"><h2>My Portfolio</h2></div>
-        <ul></ul>
-    `;
-    const ul = navContainer.querySelector('ul');
+    // Modal Elements
+    const modalOverlay = document.getElementById('article-modal-overlay');
+    const modalBody = document.getElementById('modal-body');
+    const modalCategoryLabel = document.getElementById('modal-category-label');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
 
-    menuItems.forEach(item => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-
-        if (item.special) {
-            a.href = item.link;
-            a.classList.add('special-link');
-        } else {
+    // 1. Build Sidebar
+    if (sidebarList) {
+        menuItems.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
             a.href = '#' + item.key;
             a.dataset.key = item.key;
+            a.className = 'sidebar-link';
+            a.innerHTML = `<i class="fas ${item.icon}"></i> ${item.name}`;
+            li.appendChild(a);
+            sidebarList.appendChild(li);
+        });
+    }
+
+    // Modal Logic
+    function openModal(categoryKey, articleData) {
+        if (!modalOverlay) return;
+
+        const categoryName = menuItems.find(m => m.key === categoryKey)?.name || categoryKey;
+        if (modalCategoryLabel) modalCategoryLabel.textContent = categoryName;
+
+        let contentHtml = '';
+        if (articleData.image) {
+            contentHtml += `<img src="${articleData.image}" class="modal-hero-image" alt="Cover">`;
+        }
+        contentHtml += `<h1 class="modal-title">${articleData.title}</h1>`;
+
+        if (articleData.detailHtml) {
+            contentHtml += articleData.detailHtml;
+        } else {
+            contentHtml += `<p>${articleData.content || articleData.summary}</p>`;
         }
 
-        a.innerHTML = `<span class="icon">${item.icon}</span> <span class="text">${item.name}</span>`;
-        li.appendChild(a);
-        ul.appendChild(li);
-    });
+        if (articleData.downloadLink) {
+            contentHtml += `
+             <div style="margin-top: 32px; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 24px;">
+                 <a href="${articleData.downloadLink}" target="_blank" class="read-btn" style="font-size:1rem; padding:10px 20px;">
+                     ${articleData.downloadText || 'Download File'} <i class="fas fa-download"></i>
+                 </a>
+             </div>
+             `;
+        }
 
-    // Mobile Toggle
-    const toggleBtn = document.createElement('button');
-    toggleBtn.className = 'nav-toggle';
-    toggleBtn.innerHTML = '☰';
-    toggleBtn.onclick = () => navContainer.classList.toggle('open');
+        modalBody.innerHTML = contentHtml;
+        modalOverlay.classList.add('active');
+        document.body.classList.add('modal-open');
+    }
 
-    document.body.insertAdjacentElement('afterbegin', navContainer);
-    document.body.appendChild(toggleBtn);
+    function closeModal() {
+        if (!modalOverlay) return;
+        modalOverlay.classList.remove('active');
+        document.body.classList.remove('modal-open');
+
+        // Remove ID from hash but keep category
+        const hash = window.location.hash;
+        const [cat] = hash.slice(1).split('/');
+        if (cat) {
+            // Use replaceState to avoid cluttering history stack when closing
+            history.replaceState(null, null, '#' + cat);
+        }
+    }
+
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+    }
+
+    // State Tracking
+    let currentCategory = null;
 
     // 2. Render Function
     function render(hash) {
-        // Handle #category/articleId
         const [pageKey, articleId] = hash.split('/');
-
-        // Fallback to home if pageKey not found
         let key = pageKey;
         if (!portfolioData[key]) key = 'home';
-
         const data = portfolioData[key];
 
-        // Update Active State in Nav
-        document.querySelectorAll('.modern-nav li').forEach(li => li.classList.remove('active'));
-        const activeLink = document.querySelector(`.modern-nav a[data-key="${key}"]`);
-        if (activeLink) activeLink.parentElement.classList.add('active');
+        // A. LIST RENDERING (Only if specific category changed)
+        // We always re-render to highlight active state, but maybe optimize DOM later if needed.
+        // For simplicity, we diff existing category.
 
-        // Close mobile nav if open
-        navContainer.classList.remove('open');
-
-        let html = '';
-
-        // DETAIL VIEW
-        if (articleId) {
-            const article = data.articles ? data.articles.find(a => a.id === articleId) : null;
-            if (article && article.detailHtml) {
-                html = `
-                    <div class="detail-header">
-                        <button onclick="window.location.hash='${key}'" class="back-btn">← Back to List</button>
-                    </div>
-                    ${article.detailHtml}
-                `;
-            } else {
-                html = `
-                    <div class="error-container">
-                        <h2>Article not found or not migrated yet.</h2>
-                        <button onclick="window.location.hash='${key}'" class="back-btn">Go Back</button>
-                    </div>`;
-            }
+        // Sidebar Active
+        if (sidebarList) {
+            document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.sidebar-link[data-key="${key}"]`);
+            if (activeLink) activeLink.classList.add('active');
         }
-        // LIST VIEW
-        else {
-            html = `<h1>${data.title}</h1>`;
+
+        if (currentCategory !== key) {
+            currentCategory = key;
+
+            let listHtml = `
+                <div class="content-header">
+                    <h1 class="content-title">${data.title}</h1>
+                    ${data.description ? `<p class="content-subtitle">${data.description}</p>` : ''}
+                </div>
+                <div class="article-grid">
+            `;
+
             if (data.articles) {
                 data.articles.forEach(article => {
-                    let downloadBtn = '';
-                    if (article.downloadLink) {
-                        downloadBtn = `
-                            <div style="margin-top: 10px;">
-                                <a href="${article.downloadLink}" target="_blank" style="color: var(--primary); font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                                    ${article.downloadText || '📥 Download'}
-                                </a>
-                            </div>
-                        `;
+                    let hasDetail = !!article.id;
+                    let summaryText = article.summary || article.content || "";
+                    // Strip HTML
+                    const tmpDiv = document.createElement('div');
+                    tmpDiv.innerHTML = summaryText;
+                    let plainText = tmpDiv.textContent || tmpDiv.innerText || "";
+                    if (plainText.length > 120) plainText = plainText.substring(0, 120) + "...";
+
+                    let imageHtml = '';
+                    if (article.image) {
+                        imageHtml = `<img src="${article.image}" alt="${article.title}" class="article-image">`;
                     }
 
-                    // Determine if we have a detail page or just external link
-                    let readMoreLink = '';
-                    if (article.id && article.detailHtml) {
-                        readMoreLink = `<br><a href="#${key}/${article.id}" class="read-more">Read More →</a>`;
-                    } else if (article.externalLink) {
-                        readMoreLink = `<br><a href="${article.externalLink}" target="_blank" class="read-more">Read More →</a>`;
+                    // Click Action:
+                    // - Detail -> Hash Change (opens modal)
+                    // - External -> Open New Tab
+                    let clickAction = '';
+                    if (hasDetail) {
+                        clickAction = `onclick="window.location.hash='#${key}/${article.id}'"`;
+                    } else if (article.link) {
+                        clickAction = `onclick="window.open('${article.link}', '_blank')"`;
                     }
 
-                    // Use summary if available, else content (legacy support)
-                    const contentText = article.summary || article.content;
-
-                    html += `
-                    <article>
-                        <div class="content">
-                            <h2>${article.title}</h2>
-                            <div class="article-body">${contentText} ${readMoreLink}</div>
-                            ${downloadBtn}
+                    listHtml += `
+                    <div class="article-card" ${clickAction} role="button" tabindex="0">
+                        ${imageHtml}
+                        <div class="article-card-content">
+                            <h3>${article.title}</h3>
+                            <p class="article-summary">${plainText}</p>
+                            ${hasDetail ? `<span class="read-btn">Open <i class="fas fa-expand-alt" style="margin-left:4px;"></i></span>` : ''}
                         </div>
-                        <div class="pic">
-                            ${article.image ? `<img src="${article.image}" alt="${article.title}">` : ''}
-                        </div>
-                    </article>
+                    </div>
                     `;
                 });
+            } else {
+                listHtml += `<p style="color:var(--text-muted);">No articles found.</p>`;
             }
+            listHtml += `</div>`;
+
+            // Render Transition
+            mainElement.style.opacity = '0';
+            setTimeout(() => {
+                mainElement.innerHTML = listHtml;
+                mainElement.style.opacity = '1';
+                window.scrollTo(0, 0);
+            }, 100);
         }
 
-        // Fade out, then swap content and fade in
-        mainElement.style.opacity = '0';
-        setTimeout(() => {
-            mainElement.innerHTML = html;
-            mainElement.style.opacity = '1';
-            window.scrollTo(0, 0); // Scroll to top
-        }, 200);
+        // B. MODAL STATE (Check every hash change)
+        if (articleId && data.articles) {
+            const article = data.articles.find(a => a.id === articleId);
+            if (article) {
+                openModal(key, article);
+            }
+        } else {
+            // Close if open
+            if (modalOverlay && modalOverlay.classList.contains('active')) {
+                modalOverlay.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+        }
     }
 
-    // Add transition style to main
-    mainElement.style.transition = 'opacity 0.2s ease';
+    if (mainElement) mainElement.style.transition = 'opacity 0.2s ease';
 
     // 3. Router
     function handleHashChange() {
@@ -152,7 +197,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('hashchange', handleHashChange);
-
-    // Initial Load
     handleHashChange();
 });

@@ -1,24 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
-    <meta charset="utf-8">
-    <link rel="icon" href="首頁資料/logo/logo.png" type="image/x-icon">
-    <title>Portfolio - Learning Journey</title>
-    <meta http-equiv="Content-Security-Policy">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Removed sticky blank target for better SPA feel -->
-    <link href="首頁資料/css/modern.css" rel="stylesheet" type="text/css">
+    <title>作品集 | Kelvin 林坤逸</title>
+    <link rel="icon" href="首頁資料/logo/logo.png" type="image/png">
+    <!-- Premium Style -->
+    <link href="首頁資料/css/portfolio_style.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="welcome"><video autoplay loop muted playsinline src="首頁資料/background/home.mp4"></video></div>
 
-    <!-- Content will be injected by portfolio_app.js -->
-    <main></main>
+    <!-- 1. Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="首頁資料/pic/profile.jpg" alt="Kelvin" class="nav-avatar">
+                <span>Kelvin 林坤逸</span>
+            </a>
+            <div class="nav-menu">
+                <a href="index.html#hero" class="nav-link">首頁</a>
+                <a href="index.html#about" class="nav-link">關於</a>
+                <a href="portfolio.html" class="nav-link active">作品</a>
+                <a href="index.html#project" class="nav-link">專案</a>
+                <a href="index.html#contact" class="nav-link">聯絡</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Data and Logic -->
+    <!-- 2. Main Layout (Sidebar + Content) -->
+    <div class="main-wrapper">
+        <aside class="portfolio-sidebar">
+            <h3 id="sidebar-greeting">👋 Hi! Kelvin</h3>
+            <ul class="sidebar-menu" id="portfolio-nav-list">
+                <!-- Javascript will populate this -->
+            </ul>
+        </aside>
+
+        <main class="portfolio-content-area" id="main-content">
+            <div class="content-header">
+                <h1 class="content-title">Loading...</h1>
+            </div>
+        </main>
+    </div>
+
+    <!-- 3. Notion-like Modal Overlay -->
+    <div id="article-modal-overlay" class="modal-overlay">
+        <div class="modal-content" id="article-modal-content">
+            <div class="modal-header">
+                <div style="font-weight: 500; color: var(--text-muted); display:flex; gap:8px; align-items:center;">
+                    <i class="fas fa-book-open"></i> <span id="modal-category-label">Article</span>
+                </div>
+                <button class="modal-close-btn" id="modal-close-btn">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Footer -->
+    <footer class="footer">
+        <div class="nav-container footer-content">
+            <p>&copy; 2026 Kelvin Lin. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="首頁資料/js/portfolio_data.js"></script>
     <script src="首頁資料/js/portfolio_app.js"></script>
 </body>
