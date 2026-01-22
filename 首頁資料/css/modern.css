@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+:root {
+    --primary: #4facfe;
+    --secondary: #00f2fe;
+    --accent: #ff5858;
+    --bg-dark: #121212;
+    --text-main: #f0f0f0;
+    --text-muted: #aaaaaa;
+    --glass-bg: rgba(20, 20, 20, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --sidebar-width: 260px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Background Video */
+.welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.welcome video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    /* Dimmed for readability */
+    filter: blur(5px);
+}
+
+.welcome::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+    z-index: -1;
+}
+
+/* Navigation Sidebar */
+.modern-nav {
+    width: var(--sidebar-width);
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-right: 1px solid var(--glass-border);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2rem 1rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-logo h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.modern-nav ul {
+    list-style: none;
+    flex: 1;
+}
+
+.modern-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.modern-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.modern-nav a:hover,
+.modern-nav li.active a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.modern-nav li.active a {
+    background: linear-gradient(90deg, rgba(79, 172, 254, 0.2), transparent);
+    border-left: 3px solid var(--primary);
+}
+
+.modern-nav .icon {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.modern-nav .special-link {
+    margin-top: 20px;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Toggle */
+.nav-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1001;
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content Area */
+main {
+    margin-left: var(--sidebar-width);
+    /* Offset for sidebar */
+    padding: 3rem 4rem;
+    width: calc(100% - var(--sidebar-width));
+    position: relative;
+    z-index: 1;
+}
+
+/* Typography & Articles */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+}
+
+article {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    /* Default column */
+    gap: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.2s;
+}
+
+/* Stagger animations for subsequent articles (hacky css only way) */
+article:nth-of-type(2) {
+    animation-delay: 0.3s;
+}
+
+article:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
+
+article h2 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+article p {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+.highlight {
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+/* Image/Media Handling */
+.pic {
+    /* Previously floated, now we'll make it part of a grid or flex if user wants side-by-side */
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.pic img,
+.pic video {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.pic:hover img {
+    transform: scale(1.03);
+}
+
+.pic p {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+.pic a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pic a:hover {
+    text-decoration: underline;
+}
+
+/* Layout adjustments for desktop: Text left, Image right */
+@media (min-width: 1024px) {
+    article {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    article {
+        grid-template-areas:
+            "content image";
+    }
+
+    .pic {
+        grid-area: image;
+        margin: 0;
+    }
+
+    article {
+        display: flex;
+        flex-direction: row-reverse;
+        /* Image on right */
+        justify-content: space-between;
+    }
+
+    .pic {
+        flex: 0 0 400px;
+    }
+
+    article>div,
+    article>h2,
+    article>p {
+        flex: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .modern-nav {
+        transform: translateX(-100%);
+        width: 280px;
+    }
+
+    .modern-nav.open {
+        transform: translateX(0);
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 4rem 1.5rem;
+        width: 100%;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pic {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Detail View controls & Elements from sub-pages */
+.detail-header {
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.back-btn:hover {
+    background: rgba(79, 172, 254, 0.1);
+    transform: translateX(-5px);
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--secondary);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+    transition: border 0.3s;
+}
+
+.read-more:hover {
+    border-bottom-color: var(--secondary);
+}
+
+/* Definition lists from Science participation */
+.article-body dl,
+.article-body ul,
+.article-body ol {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.article-body dt {
+    font-weight: bold;
+    color: var(--primary);
+    margin-top: 1rem;
+}
+
+.article-body dd {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.error-container {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 50, 50, 0.1);
+    border-radius: 12px;
+}

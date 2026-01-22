@@ -4,55 +4,23 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="首頁資料/logo/logo.png" type="image/x-icon">
-    <title>e-Portfolio</title>
+    <title>Portfolio - Learning Journey</title>
     <meta http-equiv="Content-Security-Policy">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base target="_blank"><!--將所有的超連結設為_blank在新分頁開啟-->
-    <link href="首頁資料/css/portfolio.css" rel="stylesheet" type="text/css">
+    <!-- Removed sticky blank target for better SPA feel -->
+    <link href="首頁資料/css/modern.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <span class="welcome"><video autoplay loop muted src="首頁資料/background/home.mp4"></video></span>
-    <header>
-        <h1><a href="https://epf-mlife.k12ea.gov.tw/Portal.do" target="_self">Portfolio</a></h1>
-    </header>
-    <aside>
-        <span><a href="index.html" target="_self">back to home</a></span>
-    </aside>
-    <nav>
-        <a href="學習歷程/Chinese.html" target="_self"><h3>國文</h3></a><!--
-        --><a href="學習歷程/English.html" target="_self"><h3>英文</h3></a><!--
-        --><a href="學習歷程/Biology.html" target="_self"><h3>生物</h3></a><!--
-        --><a href="學習歷程/History.html" target="_self"><h3>歷史</h3></a><!--
-        --><a href="學習歷程/Geography.html" target="_self"><h3>地理</h3></a><!--
-        --><a href="學習歷程/Career.html" target="_self"><h3>生涯</h3></a><!--
-        --><a href="學習歷程/Activity.html" target="_self"><h3>活動</h3></a><!--
-        --><a href="學習歷程/Competition.html" target="_self"><h3>競賽</h3></a>
-    </nav>
-    <main>
-        <article>
-            <span class="pic">
-                <img src="首頁資料/pic/js.png">
-                <p><a href="https://github.com/kelvinlinkk/portfolio/raw/main/個人網站/個人網站架設成果.pdf">文件下載</a></p>
-            </span>
-            <h2>網站成立的過程</h2>
-            <br />
-            <p>
-                1. 工具<br>
-                &emsp;&emsp;網路上有許多免費製作屬於自己的網頁的平台，比如Blogger、wordpress、wx.com、github
-                page等，可以讓我們省去自行架設伺服器的麻煩(當然風險會比較高)。於是我便嘗試<span class="highlight">利用github
-                    page撰寫以html和css為主的靜態網頁</span>。<br><br>
-                2. 過程<br>
-                &emsp;&emsp;<span
-                    class="highlight">在製作網站的過程中，常常會遇到許多令人困惑的疑點。</span>比如說，在設計導覽列時，原先排得好好的文字在換行後突然跑版了，經過不斷的試驗與查找網路資料後我才終於發現，原來我在換行前多按了一下空白鍵，導致下一個元素被迫跑版；另外，為了想要做出像Google那般排列整齊的連結圖示，我也學會了利用inline-block排列元素。因為這些時不時出現的問題，<span
-                    class="highlight">我學會了除錯與利用網路查找資料的能力。</span><br>
-                &emsp;&emsp;設計網站的過程，我參考了幾本書籍。一本書籍介紹如何做出<span
-                    class="highlight">響應式網頁設計(RWD)</span>，讓我在手機或電腦都能使用我的個人網頁；一本書籍則是介紹如何<span
-                    class="highlight">為平面設計配色</span>。<br>
-            </p>
-        </article>
-    </main>
+    <div class="welcome"><video autoplay loop muted playsinline src="首頁資料/background/home.mp4"></video></div>
+
+    <!-- Content will be injected by portfolio_app.js -->
+    <main></main>
+
+    <!-- Data and Logic -->
+    <script src="首頁資料/js/portfolio_data.js"></script>
+    <script src="首頁資料/js/portfolio_app.js"></script>
 </body>
 
 </html>
