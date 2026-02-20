@@ -6,7 +6,6 @@
   <title>RGB Color Cube 3D Visualization</title>
   <style>
     body {
-      background: #181c22;
       color: #fff;
       font-family: Arial, sans-serif;
       margin: 0;
@@ -36,7 +35,7 @@
       display: block;
       width: 100vw;
       height: 100vh;
-      background: #181c22;
+      background: transparent;
     }
   </style>
 </head>
@@ -191,6 +190,7 @@
     document.getElementById('rgbval').textContent = `rgb(${rSlider.value},${gSlider.value},${bSlider.value})`;
     draw();
   </script>
+  <script src="首頁資料/js/global_nav.js" defer></script>
 </body>
 
 </html>

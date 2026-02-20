@@ -1,0 +1,101 @@
+/* global_nav.css - Modern glassmorphism FAB for navigation */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body:not(.no-global-style) {
+    font-family: "Microsoft JhengHei", "Heiti TC", "Inter", sans-serif !important;
+    background-color: #0d0d12 !important;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 42, 109, 0.15) 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(5, 217, 232, 0.15) 0%, transparent 35%) !important;
+    background-attachment: fixed !important;
+    color: #ffffff !important;
+}
+
+/* Custom Unified Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#global-nav-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 999999;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+}
+
+#global-nav-fab:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+    background: rgba(33, 150, 243, 0.8);
+    border: 1px solid rgba(33, 150, 243, 1);
+}
+
+#global-nav-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+#global-nav-fab:hover svg {
+    transform: scale(1.1);
+}
+
+/* Tooltip */
+#global-nav-fab::before {
+    content: "返回作品集";
+    position: absolute;
+    right: 70px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#global-nav-fab:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}

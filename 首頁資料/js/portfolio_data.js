@@ -342,5 +342,52 @@ const portfolioData = {
                 "downloadText": "📥 Download"
             }
         ]
+    },
+    "web_toys": {
+        "title": "網路工具與小遊戲 (Web Tools & Games)",
+        "articles": [
+            {
+                "id": "new_year",
+                "title": "2026 跨年戰情室",
+                "summary": "全台跨年晚會資訊、藝人陣容、轉播頻道與煙火秀。",
+                "image": "首頁資料/pic/js.png",
+                "detailHtml": "<article><h2>2026 全台跨年戰情室</h2><p>提供跨年晚會的各項細節，方便隨時查詢跨年活動資訊。</p><a href=\"new_year.html\" class=\"btn btn-primary\" target=\"_blank\">進入戰情室</a></article>"
+            },
+            {
+                "id": "sudoku",
+                "title": "數獨小幫手",
+                "summary": "自動標記可能數字，並提供自動解題功能。",
+                "image": "首頁資料/pic/js.png",
+                "detailHtml": "<article><h2>數獨遊戲</h2><p>提供自動標記可能數字的數獨遊戲，也可體驗自動解題演算法。</p><a href=\"sudoku.html\" class=\"btn btn-primary\" target=\"_blank\">開始遊玩</a></article>"
+            },
+            {
+                "id": "guessnum",
+                "title": "猜數字 (幾A幾B) 輔助工具",
+                "summary": "幫助計算剩餘可能數字，輕鬆破解猜數字遊戲。",
+                "image": "首頁資料/pic/js.png",
+                "detailHtml": "<article><h2>猜數字小幫手</h2><p>輸入你的猜測與幾A幾B，程式會智慧過濾剩餘可能數字組合。</p><a href=\"guessnum.html\" class=\"btn btn-primary\" target=\"_blank\">使用工具</a></article>"
+            },
+            {
+                "id": "color",
+                "title": "RGB 3D 色彩方塊",
+                "summary": "在 3D 空間中可視化 RGB 色彩，旋轉與縮放觀察顏色分佈。",
+                "image": "首頁資料/pic/js.png",
+                "detailHtml": "<article><h2>RGB Color Cube 3D</h2><p>互動式的 3D 色彩視覺化實驗。</p><a href=\"color.html\" class=\"btn btn-primary\" target=\"_blank\">開啟視覺化</a></article>"
+            },
+            {
+                "id": "search_clock",
+                "title": "全熒幕時鐘",
+                "summary": "極簡風的全熒幕科技感時鐘。",
+                "image": "首頁資料/pic/js.png",
+                "detailHtml": "<article><h2>全熒幕時鐘</h2><p>一個設計簡約的科幻風全熒幕碼表時鐘。</p><a href=\"search.html\" class=\"btn btn-primary\" target=\"_blank\">查看時鐘</a></article>"
+            },
+            {
+                "id": "genshin_sim",
+                "title": "原神抽卡模擬器",
+                "summary": "模擬原神抽卡機率與動畫體驗。",
+                "image": "首頁資料/pic/cardpool.png",
+                "detailHtml": "<article><h2>原神抽卡模擬器</h2><p>真實還原的抽卡機率、保底機制與動畫！</p><a href=\"genshin/card.html\" class=\"btn btn-primary\" target=\"_blank\">立即抽卡</a></article>"
+            }
+        ]
     }
 };

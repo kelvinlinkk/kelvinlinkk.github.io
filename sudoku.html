@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <title>數獨遊戲</title>
   <style>
     body {
-      font-family: "Noto Sans TC", sans-serif;
-      background: #f7fafd;
+      font-family: "Microsoft JhengHei", "Heiti TC", "Inter", sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 24px 0 48px 0;
       min-height: 100vh;
     }
+
     h1 {
       margin-bottom: 18px;
-      color: #2196f3;
+      color: #05d9e8;
       letter-spacing: 2px;
       font-size: 2em;
       font-weight: bold;
-      text-shadow: 0 2px 8px #2196f344;
+      text-shadow: 0 2px 8px rgba(5, 217, 232, 0.4);
     }
+
     table {
       border-collapse: collapse;
-      background: #fff;
-      box-shadow: 0 4px 24px #2196f322;
+      background: rgba(30, 30, 40, 0.6);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 24px rgba(5, 217, 232, 0.2);
       border-radius: 12px;
       overflow: hidden;
       margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
+
     td {
       width: 40px;
       height: 40px;
       text-align: center;
       vertical-align: middle;
-      border: 1px solid #bbb;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       position: relative;
       padding: 0;
-      background: #fafdff;
+      background: rgba(255, 255, 255, 0.05);
       transition: background 0.2s;
     }
+
     .cell-btn {
       width: 100%;
       height: 100%;
@@ -55,11 +61,14 @@
       border-radius: 6px;
       transition: background 0.15s, color 0.15s;
     }
+
     .cell-btn.selected-cell {
-      outline: 2.5px solid #2196f3;
+      outline: 2.5px solid #ff2a6d;
       z-index: 3;
-      background: #e3f2fd;
+      background: rgba(255, 42, 109, 0.3);
+      color: #ffffff;
     }
+
     .notes {
       position: absolute;
       font-size: 10px;
@@ -78,17 +87,20 @@
       gap: 0;
       white-space: normal;
     }
+
     .locked-cell {
-      background: #e0e0e0 !important;
+      background: rgba(255, 255, 255, 0.1) !important;
       color: #888 !important;
       font-weight: bold;
       cursor: not-allowed;
     }
+
     .puzzle-cell {
-      color: #1976d2 !important;
+      color: #05d9e8 !important;
       font-weight: bold;
-      background: #e3f2fd !important;
+      background: rgba(5, 217, 232, 0.1) !important;
     }
+
     #num-pad {
       margin: 18px 0;
       display: flex;
@@ -96,57 +108,95 @@
       gap: 8px;
       justify-content: center;
     }
+
     #num-pad button {
       width: 44px;
       height: 44px;
       font-size: 1.2em;
       border-radius: 50%;
-      border: none;
-      background: #e3f2fd;
-      color: #2196f3;
+      border: 1px solid rgba(5, 217, 232, 0.3);
+      background: rgba(5, 217, 232, 0.1);
+      color: #05d9e8;
       font-weight: bold;
-      box-shadow: 0 2px 8px #2196f322;
+      box-shadow: 0 2px 8px rgba(5, 217, 232, 0.2);
       cursor: pointer;
       transition: background 0.15s, color 0.15s;
     }
-    #num-pad button:hover, #num-pad button:focus {
-      background: #2196f3;
-      color: #fff;
+
+    #num-pad button:hover,
+    #num-pad button:focus {
+      background: #05d9e8;
+      color: #000;
     }
+
     .action-btn {
       margin: 0 8px 18px 8px;
       padding: 10px 22px;
       font-size: 1em;
       border-radius: 18px;
-      border: none;
-      background: #2196f3;
-      color: #fff;
+      border: 1px solid rgba(255, 42, 109, 0.5);
+      background: rgba(255, 42, 109, 0.1);
+      color: #ff2a6d;
       font-weight: bold;
-      box-shadow: 0 2px 8px #2196f322;
+      box-shadow: 0 2px 8px rgba(255, 42, 109, 0.2);
       cursor: pointer;
       transition: background 0.15s;
     }
-    .action-btn:hover, .action-btn:focus {
-      background: #1565c0;
+
+    .action-btn:hover,
+    .action-btn:focus {
+      background: #ff2a6d;
+      color: #fff;
     }
-    @media (max-width:600px){
-      table{width:98vw;}
-      td{width:9vw;height:9vw;min-width:32px;min-height:32px;}
-      .cell-btn{font-size:5vw;padding-top:5vw;}
-      .notes{font-size:2.8vw;line-height:3vw;}
-      h1{font-size:1.2em;}
-      #num-pad button{width:12vw;height:12vw;font-size:1.1em;}
-      .action-btn{font-size:0.95em;padding:8px 12vw;}
+
+    @media (max-width:600px) {
+      table {
+        width: 98vw;
+      }
+
+      td {
+        width: 9vw;
+        height: 9vw;
+        min-width: 32px;
+        min-height: 32px;
+      }
+
+      .cell-btn {
+        font-size: 5vw;
+        padding-top: 5vw;
+      }
+
+      .notes {
+        font-size: 2.8vw;
+        line-height: 3vw;
+      }
+
+      h1 {
+        font-size: 1.2em;
+      }
+
+      #num-pad button {
+        width: 12vw;
+        height: 12vw;
+        font-size: 1.1em;
+      }
+
+      .action-btn {
+        font-size: 0.95em;
+        padding: 8px 12vw;
+      }
     }
+
     .highlight-same {
-      background: #ffe082 !important;
-      color: #d84315 !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: #ffffff !important;
       border-radius: 4px;
       font-weight: bold;
       transition: background 0.15s;
     }
   </style>
 </head>
+
 <body>
   <h1>數獨遊戲（自動標記可能數字）</h1>
   <table id="sudoku"></table>
@@ -175,7 +225,7 @@
 
     // Cache frequently accessed DOM elements
     const cachedRows = [];
-    
+
     function cacheGridElements() {
       const rows = table.getElementsByTagName("tr");
       for (let r = 0; r < 9; r++) {
@@ -197,7 +247,7 @@
       for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
           if (grid[row][col] !== "") continue;
-          
+
           // Count possible numbers for this cell
           let possibilities = 0;
           for (let num = 1; num <= 9; num++) {
@@ -205,12 +255,12 @@
               possibilities++;
             }
           }
-          
+
           // If we found a cell with only one possibility, return it immediately
           if (possibilities === 1) {
             return [row, col];
           }
-          
+
           // Update best cell if this one has fewer possibilities
           if (possibilities < minPossibilities) {
             minPossibilities = possibilities;
@@ -222,8 +272,8 @@
     }
 
     // Optimized validator using pre-calculated box indices
-    const boxIndices = Array(9).fill().map(() => Array(9).fill().map(() => ({row: 0, col: 0})));
-    
+    const boxIndices = Array(9).fill().map(() => Array(9).fill().map(() => ({ row: 0, col: 0 })));
+
     function initBoxIndices() {
       for (let box = 0; box < 9; box++) {
         const boxRow = Math.floor(box / 3) * 3;
@@ -250,7 +300,7 @@
       const solveBtn = document.querySelector('button[onclick="autoSolve()"]');
       solveBtn.disabled = true;
       solveBtn.textContent = "解題中...";
-      
+
       // Use setTimeout to allow UI to update
       setTimeout(() => {
         const grid = getGridValues();
@@ -260,11 +310,11 @@
           for (let r = 0; r < 9; r++) {
             for (let c = 0; c < 9; c++) {
               if (!cachedRows[r][c].btn.classList.contains("puzzle-cell")) {
-                emptyPositions.push({r, c, value: grid[r][c]});
+                emptyPositions.push({ r, c, value: grid[r][c] });
               }
             }
           }
-          
+
           let filled = 0;
           function fillNext() {
             if (filled < emptyPositions.length) {
@@ -290,11 +340,11 @@
     function solveSudoku(grid) {
       const empty = findBestEmptyCell(grid);
       if (!empty) return true;
-      
+
       const [row, col] = empty;
       // Try most promising numbers first based on existing patterns
       const numberFrequency = new Array(9).fill(0);
-      
+
       // Count frequency of each number in the grid
       for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
@@ -303,11 +353,11 @@
           }
         }
       }
-      
+
       // Sort numbers by frequency (less frequent numbers might be more likely to work)
-      const orderedNumbers = Array.from({length: 9}, (_, i) => i + 1)
-        .sort((a, b) => numberFrequency[a-1] - numberFrequency[b-1]);
-      
+      const orderedNumbers = Array.from({ length: 9 }, (_, i) => i + 1)
+        .sort((a, b) => numberFrequency[a - 1] - numberFrequency[b - 1]);
+
       for (const num of orderedNumbers) {
         const numStr = num.toString();
         if (isValid(grid, row, col, numStr)) {
@@ -320,7 +370,7 @@
     }
 
     // Pre-calculate border styles for better performance
-    const borderStyles = Array(9).fill().map((_, r) => 
+    const borderStyles = Array(9).fill().map((_, r) =>
       Array(9).fill().map((_, c) => ({
         top: r % 3 === 0 ? "2px" : "",
         left: c % 3 === 0 ? "2px" : "",
@@ -347,7 +397,7 @@
           btn.textContent = "";
           btn.onmousedown = e => e.preventDefault(); // 防止手機長按選單
           btn.onclick = () => {
-            document.querySelectorAll(".cell-btn.selected-cell").forEach(b=>b.classList.remove("selected-cell"));
+            document.querySelectorAll(".cell-btn.selected-cell").forEach(b => b.classList.remove("selected-cell"));
             activeInput = btn;
             btn.classList.add("selected-cell");
             // 若有數字則高亮
@@ -443,7 +493,7 @@
           // 以 3x3 格子方式顯示，每個小數字用 span
           let html = "";
           for (let i = 0; i < 9; i++) {
-            html += `<span style="display:block;text-align:center;">${possible.includes(i+1) ? i+1 : ""}</span>`;
+            html += `<span style="display:block;text-align:center;">${possible.includes(i + 1) ? i + 1 : ""}</span>`;
           }
           note.innerHTML = html;
         }
@@ -489,7 +539,7 @@
     }
 
     // 鍵盤模式也只能輸入可填數字
-    document.addEventListener("keydown", function(e) {
+    document.addEventListener("keydown", function (e) {
       if (!activeInput) return;
       const allBtns = Array.from(document.querySelectorAll(".cell-btn"));
       const idx = allBtns.indexOf(activeInput);
@@ -518,7 +568,7 @@
         }
       }
       // 方向鍵移動
-      if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].includes(e.key)) {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
         let r = row, c = col;
         if (e.key === "ArrowUp" && r > 0) r--;
         if (e.key === "ArrowDown" && r < 8) r++;
@@ -526,7 +576,7 @@
         if (e.key === "ArrowRight" && c < 8) c++;
         const nextBtn = allBtns[r * 9 + c];
         if (nextBtn) {
-          document.querySelectorAll(".cell-btn.selected-cell").forEach(b=>b.classList.remove("selected-cell"));
+          document.querySelectorAll(".cell-btn.selected-cell").forEach(b => b.classList.remove("selected-cell"));
           activeInput = nextBtn;
           nextBtn.classList.add("selected-cell");
           e.preventDefault();
@@ -556,5 +606,7 @@
       init();
     }
   </script>
+  <script src="首頁資料/js/global_nav.js" defer></script>
 </body>
+
 </html>

@@ -1,50 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        body{margin:0;padding:0;font-family:Arial,sans-serif;background:#111;min-height:100vh;}
-        img{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;opacity:.18;}
-        #clock{
-            position:fixed;
-            top:50%;left:50%;transform:translate(-50%,-50%);
-            color:#fff;
-            font-size:3.5em;
-            z-index:1;
-            text-shadow:0 4px 24px #000b,0 0 24px #3fa7ff88;
-            background:rgba(34,40,58,0.75);
-            border-radius:24px;
-            padding:32px 48px;
-            letter-spacing:0.08em;
-            box-shadow:0 8px 32px #0006;
-            border:2px solid #3fa7ff55;
-            transition:background 0.3s;
-            user-select:none;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            min-height: 100vh;
         }
-        @media (max-width:600px){
-            #clock{font-size:2em;padding:18px 16px;}
+
+        img {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 0;
+            opacity: .18;
+        }
+
+        #clock {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 3.5em;
+            z-index: 1;
+            text-shadow: 0 4px 24px #000b, 0 0 24px #3fa7ff88;
+            background: rgba(34, 40, 58, 0.75);
+            border-radius: 24px;
+            padding: 32px 48px;
+            letter-spacing: 0.08em;
+            box-shadow: 0 8px 32px #0006;
+            border: 2px solid #3fa7ff55;
+            transition: background 0.3s;
+            user-select: none;
+        }
+
+        @media (max-width:600px) {
+            #clock {
+                font-size: 2em;
+                padding: 18px 16px;
+            }
         }
     </style>
 </head>
+
 <body>
     <img src="首頁資料/pic/stripe.jpg" alt="background">
     <div id="clock"></div>
     <script>
-        function updateClock(){
-            const clockElement=document.getElementById('clock');
-            const now=new Date();
-            const year=now.getFullYear();
-            const month=String(now.getMonth()+1).padStart(2,'0');
-            const day=String(now.getDate()).padStart(2,'0');
-            const hours=String(now.getHours()).padStart(2,'0');
-            const minutes=String(now.getMinutes()).padStart(2,'0');
-            const seconds=String(now.getSeconds()).padStart(2,'0');
-            const colon=now.getSeconds()%2===0?':':'<span style="opacity:.3;">:</span>';
-            clockElement.innerHTML=`<div style="font-size:.45em;letter-spacing:.1em;margin-bottom:8px;">${year}/${month}/${day}</div>${hours}${colon}${minutes}<span style="font-size:.6em;opacity:.6;">:${seconds}</span>`;
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const colon = now.getSeconds() % 2 === 0 ? ':' : '<span style="opacity:.3;">:</span>';
+            clockElement.innerHTML = `<div style="font-size:.45em;letter-spacing:.1em;margin-bottom:8px;">${year}/${month}/${day}</div>${hours}${colon}${minutes}<span style="font-size:.6em;opacity:.6;">:${seconds}</span>`;
         }
-        setInterval(updateClock,1000);updateClock();
+        setInterval(updateClock, 1000); updateClock();
     </script>
+    <script src="首頁資料/js/global_nav.js" defer></script>
 </body>
+
 </html>
